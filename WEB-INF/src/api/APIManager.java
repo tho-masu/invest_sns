@@ -10,7 +10,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.InflaterInputStream;
 
 public class APIManager {
-	public static StringBuffer getData(String str,HashMap<String,String> query) {
+	public static String getData(String str,HashMap<String,String> query) {
 		 System.setProperty("http.proxyHost","172.24.2.10");
 	     System.setProperty("http.proxyPort","8080");
 	     System.setProperty("https.proxyHost","172.24.2.10");
@@ -81,7 +81,7 @@ public class APIManager {
 			e.printStackTrace();
 		}
 
-		return response;
+		return response.toString();
 	}
 
 }
