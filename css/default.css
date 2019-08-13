@@ -1,0 +1,91 @@
+/*--------------------------------
+// 共通css
+----------------------------------*/
+body {
+	font-family:Verdana,"ヒラギノ角ゴ Pro W3","メイリオ";
+	color:#333;
+	margin:0;
+	padding:0;
+}
+header,nav,ul,li,h1,p,a{margin:0;padding:0;}
+a {
+	color:#333;
+	text-decoration: none;
+}
+li {
+	list-style-type:none;
+}
+.shopArea {
+	clear:both;
+	padding: 20px 20px;
+	border-bottom: 1px solid #e6e4e4;
+	background:#f5f5dc;
+}
+.shopArea h1 {
+	font-size:200%;
+	line-height:1.3em;
+}
+.shopArea p{
+	font-size: 12px;
+	padding-left:5px;
+}
+
+/*--------------------------------
+// ナビゲーション部分css
+// 横幅20%のボタンを5つ横並びに配置
+----------------------------------*/
+nav {
+	background: #f5f5f5;
+	text-align:center;
+}
+nav ul li{
+	float: left;
+	width: 25%;
+	border-right: 1px solid #e6e4e4;
+	border-bottom: 1px solid #e6e4e4;
+	box-sizing: border-box;
+}
+nav ul li:last-child {
+	border-right: none;
+}
+nav ul li a{
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+}
+nav ul li a:hover {
+	background:#f5f5dc;
+}
+
+
+/* テーブル装飾 */
+
+table{
+  width: 80%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table th,table td{
+  padding: 10px 0;
+  text-align: center;
+}
+
+.rank tr:nth-child(2n+0) {
+	background: #FFCCFF;
+}
+.rank tr:nth-child(2n+1) {
+	background: #FFBBFF;
+}
+
+.ranking {
+	background: -webkit-repeating-linear-gradient(-45deg, #f5edfd, #f5edfd 5px, #fdfcff 5px, #fdfcff 10px);
+    background: repeating-linear-gradient(-45deg, #f5edfd, #f5edfd 5px, #fdfcff 5px, #fdfcff 10px);
+    color: #4a1086;
+   	font-size: 20px
+
+}
+.group{
+	font-size: 1em;
+	color:purple;
+}
