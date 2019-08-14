@@ -1,0 +1,17 @@
+body{
+	/*position:absolute;*/
+
+}
+
+#all_table{
+	margin-right:auto;
+	margin-left:auto;
+
+}
+
+table{
+	width:800px;
+	margin-bottom:50px;
+	margin-top:50px
+
+}
