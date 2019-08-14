@@ -14,7 +14,7 @@
  <table border="1" width="1400">
    <tr>
      <td rowspan="2" align="center" width="300">晴れ</td>
-     <td>企業名（株価）<%= %></td>
+     <td>企業名（株価）</td>
      <td>お買い得度（PER)</td>
      <td rowspan="2" align="center" width="300">ブックマーク</td>
    </tr>

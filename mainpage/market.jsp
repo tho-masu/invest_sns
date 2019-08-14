@@ -27,59 +27,14 @@
     </tr>
   </table>
 
-  <%--業界のグラフ --%>
+  <%--業界の天気別のグラフ --%>
 
-  <table>
-    <tr>
-      <td class="agriculture">水産農林業</td><%--大分類は水産農林業 --%>
-      <td class="transport">陸運業</td><%--大分類は運輸・情報通信業 --%>
-      <td class="manufacture">食料品</td><%--大分類は製造業 --%>
-      <td class="manufacture">繊維製品</td><%--大分類は製造業 --%>
-      <td class="manufacture">パルプ・紙</td><%--大分類は製造業 --%>
-      <td class="manufacture">化学</td><%--大分類は製造業 --%>
-    </tr>
-    <tr>
-      <td class="mining">鉱業</td><%--大分類は鉱業 --%>
-      <td class="transport">海運業</td><%--大分類は運輸・情報通信業 --%>
-      <td class="manufacture">医薬品</td><%--大分類は製造業 --%>
-      <td class="manufacture">石油・石炭製品</td><%--大分類は製造業 --%>
-      <td class="manufacture">ゴム製品</td><%--大分類は製造業 --%>
-      <td class="manufacture">ガラス・土石製品</td><%--大分類は製造業 --%>
-    </tr>
-    <tr>
-      <td class="construction">建設業</td><%--大分類は建設業 --%>
-      <td class="transport">空運業</td><%--大分類は運輸・情報通信業 --%>
-      <td class="manufacture">鉄鋼</td><%--大分類は製造業 --%>
-      <td class="manufacture">非鉄金属</td><%--大分類は製造業 --%>
-      <td class="manufacture">金属製品</td><%--大分類は製造業 --%>
-      <td class="manufacture">機械</td><%--大分類は製造業 --%>
-    </tr>
-    <tr>
-      <td class="electrics">電気・ガス業</td><%--大分類は電気・ガス業 --%>
-      <td class="transport">倉庫・運輸関連業</td><%--大分類は運輸・情報通信業 --%>
-      <td class="manufacture">電気機器</td><%--大分類は製造業 --%>
-      <td class="manufacture">輸送用機器</td><%--大分類は製造業 --%>
-      <td class="manufacture">精密機器</td><%--大分類は製造業 --%>
-      <td class="manufacture">その他製品</td><%--大分類は製造業 --%>
-    </tr>
-    <tr>
-      <td class="estate">不動産業</td><%--大分類は不動産業--%>
-      <td class="transport">情報通信業</td><%--大分類は運輸・情報通信業 --%>
-      <td class="finance">銀行業</td><%--大分類は金融・保険業 --%>
-      <td class="finance">証券・商品先物取引業</td><%--大分類は金融・保険業--%>
-      <td class="finance">保険業</td><%--大分類は金融・保険業--%>
-      <td class="finance">その他金融業</td><%--大分類は金融・保険業 --%>
-    </tr>
-    <tr>
-      <td class="commercial">卸売業</td><%--大分類は商業 --%>
-      <td class="commercial">小売業</td><%--大分類は商業 --%>
-      <td class="service">サービス業</td><%--大分類はサービス業 --%>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-
+  <div>
+    <p>天気別の業界・分野数
+  </div>
+  <div>
+    <%--業界天気別のグラフをここに表示 --%>
+  </div>
 
 
 </body>

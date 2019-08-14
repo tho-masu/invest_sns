@@ -22,12 +22,12 @@ public class APIManager {
 		try {
 			String path = "https://staging.api.dquick-co.jp/octpath/v1/api/"+str+".json";
 
-			HashMap<String,String> q = new  HashMap<String,String>();
-			//書き換えるq.put内を
-			q.put("quote" , "N101/T");
-			q.put("item", "price");
-			q.put("count", "10");
-			q.put("direction","backward");
+			//HashMap<String,String> q = new  HashMap<String,String>();
+
+			//q.put("quote" , "N101/T");
+			//q.put("item", "price");
+			//q.put("count", "10");
+			//q.put("direction","backward");
 
 			// パスにクエリーパラメータを連結してURLを生成
 
