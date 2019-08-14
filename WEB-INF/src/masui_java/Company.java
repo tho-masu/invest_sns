@@ -17,9 +17,14 @@ public class Company extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		String scode = request.getParameter("quote");
+		String days = "30";
+
+		if(request.getParameter("days")!=null) {
+			days = request.getParameter("days");
+		}
 
 		JsonNode dnode = DAO.getCompanyInfo(scode);
-		JsonNode hnode = DAO.getCompanyHistorical(scode);
+		JsonNode hnode = DAO.getCompanyHistorical(scode,days);
 
 		request.setAttribute("dnode", dnode);
 		request.setAttribute("hnode", hnode);

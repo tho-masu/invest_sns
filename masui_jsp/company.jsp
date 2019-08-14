@@ -7,15 +7,15 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
-<title>企業</title>
-</head>
-
-<body>
-
 <%
 JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 %>
+
+<title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
+</head>
+
+<body>
 
  <%-- 企業の名前、株価、簡単な紹介 --%>
  <table border="1" width="1400">
@@ -38,6 +38,8 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
    <td>
    		チャート<br>
 
+   		<a href="company?quote=<%=dnode.get("req_code").asText()%>&days=7">7日間</a> <a href="company?quote=<%=dnode.get("req_code").asText()%>&days=30">30日間</a> <br>
+
  <!-- チャートはじめ -->
 
  <canvas id="myLineChart"></canvas>
@@ -55,7 +57,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
     	  ],
       datasets: [
         {
-          label: '株価（終値）',
+          label: '株価',
           data: [
         	  <%for(int i=0;i<hnode.size();i++){%>
       	  	<%if(i!=0){%>,<%}%>
@@ -70,7 +72,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
     options: {
       title: {
         display: true,
-        text: '直近1週間の株価'
+        text: '直近<%=hnode.size()%>日間の株価'
       },
       scales: {
         yAxes: [{
@@ -142,5 +144,6 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
    <td>コメント</td>
   </tr>
   </table>
+
 </body>
 </html>
