@@ -12,7 +12,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiCompanyS</servlet-name>
-        <url-pattern>/company</url-pattern>
+        <url-pattern>/masui_jsp/company</url-pattern>
     </servlet-mapping>
 
 

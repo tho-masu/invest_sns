@@ -4,10 +4,19 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
 <title>企業</title>
 </head>
 
 <body>
+
+<%
+JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
+JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
+%>
+
  <%-- 企業の名前、株価、簡単な紹介 --%>
  <table border="1" width="1400">
    <tr>
@@ -24,9 +33,61 @@
  </table>
 
  <%-- チャート --%>
- <table border="1" width="500" >
+ <table border="1" width="700" >
   <tr>
-   <td>チャート</td>
+   <td>
+   		チャート<br>
+
+ <!-- チャートはじめ -->
+
+ <canvas id="myLineChart"></canvas>
+
+<script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+    	  <%for(int i=0;i<hnode.size();i++){%>
+    	  	<%if(i!=0){%>,<%}%>
+    	  	'<%=hnode.get(i).get("start_date").asText()%>'
+    	  <%}%>
+    	  ],
+      datasets: [
+        {
+          label: '株価（終値）',
+          data: [
+        	  <%for(int i=0;i<hnode.size();i++){%>
+      	  	<%if(i!=0){%>,<%}%>
+      	  	<%=hnode.get(i).get("price").asDouble()%>
+      	  <%}%>
+        	  ],
+          borderColor: "rgba(255,0,0,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: '直近1週間の株価'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            callback: function(value, index, values){
+              return  value +  '円'
+            }
+          }
+        }]
+      },
+    }
+  });
+  </script>
+
+  <!-- チャート終わり -->
+
+   </td>
   </tr>
 
   </table>
@@ -37,19 +98,19 @@
    <td align="center">注目ポイント</td>
   </tr>
   <tr>
-   <td>会社のお名前（和）：<%=((JsonNode)(request.getAttribute("dnode"))).get("v-name").asText() %></td>
+   <td>会社のお名前（和）：<%=dnode.get("v-name").asText() %></td>
   </tr>
   <tr>
-   <td>会社のお名前（英）：<%=((JsonNode)(request.getAttribute("dnode"))).get("v-name_en").asText()%></td>
+   <td>会社のお名前（英）：<%=dnode.get("v-name_en").asText()%></td>
   </tr>
   <tr>
-   <td>一年間の成績発表月（決算期）：<%=((JsonNode)(request.getAttribute("dnode"))).get("co_settle_fy_ended").asText()%></td>
+   <td>一年間の成績発表月（決算期）：<%=dnode.get("co_settle_fy_ended").asText()%></td>
   </tr>
   <tr>
-   <td>企業の大きさ（時価総額）：<%=((JsonNode)(request.getAttribute("dnode"))).get("marketcap").asText()%></td>
+   <td>企業の大きさ（時価総額）：<%=dnode.get("marketcap").asText()%></td>
   </tr>
   <tr>
-   <td>株主に渡す一部の利益（配当金）：<%=((JsonNode)(request.getAttribute("dnode"))).get("co_settle_dps").asText()%></td>
+   <td>株主に渡す一部の利益（配当金）：<%=dnode.get("co_settle_dps").asText()%></td>
   </tr>
   <tr>
    <td>（配当利回り）：</td>

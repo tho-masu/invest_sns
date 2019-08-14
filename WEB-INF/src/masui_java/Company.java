@@ -15,9 +15,14 @@ public class Company extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		JsonNode dnode = DAO.getCompanyData(request.getParameter("quote"));
+
+		String scode = request.getParameter("quote");
+
+		JsonNode dnode = DAO.getCompanyInfo(scode);
+		JsonNode hnode = DAO.getCompanyHistorical(scode);
 
 		request.setAttribute("dnode", dnode);
+		request.setAttribute("hnode", hnode);
 		request.getRequestDispatcher("/masui_jsp/company.jsp").forward(request, response);
 
 	}

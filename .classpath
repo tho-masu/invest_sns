@@ -6,10 +6,10 @@
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/jsp-api.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/el-api.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/annotations-api.jar"/>
-	<classpathentry kind="src" path="WEB-INF/src"/>
-	<classpathentry kind="src" output="work" path="work"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jackson-annotations-2.9.8.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jackson-core-2.9.8.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jackson-databind-2.9.8.jar"/>
+	<classpathentry kind="src" path="WEB-INF/src"/>
+	<classpathentry kind="src" output="work" path="work"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>
