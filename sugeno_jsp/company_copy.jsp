@@ -32,18 +32,6 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
      <td align="left">企業の稼ぐ力（ROE)：</td>
 
    </tr>
-   <%--
-   <tr>
-     <td rowspan="2" align="left" width="30%">weather</td>
-     <td width="40%">企業名（株価）</td>
-     <td width="20%">お買い得度（PER)</td>
-     <td rowspan="2" align="right" width="10%">book</td>
-   </tr>
-   <tr>
-     <td width="40%">簡単紹介</td>
-     <td width="20%">企業の稼ぐ力（ROE)</td>
-   </tr>
-   <tr> --%>
  </table>
 
  <%-------- チャート --------%>
@@ -170,7 +158,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
    </td>
   </tr>
   <tr>
-   <td class="sub" id="commentword">
+   <td class="sub" class="commentword">
     コメント内容
    </td>
   </tr>
