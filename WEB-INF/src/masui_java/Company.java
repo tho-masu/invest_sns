@@ -17,7 +17,7 @@ public class Company extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		String scode = request.getParameter("quote");
-		String days = "30";
+		String days = "7";
 
 		if(request.getParameter("days")!=null) {
 			days = request.getParameter("days");

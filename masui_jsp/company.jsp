@@ -72,7 +72,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
     options: {
       title: {
         display: true,
-        text: '直近<%=hnode.size()%>日間の株価'
+        text: '直近<%=hnode.size()%>営業日の株価'
       },
       scales: {
         yAxes: [{
