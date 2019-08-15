@@ -24,5 +24,14 @@
         <url-pattern>/masui_jsp/industry</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiMarketS</servlet-name>
+        <servlet-class>masui_java.Market</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiMarketS</servlet-name>
+        <url-pattern>/masui_jsp/market</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
