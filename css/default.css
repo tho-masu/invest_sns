@@ -10,7 +10,7 @@ body {
 header,nav,ul,li,h1,p,a{margin:0;padding:0;}
 a {
 	color:#333;
-	text-decoration: none;
+	text-decoration: underline;
 }
 li {
 	list-style-type:none;
@@ -52,40 +52,44 @@ nav ul li a{
 	display: block;
 	width: 100%;
 	padding: 10px 0;
+	text-decoration: none;
 }
 nav ul li a:hover {
 	background:#f5f5dc;
 }
 
+/* table hover */
 
-/* テーブル装飾 */
-
-table{
-  width: 80%;
-  border-collapse: collapse;
-  border-spacing: 0;
+table.list tr:hover {
+  background-color: #CCFFFF;    /* マウスオーバー時の行の背景色 */
+}
+table.list td:hover {
+  background-color: #CCFFFF;    /* マウスオーバー時のセルの背景色 */
 }
 
-table th,table td{
-  padding: 10px 0;
-  text-align: center;
-}
+/* 行全体をリンクに */
 
-.rank tr:nth-child(2n+0) {
-	background: #FFCCFF;
-}
-.rank tr:nth-child(2n+1) {
-	background: #FFBBFF;
-}
+a.widelink { display: block; }
 
-.ranking {
-	background: -webkit-repeating-linear-gradient(-45deg, #f5edfd, #f5edfd 5px, #fdfcff 5px, #fdfcff 10px);
-    background: repeating-linear-gradient(-45deg, #f5edfd, #f5edfd 5px, #fdfcff 5px, #fdfcff 10px);
-    color: #4a1086;
-   	font-size: 20px
 
+/*注目ポイント*/
+.attention_point{
+	border-collapse: collapse;
 }
-.group{
-	font-size: 1em;
-	color:purple;
+.point_top{
+	background-color:#52c2d0;
+	color:white;
+	border-bottom:solid 1px black;
+}
+.attention_point th{
+	background-color:#52c2d0;
+	color:white;
+	width: 30%;
+	border-bottom:solid 2px white;
+}
+.attention_point th.last{
+	border-bottom:solid 1px black;
+}
+.attention_point td{
+	background-color:whitesmoke;
 }

@@ -25,10 +25,11 @@ public class Industry extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		ArrayNode anode = mapper.createArrayNode();
 
-		if(iname.equals("全銘柄")) {
+		if(iname == null || iname.equals("all")) {
 			for(JsonNode jnode : unode) {
 					anode.add(jnode);
 			}
+			iname = "全業界（日経平均採用銘柄）";
 		}else {
 			for(JsonNode jnode : unode) {
 				if(jnode.get("industry_name").asText().equals(iname)) {

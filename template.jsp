@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>インデックス</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/default.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -15,9 +15,9 @@
 
 <header>
 
-<!-- ヘッダーロゴ -->
+<!-- ヘッダーはじまり -->
 <div align="center">
-<a href="<%=request.getContextPath() %>/"><img src="img/investagram.png" width="240px"></a>
+<a href="<%=request.getContextPath() %>/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
 </div>
 
 </header>
@@ -33,6 +33,10 @@
 
 <br><br><br><br>
 
+<!-- ヘッダー終わり -->
+
+
+
   <div class="date">ここに日付</div>
   <h2>ここにタイトル</h2>
   <p>
@@ -42,9 +46,9 @@
 
 
 
-
+<br><br><br>
 <footer>
-<address>Copyright(C)ここに年 個人名or会社名,Allright Reserved.</address>
+<font size="2">Copyright(C)2019 QUICK Corp.Allright Reserved.</font>
 </footer>
 
 </body>
