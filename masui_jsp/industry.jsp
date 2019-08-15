@@ -13,13 +13,55 @@
 
 <%
 ArrayNode anode = (ArrayNode)request.getAttribute("anode");
+String iname = (String)request.getAttribute("iname");
 %>
+<form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET">
+業界フィルタ：<select name="iname">
+<option value="全銘柄">（フィルタ解除）</option>
+<option value="水産・農林業">水産・農林業</option>
+<option value="鉱業">鉱業</option>
+<option value="建設業">建設業</option>
+<option value="食料品">食料品</option>
+<option value="繊維製品">繊維製品</option>
+<option value="パルプ・紙">パルプ・紙</option>
+<option value="化学">化学</option>
+<option value="医薬品">医薬品</option>
+<option value="石油石炭製品">石油石炭製品</option>
+<option value="ゴム製品">ゴム製品</option>
+<option value="ｶﾞﾗｽ土石製品">ｶﾞﾗｽ土石製品</option>
+<option value="鉄鋼">鉄鋼</option>
+<option value="非鉄金属">非鉄金属</option>
+<option value="金属製品">金属製品</option>
+<option value="機械">機械</option>
+<option value="電気機器">電気機器</option>
+<option value="輸送用機器">輸送用機器</option>
+<option value="精密機器">精密機器</option>
+<option value="その他製品">その他製品</option>
+<option value="電気・ガス業">電気・ガス業</option>
+<option value=" 陸運業"> 陸運業</option>
+<option value="海運業">海運業</option>
+<option value="空運業">空運業</option>
+<option value="倉庫運輸関連">倉庫運輸関連</option>
+<option value="情報・通信業">情報・通信業</option>
+<option value="卸売業">卸売業</option>
+<option value="小売業">小売業</option>
+<option value="銀行業">銀行業</option>
+<option value="証券商品先物">証券商品先物</option>
+<option value="保険業">保険業</option>
+<option value="その他金融業">その他金融業</option>
+<option value="不動産業">不動産業</option>
+<option value="サービス業">サービス業</option>
+</select>
+<input type="submit" value="GO！">
+</form>
+
+<br>
 
   <%--業界ページトップ、天気表示 --%>
   <table border="2">
     <tr>
       <td>
-        業界：<%=request.getAttribute("iname") %>
+        業界：<%=iname %>
       </td>
       <%--天気を表示 --%>
       <td>
@@ -62,13 +104,13 @@ ArrayNode anode = (ArrayNode)request.getAttribute("anode");
 <%for(int i=0;i<anode.size();i++){ %>
     <tr>
       <td>
-      	<a href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %>
+      	<a href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a>
       </td>
       <td>
 		<%=anode.get(i).get("securities_code").asText() %>
       </td>
       <td>
-      	<%=anode.get(i).get("price").asDouble() %>
+      	<%=anode.get(i).get("price").asInt() %>円
       </td>
     </tr>
 <%} %>
@@ -102,7 +144,7 @@ ArrayNode anode = (ArrayNode)request.getAttribute("anode");
 
   <br><br>
 
-  <%=request.getAttribute("anode") %>
+
 
 </body>
 </html>

@@ -1,17 +1,150 @@
+/*////////全体設定////////*/
 body{
 	/*position:absolute;*/
 
 }
 
 #all_table{
+}
+/*テーブルの位置、余白設定*/
+table{
 	margin-right:auto;
 	margin-left:auto;
+	width:1000px;
+	margin-bottom:50px;
+	margin-top:50px;
+	border:none;
 
 }
+/*見出し背景色、文字設定「注目ポイント」「チャート」「コメント」「コメント一覧」*/
+.point_top{
+	background-color:#52c2d0;
+	color:white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 23px;
+}
 
-table{
-	width:800px;
-	margin-bottom:50px;
-	margin-top:50px
+/*///////企業のトップ情報/////////*/
+/*企業名と株価の欄のデザイン*/
+#top_table{
+	border-color:whitesmoke;
+}
+#top_company{
+	font-weight: bold;
+	background-color:#52c2d0;
+	color:white;
+	font-size:40px;
+	padding-top: 10px;
+	padding-bottom:10px;
+}
+/*天気、紹介、PERなどのデザイン*/
+.top_sub{
+	background-color:whitesmoke;
+	border-color:whitesmoke;
+}
 
+/*//////チャート//////*/
+/*見出し「チャート」*/
+.chart tr{
+	border-bottom:solid 2px white;
+}
+/*「７、３０日間のボタンデザイン」*/
+#chartbtn_margin{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.chart a.cp_btn{
+	display: inline;
+	width: 250px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #26C6DA;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+.chart a.cp_btn:active {
+	border-bottom: 2px solid #26C6DA;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.chart a.cp_btn:hover{
+	background-color:#74f1fc;
+}
+/*背景色設定*/
+.sub{
+	background-color:whitesmoke;
+}
+
+/*///////注目ポイント/////////*/
+.attention_point{
+	border-collapse: collapse;
+}
+.attention_point tr{
+	border-bottom:solid 2px white;
+}
+.attention_point tr:last-child{
+	border-bottom: none;
+}
+
+.sub_point{
+	background-color:#afeeee;
+	padding-top:10px;
+	padding-bottom:10px;
+	color:black;
+	width: 30%;
+	font-weight: normal;
+}
+.attention_point td{
+	background-color:#afeeee;
+}
+
+/*///////コメント欄/////////*/
+/*位置設定*/
+.comment_submit td{
+	text-align:center;
+}
+/*テキストエリアの大きさ、余白設定*/
+.comment_submit textarea{
+	margin-top:10px;
+	width:500px;
+	height:200px;
+}
+/*送信ボタンのデザイン*/
+.comment_submit input{
+	margin-top:3px;
+	margin-bottom: 10px;
+	padding: 10px 30px;
+	border-style: none;
+	font-size: 20px;
+	position: relative;
+	display: inline;
+	width: 250px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #26C6DA;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+.comment_submit input:active {
+	border-bottom: 2px solid #26C6DA;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.comment_submit input:hover{
+	background-color:#74f1fc;
+
+}
+/*コメントリストの位置設定*/
+.comment_list td{
+	text-align:center;
+}
+/*「コメント内容」の位置設定*/
+#commentword{
+	text-align:left;
+	padding:10px;
 }
