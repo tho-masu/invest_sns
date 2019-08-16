@@ -25,7 +25,7 @@ public class Company extends HttpServlet {
 
 		JsonNode dnode = DAO.getCompanyInfo(scode);
 		JsonNode hnode = DAO.getCompanyHistorical(scode,days);
-		JsonNode nnode = DAO.getCompanyNews(dnode.get("v-name").asText());
+		JsonNode nnode = DAO.getCompanyNews(dnode.get("short_name").asText());
 
 
 		request.setAttribute("dnode", dnode);
