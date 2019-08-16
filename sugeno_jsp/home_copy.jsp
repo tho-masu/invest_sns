@@ -17,7 +17,6 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 </head>
 
 <body>
-<br>
 
 <header>
 
@@ -37,9 +36,38 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
   </ul>
 </nav>
 
-<br><br><br><br>
+
 
 <!-- ヘッダー終わり -->
+<%--homeでフォローしたユーザーの投稿を表示する --%>
+<table border="1">
+ <tr>
+   <td colspan="3" valign="middle">
+     <%--フォローしたユーザのアイコン --%>
+     <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
+     <%--フォローしたユーザの名前 --%>
+     <span>name</span>
+   </td>
+ </tr>
+ <tr>
+   <td colspan="3">
+   <%--フォローしたユーザの記事 --%>
+     <article>長期金利と短期金利逆転で景気後退か</article>
+   </td>
+ </tr>
+ <tr align="center">
+ <%--share,comment,goodボタン（仮　できれば） --%>
+   <td width="33.333%">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a><span>12</span>
+   </td>
+   <td width="33.333%">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a><span>13</span>
+   </td>
+   <td width="33.333%">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a><span>14</span>
+   </td>
+ </tr>
+</table>
 
 
 </body>
