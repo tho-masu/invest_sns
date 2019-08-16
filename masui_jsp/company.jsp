@@ -157,8 +157,8 @@ JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
    <td><%=dnode.get("co_settle_dps").asText()%></td>
   </tr>
   <tr>
-   <th width="30%" class="sub_point">配当利回り</th>
-   <td><%--servletからデータ取得 --%></td>
+   <th width="30%" class="sub_point">株主への利益還元率(%)（配当性向）</th>
+   <td><%=dnode.get("co_settle_dividend_payout").asText() %></td>
   </tr>
   </table>
 
