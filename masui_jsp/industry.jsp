@@ -51,8 +51,6 @@ List<String> industryList = StaticList.industryList;
 <input type="submit" value="GO！">
 </form>
 
-<br>
-
   <%--業界ページトップ、天気表示 --%>
   <table border="2" align="center" cellpadding="5px">
     <tr>
@@ -67,14 +65,15 @@ List<String> industryList = StaticList.industryList;
   </table>
 
   <%--業界の概要 --%>
-  <table align="center">
+  <table align="center" border="1">
     <tr>
       <td>
         業界概要
       </td>
       <%--業界の関連画像表示 --%>
       <td>
-        <img src="<%=request.getContextPath() %>/img/industry/factory.png" width="100px">
+        <img style="margin-right:0.7em" align="left" src="<%=request.getContextPath() %>/img/industry/<%=iname %>.jpg" height="200px">
+        ここに業界の説明が入ります
       </td>
     </tr>
   </table>

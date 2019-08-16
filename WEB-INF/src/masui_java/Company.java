@@ -25,9 +25,12 @@ public class Company extends HttpServlet {
 
 		JsonNode dnode = DAO.getCompanyInfo(scode);
 		JsonNode hnode = DAO.getCompanyHistorical(scode,days);
+		JsonNode nnode = DAO.getCompanyNews(dnode.get("short_name").asText());
+
 
 		request.setAttribute("dnode", dnode);
 		request.setAttribute("hnode", hnode);
+		request.setAttribute("nnode", nnode);
 		request.getRequestDispatcher("/masui_jsp/company.jsp").forward(request, response);
 
 	}
