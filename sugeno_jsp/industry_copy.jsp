@@ -69,46 +69,46 @@ List<String> industryList = StaticList.industryList;
         <img src="<%=request.getContextPath() %>/img/weather/晴れる.png" width="100px">
       </td>
     </tr>
-    <%--<tr>
-      <td height="100px" valign="top">
-        <p class="main_word">水産・農林業<%--=iname --%></p>
-      <%--</td>
-    </tr> --%>
   </table>
 
   <%--業界の概要 --%>
-  <table>
-    <tr>
-      <td>
-        業界概要
+  <table class="industry_overview">
+    <tr height="220px">
+      <td class="overview">
+        <h3>業界動向</h3>
+        <p>地球温暖化による水産資源の減少、日本周辺水域における近隣諸国との摩擦、人口減少による国内消費の低下など、
+           現在の水産業を取り巻く環境は厳しい。日本食文化の発信とともに水産物の輸出拡大を図る。農林業には、狭い農地面積、
+           就業人口の減少、高齢化による後継者不足、耕作放棄地の拡大といった問題があり、政府はさまざまな規制改革に取り組んでおり、
+           農林業界は今大きな転換ポイントを迎えている。
+        </p>
       </td>
       <%--業界の関連画像表示 --%>
-      <td>
-        <img src="<%=request.getContextPath() %>/img/industry/factory.png" width="100px">
+      <td class="overview_img">
+        <img src="<%=request.getContextPath() %>/img/industry/水産・農林業.jpg" width="220px" height="auto" align="center">
       </td>
     </tr>
   </table>
 
   <%--おすすめ企業 --%>
-  <table border="2" align="center" width="80%" class="list">
+  <table align="center" width="80%" class="list">
     <tr>
-      <th align="center" colspan="3" bgcolor="#FFFFFF">
-        <b>おすすめ企業</b>
+      <th align="center" colspan="3" bgcolor="#FFFFFF" class="point_top">
+        おすすめ企業
       </th>
     </tr>
-    <tr>
-    	<th bgcolor="#FFFFFF">
+    <tr class="recommend">
+    	<th class="company_name">
     		<b>企業名</b>
     	</th>
-    	<th bgcolor="#FFFFFF">
+    	<th class="code_num">
     		<b>証券コード</b>
     	</th>
-    	<th bgcolor="#FFFFFF">
+    	<th class="stock_price">
     		<b>株価</b>
     	</th>
     </tr>
 <%--for(int i=0;i<anode.size();i++){ --%>
-    <tr>
+    <tr class="sub">
       <td>
       	<%--<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a> --%>
       </td>
@@ -134,7 +134,7 @@ List<String> industryList = StaticList.industryList;
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
-     <div><input type="submit" value="送信" align="center"></div>
+     <div><input type="submit" value="送信" align="center" class="submit_div"></div>
    </td>
   </tr>
   </form>

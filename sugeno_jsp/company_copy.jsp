@@ -145,7 +145,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
-     <div><input type="submit" value="送信" align="center"></div>
+     <div><input type="submit" value="送信" align="center" class="submit_div"></div>
    </td>
   </tr>
   </form>

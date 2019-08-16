@@ -27,6 +27,8 @@ table{
 	font-weight: bold;
 	text-align: center;
 	font-size: 23px;
+	padding-top:20px;
+	padding-bottom:20px;
 }
 
 /*///////企業のトップ情報/////////*/
@@ -39,8 +41,8 @@ table{
 	background-color:#52c2d0;
 	color:white;
 	font-size:40px;
-	padding-top: 10px;
-	padding-bottom:10px;
+	padding-top: 25px;
+	padding-bottom:25px;
 }
 /*天気、紹介、PERなどのデザイン*/
 .top_sub{
@@ -143,6 +145,7 @@ table{
 	background-color:#74f1fc;
 
 }
+
 /*コメントリストの位置設定*/
 
 /*「コメント内容」の位置設定*/
@@ -217,8 +220,49 @@ table{
 	color:#a0522d;
 }
 
-/*表全体のデザイン*/
+/*業界ページトップの表全体のデザイン*/
 .industry_top{
 	border:none;
 	background-color:#ffdab9;
+}
+
+/*-----------業界動向デザイン設定-------------*/
+/*全体のデザイン*/
+.industry_overview{
+	border:none;
+	background-color:#52c2d0;
+}
+.overview{
+	width:750px;
+	vertical-align:top;
+}
+/*文字のデザイン*/
+.industry_overview h3{
+	color:white;
+	margin-left:20px;
+	margin-top:10;
+	margin-bottom:20px;
+}
+.industry_overview p{
+	color:white;
+	margin-left:25px;
+}
+/*画像設定*/
+.overview_img img{
+	margin-top:25px;
+}
+
+/*-----------おすすめ企業一覧デザイン設定-------------*/
+.recommend{
+	background-color:#87ceeb;
+	color:white;
+}
+.company_name{
+	width:60%;
+}
+.code_num{
+	width:20%;
+}
+.stock_price{
+	width:20%;
 }
