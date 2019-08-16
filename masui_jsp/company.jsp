@@ -167,7 +167,7 @@ JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
 <table class="comment_list">
   <tr>
    <td class="point_top">
-    今日のニュース
+    今日の関連ニュース
    </td>
   </tr>
   <tr>

@@ -3,7 +3,6 @@ package api;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.StringJoiner;
@@ -36,11 +35,7 @@ public class APIManager {
 			for (HashMap.Entry<String, String> param : query.entrySet()) {
 				urltmp.add(param.getKey() + "=" + param.getValue());
 			}
-			//URL url = new URL(urltmp.toString());
-			//URLに日本語が含まれるとエラー（NULLが返却）になってしまうため以上を以下に置換
-			String asciiString = new URI(urltmp.toString()).toASCIIString();
-			URL url = new URL(asciiString);
-			//ここまで
+			URL url = new URL(urltmp.toString());
 
 			HttpURLConnection con = null;
 			con = (HttpURLConnection)url.openConnection();
