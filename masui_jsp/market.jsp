@@ -117,10 +117,10 @@ List<String> industryList = StaticList.industryList;
 	<% for(String element : industryList){ %>
 	<tr>
 		<td>
-			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element%>"><%=element %></a>
+			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element %></p> </a>
 		</td>
 		<td>
-			<img src="<%=request.getContextPath() %>/img/weather/hare.png" width="70px">
+			<img src="<%=request.getContextPath() %>/img/weather/hare.png" height="50px">
 		</td>
 	</tr>
 	<%} %>

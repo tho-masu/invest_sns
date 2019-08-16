@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -10,6 +10,7 @@
 <%
 JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
+JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
 %>
 
 <title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
@@ -38,32 +39,42 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
   </ul>
 </nav>
 
-<br><br><br><br>
+<br><br>
 
 <!-- ヘッダー終わり -->
 
+<div id="all_table">
+
  <%-- 企業の名前、株価、簡単な紹介 --%>
- <table border="1" width="1400">
+ <table id="top_table" border="0">
    <tr>
-     <td rowspan="2" align="center" width="300">晴れ</td>
-     <td>企業名（株価）</td>
-     <td>お買い得度（PER)</td>
-     <td rowspan="2" align="center" width="300">ブックマーク</td>
+     <td colspan="4" align="center" id="top_company"><%=dnode.get("v-name").asText() %>（<%=dnode.get("price").asDouble() %>円）</td>
    </tr>
-   <tr>
-     <td>簡単紹介</td>
-     <td>企業の稼ぐ力（ROE)</td>
+   <tr class="top_sub">
+     <td rowspan="3" align="left" width="15%"><img hspace="10px" src="<%=request.getContextPath()%>/img/weather/hare.png" width="100px"></td>
+     <td rowspan="3" width="40%">簡単紹介</td>
+     <td align="left">お買い<font color="red">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
+     <td rowspan="3" align="right" width="15%">bookmark</td>
    </tr>
-   <tr>
+   <tr class="top_sub">
+     <td align="left">お買い<font color="blue">得</font>度（1/PER)：<%=(double)Math.round( 10000/(dnode.get("co_per").asDouble()) ) / 10000 %></td>
+   </tr>
+   <tr class="top_sub">
+     <td align="left">企業の稼ぐ力（ROE)：<%=dnode.get("co_settle_roe").asDouble() %></td>
+   </tr>
  </table>
 
  <%-- チャート --%>
- <table border="1" width="500" >
-  <tr>
-   <td>
-   		チャート<br>
-
-   		<a href="company?quote=<%=dnode.get("req_code").asText()%>&days=7">7日間</a> <a href="company?quote=<%=dnode.get("req_code").asText()%>&days=30">30日間</a> <br>
+ <table class="chart">
+  <%--見出し --%>
+  <tr><td align="center" class="point_top">チャート</td></tr>
+  <%--チャート期間変更ボタン --%>
+  <tr class="sub">
+   <td align="center" height="50px">
+   <div id="chartbtn_margin">
+    <a class="cp_btn" href="company?quote=<%=dnode.get("req_code").asText()%>&days=7">7日間</a>
+   	<a class="cp_btn" href="company?quote=<%=dnode.get("req_code").asText()%>&days=30">30日間</a>
+   </div>
 
  <!-- チャートはじめ -->
 
@@ -119,68 +130,106 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 
   </table>
 
-  <br>
-
-  <%-- 注目ポイント --%>
-  <table border="1" width="700" class="attention_point">
+ <%-- 注目ポイント --%>
+  <table class="attention_point">
   <tr>
    <th align="center"colspan="2" class="point_top">注目ポイント</th>
+
   </tr>
   <tr>
-   <th width="30%">会社のお名前（和）</th>
+   <th width="30%" class="sub_point">会社のお名前（和）</th>
    <td><%=dnode.get("v-name").asText() %></td>
   </tr>
   <tr>
-   <th width="30%">会社のお名前（英）</th>
+   <th width="30%" class="sub_point">会社のお名前（英）</th>
    <td><%=dnode.get("v-name_en").asText()%></td>
   </tr>
   <tr>
-   <th width="30%">一年間の成績発表月（決算期）</th>
+   <th width="30%" class="sub_point">一年間の成績発表月（決算期）</th>
    <td><%=dnode.get("co_settle_fy_ended").asText()%></td>
   </tr>
   <tr>
-   <th width="30%">企業の大きさ（時価総額）</th>
+   <th width="30%" class="sub_point">企業の大きさ（時価総額）</th>
    <td><%=dnode.get("marketcap").asText()%></td>
   </tr>
   <tr>
-   <th width="30%">株主に渡す一部の利益（配当金）</th>
+   <th width="30%" class="sub_point">株主に渡す一部の利益（配当金）</th>
    <td><%=dnode.get("co_settle_dps").asText()%></td>
   </tr>
   <tr>
-   <th width="30%" class="last">（配当利回り）</th>
+   <th width="30%" class="sub_point">配当利回り</th>
    <td><%--servletからデータ取得 --%></td>
   </tr>
   </table>
 
-<br>
 
- <%--コメント送信 --%>
- <table border="1">
+ <%-- 今日のニュースはじめ --%>
+<table class="comment_list">
   <tr>
-   <td>コメント欄</td>
-  </tr>
-  <form>
-  <tr>
-   <td>
-     <textarea name="comment" rows="4" cols="40"></textarea>
+   <td class="point_top">
+    今日のニュース
    </td>
   </tr>
   <tr>
-   <td>
-     <input type="submit" value="送信">
+   <td class="sub" id="commentword">
+<%if(nnode==null){ %>
+	今日のニュースはありません
+<%}else{ %>
+	<% for(int i=0;i<nnode.size();i++){%>
+		<%=nnode.get(i).get("headline").asText() %>
+		<!-- 折り畳み展開ポインタ -->
+		<div onclick="obj=document.getElementById('open<%=i %>').style; obj.display=(obj.display=='none')?'block':'none';">
+		<a style="cursor:pointer;">▼ クリックで展開</a>
+		</div>
+		<!--// 折り畳み展開ポインタ -->
+
+		<!-- 折り畳まれ部分 -->
+		<div id="open<%=i %>" style="display:none;clear:both;">
+
+		<!--ここの部分が折りたたまれる＆展開される部分になります。
+		自由に記述してください。-->
+		<%=nnode.get(i).get("article").asText() %>
+
+		</div>
+		<!--// 折り畳まれ部分 -->
+		<br>
+		<%} %>
+<%} %>
+   </td>
+  </tr>
+ </table>
+
+ <%-- 今日のニュース終わり --%>
+
+
+ <%--コメント送信 --%>
+ <table class="comment_submit">
+  <tr>
+   <td class="point_top">コメント欄</td>
+  </tr>
+  <form>
+  <tr>
+   <td class="sub">
+     <div><textarea name="comment"></textarea></div>
+     <div><input type="submit" value="送信" align="center"></div>
    </td>
   </tr>
   </form>
  </table>
 
-<br>
-
- <%-- コメント --%>
- <table border="1" width="500">
+ <table class="comment_list">
   <tr>
-   <td>コメント</td>
+   <td class="point_top">
+    コメント一覧
+   </td>
   </tr>
-  </table>
+  <tr>
+   <td class="sub" id="commentword">
+    コメント内容
+   </td>
+  </tr>
+ </table>
 
+</div>
 </body>
 </html>
