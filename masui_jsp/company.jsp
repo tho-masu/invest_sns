@@ -13,9 +13,34 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 %>
 
 <title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
+<link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+
+<br>
+
+<header>
+
+<!-- ヘッダーはじまり -->
+<div align="center">
+<a href="<%=request.getContextPath() %>/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
+</div>
+
+</header>
+
+<nav>
+  <ul>
+    <li><a href="<%=request.getContextPath() %>/">ホーム</a></li>
+    <li><a href="<%=request.getContextPath() %>/masui_jsp/market">市場</a></li>
+    <li><a href="<%=request.getContextPath() %>/masui_jsp/industry">業界</a></li>
+    <li><a href="<%=request.getContextPath() %>/mypage.jsp">マイページ</a></li>
+  </ul>
+</nav>
+
+<br><br><br><br>
+
+<!-- ヘッダー終わり -->
 
  <%-- 企業の名前、株価、簡単な紹介 --%>
  <table border="1" width="1400">
@@ -33,7 +58,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
  </table>
 
  <%-- チャート --%>
- <table border="1" width="700" >
+ <table border="1" width="500" >
   <tr>
    <td>
    		チャート<br>
@@ -72,7 +97,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
     options: {
       title: {
         display: true,
-        text: '直近<%=hnode.size()%>営業日の株価'
+        text: '直近<%=hnode.size()%>営業日の株価（終値）'
       },
       scales: {
         yAxes: [{
@@ -94,30 +119,40 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 
   </table>
 
+  <br>
+
   <%-- 注目ポイント --%>
-  <table border="1" width="700" >
+  <table border="1" width="700" class="attention_point">
   <tr>
-   <td align="center">注目ポイント</td>
+   <th align="center"colspan="2" class="point_top">注目ポイント</th>
   </tr>
   <tr>
-   <td>会社のお名前（和）：<%=dnode.get("v-name").asText() %></td>
+   <th width="30%">会社のお名前（和）</th>
+   <td><%=dnode.get("v-name").asText() %></td>
   </tr>
   <tr>
-   <td>会社のお名前（英）：<%=dnode.get("v-name_en").asText()%></td>
+   <th width="30%">会社のお名前（英）</th>
+   <td><%=dnode.get("v-name_en").asText()%></td>
   </tr>
   <tr>
-   <td>一年間の成績発表月（決算期）：<%=dnode.get("co_settle_fy_ended").asText()%></td>
+   <th width="30%">一年間の成績発表月（決算期）</th>
+   <td><%=dnode.get("co_settle_fy_ended").asText()%></td>
   </tr>
   <tr>
-   <td>企業の大きさ（時価総額）：<%=dnode.get("marketcap").asText()%></td>
+   <th width="30%">企業の大きさ（時価総額）</th>
+   <td><%=dnode.get("marketcap").asText()%></td>
   </tr>
   <tr>
-   <td>株主に渡す一部の利益（配当金）：<%=dnode.get("co_settle_dps").asText()%></td>
+   <th width="30%">株主に渡す一部の利益（配当金）</th>
+   <td><%=dnode.get("co_settle_dps").asText()%></td>
   </tr>
   <tr>
-   <td>（配当利回り）：</td>
+   <th width="30%" class="last">（配当利回り）</th>
+   <td><%--servletからデータ取得 --%></td>
   </tr>
   </table>
+
+<br>
 
  <%--コメント送信 --%>
  <table border="1">
@@ -137,6 +172,8 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
   </tr>
   </form>
  </table>
+
+<br>
 
  <%-- コメント --%>
  <table border="1" width="500">

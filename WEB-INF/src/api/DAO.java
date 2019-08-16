@@ -79,4 +79,30 @@ public class DAO {
 
 		return unode;
 	}
+
+	public static JsonNode getNikkei225IntradayHistorical() {
+		HashMap<String,String> query = new HashMap<String,String>();
+		query.put("quote", "101/T");
+		query.put("item","price");
+		query.put("date_count", "1");
+		query.put("direction","backward");
+		query.put("minute","5");
+
+		String result = APIManager.getData("historical_intraday_daycount", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null
+				;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode hnode = node.get("historical_intraday").get("data").get(0).get("value");
+
+		return hnode;
+	}
 }
