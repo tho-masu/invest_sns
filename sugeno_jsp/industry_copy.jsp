@@ -41,7 +41,7 @@ List<String> industryList = StaticList.industryList;
 
 <!-- ヘッダー終わり -->
 
-<div class="industry_filter">
+<div class="industry_filter" align="center">
   <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
     <select name="iname">
       <option value="all" class="industry_option">業界を選ぼう！</option>
@@ -53,7 +53,6 @@ List<String> industryList = StaticList.industryList;
   </form>
 </div>
 
-<br>
 
   <%--業界ページトップ、天気表示 --%>
   <table align="center" cellpadding="5px" class="industry_top" height="210px">

@@ -243,6 +243,10 @@ table{
 	background-color:#ffdab9;
 	margin-top:45px;
 }
+.industry_filter form{
+	margin-right:auto;
+	margin-left:auto;
+}
 /*業界選択の欄の設定*/
 .industry_filter select{
 	width:280px;
