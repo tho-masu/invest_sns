@@ -47,9 +47,12 @@ List<String> industryList = StaticList.industryList;
 <!-- チャートを入れるテーブルはじめ -->
 
 <table width="800px" align="center">
-<tr><td>
-
-<!-- チャートはじめ -->
+  <tr>
+    <td class="point_top">日経平均株価（今日の現在までの値動き）</td>
+  </tr>
+  <tr class="sub">
+    <td>
+	<!-- チャートはじめ -->
 
  <canvas id="myLineChart"></canvas>
 
@@ -96,35 +99,64 @@ List<String> industryList = StaticList.industryList;
   });
   </script>
 
-  <!-- チャート終わり -->
+ 	<!-- チャート終わり -->
 
-</td></tr>
+    </td>
+  </tr>
 </table>
 
 <!-- チャートを入れるテーブル終わり -->
 
 <br><br>
 
-<table align="center" border="1" class="list">
-	<tr>
-		<th bgcolor="#FFFFFF">
+<table align="center" border="1" class="list industryweather">
+	<tr class="industryweather_head">
+		<th width="70%">
 			業界
 		</th>
-		<th bgcolor="#FFFFFF">
+		<th width="30%">
 			景気動向
 		</th>
 	</tr>
 	<% for(String element : industryList){ %>
-	<tr>
-		<td>
+	<tr class="reco_info">
+		<td align="center">
 			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element %></p> </a>
 		</td>
-		<td>
+		<td align="center">
 			<img src="<%=request.getContextPath() %>/img/weather/hare.png" height="50px">
 		</td>
 	</tr>
 	<%} %>
 </table>
+
+<%--コメント送信 --%>
+ <table class="comment_submit">
+  <tr>
+   <td class="point_top">コメント欄</td>
+  </tr>
+  <form>
+  <tr>
+   <td class="sub">
+     <div><textarea name="comment"></textarea></div>
+     <div><input type="submit" value="送信" align="center" class="submit_div"></div>
+   </td>
+  </tr>
+  </form>
+ </table>
+
+ <table class="comment_list">
+  <tr>
+   <td class="point_top">
+    コメント一覧
+   </td>
+  </tr>
+  <tr>
+   <td class="sub" class="commentword">
+    コメント内容
+   </td>
+  </tr>
+ </table>
 
 <br><br><br>
 <footer>
