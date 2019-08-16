@@ -1,11 +1,10 @@
-/*--------------------------------
-// 共通css
-----------------------------------*/
-body {
+/*////////全体設定////////*/
+body{
 	font-family:Verdana,"ヒラギノ角ゴ Pro W3","メイリオ";
 	color:#333;
 	margin:0;
 	padding:0;
+	/*position:absolute;*/
 }
 header,nav,ul,li,h1,p,a{margin:0;padding:0;}
 a {
@@ -29,7 +28,6 @@ li {
 	font-size: 12px;
 	padding-left:5px;
 }
-
 /*--------------------------------
 // ナビゲーション部分css
 // 横幅20%のボタンを5つ横並びに配置
@@ -58,45 +56,18 @@ nav ul li a:hover {
 	background:#f5f5dc;
 }
 
-/* table hover */
-
-table.list tr:hover {
-  background-color: #CCFFFF;    /* マウスオーバー時の行の背景色 */
+.reco_info:hover{
+	opacity: 0.7;    /* マウスオーバー時の行の背景色 */
 }
-table.list td:hover {
-  background-color: #CCFFFF;    /* マウスオーバー時のセルの背景色 */
+.reco_info td:hover {
+    opacity: 0.7;    /* マウスオーバー時のセルの背景色 */
 }
-
 /* 行全体をリンクに */
 
 a.widelink { display: block; }
 
-
-/*注目ポイント*/
-.attention_point{
-	border-collapse: collapse;
-}
-.point_top{
-	background-color:#52c2d0;
-	color:white;
-	border-bottom:solid 1px black;
-}
-.attention_point th{
-	background-color:#52c2d0;
-	color:white;
-	width: 30%;
-	border-bottom:solid 2px white;
-}
-.attention_point th.last{
-	border-bottom:solid 1px black;
-}
-.attention_point td{
-	background-color:whitesmoke;
-}
-
-/* all_table */
-
 #all_table{
+
 }
 /*テーブルの位置、余白設定*/
 table{
@@ -106,15 +77,22 @@ table{
 	margin-bottom:50px;
 	margin-top:50px;
 	border:none;
-
 }
-/*見出し背景色、文字設定「注目ポイント」「チャート」「コメント」「コメント一覧」*/
+
+/*
+/////////company.jspデザイン変更/////////////
+*/
+
+/*見出し背景色、文字設定「注目ポイント」「チャート」「コメント」「コメント一覧」他のページでも使用*/
 .point_top{
 	background-color:#52c2d0;
 	color:white;
 	font-weight: bold;
 	text-align: center;
-	font-size: 23px;
+	font-size: 35px;
+	padding-top:15px;
+	padding-bottom:15px;
+	border-collapse:separate;
 }
 
 /*///////企業のトップ情報/////////*/
@@ -126,9 +104,9 @@ table{
 	font-weight: bold;
 	background-color:#52c2d0;
 	color:white;
-	font-size:40px;
-	padding-top: 10px;
-	padding-bottom:10px;
+	font-size:50px;
+	padding-top: 25px;
+	padding-bottom:25px;
 }
 /*天気、紹介、PERなどのデザイン*/
 .top_sub{
@@ -179,6 +157,18 @@ table{
 }
 .attention_point tr:last-child{
 	border-bottom: none;
+}
+.attention_point th{
+	background-color:#52c2d0;
+	color:white;
+	width: 30%;
+	border-bottom:solid 2px white;
+}
+.attention_point th.last{
+	border-bottom:solid 1px black;
+}
+.attention_point td{
+	background-color:whitesmoke;
 }
 
 .sub_point{
@@ -231,12 +221,156 @@ table{
 	background-color:#74f1fc;
 
 }
+
 /*コメントリストの位置設定*/
-.comment_list td{
-	text-align:center;
-}
+
 /*「コメント内容」の位置設定*/
-#commentword{
+.commentword{
 	text-align:left;
 	padding:10px;
 }
+
+
+/*
+--------------------industry.jspのcss-----------------------
+*/
+
+/*-------------業界フィルターのデザイン設定---------------*/
+/*背景の設定*/
+.industry_filter{
+	padding-top:50px;
+	padding-bottom:50px;
+	background-color:#ffdab9;
+	margin-top:45px;
+}
+/*業界選択の欄の設定*/
+.industry_filter select{
+	width:280px;
+	height:50px;
+	color: #666666;
+	font-size:20px;
+}
+/*「Ｇｏ！」ボタンの設定*/
+.industry_filter input{
+	margin-top:3px;
+	margin-bottom: 10px;
+	padding: 8px 30px;
+	border-style: none;
+	font-size: 20px;
+	position: relative;
+	display: inline;
+	width: 100px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #deb887;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+.industry_filter input:active {
+	border-bottom: 2px solid #26C6DA;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.industry_filter input:hover{
+	background-color:#74f1fc;
+
+}
+
+/*-------------業界ページトップ、天気表示の設定---------------*/
+
+/*フォント設定*/
+.sub_word{
+	padding-left:20px;
+	padding-top:53px;
+	font-size:18.5px;
+	padding-bottom:0px;
+	color:#a0522d;
+
+}
+.main_word{
+	font-size: 40px;
+	font-weight: bold;
+	padding-top:0px;
+	padding-left:20px;
+	color:#a0522d;
+}
+
+/*業界ページトップの表全体のデザイン*/
+.industry_top{
+	border:none;
+	background-color:#ffdab9;
+}
+
+/*-----------業界動向デザイン設定-------------*/
+/*全体のデザイン*/
+.industry_overview{
+	border:none;
+	background-color:#52c2d0;
+}
+.overview{
+	width:750px;
+	vertical-align:top;
+}
+/*文字のデザイン*/
+.industry_overview h3{
+	color:white;
+	margin-left:20px;
+	margin-top:10;
+	margin-bottom:20px;
+}
+.industry_overview p{
+	color:white;
+	margin-left:25px;
+}
+/*画像設定*/
+.overview_img img{
+	margin-top:25px;
+}
+
+/*-----------おすすめ企業一覧デザイン設定-------------*/
+.recommend{
+	background-color:#87ceeb;
+	color:white;
+}
+.company_name{
+	width:60%;
+}
+.code_num{
+	width:20%;
+}
+.stock_price{
+	width:20%;
+}
+
+/*
+---------------market.jsp編集----------------------
+*/
+
+/*market.jspデザイン設定*/
+.industryweather{
+	border-collapse:collapse;
+}
+.industryweather td{
+	padding:10px;
+}
+.industryweather th{
+	color:white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 35px;
+	padding:10px;
+	color:#fff;
+	background:#52c2d0;
+}
+.industryweather tr:nth-child(odd){
+	background:#e6f2ff;
+}
+/*フォント設定*/
+.reco_info a{
+	text-decoration: none;
+	font-size: 25px;
+	color:#4682b4;
+}
+

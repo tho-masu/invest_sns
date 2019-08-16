@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>業界</title>
-<link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/sugeno_css/common.css" rel="stylesheet" type="text/css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
@@ -45,7 +45,7 @@ List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
 
 <!-- ヘッダー終わり -->
 
-<%if(true){ %>
+<%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
 
 <!-- チャートを入れるテーブルはじめ -->
 

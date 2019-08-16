@@ -76,7 +76,7 @@ public class Industry extends HttpServlet {
 		request.setAttribute("iname", iname);
 		request.setAttribute("ahistorical", ahistorical);
 		request.setAttribute("ilist", ilist);
-		request.getRequestDispatcher("/masui_jsp/industry_graph.jsp").forward(request, response);
+		request.getRequestDispatcher("/masui_jsp/industry.jsp").forward(request, response);
 
 	}
 }
