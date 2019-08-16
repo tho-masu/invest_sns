@@ -81,7 +81,7 @@ List<String> industryList = StaticList.industryList;
     options: {
       title: {
         display: true,
-        text: '日経平均株価（今日の現在までの値動き）'
+        text: '日経平均株価（<%=hnode.get(0).get("date").asText()%>の現在までの値動き）'
       },
       scales: {
         yAxes: [{

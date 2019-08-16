@@ -3,12 +3,20 @@ package api;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
+import java.util.StringJoiner;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
+import database.DBManager;
+import database.IndustryBean;
+import database.IndustryBeanMapping;
 
 public class DAO {
 	public static JsonNode getCompanyInfo(String scode){
@@ -150,5 +158,46 @@ public class DAO {
 		JsonNode hnode = node.get("historical_intraday").get("data").get(0).get("value");
 
 		return hnode;
+	}
+
+	public static JsonNode getIndustryAverageHistorical(ArrayNode anode) {
+		HashMap<String,String> query = new HashMap<String,String>();
+		StringJoiner join = new StringJoiner(",", "", "");
+		if(anode.size()<=10) {
+			for(JsonNode jnode : anode) {
+				join.add(jnode.get("securities_code").asText());
+			}
+		}else {
+			for(int i=0;i<10;i++) {
+				join.add(anode.get(i).get("securities_code").asText());
+			}
+		}
+
+		query.put("quote", join.toString());
+		query.put("item","price");
+		query.put("count", "12");
+		query.put("direction","backward");
+
+		String result = APIManager.getData("historical_monthly_count", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null
+				;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode hnode = node.get("historical_monthly").get("data");
+
+		return hnode;
+	}
+
+	public static List<IndustryBean> getIndustryList(String iname)throws SQLException{
+		String sql="SELECT industry_name,industry_dis,industry_fut FROM t_industry where industry_name='"+iname+"';";
+		return DBManager.findAll(sql, new IndustryBeanMapping());
 	}
 }
