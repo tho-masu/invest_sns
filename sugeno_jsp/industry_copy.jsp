@@ -37,7 +37,7 @@ List<String> industryList = StaticList.industryList;
   </ul>
 </nav>
 
-<br><br><br><br>
+
 
 <!-- ヘッダー終わり -->
 
@@ -92,7 +92,7 @@ List<String> industryList = StaticList.industryList;
   <%--おすすめ企業 --%>
   <table align="center" width="80%" class="list">
     <tr>
-      <th align="center" colspan="3" bgcolor="#FFFFFF" class="point_top">
+      <th align="center" colspan="3" class="point_top">
         おすすめ企業
       </th>
     </tr>
@@ -108,7 +108,7 @@ List<String> industryList = StaticList.industryList;
     	</th>
     </tr>
 <%--for(int i=0;i<anode.size();i++){ --%>
-    <tr class="sub">
+    <tr class="sub reco_info">
       <td>
       	<%--<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a> --%>
       </td>
