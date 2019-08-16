@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>業界</title>
-<link href="<%=request.getContextPath()%>/sugeno_css/default.css" rel="stylesheet" type="text/css">
-<link href="<%=request.getContextPath()%>/sugeno_css/common.css" rel="stylesheet" type="text/css">
-<%--
+<link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
+
+<%
 ArrayNode anode = (ArrayNode)request.getAttribute("anode");
 String iname = (String)request.getAttribute("iname");
 List<String> industryList = StaticList.industryList;
---%>
+%>
 
 </head>
 
@@ -41,43 +41,33 @@ List<String> industryList = StaticList.industryList;
 
 <!-- ヘッダー終わり -->
 
-<div class="industry_filter">
-  <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
-    <select name="iname">
-      <option value="all" class="industry_option">業界を選ぼう！</option>
-      <%--for(String element : industryList){--%>
-	  <option class="industry_option" <%--if(element.equals(iname)){ %>selected<%} %> value="<%=element%>"><%=element --%></option>
-      <%--} --%>
-    </select>
-    <input type="submit" value="GO！">
-  </form>
-</div>
+<form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
+業界フィルタ：<select name="iname">
+<option value="all">（フィルタ解除）</option>
+<%for(String element : industryList){%>
+	<option <%if(element.equals(iname)){ %>selected<%} %> value="<%=element%>"><%=element %></option>
+<%} %>
+</select>
+<input type="submit" value="GO！">
+</form>
 
 <br>
 
   <%--業界ページトップ、天気表示 --%>
-  <table align="center" cellpadding="5px" class="industry_top" height="210px">
-    <tr height="100px">
+  <table border="2" align="center" cellpadding="5px">
+    <tr>
       <td>
-
-        <p class="sub_word">農業、林業、漁業、畜産業</p>
-        <p class="main_word">水産・農林業<%--=iname --%></p>
-
+        業界：<%=iname %>
       </td>
       <%--天気を表示 --%>
-      <td  rowspan="2" align="center" width="200px">
-        <img src="<%=request.getContextPath() %>/img/weather/晴れる.png" width="100px">
+      <td>
+        <img src="<%=request.getContextPath() %>/img/weather/hare.png" width="50px">
       </td>
     </tr>
-    <%--<tr>
-      <td height="100px" valign="top">
-        <p class="main_word">水産・農林業<%--=iname --%></p>
-      <%--</td>
-    </tr> --%>
   </table>
 
   <%--業界の概要 --%>
-  <table>
+  <table align="center">
     <tr>
       <td>
         業界概要
@@ -107,51 +97,53 @@ List<String> industryList = StaticList.industryList;
     		<b>株価</b>
     	</th>
     </tr>
-<%--for(int i=0;i<anode.size();i++){ --%>
+<%for(int i=0;i<anode.size();i++){ %>
     <tr>
       <td>
-      	<%--<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a> --%>
+      	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a>
       </td>
       <td>
-		<%--=anode.get(i).get("securities_code").asText() --%>
+		<%=anode.get(i).get("securities_code").asText() %>
       </td>
       <td>
-      	<%--=anode.get(i).get("price").asDouble() --%>円
+      	<%=anode.get(i).get("price").asDouble() %>円
       </td>
     </tr>
-<%--} --%>
+<%} %>
   </table>
 
+<br>
 
-
-
-<%--コメント送信 --%>
- <table class="comment_submit">
+  <%--コメント送信 --%>
+ <table border="1" align="center">
   <tr>
-   <td class="point_top">コメント欄</td>
+   <td>コメント欄</td>
   </tr>
   <form>
-  <tr>
-   <td class="sub">
-     <div><textarea name="comment"></textarea></div>
-     <div><input type="submit" value="送信" align="center"></div>
-   </td>
-  </tr>
+    <tr>
+     <td>
+       <textarea name="comment" rows="4" cols="40"></textarea>
+     </td>
+    </tr>
+    <tr>
+     <td>
+       <input type="submit" value="送信">
+     </td>
+    </tr>
   </form>
  </table>
 
- <table class="comment_list">
+<br>
+
+ <%-- コメント --%>
+ <table border="1" width="500" align="center">
   <tr>
-   <td class="point_top">
-    コメント一覧
-   </td>
+   <td>コメント</td>
   </tr>
-  <tr>
-   <td class="sub" class="commentword">
-    コメント内容
-   </td>
-  </tr>
- </table>
+  </table>
+
+  <br><br>
+
 
 
 </body>
