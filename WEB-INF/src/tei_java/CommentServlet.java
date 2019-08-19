@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 public class CommentServlet extends HttpServlet{
 
 	public void doPost(HttpServletRequest request,
@@ -16,7 +18,16 @@ public class CommentServlet extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
+		int quote = Integer.parseInt(request.getParameter("quote"));
+		String comment = request.getParameter("comment");
+
+		String forwardURL = null;
 
 
-}
+
+
+
+
+
+		}
 }
