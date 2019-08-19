@@ -50,6 +50,126 @@ public class DBManager {
 		}
 	}
 
+	public static int getUpdate(String sql1, String sql2) throws SQLException{
+		Connection con = null;
+		Statement smt = null;
+		try{
+			con = getConnection();
+			smt = con.createStatement();
+			smt.executeUpdate(sql1);
+			ResultSet rs = smt.executeQuery(sql2);
+			int pk_id = 0;
+			if (rs.next()) {
+				pk_id = rs.getInt(1);
+			}
+			return pk_id;
+		}finally{
+			if(smt != null){
+				try{
+					smt.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			if(con != null){
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public static String simpleGet(String sql) throws SQLException{
+		Connection con = null;
+		Statement smt = null;
+		try{
+			con = getConnection();
+			smt = con.createStatement();
+			ResultSet rs = smt.executeQuery(sql);
+			String msg = "";
+			if (rs.next()) {
+				msg = rs.getString(1);
+			}
+			return msg;
+		}finally{
+			if(smt != null){
+				try{
+					smt.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			if(con != null){
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public static int simpleCount(String sql) throws SQLException{
+		Connection con = null;
+		Statement smt = null;
+		try{
+			con = getConnection();
+			smt = con.createStatement();
+			ResultSet rs = smt.executeQuery(sql);
+			int count = 1;
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+			return count;
+		}finally{
+			if(smt != null){
+				try{
+					smt.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			if(con != null){
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	public static <T>T findOne(String sql, ResultSetBeanMapping<T> mapping)throws SQLException{
+		Connection con = null;
+		Statement smt = null;
+		try{
+			con = getConnection();
+			smt = con.createStatement();
+			ResultSet rs = smt.executeQuery(sql);
+			T bean = null;
+			while(rs.next()){
+				bean = mapping.createFromResultSet(rs);
+			}
+			return bean;
+		}finally{
+			if(smt != null){
+				try{
+					smt.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			if(con != null){
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 	public static int simpleUpdate(String sql)throws SQLException{
 		Connection con=null;
 		Statement smt=null;
@@ -58,13 +178,12 @@ public class DBManager {
 			smt=con.createStatement();
 			return smt.executeUpdate(sql);
 		}finally{
-			if(smt!=null){
 				try{
 					smt.close();
 				}catch(SQLException e){
 					e.printStackTrace();
 				}
-			}
+
 
 			if(con!=null){
 				try{
@@ -76,3 +195,6 @@ public class DBManager {
 		}
 	}
 }
+
+
+

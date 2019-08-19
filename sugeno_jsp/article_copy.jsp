@@ -40,30 +40,44 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 <br><br><br><br>
 
 <!-- ヘッダー終わり -->
+
 <%--homeでフォローしたユーザーの投稿を表示する --%>
 <table border="1">
  <tr>
-   <td colspan="3">
-   <%--フォローしたユーザのアイコン --%>
-     <div>
+   <td class="name_n_icon" colspan="3">
+	 <%--フォローしたユーザのアイコン --%>
+	 <div>
        <%--このアンカー押すとそのユーザーのページへ --%>
-       <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
-     </div>
-     <%--フォローしたユーザの名前 --%>
-     <p>name</p>
-   </td>
+	   <a href="<%=request.getContextPath() %>/">
+	     <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+	   </a>
+	   <%--フォローしたユーザの名前 --%>
+	   <p>name</p>
+	 </div>
  </tr>
- <tr>
+ <tr class="article_content">
    <td colspan="3">
    <%--フォローしたユーザの記事 --%>
-     <article>記事を表示</article>
+     <div>記事を表示yhjtyjrtyjytujrtyjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjasldjf;lasdkfj;asjf;askfjalksdjdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+     </div>
    </td>
  </tr>
  <tr class="function_icon">
  <%--share,comment,goodボタン（仮　できれば） --%>
-   <td width="33.333%" align="center"><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a>12</td>
-   <td width="33.333%"><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a>13</td>
-   <td width="33.333%"><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a>14</td>
+   <td align="center"  width="33.333%" align="center">
+     <div>
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a>
+     <p>12</p>
+     </div>
+   </td>
+   <td width="33.333%" align="center">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a>
+     <p>13</p>
+   </td>
+   <td width="33.333%" align="center">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a>
+     <p>14</p>
+   </td>
  </tr>
 </table>
 

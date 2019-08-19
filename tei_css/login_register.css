@@ -1,0 +1,101 @@
+/*
+----------ログイン、新規登録ページデザイン-------------
+*/
+/*全体設定*/
+
+body{
+	font-family:Verdana,"ヒラギノ角ゴ Pro W3","メイリオ";
+	background:#52c2d0;
+	margin:0;
+	padding:0;
+}
+
+/*ログインフォームデザイン設定*/
+/*.outer{
+	display:inline;
+	vertical-align:middle;
+}
+.log_range{
+	background:white;
+	height:300px;
+	width:450px;
+	margin:auto;
+	vertical-align:middle;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+.inner{
+	marign-top:100px;
+}
+
+.outer{
+	margin:0 auto;
+
+}
+.up{
+	margin-top:70px;
+	width:450px;
+	background:#ffa500;
+	padding:20px;
+}
+/*文字列デザインHi　Guest*/
+.up h1{
+	color:white;
+	font-weight:lighter;
+}
+/*画像設定（モノクロ女）*/
+.up img{
+	border-radius: 50%;
+	margin:6px;
+}
+.form_box{
+	width:450px;
+	background:white;
+	padding:20px;
+}
+/*フォームデザイン設定*/
+.form_write{
+	margin:10px;
+}
+.form_write input{
+	border:0;
+	padding:7px;
+	font-size:1.3em;
+	font-family:Arial, sans-serif;
+	color:#555;
+	border:solid 1px #ccc;
+	margin:0 0 10px;
+	width:300px;
+	/*角丸に*/
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /*影追加*/
+    -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+.form_write input:active{
+	border:solid 1px #EEA34A;
+}
+/*ボタンデザイン設定*/
+.log_btn{
+	border-style: none;
+	padding:5px 20px;
+	font-size:18px;
+	border-radius:4px;
+	color: #fff;
+	background:#ffa500;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+	border-bottom: 2px solid #d2691e;
+}
+.log_btn:active{
+	border-bottom: 2px solid #eb9902;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.log_btn:hover{
+	background-color:#fac96e;
+}
+.btn_new{
+	text-decoration: none;

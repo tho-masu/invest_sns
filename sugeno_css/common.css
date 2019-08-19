@@ -77,6 +77,9 @@ table{
 	margin-bottom:50px;
 	margin-top:50px;
 	border:none;
+	table-layout:fixed;
+	word-break:break-all;
+	word-wrap:break-word;
 }
 
 /*
@@ -380,3 +383,34 @@ table{
 /*
 ---------------article.jsp編集----------------------
 */
+/*-------------アイコンと記事本文の編集設定------------*/
+.name_n_icon{
+	vertical-align:middle;
+}
+.name_n_icon div{
+	margin-left:10px;
+	margin-top:8px;
+
+}
+.name_n_icon a{
+	float:left;
+}
+.name_n_icon p{
+	float:left;
+	line-height:56px;
+}
+.function_icon{
+	text-align: center;
+    vertical-align: middle;
+}
+.function_icon a{
+	float:left;
+}
+.function_icon p{
+	float:left;
+}
+
+.function_icon td{
+	margin-left: auto;
+    margin-right: auto;
+}
