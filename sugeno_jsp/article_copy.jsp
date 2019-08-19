@@ -41,28 +41,29 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 
 <!-- ヘッダー終わり -->
 <%--homeでフォローしたユーザーの投稿を表示する --%>
-<table>
+<table border="1">
  <tr>
-   <td>
+   <td colspan="3">
    <%--フォローしたユーザのアイコン --%>
-     <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="30px" height="30px"></a>
-   </td>
-   <td>
-   <%--フォローしたユーザの名前 --%>
+     <div>
+       <%--このアンカー押すとそのユーザーのページへ --%>
+       <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
+     </div>
+     <%--フォローしたユーザの名前 --%>
      <p>name</p>
    </td>
  </tr>
  <tr>
-   <td>
+   <td colspan="3">
    <%--フォローしたユーザの記事 --%>
      <article>記事を表示</article>
    </td>
  </tr>
- <tr>
+ <tr class="function_icon">
  <%--share,comment,goodボタン（仮　できれば） --%>
-   <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a>12</td>
-   <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a>13</td>
-   <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a>14</td>
+   <td width="33.333%" align="center"><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a>12</td>
+   <td width="33.333%"><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a>13</td>
+   <td width="33.333%"><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a>14</td>
  </tr>
 </table>
 
