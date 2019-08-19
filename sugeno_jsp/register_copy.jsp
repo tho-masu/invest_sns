@@ -33,12 +33,11 @@
     </div>
     <div class="form_box">
     <form action="" method="POST">
-      <div class="form_write"><input type="text" name="user_name" placeholder="user_ID"></div>
+      <div class="form_write"><input type="text" name="user_name" placeholder="NAME"></div>
+      <div class="form_write"><input type="text" name="user_ID" placeholder="user_ID"></div>
       <div class="form_write"><input type="password" name="password" placeholder="password"></div>
-      <div><input type="submit" value="ログイン" class="log_btn"></div>
-      <div style="margin-top:20px;">
-        <input type="button" value="新規登録"onClick="location.href='<%=request.getContextPath()%>/sugeno_jsp/register_copy.jsp'" class="log_btn">
-      </div>
+      <div class="form_write"><input type="password" name="password_conf" placeholder="password(確認)"></div>
+      <div><input type="submit" value="登録" class="log_btn"></div>
     </form>
     </div>
   </div>
