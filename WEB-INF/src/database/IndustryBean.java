@@ -1,14 +1,15 @@
 package database;
 
 public class IndustryBean {
-	private String iname,idis,ifut;
+	private String iname,idis,ifut,weather;
 
 	public IndustryBean(){
 	}
-	public IndustryBean(String iname,String idis,String ifut){
+	public IndustryBean(String iname,String idis,String ifut,String weather){
 		this.iname=iname;
 		this.idis=idis;
 		this.ifut=ifut;
+		this.weather = weather;
 	}
 	public String getIname() {
 		return iname;
@@ -28,7 +29,12 @@ public class IndustryBean {
 	public void setIfut(String ifut) {
 		this.ifut = ifut;
 	}
-
+	public String getWeather() {
+		return weather;
+	}
+	public void setWeather(String weather) {
+		this.weather = weather;
+	}
 
 
 }

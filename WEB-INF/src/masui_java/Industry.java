@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import api.DAO;
+import database.CommentBean;
 import database.IndustryBean;
 
 public class Industry extends HttpServlet {
@@ -30,7 +31,7 @@ public class Industry extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		ArrayNode anode = mapper.createArrayNode();
 
-		if(iname == null || iname.equals("all")) {
+		if(iname == null || iname.equals("全業界（日経平均採用銘柄）")) {
 			for(JsonNode jnode : unode) {
 					anode.add(jnode);
 			}
@@ -63,20 +64,51 @@ public class Industry extends HttpServlet {
 			ahistorical.add(list);
 		}
 
-		//全業界の概要を取ってくる
-		List<IndustryBean> ilist = null;
+		//業界の概要を取ってくる
+		IndustryBean iinfo = null;
 		try {
-			ilist = DAO.getIndustryList(iname);
+			iinfo = DAO.getIndustryInfo(iname);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
+		//コメント一覧を取ってくる
+		List<CommentBean> clist = null;
+		try {
+			clist = DAO.getIndustryCommentList(iname);
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+		}
+
 		request.setAttribute("anode", anode);
 		request.setAttribute("iname", iname);
 		request.setAttribute("ahistorical", ahistorical);
-		request.setAttribute("ilist", ilist);
+		request.setAttribute("iinfo", iinfo);
+		request.setAttribute("clist", clist);
 		request.getRequestDispatcher("/masui_jsp/industry.jsp").forward(request, response);
 
+	}
+
+	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
+		String iname = request.getParameter("iname");
+		String comment = request.getParameter("comment");
+
+		if(comment!=null && !(comment.equals(""))) {
+			try {
+				DAO.registerIndustryComment(iname, comment);
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}else {
+			request.setAttribute("error", "[エラー] コメントを入力してください");
+		}
+
+		request.setAttribute("iname", iname);
+		request.getRequestDispatcher("/masui_jsp/comment_posted.jsp").forward(request, response);
 	}
 }

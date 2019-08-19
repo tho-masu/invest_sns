@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math,java.util.List,java.util.Date,java.sql.Time,database.CommentBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -11,6 +11,7 @@
 JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
+List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 %>
 
 <title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
@@ -51,7 +52,6 @@ JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
      <td colspan="4" align="center" id="top_company"><%=dnode.get("v-name").asText() %>（<%=dnode.get("price").asDouble() %>円）</td>
    </tr>
    <tr class="top_sub">
-     <td rowspan="3" align="left" width="15%"><img hspace="10px" src="<%=request.getContextPath()%>/img/weather/hare.png" width="100px"></td>
      <td rowspan="3" width="40%">簡単紹介</td>
      <td align="left">お買い<font color="red">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
      <td rowspan="3" align="right" width="15%">bookmark</td>
@@ -207,11 +207,10 @@ JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
+  <form action="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=dnode.get("req_code").asText() %>" method="POST">
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
-     <input type="hidden" name="quote" value="<%=dnode.get("req_code").asText()%>">
      <div><input type="submit" value="送信" align="center"></div>
    </td>
   </tr>
@@ -226,7 +225,12 @@ JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
   </tr>
   <tr>
    <td class="sub" id="commentword">
-    コメント内容
+   <%if(clist!=null){ %>
+   <%for(CommentBean cbean : clist){ %>
+    ・<%=cbean.getComment() %>　(ID:<%=cbean.getFk_user() %>　DATE:<%=cbean.getDate() %> <%=cbean.getTime() %>)
+     <br>
+    <%} %>
+    <%} %>
    </td>
   </tr>
  </table>

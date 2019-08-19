@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.node.ArrayNode,java.util.List,java.util.ArrayList,masui_java.StaticList,database.IndustryBean"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.node.ArrayNode,java.util.List,java.util.ArrayList,masui_java.StaticList,database.IndustryBean,database.CommentBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -14,7 +14,8 @@ ArrayNode anode = (ArrayNode)request.getAttribute("anode");
 String iname = (String)request.getAttribute("iname");
 List<String> industryList = StaticList.industryList;
 ArrayList<ArrayList<Object>> ahistorical = (ArrayList<ArrayList<Object>>)request.getAttribute("ahistorical");
-List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
+IndustryBean iinfo = (IndustryBean)request.getAttribute("iinfo");
+List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
 %>
 
 </head>
@@ -111,7 +112,7 @@ List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
 <div class="industry_filter">
   <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
     <select name="iname">
-      <option value="all" class="industry_option">全ての業界</option>
+      <option value="全業界（日経平均採用銘柄）" class="industry_option">全ての業界</option>
       <%for(String element : industryList){%>
 		<option <%if(element.equals(iname)){ %>selected<%} %> value="<%=element%>" class="industry_option"><%=element %></option>
 	  <%} %>
@@ -127,7 +128,7 @@ List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
     <tr height="100px">
       <td>
 
-        <p class="sub_word"><%=ilist.get(0).getIdis() %></p>
+        <p class="sub_word"><%=iinfo.getIdis() %></p>
         <p class="main_word"><%=iname %></p>
 
       </td>
@@ -144,7 +145,7 @@ List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
       <td class="overview">
         <h3>業界動向</h3>
         <p>
-        	<%=ilist.get(0).getIfut() %>
+        	<%=iinfo.getIfut() %>
         </p>
       </td>
       <%--業界の関連画像表示 --%>
@@ -195,7 +196,7 @@ List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form>
+  <form action="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=iname %>" method="POST">
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
@@ -213,7 +214,12 @@ List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
   </tr>
   <tr>
    <td class="sub" class="commentword">
-    コメント内容
+    <%if(clist!=null){ %>
+   <%for(CommentBean cbean : clist){ %>
+    ・<%=cbean.getComment() %>　(ID:<%=cbean.getFk_user() %>　DATE:<%=cbean.getDate() %> <%=cbean.getTime() %>)
+     <br>
+    <%} %>
+    <%} %>
    </td>
   </tr>
  </table>

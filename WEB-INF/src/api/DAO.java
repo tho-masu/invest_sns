@@ -14,11 +14,16 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import database.CommentBean;
+import database.CommentBeanMapping;
 import database.DBManager;
 import database.IndustryBean;
 import database.IndustryBeanMapping;
 
 public class DAO {
+
+/* ここからAPI用DAO */
+
 	public static JsonNode getCompanyInfo(String scode){
 		HashMap<String,String> query = new HashMap<String,String>();
 		query.put("quote", scode);
@@ -196,15 +201,54 @@ public class DAO {
 		return hnode;
 	}
 
-	public static List<IndustryBean> getIndustryList(String iname)throws SQLException{
-		String sql="SELECT industry_name,industry_dis,industry_fut FROM t_industry where industry_name='"+iname+"';";
+/* ここまでAPI用DAO */
+
+/* ここからDB用DAO */
+
+	public static IndustryBean getIndustryInfo(String iname)throws SQLException{
+		String sql="SELECT industry_name,industry_dis,industry_fut,weather FROM t_industry where industry_name='"+iname+"';";
+		List<IndustryBean> ilist = DBManager.findAll(sql, new IndustryBeanMapping());
+		return ilist.get(0);
+	}
+
+	public static List<IndustryBean> getIndustryList()throws SQLException{
+		String sql="SELECT industry_name,industry_dis,industry_fut,weather FROM t_industry order by pk_industry asc;";
 		return DBManager.findAll(sql, new IndustryBeanMapping());
 	}
 
-	public static int registerComment(String quote,String comment)throws SQLException{
+	public static int registerCompanyComment(String quote,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_com"+
 				"(fk_user,quote,comment,com_date) VALUES("+
 				"'"+"1"+"','"+quote+"','"+comment+"',"+"now()"+");";
 		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int registerIndustryComment(String iname,String comment)throws SQLException{
+		String sql="INSERT INTO t_comment_ind"+
+				"(fk_user,industry_name,comment,com_date) VALUES("+
+				"'"+"1"+"','"+iname+"','"+comment+"',"+"now()"+");";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int registerMarketComment(String comment)throws SQLException{
+		String sql="INSERT INTO t_comment_mar"+
+				"(fk_user,comment,com_date) VALUES("+
+				"'"+"1"+"','"+comment+"',"+"now()"+");";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static List<CommentBean> getCompanyCommentList(String quote)throws SQLException{
+		String sql="SELECT fk_user,comment,com_date FROM t_comment_com where quote='"+quote+"' order by com_date asc;";
+		return DBManager.findAll(sql, new CommentBeanMapping());
+	}
+
+	public static List<CommentBean> getIndustryCommentList(String iname)throws SQLException{
+		String sql="SELECT fk_user,comment,com_date FROM t_comment_ind where industry_name='"+iname+"' order by com_date asc;";
+		return DBManager.findAll(sql, new CommentBeanMapping());
+	}
+
+	public static List<CommentBean> getMarketCommentList()throws SQLException{
+		String sql="SELECT fk_user,comment,com_date FROM t_comment_mar order by com_date asc;";
+		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 }

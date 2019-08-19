@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,masui_java.StaticList"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,database.IndustryBean,database.CommentBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -11,8 +11,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
 <%
-JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
-List<String> industryList = StaticList.industryList;
+JsonNode hnode = (JsonNode)request.getAttribute("hnode");
+List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
+List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 %>
 
 </head>
@@ -118,13 +119,13 @@ List<String> industryList = StaticList.industryList;
 			景気動向
 		</th>
 	</tr>
-	<% for(String element : industryList){ %>
+	<% for(IndustryBean element : ilist){ %>
 	<tr class="reco_info">
 		<td align="center">
-			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element %></p> </a>
+			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
 		</td>
 		<td align="center">
-			<img src="<%=request.getContextPath() %>/img/weather/hare.png" height="50px">
+			<img src="<%=request.getContextPath() %>/img/weather/<%=element.getWeather() %>.png" height="50px">
 		</td>
 	</tr>
 	<%} %>
@@ -135,7 +136,7 @@ List<String> industryList = StaticList.industryList;
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form>
+  <form action="<%=request.getContextPath() %>/masui_jsp/market" method="POST">
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
@@ -153,7 +154,12 @@ List<String> industryList = StaticList.industryList;
   </tr>
   <tr>
    <td class="sub" class="commentword">
-    コメント内容
+    <%if(clist!=null){ %>
+   <%for(CommentBean cbean : clist){ %>
+    ・<%=cbean.getComment() %>　(ID:<%=cbean.getFk_user() %>　DATE:<%=cbean.getDate() %> <%=cbean.getTime() %>)
+     <br>
+    <%} %>
+    <%} %>
    </td>
   </tr>
  </table>
