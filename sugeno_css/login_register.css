@@ -1,0 +1,29 @@
+/*
+----------ログイン、新規登録ページデザイン-------------
+*/
+/*全体設定*/
+body{
+	font-family:Verdana,"ヒラギノ角ゴ Pro W3","メイリオ";
+	background:#52c2d0;
+	margin:0;
+	padding:0;
+}
+
+/*ログインフォームデザイン設定*/
+.outer{
+	display:inline;
+	vertical-align:middle;
+}
+.log_range{
+	background:white;
+	height:300px;
+	width:450px;
+	margin:auto;
+	vertical-align:middle;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inner{
+	text-align:center;
+}

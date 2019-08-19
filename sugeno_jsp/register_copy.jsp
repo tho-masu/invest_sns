@@ -5,10 +5,9 @@
 <head>
 <meta charset="UTF-8">
 
-
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/login_register.css">
 
-<title>investagramログイン</title>
+<title>investagram新規登録</title>
 </head>
 
 <body>
@@ -24,19 +23,12 @@
 </header>
 
 <%--ログイン入力画面 --%>
-<div class="outer">
-<div class="log_range">
-  <div class="inner"  align="center">
+<div>
   <form action="" method="POST">
-    <div><input type="text" name="user_name" placeholder="ユーザーID"></div>
-    <div><input type="password" name="password"></div>
-    <div><input type="submit" value="ログイン"></div>
-    <div><a href="">新規登録</a></div>
-  </form>
-  </div>
+    <input type="text" name="user_name" placeholder="ユーザーID">
+    <input type="password" name="password">
+    <input type="submit" value="ログイン"></form>
 </div>
-</div>
-
 
 </body>
 </html>
