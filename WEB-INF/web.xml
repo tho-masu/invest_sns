@@ -42,4 +42,14 @@
         <url-pattern>/tei_java/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>teiRegisterS</servlet-name>
+        <servlet-class>tei_java.Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teiRegisterS</servlet-name>
+        <url-pattern>/tei_java/register</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

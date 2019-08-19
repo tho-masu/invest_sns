@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
 <title>investagramログイン</title>
 </head>
-
 <body>
 
 <br>
@@ -32,19 +31,15 @@
       <h1>Hi Guest</h1>
     </div>
     <div class="form_box">
-    <form action="<%=request.getContextPath()%>/tei_java/login" method="POST">
-      <div class="form_write"><input type="text" name="user_name" placeholder="user_ID"></div>
-      <div class="form_write"><input type="password" name="password" placeholder="password"></div>
-      <div><input type="submit" value="ログイン" class="log_btn"></div>
-      <div style="margin-top:20px;">
-        <input type="button" value="新規登録"onClick="location.href='<%=request.getContextPath()%>/tei_jsp/register.jsp'" class="log_btn">
-      </div>
+    <form action="<%=request.getContextPath() %>/tei_java/register" method="POST">
+      <div class="form_write"><input type="text" name="username" placeholder="username"></div>
+      <div class="form_write"><input type="text" name="user_id" placeholder="user_id"></div>
+      <div class="form_write"><input type="password" name="password" placeholder="password（6文字以上半角英数字）"></div>
+      <div class="form_write"><input type="password" name="password_confirm" placeholder="password(確認用)"></div>
+      <div><input type="submit" value="登録" class="log_btn"></div>
     </form>
-    </div>
-  </div>
-</div>
-</div>
-<div align="center" >
+    </div><font color="red"></font>
+    <div align="center" >
 	<%String word;
 	if (!(request.getAttribute("errorMessage")==null)){
 		word = (String)request.getAttribute("errorMessage");}
@@ -55,5 +50,10 @@
 	<font color="red"><%=word%></font>
 
 </div>
+  </div>
+</div>
+</div>
+
+
 </body>
 </html>
