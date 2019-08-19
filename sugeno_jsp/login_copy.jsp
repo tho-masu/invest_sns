@@ -7,7 +7,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/login_register.css">
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
 <title>investagramログイン</title>
 </head>
 
@@ -27,12 +27,18 @@
 <div class="outer">
 <div class="log_range">
   <div class="inner"  align="center">
-  <form action="" method="POST">
-    <div><input type="text" name="user_name" placeholder="ユーザーID"></div>
-    <div><input type="password" name="password"></div>
-    <div><input type="submit" value="ログイン"></div>
-    <div><a href="">新規登録</a></div>
-  </form>
+    <div class="up">
+      <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" width="100px" height="100px">
+      <h1>Hi Guest</h1>
+    </div>
+    <div class="form_box">
+    <form action="" method="POST">
+      <div class="form_write"><input type="text" name="user_name" placeholder="user_ID"></div>
+      <div class="form_write"><input type="password" name="password" placeholder="password"></div>
+      <div><input type="submit" value="ログイン"></div>
+      <div><a href="">新規登録</a></div>
+    </form>
+    </div>
   </div>
 </div>
 </div>

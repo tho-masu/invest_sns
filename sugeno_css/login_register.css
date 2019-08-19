@@ -2,6 +2,7 @@
 ----------ログイン、新規登録ページデザイン-------------
 */
 /*全体設定*/
+
 body{
 	font-family:Verdana,"ヒラギノ角ゴ Pro W3","メイリオ";
 	background:#52c2d0;
@@ -10,7 +11,7 @@ body{
 }
 
 /*ログインフォームデザイン設定*/
-.outer{
+/*.outer{
 	display:inline;
 	vertical-align:middle;
 }
@@ -23,7 +24,50 @@ body{
 	display: flex;
     align-items: center;
     justify-content: center;
-}
+}*/
 .inner{
-	text-align:center;
+	marign-top:100px;
+}
+*/
+.outer{
+	margin:0 auto;
+
+}
+.up{
+	margin-top:100px;
+	width:450px;
+	background:#ff00ff;
+	padding:20px;
+}
+.up h1{
+	color:white;
+	font-weight:lighter;
+}
+.up img{
+	border-radius: 50%;
+	margin:6px;
+}
+.form_box{
+	width:450px;
+	background:white;
+	padding:20px;
+}
+.form_write{
+	margin:20px;
+}
+.form_wirte input{
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.form_wirte input:focus{
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
 }
