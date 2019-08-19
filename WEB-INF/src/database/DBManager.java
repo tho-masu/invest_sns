@@ -49,4 +49,30 @@ public class DBManager {
 			}
 		}
 	}
+
+	public static int simpleUpdate(String sql)throws SQLException{
+		Connection con=null;
+		Statement smt=null;
+		try{
+			con=getConnection();
+			smt=con.createStatement();
+			return smt.executeUpdate(sql);
+		}finally{
+			if(smt!=null){
+				try{
+					smt.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+
+			if(con!=null){
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }
