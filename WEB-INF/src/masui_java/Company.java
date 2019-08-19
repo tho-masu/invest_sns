@@ -1,6 +1,7 @@
 package masui_java;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +19,18 @@ public class Company extends HttpServlet {
 
 		String scode = request.getParameter("quote");
 		String days = "7";
+		String comment = request.getParameter("comment");
 
 		if(request.getParameter("days")!=null) {
 			days = request.getParameter("days");
+		}
+		if(comment!=null) {
+			try {
+				DAO.registerComment(scode, comment);
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		}
 
 		JsonNode dnode = DAO.getCompanyInfo(scode);

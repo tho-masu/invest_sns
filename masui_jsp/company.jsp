@@ -207,10 +207,11 @@ JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form>
+  <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
+     <input type="hidden" name="quote" value="<%=dnode.get("req_code").asText()%>">
      <div><input type="submit" value="送信" align="center"></div>
    </td>
   </tr>

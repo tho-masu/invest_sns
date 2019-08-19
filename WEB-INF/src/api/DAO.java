@@ -200,4 +200,11 @@ public class DAO {
 		String sql="SELECT industry_name,industry_dis,industry_fut FROM t_industry where industry_name='"+iname+"';";
 		return DBManager.findAll(sql, new IndustryBeanMapping());
 	}
+
+	public static int registerComment(String quote,String comment)throws SQLException{
+		String sql="INSERT INTO t_comment_com"+
+				"(fk_user,quote,comment,com_date) VALUES("+
+				"'"+"1"+"','"+quote+"','"+comment+"',"+"now()"+");";
+		return DBManager.simpleUpdate(sql);
+	}
 }
