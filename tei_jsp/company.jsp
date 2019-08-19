@@ -117,7 +117,7 @@
   <tr>
    <td>コメント欄</td>
   </tr>
-  <form>
+  <form action="<%=request.getContextPath()%>/comment" method="POST">>
   <tr>
    <td>
      <textarea name="comment" rows="4" cols="40"></textarea>
