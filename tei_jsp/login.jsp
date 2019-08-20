@@ -33,7 +33,7 @@
     </div>
     <div class="form_box">
     <form action="<%=request.getContextPath()%>/tei_java/login" method="POST">
-      <div class="form_write"><input type="text" name="user_name" placeholder="user_ID"></div>
+      <div class="form_write"><input type="text" name="user_id" placeholder="user_id"></div>
       <div class="form_write"><input type="password" name="password" placeholder="password"></div>
       <div><input type="submit" value="ログイン" class="log_btn"></div>
       <div style="margin-top:20px;">
