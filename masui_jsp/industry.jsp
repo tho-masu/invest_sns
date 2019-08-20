@@ -195,8 +195,14 @@ List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
    <td class="sub" class="commentword">
     <%if(clist!=null){ %>
    <%for(CommentBean cbean : clist){ %>
-    ・<%=cbean.getComment() %>　(ID:<%=cbean.getFk_user() %>　DATE:<%=cbean.getDate() %> <%=cbean.getTime() %>)
-     <br>
+    ・<%=cbean.getComment() %>　(名前:<%=cbean.getUsername() %>　日付:<%=cbean.getDate() %> <%=cbean.getTime() %>)
+     <form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+     			<input type="hidden" name="pk_comment" value="<%=cbean.getPk_comment() %>">
+     			<input type="hidden" name="fk_user" value="<%=cbean.getFk_user() %>">
+     			<input type="hidden" name="iname" value="<%=iname %>">
+				<input type="submit" name="btn" value="削除">
+	</form>
+	<br>
     <%} %>
     <%} %>
    </td>

@@ -8,16 +8,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 import api.DAO;
 import database.CommentBean;
+import database.UserBean;
 
 public class Company extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 
 		String scode = request.getParameter("quote");
 		String days = "7";
@@ -29,6 +32,16 @@ public class Company extends HttpServlet {
 		JsonNode dnode = DAO.getCompanyInfo(scode);
 		JsonNode hnode = DAO.getCompanyHistorical(scode,days);
 		JsonNode nnode = DAO.getCompanyNews(dnode.get("short_name").asText());
+
+		UserBean ubean= (UserBean)session.getAttribute("login_account");
+		boolean isRegisteredBookmark = false;
+		try {
+			isRegisteredBookmark = DAO.isRegisteredBookmark(ubean.getPk_id(), scode);
+		} catch (SQLException e1) {
+			// TODO 自動生成された catch ブロック
+			e1.printStackTrace();
+		}
+
 		List<CommentBean> clist = null;
 		try {
 			clist = DAO.getCompanyCommentList(scode);
@@ -36,7 +49,7 @@ public class Company extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 		}
 
-
+		request.setAttribute("isRegisteredBookmark", isRegisteredBookmark);
 		request.setAttribute("dnode", dnode);
 		request.setAttribute("hnode", hnode);
 		request.setAttribute("nnode", nnode);

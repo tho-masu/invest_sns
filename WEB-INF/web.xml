@@ -61,6 +61,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>masuiDeleteCommentS</servlet-name>
+        <servlet-class>masui_java.DeleteComment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiDeleteCommentS</servlet-name>
+        <url-pattern>/masui_jsp/delete_comment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>masuiBookmarkS</servlet-name>
         <servlet-class>masui_java.Bookmark</servlet-class>
     </servlet>

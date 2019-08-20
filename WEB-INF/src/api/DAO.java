@@ -238,22 +238,53 @@ public class DAO {
 	}
 
 	public static List<CommentBean> getCompanyCommentList(String quote)throws SQLException{
-		String sql="SELECT fk_user,comment,com_date FROM t_comment_com where quote='"+quote+"' order by com_date asc;";
+		String sql="SELECT pk_comment,fk_user,username,comment,com_date FROM t_comment_com INNER JOIN t_user ON t_comment_com.fk_user=t_user.pk_id where quote='"+quote+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
 	public static List<CommentBean> getIndustryCommentList(String iname)throws SQLException{
-		String sql="SELECT fk_user,comment,com_date FROM t_comment_ind where industry_name='"+iname+"' order by com_date asc;";
+		String sql="SELECT pk_comment,fk_user,username,comment,com_date FROM t_comment_ind INNER JOIN t_user ON t_comment_ind.fk_user=t_user.pk_id where industry_name='"+iname+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
 	public static List<CommentBean> getMarketCommentList()throws SQLException{
-		String sql="SELECT fk_user,comment,com_date FROM t_comment_mar order by com_date asc;";
+		String sql="SELECT pk_comment,fk_user,username,comment,com_date FROM t_comment_mar INNER JOIN t_user ON t_comment_mar.fk_user=t_user.pk_id order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
+	}
+
+	public static int deleteCompanyComment(String pk_comment,String fk_user)throws SQLException{
+		String sql="delete from t_comment_com where pk_comment='"+pk_comment+"' and fk_user='"+fk_user+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int deleteIndustryComment(String pk_comment,String fk_user)throws SQLException{
+		String sql="delete from t_comment_ind where pk_comment='"+pk_comment+"' and fk_user='"+fk_user+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int deleteMarketComment(String pk_comment,String fk_user)throws SQLException{
+		String sql="delete from t_comment_mar where pk_comment='"+pk_comment+"' and fk_user='"+fk_user+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static boolean isRegisteredBookmark(int user_id,String quote)throws SQLException {
+		String sql="SELECT COUNT(*) FROM t_bookmark WHERE fk_user='"+user_id+"' and quote='"+quote+"';";
+		int count = DBManager.count(sql);
+		if(count==0) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 	public static int registerBookmark(int user_id,String quote)throws SQLException {
 		String sql="INSERT INTO t_bookmark(fk_user,quote) VALUES('"+user_id+"','"+quote+"');";
 		return DBManager.simpleUpdate(sql);
 	}
+
+	public static int deleteBookmark(int user_id,String quote)throws SQLException {
+		String sql="DELETE FROM t_bookmark WHERE fk_user='"+user_id+"' and quote='"+quote+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
 }
