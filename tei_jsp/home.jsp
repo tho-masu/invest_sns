@@ -46,7 +46,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
      <%--フォローしたユーザのアイコン --%>
      <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
      <%--フォローしたユーザの名前 --%>
-     <div>name</div>
+     <span>name</span>
    </td>
  </tr>
  <tr>
@@ -58,13 +58,13 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
  <tr align="center">
  <%--share,comment,goodボタン（仮　できれば） --%>
    <td width="33.333%">
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div>
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a><span>12</span>
    </td>
    <td width="33.333%">
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div>
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a><span>13</span>
    </td>
    <td width="33.333%">
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div>
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a><span>14</span>
    </td>
  </tr>
 </table>

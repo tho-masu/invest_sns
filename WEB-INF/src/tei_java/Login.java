@@ -51,7 +51,7 @@ public class Login extends HttpServlet{
 			HashMap<Integer, Boolean> nice = new HashMap<Integer, Boolean>();
 			session.setAttribute("niceFlag", nice);
 
-			forwardURL= "/home";
+			forwardURL= "/tei_jsp/home.jsp";
 			//forwardURL= "/mainpage/home.jsp";
 		}else{
 			errorMessage = "パスワードに誤りがあります";
@@ -60,7 +60,7 @@ public class Login extends HttpServlet{
 
 	}catch(LoginFailedException e){
 		request.setAttribute("errorMessage", errorMessage);
-		forwardURL="/login/login.jsp";
+		forwardURL="/tei_jsp/login.jsp";
 	}catch (Exception e) {
 		e.printStackTrace();
 	}

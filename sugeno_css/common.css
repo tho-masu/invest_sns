@@ -411,6 +411,164 @@ table{
 }
 
 .function_icon td{
-	margin-left: auto;
-    margin-right: auto;
+	text-align: center;
+	vertical-align:middle;
+}
+
+/*
+---------------mypage.jsp編集----------------------
+*/
+/*-------------アイコンと自己紹介の編集設定------------*/
+/*背景色設定*/
+.profile_top{
+	background:#52c2d0;
+	padding:10px;
+	color:white;
+}
+/*アイコン設定*/
+.mypage_profile{
+	margin-top:100px;
+}
+.profile_img{
+	width:100px;
+	height:100px;
+	margin-right:25px;
+	float:left;
+}
+/*紹介文の設定*/
+.user_introduction{
+	float:left;
+	width:750px;
+}
+.user_name{
+	font-size:40px;
+	margin-bottom:10px;
+}
+.invest_histry{
+	font-size:20px;
+	margin-bottom:10px;
+}
+.introduction_word{
+	margin-bottom:7px;
+}
+/*編集ボタン設定*/
+.edit_profile{
+	float:right;
+	margin-top:15px;
+	margin-right:10px;
+}
+.edit_profile a{
+	margin-top:3px;
+	margin-bottom: 10px;
+	padding: 10px 30px;
+	border-style: none;
+	font-size: 20px;
+	position: relative;
+	display: inline;
+	width: 250px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #26C6DA;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+	border:2px solid #ffffff;
+}
+.edit_profile a:active {
+	border-bottom: 2px solid #26C6DA;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.edit_profile a:hover{
+	background-color:#74f1fc;
+}
+.line-right{
+	border-right:1px solid #d3d3d3;
+}
+/*--------ユーザの投稿一覧とブックマーク企業一覧位置設定--------*/
+.post_n_bookmark{
+	margin-right:auto;
+	margin-left:auto;
+	width:1000px;
+	margin-bottom:50px;
+	margin-top:50px;
+}
+/*--------ユーザの投稿一覧設定--------*/
+.heading{
+	background-color:#52c2d0;
+	color:white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 35px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+.post_article{
+	width:400px;
+}
+.post_list{
+	background:#00ffff;
+	width:550px;
+	margin-right:100px;
+	float:left;
+
+}
+.post_date{
+	word-wrap: break-word;
+	padding:10px;
+	background:whitesmoke;
+
+
+}
+.post_content{
+	word-wrap: break-word;
+	padding:10px;
+	background:whitesmoke;
+
+}
+.post_icon{
+	background:whitesmoke;
+
+    border-bottom : solid 2px #52c2d0 ;
+}
+.post_table{
+	margin:0;
+	width:550px;
+}
+.post_table td{
+	text-align:center;
+}
+.post_table span{
+	margin-bottom:10px;
+}
+/*--------ブックマーク企業一覧設定--------*/
+.bookmark_list{
+	width:350px;
+	background:#ff00ff;
+	float:left;
+}
+.bookmark_company{
+	padding:10px;
+	text-align:center;
+	background:whitesmoke;
+
+    border-bottom : solid 2px #52c2d0 ;
+    position:relative;
+    width:330px;
+    height:50px;
+}
+.bookmark_company a:hover{
+	opacity: 0.7;
+}
+.bookmark_company a{
+	text-decoration:none;
+	display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
