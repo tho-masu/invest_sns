@@ -216,24 +216,24 @@ public class DAO {
 		return DBManager.findAll(sql, new IndustryBeanMapping());
 	}
 
-	public static int registerCompanyComment(String quote,String comment)throws SQLException{
+	public static int registerCompanyComment(int pk_id,String quote,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_com"+
 				"(fk_user,quote,comment,com_date) VALUES("+
-				"'"+"1"+"','"+quote+"','"+comment+"',"+"now()"+");";
+				"'"+pk_id+"','"+quote+"','"+comment+"',"+"now()"+");";
 		return DBManager.simpleUpdate(sql);
 	}
 
-	public static int registerIndustryComment(String iname,String comment)throws SQLException{
+	public static int registerIndustryComment(int pk_id,String iname,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_ind"+
 				"(fk_user,industry_name,comment,com_date) VALUES("+
-				"'"+"1"+"','"+iname+"','"+comment+"',"+"now()"+");";
+				"'"+pk_id+"','"+iname+"','"+comment+"',"+"now()"+");";
 		return DBManager.simpleUpdate(sql);
 	}
 
-	public static int registerMarketComment(String comment)throws SQLException{
+	public static int registerMarketComment(int pk_id,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_mar"+
 				"(fk_user,comment,com_date) VALUES("+
-				"'"+"1"+"','"+comment+"',"+"now()"+");";
+				"'"+pk_id+"','"+comment+"',"+"now()"+");";
 		return DBManager.simpleUpdate(sql);
 	}
 
@@ -250,5 +250,10 @@ public class DAO {
 	public static List<CommentBean> getMarketCommentList()throws SQLException{
 		String sql="SELECT fk_user,comment,com_date FROM t_comment_mar order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
+	}
+
+	public static int registerBookmark(int user_id,String quote)throws SQLException {
+		String sql="INSERT INTO t_bookmark(fk_user,quote) VALUES('"+user_id+"','"+quote+"');";
+		return DBManager.simpleUpdate(sql);
 	}
 }

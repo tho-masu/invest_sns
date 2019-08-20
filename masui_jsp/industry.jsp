@@ -22,29 +22,7 @@ List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
 
 <body>
 
-<br>
-
-<header>
-
-<!-- ヘッダーはじまり -->
-<div align="center" align="center">
-<a href="<%=request.getContextPath() %>/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
-</div>
-
-</header>
-
-<nav>
-  <ul>
-    <li><a href="<%=request.getContextPath() %>/">ホーム</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/market">市場</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/industry">業界</a></li>
-    <li><a href="<%=request.getContextPath() %>/mypage.jsp">マイページ</a></li>
-  </ul>
-</nav>
-
-
-
-<!-- ヘッダー終わり -->
+<jsp:include page="header.jsp" flush="true" />
 
 <%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
 
@@ -109,7 +87,7 @@ List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
 
 <%} %>
 
-<div class="industry_filter">
+<div class="industry_filter" align="center">
   <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
     <select name="iname">
       <option value="全業界（日経平均採用銘柄）" class="industry_option">全ての業界</option>
@@ -196,10 +174,11 @@ List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form action="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=iname %>" method="POST">
+  <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
+     <input type="hidden" name="iname" value="<%=iname %>">
      <div><input type="submit" value="送信" align="center" class="submit_div"></div>
    </td>
   </tr>

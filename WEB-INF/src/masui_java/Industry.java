@@ -90,25 +90,4 @@ public class Industry extends HttpServlet {
 
 	}
 
-	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-
-		String iname = request.getParameter("iname");
-		String comment = request.getParameter("comment");
-
-		if(comment!=null && !(comment.equals(""))) {
-			try {
-				DAO.registerIndustryComment(iname, comment);
-			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-		}else {
-			request.setAttribute("error", "[エラー] コメントを入力してください");
-		}
-
-		request.setAttribute("iname", iname);
-		request.getRequestDispatcher("/masui_jsp/comment_posted.jsp").forward(request, response);
-	}
 }

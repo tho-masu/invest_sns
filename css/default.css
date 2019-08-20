@@ -250,6 +250,10 @@ table{
 	color: #666666;
 	font-size:20px;
 }
+.industry_filter form{
+margin-right:auto;
+margin-left:auto;
+}
 /*「Ｇｏ！」ボタンの設定*/
 .industry_filter input{
 	margin-top:3px;

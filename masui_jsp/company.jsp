@@ -20,29 +20,7 @@ List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 
 <body>
 
-<br>
-
-<header>
-
-<!-- ヘッダーはじまり -->
-<div align="center">
-<a href="<%=request.getContextPath() %>/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
-</div>
-
-</header>
-
-<nav>
-  <ul>
-    <li><a href="<%=request.getContextPath() %>/">ホーム</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/market">市場</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/industry">業界</a></li>
-    <li><a href="<%=request.getContextPath() %>/mypage.jsp">マイページ</a></li>
-  </ul>
-</nav>
-
-<br><br>
-
-<!-- ヘッダー終わり -->
+<jsp:include page="header.jsp" flush="true" />
 
 <div id="all_table">
 
@@ -54,7 +32,12 @@ List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
    <tr class="top_sub">
      <td rowspan="3" width="40%">簡単紹介</td>
      <td align="left">お買い<font color="red">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
-     <td rowspan="3" align="right" width="15%">bookmark</td>
+     <td rowspan="3" align="right" width="15%">
+     	<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
+			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+			<div><input type="submit" value="bookmarkに登録" align="center"></div>
+		</form>
+     </td>
    </tr>
    <tr class="top_sub">
      <td align="left">お買い<font color="blue">得</font>度（1/PER)：<%=(double)Math.round( 10000/(dnode.get("co_per").asDouble()) ) / 10000 %></td>
@@ -207,10 +190,11 @@ List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form action="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=dnode.get("req_code").asText() %>" method="POST">
+  <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
+     <input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
      <div><input type="submit" value="送信" align="center"></div>
    </td>
   </tr>

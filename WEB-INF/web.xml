@@ -51,5 +51,40 @@
         <url-pattern>/tei_java/register</url-pattern>
     </servlet-mapping>
 
+	<servlet>
+        <servlet-name>masuiCommentS</servlet-name>
+        <servlet-class>masui_java.Comment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiCommentS</servlet-name>
+        <url-pattern>/masui_jsp/comment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>masuiBookmarkS</servlet-name>
+        <servlet-class>masui_java.Bookmark</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiBookmarkS</servlet-name>
+        <url-pattern>/masui_jsp/bookmark</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>masuiLoginS</servlet-name>
+        <servlet-class>masui_java.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiLoginS</servlet-name>
+        <url-pattern>/masui_jsp/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>masuiRegisterS</servlet-name>
+        <servlet-class>masui_java.Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiRegisterS</servlet-name>
+        <url-pattern>/masui_jsp/register</url-pattern>
+    </servlet-mapping>
 
 </web-app>

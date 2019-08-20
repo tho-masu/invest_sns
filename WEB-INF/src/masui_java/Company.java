@@ -46,24 +46,6 @@ public class Company extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-
-		String scode = request.getParameter("quote");
-		String comment = request.getParameter("comment");
-
-		if(comment!=null && !(comment.equals(""))) {
-			try {
-				DAO.registerCompanyComment(scode, comment);
-			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-		}else {
-			request.setAttribute("error", "[エラー] コメントを入力してください");
-		}
-
-		request.setAttribute("quote", scode);
-		request.getRequestDispatcher("/masui_jsp/comment_posted.jsp").forward(request, response);
+		doGet(request,response);
 	}
 }

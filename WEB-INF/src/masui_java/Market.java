@@ -43,24 +43,4 @@ public class Market extends HttpServlet {
 		request.getRequestDispatcher("/masui_jsp/market.jsp").forward(request, response);
 
 	}
-
-	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-
-		String comment = request.getParameter("comment");
-
-		if(comment!=null && !(comment.equals(""))) {
-			try {
-				DAO.registerMarketComment(comment);
-			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-		}else {
-			request.setAttribute("error", "[エラー] コメントを入力してください");
-		}
-
-		request.getRequestDispatcher("/masui_jsp/comment_posted.jsp").forward(request, response);
-	}
 }
