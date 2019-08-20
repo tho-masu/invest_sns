@@ -22,7 +22,7 @@ List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
 
 <body>
 
-
+<br>
 
 <header>
 
@@ -134,7 +134,7 @@ List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
       </td>
       <%--天気を表示 --%>
       <td  rowspan="2" align="center" width="200px">
-        <img src="<%=request.getContextPath() %>/img/weather/晴れる.png" width="100px">
+        <img src="<%=request.getContextPath() %>/img/weather/<%=iinfo.getWeather() %>.png" width="100px">
       </td>
     </tr>
   </table>
