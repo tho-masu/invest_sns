@@ -7,33 +7,35 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import api.DAO;
-import database.UserBean;
 
-public class Bookmark extends HttpServlet {
+public class DeleteComment extends HttpServlet {
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
 
-		UserBean ubean= (UserBean)session.getAttribute("login_account");
 		String quote = request.getParameter("quote");
-		String registerOrDelete = request.getParameter("registerOrDelete");
+		String iname = request.getParameter("iname");
+		String pk_comment = request.getParameter("pk_comment");
+		String fk_user = request.getParameter("fk_user");
 
 		try {
-			if(registerOrDelete.equals("register")) {
-				DAO.registerBookmark(ubean.getPk_id(),quote);
-			}else if(registerOrDelete.equals("delete")) {
-				DAO.deleteBookmark(ubean.getPk_id(), quote);
+			if(quote != null) {
+				request.setAttribute("quote", quote);
+				DAO.deleteCompanyComment(pk_comment, fk_user);
+			}else if(iname != null) {
+				request.setAttribute("iname", iname);
+				DAO.deleteIndustryComment(pk_comment, fk_user);
+			}else {
+				DAO.deleteMarketComment(pk_comment, fk_user);
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
+		request.getRequestDispatcher("/masui_jsp/comment_deleted.jsp").forward(request, response);
 
-		request.getRequestDispatcher("/masui_jsp/company?quote="+quote).forward(request, response);
 	}
 }

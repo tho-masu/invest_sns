@@ -41,7 +41,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 <!-- ヘッダー終わり -->
 
 <%--ユーザのプロフィールを表示する --%>
-<table border="1">
+<table class="mypage_profile">
  <tr>
    <td colspan="4" valign="middle" class="profile_top">
      <%--ユーザのアイコン --%>
@@ -50,10 +50,10 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
      </div>
      <div class="user_introduction">
      <%--ユーザの名前 --%>
-       <p>name</p>
+       <p class="user_name">name</p>
      <%--ユーザの自己紹介、投資経験 --%>
-       <p>投資経験：5年</p>
-       <p>自己紹介文xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       <p class="invest_histry">投資経験：5年</p>
+       <p class="introduction_word">自己紹介文xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
        </p>
@@ -67,14 +67,14 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
  </tr>
  <tr align="center">
  <%--投稿数、ブックマーク数、フォロー数、フォロワー数 --%>
-   <td width="25%">
+   <td width="25%" class="line-right">
      <p>投稿</p>
      <p>15</p>
    </td>
-   <td width="25%">
+   <td width="25%" class="line-right">
      <p>ブックマーク</p>
      <p>15</p>
-   <td width="25%">
+   <td width="25%" class="line-right">
      <p>フォロー</p>
      <p>15</p>
    </td>
@@ -85,69 +85,44 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
  </tr>
 </table>
 
-<%--このユーザの投稿記事表示 --%>
-
-<table border="1" class="post_article" width="400px">
-  <tr>
-    <th colspan="2">
-      <p>あなたの投稿記事</p>
-    </th>
-  <tr>
-  <tr>
-    <td width="100px">
-      <p>18 8月</p>
-    </td>
-    <td>
-      <p>投稿記事１xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-    </td>
-  </tr>
-  <tr>
-    <td >
-      <p>16 8月</p>
-    </td>
-    <td>
-      <p>投稿記事２xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-    </td>
-  </tr>
-</table>
-
-<%--ブックマーク企業一覧表示 --%>
-<table border="1" class="post_article" width="400px">
-  <tr>
-    <th>
-      <p>ブックマーク企業</p>
-    </th>
-  <tr>
-  <tr>
-    <td>
-      <p>AGC</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>日産</p>
-    </td>
-  </tr>
-</table>
 
 <div class="post_n_bookmark">
   <%--このユーザの投稿記事一覧表示 --%>
   <div class="post_list">
-    <div class="heading"><p>あなたの投稿記事</p></div>
+    <div class="heading"><p>投稿記事</p></div>
 
     <div class="post_date"><p>2019年12月19日</p></div>
     <div class="post_content"><p>記事内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+    <%--シェア、コメント、いいね数 --%>
+    <div class="post_icon">
+      <table class="post_table">
+        <tr>
+          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div></td>
+          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
+          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div></td>
+        </tr>
+      </table>
+    </div>
 
     <div class="post_date"><p>3月17日</p></div>
     <div class="post_content"><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+    <div class="post_icon">
+      <table class="post_table">
+        <tr>
+          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a><div>12</div></td>
+          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a><div>13</div></td>
+          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a><div>14</div></td>
+        </tr>
+      </table>
+    </div>
   </div>
   <%--ブックマーク企業一覧表示 --%>
   <div class="bookmark_list">
     <div align="center" class="heading"><p>ブックマーク企業</p></div>
+    <%--クリックでその企業ページに画面遷移 --%>
+    <div class="bookmark_company"><p><a href="">AGC</a></p></div>
 
-    <div class="bookmark_company"><p>AGC</p></div>
-
-    <div class="bookmark_company"><p>日産</p></div>
+    <div class="bookmark_company"><p><a href="">日産</a></p></div>
 
   </div>
 </div>
