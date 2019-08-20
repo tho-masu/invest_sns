@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math,java.util.List,java.util.Date,java.sql.Time,database.CommentBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -8,10 +8,9 @@
 <%
 String quote = (String)request.getAttribute("quote");
 String iname = (String)request.getAttribute("iname");
-String error = (String)request.getAttribute("error");
 %>
 
-<title><%if(error == null){ %>送信完了<%}else{ %>エラー<%} %></title>
+<title>削除完了</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -22,11 +21,7 @@ String error = (String)request.getAttribute("error");
 <table class="comment_submit">
 <tr>
 <td class="point_top">
-<%if(error == null){ %>
-コメントの送信が完了しました
-<%}else{ %>
-<%=error %>
-<%} %>
+コメントの削除が完了しました
 </td>
 </tr>
 <tr>

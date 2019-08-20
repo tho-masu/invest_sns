@@ -12,6 +12,7 @@ JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
 List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
+boolean isRegisteredBookmark = (boolean)request.getAttribute("isRegisteredBookmark");
 %>
 
 <title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
@@ -33,10 +34,21 @@ List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
      <td rowspan="3" width="40%">簡単紹介</td>
      <td align="left">お買い<font color="red">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
      <td rowspan="3" align="right" width="15%">
+
+     <% if(!isRegisteredBookmark){%>
      	<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
 			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+			<input type="hidden" name="registerOrDelete" value="register">
 			<div><input type="submit" value="bookmarkに登録" align="center"></div>
 		</form>
+	<%}else{ %>
+		<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
+			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+			<input type="hidden" name="registerOrDelete" value="delete">
+			<div><input type="submit" value="bookmarkから削除" align="center"></div>
+		</form>
+	<%} %>
+
      </td>
    </tr>
    <tr class="top_sub">
@@ -211,8 +223,14 @@ List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
    <td class="sub" id="commentword">
    <%if(clist!=null){ %>
    <%for(CommentBean cbean : clist){ %>
-    ・<%=cbean.getComment() %>　(ID:<%=cbean.getFk_user() %>　DATE:<%=cbean.getDate() %> <%=cbean.getTime() %>)
-     <br>
+    ・<%=cbean.getComment() %>　(名前:<%=cbean.getUsername() %>　日付:<%=cbean.getDate() %> <%=cbean.getTime() %>)
+     <form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+     			<input type="hidden" name="pk_comment" value="<%=cbean.getPk_comment() %>">
+     			<input type="hidden" name="fk_user" value="<%=cbean.getFk_user() %>">
+     			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+				<input type="submit" name="btn" value="削除">
+	</form>
+	<br>
     <%} %>
     <%} %>
    </td>
