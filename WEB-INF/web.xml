@@ -96,4 +96,13 @@
         <url-pattern>/masui_jsp/register</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiMypageS</servlet-name>
+        <servlet-class>masui_java.Mypage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiMypageS</servlet-name>
+        <url-pattern>/masui_jsp/mypage</url-pattern>
+    </servlet-mapping>
+
 </web-app>
