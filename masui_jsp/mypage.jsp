@@ -10,8 +10,9 @@
 <title>ユーザページ</title>
 
 <%
+UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 UserBean ubean = (UserBean)request.getAttribute("ubean");
-ArrayNode blist = (ArrayNode)request.getAttribute("blist");
+ArrayNode blist = ubean.getBlist();
 %>
 
 </head>
@@ -35,11 +36,12 @@ ArrayNode blist = (ArrayNode)request.getAttribute("blist");
        <p class="invest_histry">投資経験：<%=ubean.getInvest_time() %></p>
        <p class="introduction_word"><%=ubean.getMessage() %></p>
      </div>
+     <%if(ubean.getPk_id() == loginAccount.getPk_id()){ %>
      <div class="edit_profile">
        <%--プロフィール編集ボタン --%>
-       <a href="<%=request.getContextPath()%>/sugeno_jsp/mypage_edit.jsp">編集</a>
+       <a href="<%=request.getContextPath()%>/masui_jsp/mypage_edit.jsp">編集</a>
      </div>
-
+	 <%} %>
    </td>
  </tr>
  <tr align="center">

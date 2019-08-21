@@ -1,5 +1,12 @@
 package database;
 
+import java.sql.SQLException;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
+import api.DAO;
+
 public class UserBean{
 	private int pk_id;
 	private String user_id;
@@ -78,6 +85,18 @@ public class UserBean{
 
 	public void setIcon_name(String icon_name) {
 		this.icon_name = icon_name;
+	}
+
+	public ArrayNode getBlist() {
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayNode blist = mapper.createArrayNode();
+		try {
+			blist = DAO.getBookmarkList(getPk_id());
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return blist;
 	}
 
 }
