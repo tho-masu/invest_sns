@@ -39,6 +39,20 @@ public class UserDAO {
 		return DBManager.findOne(sql, new UserBeanMapping());
 	}
 
+	public static UserBean getUser(int pk_id) throws SQLException{
+		String sql = "SELECT T_USER.PK_ID AS PK_ID, " +
+				"T_USER.USERNAME AS USERNAME, " +
+				"T_USER.PASSWORD AS PASSWORD, " +
+				"T_USER.MESSAGE AS MESSAGE, " +
+				"T_USER.USER_ID AS USER_ID, " +
+				"T_USER.INVEST_TIME AS INVEST_TIME,"+
+				"T_ICON.ICON_NAME AS ICON_NAME " +
+				"FROM T_USER " +
+				"RIGHT OUTER JOIN T_ICON ON T_USER.PK_ID = T_ICON.FK_USER " +
+				"WHERE PK_ID = '" + pk_id + "';";
+		return DBManager.findOne(sql, new UserBeanMapping());
+	}
+
 	public static List<UserBean> getUserList() throws SQLException{
 		String sql = "SELECT PK_ID, USERNAME, PASSWORD, USER_ID FROM T_USER";
 		return DBManager.findAll(sql, new UserBeanMapping());

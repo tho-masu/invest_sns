@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -19,8 +20,12 @@ import database.BookmarkBeanMapping;
 import database.CommentBean;
 import database.CommentBeanMapping;
 import database.DBManager;
+import database.FollowBean;
+import database.FollowBeanMapping;
 import database.IndustryBean;
 import database.IndustryBeanMapping;
+import database.UserBean;
+import database.UserDAO;
 
 public class DAO {
 
@@ -300,6 +305,50 @@ public class DAO {
 			anode.add(getCompanyInfo(String.valueOf(bbean.getQuote())));
 		}
 		return anode;
+	}
+
+	public static boolean isRegisteredFollow(int user_id,int followed_user)throws SQLException {
+		String sql="SELECT COUNT(*) FROM t_follow WHERE fk_user='"+user_id+"' and followed_user='"+followed_user+"';";
+		int count = DBManager.count(sql);
+		if(count==0) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+	public static int registerFollow(int pk_id,int followed_user)throws SQLException {
+		String sql="INSERT INTO t_follow(fk_user,followed_user) VALUES('"+pk_id+"','"+followed_user+"');";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int deleteFollow(int pk_id,int followed_user)throws SQLException {
+		String sql="DELETE FROM t_follow WHERE fk_user='"+pk_id+"' and followed_user='"+followed_user+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static List<UserBean> getFollowList(int pk_id)throws SQLException {
+		String sql="SELECT * FROM t_follow WHERE fk_user='"+pk_id+"';";
+		List<FollowBean> flist = DBManager.findAll(sql,new FollowBeanMapping());
+
+		List<UserBean> ulist = new ArrayList<UserBean>();
+
+		for(FollowBean fbean : flist) {
+			ulist.add(UserDAO.getUser(fbean.getFollowed_user()));
+		}
+		return ulist;
+	}
+
+	public static List<UserBean> getFollowerList(int followed_user)throws SQLException {
+		String sql="SELECT * FROM t_follow WHERE followed_user='"+followed_user+"';";
+		List<FollowBean> flist = DBManager.findAll(sql,new FollowBeanMapping());
+
+		List<UserBean> ulist = new ArrayList<UserBean>();
+
+		for(FollowBean fbean : flist) {
+			ulist.add(UserDAO.getUser(fbean.getFk_user()));
+		}
+		return ulist;
 	}
 
 }
