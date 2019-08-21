@@ -76,9 +76,9 @@ public class UserDAO {
 		String sql = "SELECT ICON_NAME FROM T_ICON WHERE FK_USER = '" + ubean.getPk_id() + "'";
 		return DBManager.simpleGet(sql);
 	}
-	public static void icon_update(UserBean ubean, String icon_name)throws SQLException{
+	public static void icon_update(String pk_id, String icon_name)throws SQLException{
 		String sql = "UPDATE T_ICON SET ICON_NAME = '" + icon_name + "'" +
-				"WHERE FK_USER = " + ubean.getPk_id();
+				"WHERE FK_USER = " + pk_id;
 		DBManager.simpleUpdate(sql);
 	}
 	public static void deleteUser(int pk_id) throws SQLException{
@@ -88,6 +88,12 @@ public class UserDAO {
 	public static String getIconName(int pk_id) throws SQLException{
 		String sql = "SELECT ICON_NAME FROM T_ICON WHERE FK_USER = " + pk_id + ";";
 		return DBManager.simpleGet(sql);
+	}
+
+
+	public static int updateUserProfile(String pk_id,String user_id,String item,String edit)throws SQLException {
+		String sql = "UPDATE t_user SET "+item+"='"+edit+"' WHERE pk_id='"+pk_id+"' and user_id='"+user_id+"';";
+		return DBManager.simpleUpdate(sql);
 	}
 }
 

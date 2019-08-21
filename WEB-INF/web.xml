@@ -105,4 +105,13 @@
         <url-pattern>/masui_jsp/mypage</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiMypageEditS</servlet-name>
+        <servlet-class>masui_java.MypageEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiMypageEditS</servlet-name>
+        <url-pattern>/masui_jsp/mypage_edit</url-pattern>
+    </servlet-mapping>
+
 </web-app>
