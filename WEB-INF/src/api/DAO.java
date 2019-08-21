@@ -14,6 +14,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import database.BookmarkBean;
+import database.BookmarkBeanMapping;
 import database.CommentBean;
 import database.CommentBeanMapping;
 import database.DBManager;
@@ -277,14 +279,27 @@ public class DAO {
 		}
 	}
 
-	public static int registerBookmark(int user_id,String quote)throws SQLException {
-		String sql="INSERT INTO t_bookmark(fk_user,quote) VALUES('"+user_id+"','"+quote+"');";
+	public static int registerBookmark(int pk_id,String quote)throws SQLException {
+		String sql="INSERT INTO t_bookmark(fk_user,quote) VALUES('"+pk_id+"','"+quote+"');";
 		return DBManager.simpleUpdate(sql);
 	}
 
-	public static int deleteBookmark(int user_id,String quote)throws SQLException {
-		String sql="DELETE FROM t_bookmark WHERE fk_user='"+user_id+"' and quote='"+quote+"';";
+	public static int deleteBookmark(int pk_id,String quote)throws SQLException {
+		String sql="DELETE FROM t_bookmark WHERE fk_user='"+pk_id+"' and quote='"+quote+"';";
 		return DBManager.simpleUpdate(sql);
+	}
+
+	public static ArrayNode getBookmarkList(int pk_id)throws SQLException {
+		String sql="SELECT * FROM t_bookmark WHERE fk_user='"+pk_id+"';";
+		List<BookmarkBean> list = DBManager.findAll(sql,new BookmarkBeanMapping());
+
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayNode anode = mapper.createArrayNode();
+
+		for(BookmarkBean bbean : list) {
+			anode.add(getCompanyInfo(String.valueOf(bbean.getQuote())));
+		}
+		return anode;
 	}
 
 }

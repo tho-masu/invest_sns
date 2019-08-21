@@ -12,6 +12,7 @@ public class UserBeanMapping implements ResultSetBeanMapping<UserBean>{
 		ubean.setPassword(rs.getString("PASSWORD"));
 		ubean.setMessage(rs.getString("MESSAGE"));
 		ubean.setIcon_name(rs.getString("ICON_NAME"));
+		ubean.setInvest_time(rs.getString("INVEST_TIME"));
 		return ubean;
 	}
 }
