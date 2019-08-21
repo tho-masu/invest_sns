@@ -8,10 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-
-import api.DAO;
 import database.UserBean;
 import database.UserDAO;
 
@@ -28,17 +24,7 @@ public class Mypage extends HttpServlet {
 			e1.printStackTrace();
 		}
 
-		ObjectMapper mapper = new ObjectMapper();
-		ArrayNode blist = mapper.createArrayNode();
-		try {
-			blist = DAO.getBookmarkList(ubean.getPk_id());
-		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-
 		request.setAttribute("ubean", ubean);
-		request.setAttribute("blist", blist);
 		request.getRequestDispatcher("/masui_jsp/mypage.jsp").forward(request, response);
 	}
 }
