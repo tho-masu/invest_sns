@@ -24,7 +24,7 @@ public class MypageEdit extends HttpServlet {
 
 		try {
 			if(!(userName.equals(""))) {
-					UserDAO.updateUserProfile(pk_id, user_id, "user_name", userName);
+					UserDAO.updateUserProfile(pk_id, user_id, "username", userName);
 			}
 			if(!(investTime.equals(""))) {
 				UserDAO.updateUserProfile(pk_id, user_id, "invest_time", investTime);

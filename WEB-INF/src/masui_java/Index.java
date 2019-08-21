@@ -2,6 +2,8 @@ package masui_java;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,38 +11,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import api.DAO;
+import database.PostBean;
+import database.PostDAO;
 import database.UserBean;
-import database.UserDAO;
 
-public class Mypage extends HttpServlet {
+public class Index extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
-		String user_id = request.getParameter("user_id");
-
-		UserBean ubean = null;
-		try {
-			ubean = UserDAO.getUser(user_id);
-		} catch (SQLException e1) {
-			// TODO 自動生成された catch ブロック
-			e1.printStackTrace();
+		List<UserBean> flist = loginAccount.getFollowList();
+		List<String> followUsers = new ArrayList<String>();
+		for(UserBean ubean : flist) {
+			followUsers.add(ubean.getUser_id());
 		}
 
-		UserBean loginUser= (UserBean)session.getAttribute("login_account");
-		boolean isRegisteredFollow = false;
+		List<PostBean> plist = new ArrayList<PostBean>();
 		try {
-			isRegisteredFollow = DAO.isRegisteredFollow(loginUser.getPk_id(), ubean.getPk_id());
-		} catch (SQLException e1) {
+			plist = PostDAO.getAllPostDESC(followUsers);
+		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
 
-		request.setAttribute("ubean", ubean);
-		request.setAttribute("isRegisteredFollow", isRegisteredFollow);
-		request.getRequestDispatcher("/masui_jsp/mypage.jsp").forward(request, response);
+		request.setAttribute("plist", plist);
+		request.getRequestDispatcher("/masui_jsp/index.jsp").forward(request,response);
 	}
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{

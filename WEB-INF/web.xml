@@ -123,4 +123,22 @@
         <url-pattern>/masui_jsp/mypage_edit</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiFollowS</servlet-name>
+        <servlet-class>masui_java.Follow</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiFollowS</servlet-name>
+        <url-pattern>/masui_jsp/follow</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>masuiIndexS</servlet-name>
+        <servlet-class>masui_java.Index</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiIndexS</servlet-name>
+        <url-pattern>/masui_jsp/</url-pattern>
+    </servlet-mapping>
+
 </web-app>

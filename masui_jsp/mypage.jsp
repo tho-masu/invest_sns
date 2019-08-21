@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="database.UserBean,com.fasterxml.jackson.databind.JsonNode,com.fasterxml.jackson.databind.node.ArrayNode"%>
+    pageEncoding="UTF-8" import="database.UserBean,database.PostBean,java.util.List,com.fasterxml.jackson.databind.JsonNode,com.fasterxml.jackson.databind.node.ArrayNode"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -13,6 +13,8 @@
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 UserBean ubean = (UserBean)request.getAttribute("ubean");
 ArrayNode blist = ubean.getBlist();
+boolean isRegisteredFollow = (boolean)request.getAttribute("isRegisteredFollow");
+List<PostBean> plist = ubean.getPostList();
 %>
 
 </head>
@@ -41,25 +43,42 @@ ArrayNode blist = ubean.getBlist();
        <%--プロフィール編集ボタン --%>
        <a href="<%=request.getContextPath()%>/masui_jsp/mypage_edit.jsp">編集</a>
      </div>
-	 <%} %>
+	 <%}else{ %>
+
+	 <% if(!isRegisteredFollow){%>
+     	<form action="<%=request.getContextPath() %>/masui_jsp/follow" method="POST">
+			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
+			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
+			<input type="hidden" name="registerOrDelete" value="register">
+			<div><input type="submit" value="フォロー" align="center"></div>
+		</form>
+	<%}else{ %>
+		<form action="<%=request.getContextPath() %>/masui_jsp/follow" method="POST">
+			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
+			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
+			<input type="hidden" name="registerOrDelete" value="delete">
+			<div><input type="submit" value="フォロー解除" align="center"></div>
+		</form>
+	<%} %>
+	<%} %>
    </td>
  </tr>
  <tr align="center">
  <%--投稿数、ブックマーク数、フォロー数、フォロワー数 --%>
    <td width="25%" class="line-right">
      <p>投稿</p>
-     <p>15</p>
+     <p><%=plist.size() %></p>
    </td>
    <td width="25%" class="line-right">
      <p>ブックマーク</p>
      <p><%=blist.size() %></p>
    <td width="25%" class="line-right">
      <p>フォロー</p>
-     <p>15</p>
+     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list.jsp"><%=ubean.getFollowList().size() %></a></p>
    </td>
    <td width="25%">
      <p>フォロワー</p>
-     <p>15</p>
+     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list.jsp"><%=ubean.getFollowerList().size() %></a></p>
    </td>
  </tr>
 </table>
@@ -69,9 +88,9 @@ ArrayNode blist = ubean.getBlist();
   <%--このユーザの投稿記事一覧表示 --%>
   <div class="post_list">
     <div class="heading"><p>投稿記事</p></div>
-
-    <div class="post_date"><p>2019年12月19日</p></div>
-    <div class="post_content"><p>記事内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+<%for(PostBean post : plist){ %>
+    <div class="post_date"><p><%=post.getCreate_date() %></p></div>
+    <div class="post_content"><p><%=post.getArticle() %></p></div>
     <%--シェア、コメント、いいね数 --%>
     <div class="post_icon">
       <table class="post_table">
@@ -82,18 +101,7 @@ ArrayNode blist = ubean.getBlist();
         </tr>
       </table>
     </div>
-
-    <div class="post_date"><p>3月17日</p></div>
-    <div class="post_content"><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
-    <div class="post_icon">
-      <table class="post_table">
-        <tr>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a><div>12</div></td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a><div>13</div></td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a><div>14</div></td>
-        </tr>
-      </table>
-    </div>
+<%} %>
   </div>
   <%--ブックマーク企業一覧表示 --%>
   <div class="bookmark_list">

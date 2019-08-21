@@ -1,6 +1,8 @@
 package database;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -97,6 +99,39 @@ public class UserBean{
 			e.printStackTrace();
 		}
 		return blist;
+	}
+
+	public List<UserBean> getFollowList() {
+		List<UserBean> followList = null;
+		try {
+			followList =  DAO.getFollowList(getPk_id());
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return followList;
+	}
+
+	public List<UserBean> getFollowerList() {
+		List<UserBean> followerList = null;
+		try {
+			followerList =  DAO.getFollowerList(getPk_id());
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return followerList;
+	}
+
+	public List<PostBean> getPostList(){
+		List<PostBean> plist = new ArrayList<PostBean>();
+		try {
+			plist = PostDAO.getAllPostDESC(getUser_id());
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return plist;
 	}
 
 }
