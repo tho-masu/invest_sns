@@ -51,6 +51,15 @@
         <url-pattern>/tei_java/register</url-pattern>
     </servlet-mapping>
 
+     <servlet>
+        <servlet-name>teiMypageS</servlet-name>
+        <servlet-class>tei_java.Mypage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teiMypageS</servlet-name>
+        <url-pattern>/tei_java/mypage</url-pattern>
+    </servlet-mapping>
+
 	<servlet>
         <servlet-name>masuiCommentS</servlet-name>
         <servlet-class>masui_java.Comment</servlet-class>
