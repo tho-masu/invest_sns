@@ -574,3 +574,145 @@ table{
 }
 
 /*----------------------mypage_edit.jsp設定-----------------------------*/
+/*全体の配置設定*/
+.profile_edit_top{
+	text-align:center;
+	margin-top:115px;
+}
+
+/*プロフィール編集部分のデザイン設定*/
+/*位置設定*/
+.profile_edit_subject{
+	margin-right:auto;
+	margin-left:auto;
+	background-color:#52c2d0;
+	color:white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 35px;
+	padding-top:30px;
+	padding-bottom:30px;
+	width:450px;
+}
+
+.proedit_form{
+	width:450px;
+	background:#e0ffff;
+	margin-right:auto;
+	margin-left:auto;
+	padding-bottom:30px;
+}
+.proedit_form div{
+	padding-top:30px;
+
+}
+.proedit_form p{
+	padding-bottom:10px;
+	font-size:23px;
+}
+/*テキストエリアの設定*/
+.write_letters{
+	border:0;
+	padding:7px;
+	font-size:1.3em;
+	font-family:Arial, sans-serif;
+	color:#555;
+	border:solid 1px #ccc;
+	margin:0 0 10px;
+	width:300px;
+	/*角丸に*/
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /*影追加*/
+    -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+textarea{
+	border:0;
+	padding:7px;
+	font-size:1em;
+	font-family:Arial, sans-serif;
+	color:#555;
+	border:solid 1px #ccc;
+	margin:0 0 10px;
+	width:300px;
+	height:200px;
+	/*角丸に*/
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /*影追加*/
+    -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+/*ICON選択の設定*/
+.proedit_form input[type=file]{
+	display:none;
+}
+
+.proedit_form label{
+	content:"Browse...";
+	margin-bottom: 10px;
+	border-style: none;
+	font-size: 20px;
+	position: relative;
+	display: inline;
+	width: 150px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #26C6DA;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+
+}
+.proedit_form label:hover{
+	background-color:#74f1fc;
+}
+/*投資経験の選択の設定*/
+.proedit_form select{
+	width:300px;
+	height:40px;
+	color: #555;
+	font-size:20px;
+	/*角丸に*/
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /*影追加*/
+    -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+/*変更ボタンデザイン設定*/
+.profile_edit_btn{
+	margin-top:3px;
+	margin-bottom: 10px;
+	padding: 10px 30px;
+	border-style: none;
+	font-size: 20px;
+	position: relative;
+	display: inline;
+	width: 150px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #26C6DA;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+.profile_edit_btn:active {
+	border-bottom: 2px solid #26C6DA;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.profile_edit_btn:hover{
+	background-color:#74f1fc;
+
+}
