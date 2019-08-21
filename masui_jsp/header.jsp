@@ -9,7 +9,7 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
 <br>
 <header>
 <div align="center">
-<a href="<%=request.getContextPath() %>/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
+<a href="<%=request.getContextPath() %>/masui_jsp/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
 </div>
 
 <nav>
