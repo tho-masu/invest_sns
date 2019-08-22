@@ -36,6 +36,16 @@ public class Index extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		try {
+			for(PostBean pbean : plist) {
+				boolean b = PostDAO.isRegisteredGood(loginAccount.getPk_id(),pbean.getPk_post());
+				pbean.setIsLoginAccountGood(b);
+			}
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
 		request.setAttribute("plist", plist);
 		request.getRequestDispatcher("/masui_jsp/index.jsp").forward(request,response);
 	}

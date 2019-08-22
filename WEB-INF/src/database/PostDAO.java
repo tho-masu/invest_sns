@@ -93,4 +93,25 @@ public class PostDAO {
 		return DBManager.simpleUpdate(sql);
 	}
 
+
+	public static boolean isRegisteredGood(int fk_user,int fk_post)throws SQLException {
+		String sql="SELECT COUNT(*) FROM t_good WHERE fk_user='"+fk_user+"' and fk_post='"+fk_post+"';";
+		int count = DBManager.count(sql);
+		if(count==0) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+	public static int registerGood(int fk_user,int fk_post)throws SQLException {
+		String sql="INSERT INTO t_good(fk_user,fk_post) VALUES('"+fk_user+"','"+fk_post+"');";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int deleteGood(int fk_user,int fk_post)throws SQLException {
+		String sql="DELETE FROM t_good WHERE fk_user='"+fk_user+"' and fk_post='"+fk_post+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
 }

@@ -87,7 +87,7 @@ List<PostBean> plist = ubean.getPostList();
 <div class="post_n_bookmark">
   <%--このユーザの投稿記事一覧表示 --%>
   <div class="post_list">
-    <div class="heading"><p>自分の投稿</p></div>
+    <div class="heading"><p>投稿</p></div>
 <%for(PostBean post : plist){ %>
     <div class="post_date"><p>
     	<%=post.getCreate_date() %>　<%=post.getCreate_time() %>

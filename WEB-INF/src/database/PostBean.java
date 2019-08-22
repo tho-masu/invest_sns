@@ -15,6 +15,7 @@ public class PostBean {
 	private String caption;
 	private Date create_date;
 	private Time create_time;
+	boolean isLoginAccountGood;
 
 	public PostBean() {
 
@@ -112,5 +113,14 @@ public class PostBean {
 	public void setCreate_time(Time create_time) {
 		this.create_time = create_time;
 	}
+
+	public boolean getIsLoginAccountGood() {
+		return isLoginAccountGood;
+	}
+
+	public void setIsLoginAccountGood(boolean isLoginAccountGood) {
+		this.isLoginAccountGood = isLoginAccountGood;
+	}
+
 
 }

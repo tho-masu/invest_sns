@@ -177,4 +177,13 @@
         <url-pattern>/masui_jsp/delete_article</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiGoodS</servlet-name>
+        <servlet-class>masui_java.Good</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiGoodS</servlet-name>
+        <url-pattern>/masui_jsp/good</url-pattern>
+    </servlet-mapping>
+
 </web-app>
