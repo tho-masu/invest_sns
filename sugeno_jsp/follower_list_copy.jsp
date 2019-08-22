@@ -45,7 +45,7 @@
 <jsp:include page="common_list_inbody.jsp" flush="true" />
 
 <%--follow_list画面 --%>
-<table border="1" class="follow_follower">
+<table class="follow_follower">
   <tr>
     <th class="point_top" colspan="2">
       <p>フォロワー一覧</p>
