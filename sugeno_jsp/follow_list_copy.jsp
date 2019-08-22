@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
+<%--共通項目 --%>
+<jsp:include page="common_list_inhead.jsp" flush="true" />
 
 <title>フォロー一覧</title>
 </head>
@@ -40,6 +40,9 @@
 
 
 <!-- ヘッダー終わり -->
+
+<%--共通項目 --%>
+<jsp:include page="common_list_inbody.jsp" flush="true" />
 
 <%--follow_list画面 --%>
 <table class="follow_follower">

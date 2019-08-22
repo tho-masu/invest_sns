@@ -5,9 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
-<link href="<%=request.getContextPath()%>/sugeno_css/default.css" rel="stylesheet" type="text/css">
+<%--共通項目 --%>
+<jsp:include page="common_list_inhead.jsp" flush="true" />
 <%--
 JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
@@ -17,12 +16,10 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 </head>
 
 <body>
-<%-- 投稿ページへのボタン --%>
-<div class="post_icon_function">
-  <a href="<%=request.getContextPath()%>/sugeno_jsp/post_copy.jsp">
-    <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px">
-  </a>
-</div>
+
+<%--共通項目 --%>
+<jsp:include page="common_list_inbody.jsp" flush="true" />
+
 <br>
 <header>
 
@@ -59,8 +56,12 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
        </div>
        <%--フォローしたユーザの名前 --%>
        <p class="top_name_home">name</p>
-       <div class="top_article_home"><article>長期金利と短期金利逆転で景気後退かxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</article></div>
+       <div class="top_article_home">
+         <div>2019-08-08</div>
+         <article>長期金利と短期金利逆転で景気後退かxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         </article>
+       </div>
      </div>
    </td>
  </tr>

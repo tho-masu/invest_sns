@@ -90,6 +90,39 @@ table{
     bottom: 80px;
     right: 80px;
 }
+/*ページトップボタンのデザイン、位置設定*/
+#page_top{
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  right: 60px;
+  bottom: 165px;
+  background: #3f98ef;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
 
 
 /*
@@ -415,7 +448,7 @@ table{
 .article_table{
 	margin-top:50px;
 }
-/*ユーザアイコン、名前、記事の設定*/
+/*ユーザアイコン、名前、記事の位置設定*/
 .top_icon_home{
 	float:left;
 }
@@ -426,6 +459,9 @@ table{
 }
 .top_article_home{
 	clear:both;
+}
+.top_article_home div{
+	margin-bottom:5px;
 }
 /*シェア、コメント、いいねアイコンの位置設定*/
 .name_n_icon{
@@ -808,4 +844,19 @@ textarea{
 }
 .follow_btn img:hover{
 	opacity:0.7;
+}
+/*--------------------------------------------
+         comment_posted.jspの設定
+--------------------------------------------*/
+/*はい,いいえボタンの位置設定*/
+
+.yes_no_form{
+	text-align:center;
+	margin-top:40px;
+}
+.yes_no_form div{
+	text-align:center;
+}
+.yes{
+	margin-right:50px;
 }

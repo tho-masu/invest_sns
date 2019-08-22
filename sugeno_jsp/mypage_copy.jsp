@@ -5,9 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
-<link href="<%=request.getContextPath()%>/sugeno_css/default.css" rel="stylesheet" type="text/css">
+<%--共通項目 --%>
+<jsp:include page="common_list_inhead.jsp" flush="true" />
 <%--
 JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
@@ -42,9 +41,10 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
   </ul>
 </nav>
 
-
-
 <!-- ヘッダー終わり -->
+
+<%--共通項目 --%>
+<jsp:include page="common_list_inbody.jsp" flush="true" />
 
 <%--ユーザのプロフィールを表示する --%>
 <table class="mypage_profile">

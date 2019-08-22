@@ -5,12 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/icon_show.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
-<link href="<%=request.getContextPath()%>/sugeno_css/default.css" rel="stylesheet" type="text/css">
-
+<%--共通項目 --%>
+<jsp:include page="common_list_inhead.jsp" flush="true" />
 
 <title>マイページ編集</title>
 </head>
@@ -44,6 +40,9 @@
 
 
 <!-- ヘッダー終わり -->
+
+<%--共通項目 --%>
+<jsp:include page="common_list_inbody.jsp" flush="true" />
 
 <%--mypageedit画面 --%>
 <div class="profile_edit_top">

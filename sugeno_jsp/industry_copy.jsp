@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>業界</title>
-<link href="<%=request.getContextPath()%>/sugeno_css/default.css" rel="stylesheet" type="text/css">
-<link href="<%=request.getContextPath()%>/sugeno_css/common.css" rel="stylesheet" type="text/css">
+<%--共通項目 --%>
+<jsp:include page="common_list_inhead.jsp" flush="true" />
 <%--
 ArrayNode anode = (ArrayNode)request.getAttribute("anode");
 String iname = (String)request.getAttribute("iname");
@@ -45,6 +45,8 @@ List<String> industryList = StaticList.industryList;
 
 
 <!-- ヘッダー終わり -->
+<%--共通項目 --%>
+<jsp:include page="common_list_inbody.jsp" flush="true" />
 
 <div class="industry_filter" align="center">
   <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
