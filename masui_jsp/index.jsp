@@ -40,6 +40,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
 				<input type="image" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
+				</form>
 			<%}else{ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
