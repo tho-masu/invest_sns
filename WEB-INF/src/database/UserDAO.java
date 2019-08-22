@@ -111,9 +111,18 @@ public class UserDAO {
 	}
 
 
-	public static String getSearchUser(String searchword)throws SQLException{
-		String sql = "SELECT USERNAME PK_ID USER_ID FROM T_USER WHERE USERNAME LIKE '%"+ searchword +"%' ";
-		return DBManager.simpleGet(sql);
+	public static UserBean getSearchUser(String searchword)throws SQLException{
+		String sql = "SELECT T_USER.PK_ID AS PK_ID, " +
+				"T_USER.USERNAME AS USERNAME, " +
+				"T_USER.PASSWORD AS PASSWORD, " +
+				"T_USER.MESSAGE AS MESSAGE, " +
+				"T_USER.USER_ID AS USER_ID, " +
+				"T_USER.INVEST_TIME AS INVEST_TIME,"+
+				"T_ICON.ICON_NAME AS ICON_NAME " +
+				"FROM T_USER " +
+				"RIGHT OUTER JOIN T_ICON ON T_USER.PK_ID = T_ICON.FK_USER " +
+				"WHERE USERNAME ILIKE '%" + searchword + "%';";
+		return DBManager.findOne(sql, new UserBeanMapping());
 	}
 }
 

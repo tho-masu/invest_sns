@@ -21,12 +21,15 @@ public class Mypage extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+
+
 		String user_id = request.getParameter("user_id");
 
 		UserBean ubean = null;
 		PostBean pbean=null;
 		try {
 			ubean = UserDAO.getUser(user_id);
+
 
 			pbean=PostDAO.getPost(user_id);
 
@@ -48,5 +51,9 @@ public class Mypage extends HttpServlet {
 		request.setAttribute("blist", blist);
 		request.setAttribute("pbean", pbean);
 		request.getRequestDispatcher("/tei_jsp/mypage.jsp").forward(request, response);
+	}
+
+	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
+		doGet(request,response);
 	}
 }
