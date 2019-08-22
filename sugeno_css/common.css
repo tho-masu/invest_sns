@@ -81,9 +81,93 @@ table{
 	word-break:break-all;
 	word-wrap:break-word;
 }
+/*モーダルコンテンツデザイン設定（投稿時に押すボタン、モーダル）*/
+.lock {
+    overflow:hidden;
+}
 
+.modal-content {
+    position:relative;
+    display:none;
+    width:50%;
+    margin:70px;
+    padding:70px 20px;
+    border:2px solid #aaa;
+    background:#fff;
+    /*left: 500px;
+    right: 50px;*/
+
+}
+.modal-content p {
+    margin:0;
+    padding:0;
+}
+.modal-overlay {
+    z-index:1;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:120%;
+    background-color:rgba(0,0,0,0.75);
+}
+.modal-wrap {
+    z-index:2;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
 /*
-/////////company.jspデザイン変更/////////////
+.modal-open {
+    color:#00f;
+    text-decoration:none;
+	font-weight:600;
+    font-size:370%;
+    width:50px;
+    height:50px;
+}*/
+.modal-open:hover {
+    cursor:pointer;
+    color:#f00;
+}
+.modal-close {
+    color:#00f;
+    text-decoration:underline;
+}
+.modal-close:hover {
+    cursor:pointer;
+    color:#f00;
+}
+/*//////////////////*/
+.a_modal_btn {
+	width:60px;
+	height:60px;
+    position: fixed;
+    bottom: 120px;
+    right: 40px;
+}
+.a_modal_btn a {
+	height:60px;
+	width:60px;
+    display: block;
+    background-color: #ccc;
+    text-align: center;
+    color: #ff00ff;
+    font-size: 300px;
+    text-decoration: none;
+    /*padding: 5px 10px;*/
+	filter:alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    index-line:10;
+}
+/*
+////////company.jspデザイン変更/////////////
 */
 
 /*見出し背景色、文字設定「注目ポイント」「チャート」「コメント」「コメント一覧」他のページでも使用*/
@@ -381,9 +465,43 @@ table{
 	color:#4682b4;
 }
 /*
----------------article.jsp編集----------------------
+---------------home.jsp,article.jsp編集----------------------
 */
 /*-------------アイコンと記事本文の編集設定------------*/
+/*ライン設定*/
+.article_table{
+	border:1px solid #a9a9a9;
+}
+/*.function_cell{
+	border-bottom:1px solid #a9a9a9;
+}*/
+.solid_right{
+	border-right:1px solid #a9a9a9;
+}
+/*記事の位置設定*/
+.top_article{
+	padding:10px;
+	margin-bottom:10px;
+}
+.top-margin{
+	margin-top:125px;
+}
+.article_table{
+	margin-top:50px;
+}
+/*ユーザアイコン、名前、記事の設定*/
+.top_icon_home{
+	float:left;
+}
+.top_name_home{
+	float:left;
+	margin-top:15px;
+	margin-left:5px;
+}
+.top_article_home{
+	clear:both;
+}
+/*シェア、コメント、いいねアイコンの位置設定*/
 .name_n_icon{
 	vertical-align:middle;
 }

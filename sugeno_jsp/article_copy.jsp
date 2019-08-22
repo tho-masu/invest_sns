@@ -42,41 +42,32 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 <!-- ヘッダー終わり -->
 
 <%--homeでフォローしたユーザーの投稿を表示する --%>
-<table border="1">
+<table class="article_table">
  <tr>
-   <td class="name_n_icon" colspan="3">
-	 <%--フォローしたユーザのアイコン --%>
-	 <div>
-       <%--このアンカー押すとそのユーザーのページへ --%>
-	   <a href="<%=request.getContextPath() %>/">
-	     <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
-	   </a>
-	   <%--フォローしたユーザの名前 --%>
-	   <p>name</p>
-	 </div>
- </tr>
- <tr class="article_content">
-   <td colspan="3">
-   <%--フォローしたユーザの記事 --%>
-     <div>記事を表示yhjtyjrtyjytujrtyjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjasldjf;lasdkfj;asjf;askfjalksdjdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+   <td colspan="3" valign="middle"  class="function_cell">
+     <div class="top_article">
+       <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
+       <div class="top_icon_home">
+         <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
+       </div>
+       <%--フォローしたユーザの名前 --%>
+       <p class="top_name_home">name</p>
+       <div class="top_article_home"><article>長期金利と短期金利逆転で景気後退かxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</article></div>
      </div>
    </td>
  </tr>
- <tr class="function_icon">
+
+ <tr align="center">
  <%--share,comment,goodボタン（仮　できれば） --%>
-   <td align="center"  width="33.333%" align="center">
-     <div>
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a>
-     <p>12</p>
-     </div>
+   <td width="33.333%" class="solid_right">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div>
    </td>
-   <td width="33.333%" align="center">
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a>
-     <p>13</p>
+   <td width="33.333%" class="solid_right">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div>
    </td>
-   <td width="33.333%" align="center">
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a>
-     <p>14</p>
+   <td width="33.333%">
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div>
    </td>
  </tr>
 </table>
