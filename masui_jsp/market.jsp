@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,database.IndustryBean,database.CommentBean"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,database.IndustryBean,database.CommentBean,database.UserBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -14,6 +14,7 @@
 JsonNode hnode = (JsonNode)request.getAttribute("hnode");
 List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
 List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
+UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 %>
 
 </head>
@@ -134,12 +135,14 @@ List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
    <td class="sub" class="commentword">
     <%if(clist!=null){ %>
    <%for(CommentBean cbean : clist){ %>
-    ・<%=cbean.getComment() %>　(名前:<%=cbean.getUsername() %>　日付:<%=cbean.getDate() %> <%=cbean.getTime() %>)
+    ・<%=cbean.getComment() %>　(名前:<a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a>　日付:<%=cbean.getDate() %> <%=cbean.getTime() %>)
+     <%if(cbean.getFk_user() == loginAccount.getPk_id()){ %>
      <form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
      			<input type="hidden" name="pk_comment" value="<%=cbean.getPk_comment() %>">
      			<input type="hidden" name="fk_user" value="<%=cbean.getFk_user() %>">
 				<input type="submit" name="btn" value="削除">
 	</form>
+	<%}%>
 	<br>
     <%} %>
     <%} %>

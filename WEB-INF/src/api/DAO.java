@@ -245,17 +245,17 @@ public class DAO {
 	}
 
 	public static List<CommentBean> getCompanyCommentList(String quote)throws SQLException{
-		String sql="SELECT pk_comment,fk_user,username,comment,com_date FROM t_comment_com INNER JOIN t_user ON t_comment_com.fk_user=t_user.pk_id where quote='"+quote+"' order by com_date asc;";
+		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_com INNER JOIN t_user ON t_comment_com.fk_user=t_user.pk_id where quote='"+quote+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
 	public static List<CommentBean> getIndustryCommentList(String iname)throws SQLException{
-		String sql="SELECT pk_comment,fk_user,username,comment,com_date FROM t_comment_ind INNER JOIN t_user ON t_comment_ind.fk_user=t_user.pk_id where industry_name='"+iname+"' order by com_date asc;";
+		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_ind INNER JOIN t_user ON t_comment_ind.fk_user=t_user.pk_id where industry_name='"+iname+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
 	public static List<CommentBean> getMarketCommentList()throws SQLException{
-		String sql="SELECT pk_comment,fk_user,username,comment,com_date FROM t_comment_mar INNER JOIN t_user ON t_comment_mar.fk_user=t_user.pk_id order by com_date asc;";
+		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_mar INNER JOIN t_user ON t_comment_mar.fk_user=t_user.pk_id order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 

@@ -5,16 +5,17 @@ import java.util.Date;
 
 public class CommentBean {
 	private int pk_comment,fk_user,quote;
-	private String comment,iname,username;
+	private String comment,iname,username,user_id;
 	private Date date;
 	private Time time;
 
 	public CommentBean() {}
 
-	public CommentBean(int pk_comment,int fk_user,String username, String comment, Date date,Time time) {
+	public CommentBean(int pk_comment,int fk_user,String username,String user_id, String comment, Date date,Time time) {
 		this.pk_comment = pk_comment;
 		this.fk_user = fk_user;
 		this.username = username;
+		this.user_id = user_id;
 		this.comment = comment;
 		this.date = date;
 		this.time = time;
@@ -42,6 +43,14 @@ public class CommentBean {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public int getQuote() {
