@@ -32,7 +32,7 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
     <form action="<%=request.getContextPath() %>/masui_jsp/mypage_edit" method="POST">
       <div>
         <p>ユーザネーム</p>
-        <input type="text" class="write_letters" name="user_name" placeholder="NAME">
+        <input type="text" class="write_letters" name="user_name" placeholder="<%=ubean.getUsername()%>">
       </div>
       <div>
         <p>ICON</p>
@@ -57,7 +57,7 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
       </div>
       <div>
         <p>自己紹介</p>
-        <textarea name="message"></textarea>
+        <textarea name="message" placeholder="<%=ubean.getMessage()%>"></textarea>
       </div>
       <div>
       	<input type="hidden" name="pk_id" value="<%=ubean.getPk_id() %>">
