@@ -60,6 +60,15 @@
         <url-pattern>/tei_java/mypage</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>teiSearchS</servlet-name>
+        <servlet-class>tei_java.Search</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teiSearchS</servlet-name>
+        <url-pattern>/tei_java/search</url-pattern>
+    </servlet-mapping>
+
 	<servlet>
         <servlet-name>masuiCommentS</servlet-name>
         <servlet-class>masui_java.Comment</servlet-class>

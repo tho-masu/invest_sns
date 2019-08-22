@@ -109,5 +109,11 @@ public class UserDAO {
 		String sql = "UPDATE t_user SET "+item+"='"+edit+"' WHERE pk_id='"+pk_id+"' and user_id='"+user_id+"';";
 		return DBManager.simpleUpdate(sql);
 	}
+
+
+	public static String getSearchUser(String searchword)throws SQLException{
+		String sql = "SELECT USERNAME PK_ID USER_ID FROM T_USER WHERE USERNAME LIKE '%"+ searchword +"%' ";
+		return DBManager.simpleGet(sql);
+	}
 }
 

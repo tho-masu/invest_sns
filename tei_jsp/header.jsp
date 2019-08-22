@@ -12,6 +12,13 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
 <a href="<%=request.getContextPath() %>/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
 </div>
 
+<div class="button_second" id="btn_search_">
+	        	<form action="<%=request.getContextPath()%>/tei_java/search" method="POST">
+	        		<input class="search_box" type="text" placeholder="検索" name="search">
+	        		<input id="search_btn" type="submit" id="search_button" value="友達検索">
+	        	</form>
+</div>
+
 <nav>
   <ul>
     <li><a href="<%=request.getContextPath() %>/masui_jsp">ホーム</a></li>
