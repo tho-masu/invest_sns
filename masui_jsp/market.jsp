@@ -87,7 +87,15 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <!-- チャートを入れるテーブル終わり -->
 
-<br><br>
+<br>
+
+<div align="center">証券コードを入力してください</div>
+<form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET" align="center">
+	<input type="text" name="quote">
+	<input type="submit" value="銘柄詳細へ">
+</form>
+
+<br>
 
 <table align="center" border="1" class="list industryweather">
 	<tr class="industryweather_head">

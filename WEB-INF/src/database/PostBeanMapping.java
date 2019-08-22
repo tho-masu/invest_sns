@@ -13,7 +13,6 @@ public class PostBeanMapping implements ResultSetBeanMapping<PostBean> {
 	  pbean.setIcon_name(rs.getString("ICON"));
 	  pbean.setPk_post(rs.getInt("PK_POST"));
 	  pbean.setShare_num(rs.getInt("SHARE"));
-	  pbean.setComments_num(rs.getInt("COMMENTS"));
 	  pbean.setNice_num(rs.getInt("NICE"));
 	  pbean.setArticle(rs.getString("ARTICLE"));
 	  pbean.setCreate_date(rs.getDate("DATE"));
