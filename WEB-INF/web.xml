@@ -141,4 +141,13 @@
         <url-pattern>/masui_jsp/</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiFFlistS</servlet-name>
+        <servlet-class>masui_java.FFlist</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiFFlistS</servlet-name>
+        <url-pattern>/masui_jsp/ff_list</url-pattern>
+    </servlet-mapping>
+
 </web-app>

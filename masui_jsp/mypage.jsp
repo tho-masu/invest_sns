@@ -74,11 +74,11 @@ List<PostBean> plist = ubean.getPostList();
      <p><%=blist.size() %></p>
    <td width="25%" class="line-right">
      <p>フォロー</p>
-     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list.jsp"><%=ubean.getFollowList().size() %></a></p>
+     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list?user_id=<%=ubean.getUser_id()%>"><%=ubean.getFollowList().size() %></a></p>
    </td>
    <td width="25%">
      <p>フォロワー</p>
-     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list.jsp"><%=ubean.getFollowerList().size() %></a></p>
+     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list?user_id=<%=ubean.getUser_id()%>"><%=ubean.getFollowerList().size() %></a></p>
    </td>
  </tr>
 </table>

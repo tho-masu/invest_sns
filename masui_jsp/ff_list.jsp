@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <%
-UserBean loginAccount = (UserBean)session.getAttribute("login_account");
+UserBean ubean = (UserBean)request.getAttribute("ubean");
 %>
 
 <title>フォロー・フォロワー一覧</title>
@@ -23,7 +23,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 			フォロー一覧
 		</td>
 	</tr>
-	<%for(UserBean follow : loginAccount.getFollowList()){ %>
+	<%for(UserBean follow : ubean.getFollowList()){ %>
 	<tr>
 		<td>
 			<a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follow.getUser_id()%>"><%=follow.getUsername() %></a>
@@ -38,7 +38,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 			フォロワー一覧
 		</td>
 	</tr>
-	<%for(UserBean follower : loginAccount.getFollowerList()){ %>
+	<%for(UserBean follower : ubean.getFollowerList()){ %>
 	<tr>
 		<td>
 			<a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follower.getUser_id()%>"><%=follower.getUsername() %></a>
