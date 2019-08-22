@@ -88,4 +88,9 @@ public class PostDAO {
 		return DBManager.simpleUpdate(sql);
 	}
 
+	public static int deleteArticle(String pk_post,String fk_user)throws SQLException{
+		String sql="delete from t_post where pk_post='"+pk_post+"' and fk_user='"+fk_user+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
 }

@@ -9,7 +9,7 @@
 String user_id = (String)request.getAttribute("user_id");
 %>
 
-<title>変更完了</title>
+<title>削除完了</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -20,7 +20,7 @@ String user_id = (String)request.getAttribute("user_id");
 <table class="comment_submit">
 <tr>
 <td class="point_top">
-プロフィールの変更が完了しました
+投稿の削除が完了しました
 </td>
 </tr>
 <tr>

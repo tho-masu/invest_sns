@@ -168,4 +168,13 @@
         <url-pattern>/masui_jsp/article</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiDeleteArticleS</servlet-name>
+        <servlet-class>masui_java.DeleteArticle</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiDeleteArticleS</servlet-name>
+        <url-pattern>/masui_jsp/delete_article</url-pattern>
+    </servlet-mapping>
+
 </web-app>

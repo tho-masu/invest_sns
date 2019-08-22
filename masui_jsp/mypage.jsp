@@ -89,7 +89,15 @@ List<PostBean> plist = ubean.getPostList();
   <div class="post_list">
     <div class="heading"><p>自分の投稿</p></div>
 <%for(PostBean post : plist){ %>
-    <div class="post_date"><p><%=post.getCreate_date() %>　<%=post.getCreate_time() %></p></div>
+    <div class="post_date"><p>
+    	<%=post.getCreate_date() %>　<%=post.getCreate_time() %>
+    	<%--投稿削除ボタン --%>
+    	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST">
+     			<input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
+				<input type="submit" name="btn" value="削除">
+		</form>
+    </p></div>
+
     <div class="post_content"><p><%=post.getArticle() %></p></div>
     <%--シェア、コメント、いいね数 --%>
     <div class="post_icon">
