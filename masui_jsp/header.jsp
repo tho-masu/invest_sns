@@ -25,3 +25,10 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
 <br><br>
 
 <!-- ヘッダー終わり -->
+
+<%-- 投稿ページへのボタン --%>
+<div class="post_icon_function">
+  <a href="<%=request.getContextPath()%>/masui_jsp/article_post.jsp">
+    <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px" title="つぶやきの投稿">
+  </a>
+</div>

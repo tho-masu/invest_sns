@@ -540,7 +540,7 @@ margin-left:auto;
 /*全体の配置設定*/
 .profile_edit_top{
 	text-align:center;
-	margin-top:115px;
+	margin-top:50px;
 }
 
 /*プロフィール編集部分のデザイン設定*/
@@ -678,4 +678,14 @@ textarea{
 .profile_edit_btn:hover{
 	background-color:#74f1fc;
 
+}
+
+/*投稿ボタン位置、デザイン設定（投稿時に押すボタン）*/
+
+.post_icon_function{
+	width:60px;
+	height:60px;
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
 }

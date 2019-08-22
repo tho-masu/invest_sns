@@ -23,7 +23,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
   <div class="post_list">
     <div class="heading"><p>フォローしている人の投稿</p></div>
 <%for(PostBean post : plist){ %>
-    <div class="post_date"><p><%=post.getCreate_date() %></p></div>
+    <div class="post_date"><p><%=post.getCreate_date() %>　<%=post.getCreate_time() %></p></div>
     <div class="post_content"><p><%=post.getArticle() %></p></div>
     <%--シェア、コメント、いいね数 --%>
     <div class="post_icon">

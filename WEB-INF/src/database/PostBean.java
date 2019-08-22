@@ -11,7 +11,6 @@ public class PostBean {
 	private int pk_post;
 	private int share_num;
 	private int nice_num;
-	private int comments_num;
 	private String article;
 	private String caption;
 	private Date create_date;
@@ -80,14 +79,6 @@ public class PostBean {
 
 	public void setNice_num(int nice_num) {
 		this.nice_num = nice_num;
-	}
-
-	public int getComments_num() {
-		return comments_num;
-	}
-
-	public void setComments_num(int comments_num) {
-		this.comments_num = comments_num;
 	}
 
 	public String getArticle() {

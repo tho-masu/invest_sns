@@ -150,4 +150,13 @@
         <url-pattern>/masui_jsp/ff_list</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiArticleS</servlet-name>
+        <servlet-class>masui_java.Article</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiArticleS</servlet-name>
+        <url-pattern>/masui_jsp/article</url-pattern>
+    </servlet-mapping>
+
 </web-app>
