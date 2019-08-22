@@ -1,71 +1,42 @@
-$(function(){
-	    // スクロールバーの横幅を取得
-	    $('html').append('<div class="scrollbar" style="overflow:scroll;"></div>');
-	    var scrollsize = window.innerWidth - $('.scrollbar').prop('clientWidth');
-	    $('.scrollbar').hide();
-	    // 「.modal-open」をクリック
-	    $('.modal-open').click(function(){
-	        // html、bodyを固定（overflow:hiddenにする）
-	        $('html, body').addClass('lock');
-	        // オーバーレイ用の要素を追加
-	        $('body').append('<div class="modal-overlay"></div>');
-	        // オーバーレイをフェードイン
-	        $('.modal-overlay').fadeIn('slow');
-	        // モーダルコンテンツのIDを取得
-	        var modal = '#' + $(this).attr('data-target');
-	         // モーダルコンテンツを囲む要素を追加
-	        $(modal).wrap("<div class='modal-wrap'></div>");
-	        // モーダルコンテンツを囲む要素を表示
-	        $('.modal-wrap').show();
-	        // モーダルコンテンツの表示位置を設定
-	        modalResize();
-	         // モーダルコンテンツフェードイン
-	        $(modal).fadeIn('slow');//var modal = '#' + $(this).attr('data-target');
-	        // モーダルコンテンツをクリックした時はフェードアウトしない
-	        $(modal).click(function(e){
-	            e.stopPropagation();
-	        });
-	        // 「.modal-overlay」あるいは「.modal-close」をクリック
-	        $('.modal-wrap, .modal-close').off().click(function(){
-	            // モーダルコンテンツとオーバーレイをフェードアウト
-	            $(modal).fadeOut('slow');
-	            $('.modal-overlay').fadeOut('slow',function(){
-	                // html、bodyの固定解除
-	                $('html, body').removeClass('lock');
-	                // オーバーレイを削除
-	                $('.modal-overlay').remove();
-	                // モーダルコンテンツを囲む要素を削除
-	                $(modal).unwrap("<div class='modal-wrap'></div>");
-	           });
-	        });
-	        // リサイズしたら表示位置を再取得
-	        $(window).on('resize', function(){
-	            modalResize();
-	        });
-	        // モーダルコンテンツの表示位置を設定する関数
-	        function modalResize(){
-	            // ウィンドウの横幅、高さを取得
-	            var w = $(window).width();
-	            var h = $(window).height();
-	            // モーダルコンテンツの横幅、高さを取得
-	            var mw = $(modal).outerWidth(true);
-	            var mh = $(modal).outerHeight(true);
-	            // モーダルコンテンツの表示位置を設定
-	            $(modal).css({'right':'-17.6%','top':'0px'});
 
-	            /*if ((mh > h) && (mw > w)) {
-	                $(modal).css({'left': 0 + 'px','top': 0 + 'px'});
-	            } else if ((mh > h) && (mw < w)) {
-	                var x = (w - scrollsize - mw) / 2;
-	                $(modal).css({'left': x + 'px','top': 0 + 'px'});
-	            } else if ((mh < h) && (mw > w)) {
-	                var y = (h - scrollsize - mh) / 2;
-	                $(modal).css({'left': 0 + 'px','top': y + 'px'});
-	            } else {
-	                var x = (w - mw) / 2;
-	                var y = (h - mh) / 2;
-	                $(modal).css({'left': x + 'px','top': y + 'px'});
-	            }*/
-	        }
-	    });
-	});
+//modal
+$(function(){
+
+  //テキストリンクをクリックしたら
+ $("#modal-open").click(function(){
+      //body内の最後に<div id="modal-bg"></div>を挿入
+     $("body").append('<div id="modal-bg"></div>');
+
+    //画面中央を計算する関数を実行
+    modalResize();
+
+    //モーダルウィンドウを表示
+        $("#modal-bg,#modal-main").fadeIn("slow");
+
+    //画面のどこかをクリックしたらモーダルを閉じる
+      $("#modal-bg,#modal-main").click(function(){
+          $("#modal-main,#modal-bg").fadeOut("slow",function(){
+         //挿入した<div id="modal-bg"></div>を削除
+              $('#modal-bg').remove() ;
+         });
+
+        });
+
+    //画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
+     $(window).resize(modalResize);
+      function modalResize(){
+
+            var w = $(window).width();
+          var h = $(window).height();
+
+            var cw = $("#modal-main").outerWidth();
+           var ch = $("#modal-main").outerHeight();
+
+        //取得した値をcssに追加する
+            $("#modal-main").css({
+                "left": ((w - cw)/2) + "px",
+                "top": ((h - ch)/2) + "px"
+          });
+     }
+   });
+});

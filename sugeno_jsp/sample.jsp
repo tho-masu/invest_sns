@@ -7,10 +7,8 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/modal.js"></script>
+<%--<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/modal.js"></script> --%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
-
-
 
 <title>sample</title>
 </head>
@@ -18,38 +16,12 @@
 <body>
 
 
-<%--モーダル --%>
-<div class="a_modal_btn">
-  <a data-target="con5" class="modal-open">
+<%-- 投稿ページへのボタン --%>
+<div class="post_icon_function">
+  <a href="<%=request.getContextPath()%>/sugeno_jsp/post_copy.jsp">
     <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px">
   </a>
 </div>
-
-<div id="con5" class="modal-content" align="center">
-	<%--モーダル内のコンテンツ --%>
-    <form action="<%=request.getContextPath()%>/move_create" method="POST" enctype="multipart/form-data"  data-ajax="false">
-		<div class="msr_textarea_02">
-			<label>内容</label>
-			<textarea name="article"></textarea>
-		</div>
-		<div class="child" align="center">
-			<p class="btn">
-  			<input type="submit" value="追加">
-			</p>
-		</div>
-	</form>
-    <p><a class="modal-close">閉じる</a></p>
-</div>
-
-
-
-
-
-
-
-
-
-
 
 
 

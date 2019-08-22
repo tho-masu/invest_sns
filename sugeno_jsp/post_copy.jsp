@@ -9,20 +9,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/icon_show.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
-<link href="<%=request.getContextPath()%>/sugeno_css/default.css" rel="stylesheet" type="text/css">
 
-
-<title>マイページ編集</title>
+<title>投稿</title>
 </head>
 
 <body>
-<%-- 投稿ページへのボタン --%>
-<div class="post_icon_function">
-  <a href="<%=request.getContextPath()%>/sugeno_jsp/post_copy.jsp">
-    <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px">
-  </a>
-</div>
-<br>
+
 <header>
 
 <!-- ヘッダーはじまり -->
@@ -48,40 +40,18 @@
 <%--mypageedit画面 --%>
 <div class="profile_edit_top">
   <div class="profile_edit_subject">
-    <p>プロフィール編集</p>
+    <p>投稿</p>
   </div>
   <div class="proedit_form">
+  <%--記事投稿フォーム --%>
     <form action="" method="POST">
       <div>
-        <p>ユーザネーム</p>
-        <input type="text" class="write_letters" name="user_name" placeholder="NAME">
-      </div>
-      <div>
-        <p>ICON</p>
-        <div class="icon_img_location">
-        <label for="file_photo">ICONを選択</label>
-        </div>
-          <input id="file_photo" type="file" name="icon" accept="image/png,image/jpeg">
-        <div class="preview"></div>
-
-      </div>
-      <div>
-        <p>投資経験</p>
-        <select>
-          <option value="0">未経験</option>
-          <option value="0.5">半年未満</option>
-          <option value="1">１年未満</option>
-          <option value="3">３年未満</option>
-          <option value="5">５年未満</option>
-          <option value="6">５年以上</option>
-        </select>
-      </div>
-      <div>
-        <p>自己紹介</p>
+        <p>記事</p>
+        <%--投稿内容 --%>
         <textarea></textarea>
       </div>
       <div>
-        <input type="submit" value="変更" class="profile_edit_btn">
+        <input type="submit" value="投稿" class="profile_edit_btn">
       </div>
     </form>
   </div>
