@@ -11,7 +11,7 @@ JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 --%>
 
-<title>記事</title>
+<title>投稿</title>
 </head>
 
 <body>
@@ -50,10 +50,12 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
        <div class="top_icon_home">
          <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
        </div>
-       <%--フォローしたユーザの名前 --%>
-       <p class="top_name_home">name</p>
-       <div class="top_article_home"><article>長期金利と短期金利逆転で景気後退かxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</article></div>
+       <%--フォローしたユーザの名前 クリックでそのユーザのページへ--%>
+       <p class="top_name_home"><a href="">name</a></p>
+       <div class="top_article_home">
+         <div>2019-07-07</div>
+         <article>長期金利と短期金利逆転で景気後退かxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</article></div>
      </div>
    </td>
  </tr>
@@ -67,7 +69,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
      <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div>
    </td>
    <td width="33.333%">
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div>
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px"></a><div>14</div>
    </td>
  </tr>
 </table>
@@ -94,14 +96,25 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
     コメント一覧
    </td>
   </tr>
-  <tr>
-   <td class="sub" class="commentword">
-    コメント内容
-   </td>
-  </tr>
  </table>
 
-
+<%--コメントとコメントした人の名前やアイコン --%>
+<table class="article_table">
+ <tr>
+   <td colspan="3" valign="middle"  class="function_cell">
+     <div class="top_article">
+       <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
+       <div class="top_icon_home">
+         <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
+       </div>
+       <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
+       <p class="top_name_home"><a href="">xxxxnamexxxx</a></p>
+       <div class="top_article_home"><article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</article></div>
+     </div>
+   </td>
+ </tr>
+</table>
 
 </body>
 </html>

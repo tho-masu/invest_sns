@@ -437,7 +437,9 @@ table{
 .solid_right{
 	border-right:1px solid #a9a9a9;
 }
-/*記事の位置設定*/
+/*見出し「フォローしている人の投稿」の設定*/
+
+/*投稿の位置設定*/
 .top_article{
 	padding:10px;
 	margin-bottom:10px;
@@ -449,6 +451,9 @@ table{
 	margin-top:50px;
 }
 /*ユーザアイコン、名前、記事の位置設定*/
+.article_table img:hover{
+	opacity:0.7;
+}
 .top_icon_home{
 	float:left;
 }
@@ -457,8 +462,20 @@ table{
 	margin-top:15px;
 	margin-left:5px;
 }
+.top_name_home a{
+	text-decoration:none;
+}
+.top_name_home a:hover{
+	opacity:0.7;
+}
 .top_article_home{
 	clear:both;
+}
+.top_article_home a{
+	text-decoration:none;
+}
+.top_article_homeonly:hover{
+	opacity:0.7;
 }
 .top_article_home div{
 	margin-bottom:5px;
@@ -814,7 +831,7 @@ textarea{
 	background:#e6f2ff;
 }
 .follow_img{
-	width:80%;
+	padding-left:50px;
 }
 .follow_img:hover{
 	opacity:0.7;
@@ -827,6 +844,9 @@ textarea{
 .follow_img p{
 	float:left;
 }
+.follow_btn{
+	width:20%;
+}
 /*フォント設定*/
 .follow_follower a{
 	text-decoration: none;
@@ -835,12 +855,14 @@ textarea{
 	display:block;
 	width:100%;
 	height:100%;
+
 }
 /*フォローボタンの設定*/
+
 .follow_btn img{
 	float:right;
 	display:block;
-	margin-right:10px;
+	margin-right:50px;
 }
 .follow_btn img:hover{
 	opacity:0.7;

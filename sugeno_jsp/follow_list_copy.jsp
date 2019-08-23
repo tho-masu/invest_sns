@@ -12,12 +12,7 @@
 </head>
 
 <body>
-<%-- 投稿ページへのボタン --%>
-<div class="post_icon_function">
-  <a href="<%=request.getContextPath()%>/sugeno_jsp/post_copy.jsp">
-    <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px">
-  </a>
-</div>
+
 <br>
 <header>
 
@@ -52,9 +47,10 @@
     </th>
   <tr>
     <td class="follow_img">
-      <%--ユーザのICON --%>
+      <%--ユーザのICON<a>押すとその人のユーザページへ --%>
+      <a href="">
       <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
-
+      </a>
       <%--ユーザネーム <a>押すとその人のユーザページへ --%>
       <a href="">invester1</a>
     </td>
@@ -62,15 +58,18 @@
   <%--以下サンプル --%>
   <tr>
     <td class="follow_img">
+      <a href="">
       <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
-
+      </a>
       <a href="">invester2</a>
     </td>
   </tr>
   <tr>
     <td class="follow_img">
       <div>
+      <a href="">
       <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+      </a>
       </div>
       <a href="">invester3</a>
     </td>

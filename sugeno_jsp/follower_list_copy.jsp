@@ -10,12 +10,7 @@
 
 <title>フォロワー一覧</title>
 </head>
-<%-- 投稿ページへのボタン --%>
-<div class="post_icon_function">
-  <a href="<%=request.getContextPath()%>/sugeno_jsp/post_copy.jsp">
-    <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px">
-  </a>
-</div>
+
 <br>
 <body>
 
@@ -52,25 +47,30 @@
     </th>
   <tr>
     <td class="follow_img">
-      <%--ユーザのICON --%>
+      <%--ユーザのICON <a>でその人のユーザページへ--%>
+      <a href="">
       <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+      </a>
       <%--ユーザネーム　<a>でその人のユーザページへ --%>
       <a href="">invester1</a>
+
     </td>
-    <td  class="follow_btn">
+    <td  class="follow_btn" width="20%">
       <%--<a>クリックでその人をフォローできる --%>
-      <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/plus.png" width="40px" height="40px"></a>
+      <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/unfollow.png" width="40px" height="40px"></a>
     </td>
   </tr>
   <%--以下サンプル --%>
   <tr>
     <td class="follow_img">
+      <a href="">
       <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+      </a>
       <a href="">invester2</a>
     </td>
-    <td class="follow_btn">
+    <td class="follow_btn" width="20%">
       <%--<a>クリックでその人をフォローできる --%>
-      <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/plus.png" width="40px" height="40px"></a>
+      <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/follow.png" width="40px" height="40px"></a>
     </td>
   </tr>
 </table>

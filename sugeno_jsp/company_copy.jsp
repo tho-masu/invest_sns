@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <%--共通項目 --%>
-<jsp:include page="common_list_inheaed.jsp" flush="true" />
+<jsp:include page="common_list_inhead.jsp" flush="true" />
 <%--
 JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
 JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
@@ -16,12 +16,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 </head>
 
 <body>
-<%-- 投稿ページへのボタン --%>
-<div class="post_icon_function">
-  <a href="<%=request.getContextPath()%>/sugeno_jsp/post_copy.jsp">
-    <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px">
-  </a>
-</div>
+
 <br>
 
 <header>
@@ -49,7 +44,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 <jsp:include page="common_list_inbody.jsp" flush="true" />
 <div id="all_table">
  <%-- 企業の名前、株価、簡単な紹介 --%>
- <table id="top_table" border="0">
+ <table id="top_table">
    <tr>
      <td colspan="4" align="center" id="top_company">企業名（株価）</td>
    </tr>
@@ -188,12 +183,26 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
     コメント一覧
    </td>
   </tr>
-  <tr>
-   <td class="sub" class="commentword">
-    コメント内容
-   </td>
-  </tr>
  </table>
+
+ <%--コメントとコメントした人の名前やアイコン --%>
+<table class="article_table">
+ <tr>
+   <td colspan="3" valign="middle"  class="function_cell">
+     <div class="top_article">
+       <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
+       <div class="top_icon_home">
+         <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
+       </div>
+       <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
+       <p class="top_name_home"><a href="">xxxxnamexxxx</a></p>
+       <div>2019-08-08</div>
+       <div class="top_article_home"><article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</article></div>
+     </div>
+   </td>
+ </tr>
+</table>
 
 </div>
 </body>

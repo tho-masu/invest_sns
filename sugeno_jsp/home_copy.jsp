@@ -54,13 +54,16 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
        <div class="top_icon_home">
          <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
        </div>
-       <%--フォローしたユーザの名前 --%>
-       <p class="top_name_home">name</p>
-       <div class="top_article_home">
+       <%--フォローしたユーザの名前 クリックでそのユーザのページへ--%>
+       <p class="top_name_home"><a href="">name</a></p>
+       <div class="top_article_home top_article_homeonly">
+         <%--クリックでarticle.jspへ --%>
+         <a href="">
          <div>2019-08-08</div>
          <article>長期金利と短期金利逆転で景気後退かxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
          </article>
+         </a>
        </div>
      </div>
    </td>
@@ -75,7 +78,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
      <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div>
    </td>
    <td width="33.333%">
-     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div>
+     <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px"></a><div>14</div>
    </td>
  </tr>
 </table>
