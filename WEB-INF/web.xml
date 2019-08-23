@@ -69,6 +69,15 @@
         <url-pattern>/tei_java/search</url-pattern>
     </servlet-mapping>
 
+     <servlet>
+        <servlet-name>teiMayfollowS</servlet-name>
+        <servlet-class>tei_java.Mayfollow</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teiMayfollowS</servlet-name>
+        <url-pattern>/tei_java/mayfollow</url-pattern>
+    </servlet-mapping>
+
 	<servlet>
         <servlet-name>masuiCommentS</servlet-name>
         <servlet-class>masui_java.Comment</servlet-class>

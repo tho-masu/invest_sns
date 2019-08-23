@@ -25,6 +25,7 @@ import database.FollowBeanMapping;
 import database.IndustryBean;
 import database.IndustryBeanMapping;
 import database.UserBean;
+import database.UserBeanMapping;
 import database.UserDAO;
 
 public class DAO {
@@ -351,4 +352,17 @@ public class DAO {
 		return ulist;
 	}
 
+	public static List<UserBean> getUnfollowedList(String user_id) throws SQLException{
+		String sql = "SELECT T_USER.PK_ID AS PK_ID, " +
+				"T_USER.USERNAME AS USERNAME, " +
+				"T_USER.PASSWORD AS PASSWORD, " +
+				"T_USER.MESSAGE AS MESSAGE, " +
+				"T_USER.USER_ID AS USER_ID, " +
+				"T_USER.INVEST_TIME AS INVEST_TIME,"+
+				"T_ICON.ICON_NAME AS ICON_NAME " +
+				"FROM T_USER " +
+				"RIGHT OUTER JOIN T_ICON ON T_USER.PK_ID = T_ICON.FK_USER " +
+				"WHERE USER_ID not in ('" + user_id + "');";
+		return DBManager.findAll(sql, new UserBeanMapping());
+	}
 }

@@ -123,6 +123,18 @@ public class UserBean{
 		return followerList;
 	}
 
+
+	public List<UserBean> getUnfollowedList() {
+		List<UserBean> unfollowedList = null;
+		try {
+			unfollowedList =  DAO.getUnfollowedList(getUser_id());
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return unfollowedList;
+	}
+
 	public List<PostBean> getPostList(){
 		List<PostBean> plist = new ArrayList<PostBean>();
 		try {

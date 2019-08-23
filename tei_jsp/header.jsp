@@ -18,6 +18,9 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
 	        		<input id="search_btn" type="submit" id="search_button" value="友達検索">
 	        	</form>
 </div>
+<div >
+<a href="<%=request.getContextPath() %>/tei_java/mayfollow?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow.png" width="70px"></a>
+</div>
 
 <nav>
   <ul>
