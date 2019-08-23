@@ -21,7 +21,7 @@ public class UserDAO {
 	public static void registerIcon(int pk_id)throws SQLException{
 		String sql = "INSERT INTO T_ICON (FK_USER, ICON_NAME) VALUES(" +
 						"'" + pk_id + "', " +
-						"'default_icon.jpg'" + ")";
+						"'default_icon.png'" + ")";
 		DBManager.simpleUpdate(sql);
 	}
 
