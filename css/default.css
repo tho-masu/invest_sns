@@ -748,3 +748,58 @@ textarea{
 .top_article_home div{
 	margin-bottom:5px;
 }
+
+/*
+--------------follow_list.jsp,follower_list.jsp設定
+*/
+/*テーブルデザイン*/
+.follow_follower{
+	border-collapse:collapse;
+	table-layout: fixed;
+	margin-top:50px;
+}
+.follow_follower td{
+	line-height:60px;
+	vertical-align:middle;
+}
+
+.follow_follower tr:nth-child(odd){
+	background:#e6f2ff;
+}
+.follow_img{
+	padding-left:50px;
+}
+.follow_img:hover{
+	opacity:0.7;
+}
+.follow_img img{
+	float:left;
+	display:block;
+	margin-top:5px;
+}
+.follow_img p{
+	float:left;
+}
+.follow_btn{
+	width:20%;
+}
+/*フォント設定*/
+.follow_follower a{
+	text-decoration: none;
+	font-size: 25px;
+	color:#4682b4;
+	display:block;
+	width:100%;
+	height:100%;
+
+}
+/*フォローボタンの設定*/
+
+.follow_btn img{
+	float:right;
+	display:block;
+	margin-right:50px;
+}
+.follow_btn img:hover{
+	opacity:0.7;
+}

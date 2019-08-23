@@ -17,34 +17,46 @@ UserBean ubean = (UserBean)request.getAttribute("ubean");
 
 <jsp:include page="header.jsp" flush="true" />
 
-<table border="1">
-	<tr>
-		<td>
-			フォロー一覧
-		</td>
-	</tr>
-	<%for(UserBean follow : ubean.getFollowList()){ %>
-	<tr>
-		<td>
-			<a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follow.getUser_id()%>"><%=follow.getUsername() %></a>
-		</td>
-	</tr>
-	<%} %>
+<%--follow_list画面 --%>
+<table class="follow_follower">
+  <tr>
+    <th class="point_top">
+      <p>フォロー一覧</p>
+    </th>
+<%for(UserBean follow : ubean.getFollowList()){ %>
+  <tr>
+    <td class="follow_img">
+      <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follow.getUser_id()%>">
+      	<%--ユーザのICON<a>押すとその人のユーザページへ --%>
+      	<img src="<%=request.getContextPath() %>/img/user_icon/<%=follow.getIcon_name() %>" width="50px" height="50px">
+      	<%--ユーザネーム <a>押すとその人のユーザページへ --%>
+      	<%=follow.getUsername() %>
+      </a>
+    </td>
+  </tr>
+<%} %>
 </table>
 
-<table border="1">
-	<tr>
-		<td>
-			フォロワー一覧
-		</td>
-	</tr>
-	<%for(UserBean follower : ubean.getFollowerList()){ %>
-	<tr>
-		<td>
-			<a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follower.getUser_id()%>"><%=follower.getUsername() %></a>
-		</td>
-	</tr>
-	<%} %>
+
+<%--follower_list画面 --%>
+<table class="follow_follower">
+  <tr>
+    <th class="point_top">
+      <p>フォロワー一覧</p>
+    </th>
+<%for(UserBean follower : ubean.getFollowerList()){ %>
+  <tr>
+    <td class="follow_img">
+      <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follower.getUser_id()%>">
+      	<%--ユーザのICON<a>押すとその人のユーザページへ --%>
+      	<img src="<%=request.getContextPath() %>/img/user_icon/<%=follower.getIcon_name() %>" width="50px" height="50px">
+      	<%--ユーザネーム <a>押すとその人のユーザページへ --%>
+      	<%=follower.getUsername() %>
+      </a>
+    </td>
+  </tr>
+<%} %>
 </table>
 
 </body>
+</html>
