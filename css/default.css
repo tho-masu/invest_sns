@@ -689,3 +689,62 @@ textarea{
     bottom: 80px;
     right: 80px;
 }
+
+
+/*
+---------------index.jsp編集----------------------
+*/
+/*-------------アイコンと記事本文の編集設定------------*/
+/*ライン設定*/
+.article_table{
+	border:1px solid #a9a9a9;
+	border-collapse:collapse;
+}
+
+.function_cell{
+	border-top:1px solid #a9a9a9;
+}
+
+.solid_right{
+	border-right:1px solid #a9a9a9;
+}
+/*見出し「フォローしている人の投稿」の設定*/
+
+/*投稿の位置設定*/
+.top_article{
+	padding:10px;
+	margin-bottom:10px;
+}
+.top-margin{
+	margin-top:125px;
+}
+.article_table{
+	margin-top:50px;
+}
+/*ユーザアイコン、名前、記事の位置設定*/
+.article_table img:hover{
+	opacity:0.7;
+}
+.top_icon_home{
+	float:left;
+}
+.top_name_home{
+	float:left;
+	margin-top:15px;
+	margin-left:5px;
+}
+.top_name_home a{
+	text-decoration:underline;
+}
+.top_name_home a:hover{
+	opacity:0.7;
+}
+.top_article_home{
+	clear:both;
+}
+.top_article_home a{
+	text-decoration:none;
+}
+.top_article_home div{
+	margin-bottom:5px;
+}

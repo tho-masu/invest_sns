@@ -29,7 +29,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
    <td colspan="4" valign="middle" class="profile_top">
      <%--ユーザのアイコン --%>
      <div class="profile_img">
-     <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="100px" height="100px">
+     <img src="<%=request.getContextPath() %>/img/user_icon/<%=ubean.getIcon_name() %>" width="100px" height="100px">
      </div>
      <div class="user_introduction">
      <%--ユーザの名前 --%>
@@ -103,7 +103,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     <div class="post_icon">
       <table class="post_table">
         <tr>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div></td>
+          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px"></a><div></div></td>
           <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
           <td>
 			<%if(post.getIsLoginAccountGood()){ %>
@@ -111,14 +111,14 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
           		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
-				<input type="image" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
+				<input type="image" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
           		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
-				<input type="image" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
+				<input type="image" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
 				</form>
 			<%} %>
 			<div><%=post.countGood() %></div>

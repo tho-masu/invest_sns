@@ -186,4 +186,13 @@
         <url-pattern>/masui_jsp/good</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiShareS</servlet-name>
+        <servlet-class>masui_java.Share</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiShareS</servlet-name>
+        <url-pattern>/masui_jsp/share</url-pattern>
+    </servlet-mapping>
+
 </web-app>
