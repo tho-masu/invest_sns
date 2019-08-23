@@ -1,6 +1,7 @@
 package database;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 
 public class PostBean {
@@ -120,6 +121,18 @@ public class PostBean {
 
 	public void setIsLoginAccountGood(boolean isLoginAccountGood) {
 		this.isLoginAccountGood = isLoginAccountGood;
+	}
+
+	public int countGood() {
+		String sql="SELECT COUNT(*) FROM t_good WHERE fk_post='"+getPk_post()+"';";
+		int count=-1;
+		try {
+			count = DBManager.count(sql);
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return count;
 	}
 
 

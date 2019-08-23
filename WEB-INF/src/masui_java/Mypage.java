@@ -2,6 +2,7 @@ package masui_java;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import api.DAO;
+import database.PostBean;
+import database.PostDAO;
 import database.UserBean;
 import database.UserDAO;
 
@@ -18,7 +21,7 @@ public class Mypage extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-
+		UserBean loginAccount= (UserBean)session.getAttribute("login_account");
 		String user_id = request.getParameter("user_id");
 
 		UserBean ubean = null;
@@ -29,17 +32,28 @@ public class Mypage extends HttpServlet {
 			e1.printStackTrace();
 		}
 
-		UserBean loginUser= (UserBean)session.getAttribute("login_account");
 		boolean isRegisteredFollow = false;
 		try {
-			isRegisteredFollow = DAO.isRegisteredFollow(loginUser.getPk_id(), ubean.getPk_id());
+			isRegisteredFollow = DAO.isRegisteredFollow(loginAccount.getPk_id(), ubean.getPk_id());
 		} catch (SQLException e1) {
 			// TODO 自動生成された catch ブロック
 			e1.printStackTrace();
 		}
 
+		List<PostBean> plist = ubean.getPostList();
+		try {
+			for(PostBean pbean : plist) {
+				boolean b = PostDAO.isRegisteredGood(loginAccount.getPk_id(),pbean.getPk_post());
+				pbean.setIsLoginAccountGood(b);
+			}
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
 		request.setAttribute("ubean", ubean);
 		request.setAttribute("isRegisteredFollow", isRegisteredFollow);
+		request.setAttribute("plist", plist);
 		request.getRequestDispatcher("/masui_jsp/mypage.jsp").forward(request, response);
 	}
 

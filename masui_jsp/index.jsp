@@ -48,7 +48,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 				<input type="image" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
 				</form>
 			<%} %>
-			<div>14</div>
+			<div><%=post.countGood() %></div>
 		</td>
         </tr>
       </table>

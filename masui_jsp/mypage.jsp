@@ -14,7 +14,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 UserBean ubean = (UserBean)request.getAttribute("ubean");
 ArrayNode blist = ubean.getBlist();
 boolean isRegisteredFollow = (boolean)request.getAttribute("isRegisteredFollow");
-List<PostBean> plist = ubean.getPostList();
+List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 %>
 
 </head>
@@ -105,7 +105,24 @@ List<PostBean> plist = ubean.getPostList();
         <tr>
           <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div></td>
           <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div></td>
+          <td>
+			<%if(post.getIsLoginAccountGood()){ %>
+          		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
+          		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+          		<input type="hidden" name="registerOrDelete" value="delete">
+          		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
+				<input type="image" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
+				</form>
+			<%}else{ %>
+          		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
+          		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+          		<input type="hidden" name="registerOrDelete" value="register">
+          		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
+				<input type="image" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
+				</form>
+			<%} %>
+			<div><%=post.countGood() %></div>
+          </td>
         </tr>
       </table>
     </div>
