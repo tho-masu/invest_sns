@@ -103,7 +103,15 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     <div class="post_icon">
       <table class="post_table">
         <tr>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px"></a><div></div></td>
+          <td>
+          	<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
+				<input type="hidden" name="article" value="<%=post.getArticle()%>">
+				<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
+				<input type="hidden" name="user_name" value="<%=post.getUsername()%>">
+				<input type="image" title="シェア" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
+			</form>
+     		<div></div>
+          </td>
           <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
           <td>
 			<%if(post.getIsLoginAccountGood()){ %>

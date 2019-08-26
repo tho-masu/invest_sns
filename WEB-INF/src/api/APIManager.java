@@ -11,11 +11,20 @@ import java.util.zip.InflaterInputStream;
 
 public class APIManager {
 	public static String getData(String str,HashMap<String,String> query) {
+		//デプロイする際に下記の設定を切り替える必要あり
+
 		 System.setProperty("http.proxyHost","172.24.2.10");
 	     System.setProperty("http.proxyPort","8080");
 	     System.setProperty("https.proxyHost","172.24.2.10");
 	     System.setProperty("https.proxyPort","8080");
 	     System.setProperty("http.nonProxyHosts","localhost|*.nonproxy.com");
+	     /*
+		 System.setProperty("http.proxyHost","proxy-operation.aim.d.quick.aws");
+	     System.setProperty("http.proxyPort","8080");
+	     System.setProperty("https.proxyHost","proxy-operation.aim.d.quick.aws");
+	     System.setProperty("https.proxyPort","8080");
+	     System.setProperty("http.nonProxyHosts","localhost|*.nonproxy.com");
+	     */
 
 	     StringBuffer response = new StringBuffer();
 
