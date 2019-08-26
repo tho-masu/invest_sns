@@ -245,6 +245,13 @@ public class DAO {
 		return DBManager.simpleUpdate(sql);
 	}
 
+	public static int registerArticleComment(int pk_id,String pk_post,String comment)throws SQLException{
+		String sql="INSERT INTO t_comment_art"+
+				"(fk_user,fk_post,comment,com_date) VALUES("+
+				"'"+pk_id+"','"+pk_post+"','"+comment+"',"+"now()"+");";
+		return DBManager.simpleUpdate(sql);
+	}
+
 	public static List<CommentBean> getCompanyCommentList(String quote)throws SQLException{
 		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_com INNER JOIN t_user ON t_comment_com.fk_user=t_user.pk_id where quote='"+quote+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
@@ -260,6 +267,11 @@ public class DAO {
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
+	public static List<CommentBean> getArticleCommentList(int pk_post)throws SQLException{
+		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_art INNER JOIN t_user ON t_comment_art.fk_user=t_user.pk_id where fk_post='"+pk_post+"' order by com_date asc;";
+		return DBManager.findAll(sql, new CommentBeanMapping());
+	}
+
 	public static int deleteCompanyComment(String pk_comment,String fk_user)throws SQLException{
 		String sql="delete from t_comment_com where pk_comment='"+pk_comment+"' and fk_user='"+fk_user+"';";
 		return DBManager.simpleUpdate(sql);
@@ -272,6 +284,11 @@ public class DAO {
 
 	public static int deleteMarketComment(String pk_comment,String fk_user)throws SQLException{
 		String sql="delete from t_comment_mar where pk_comment='"+pk_comment+"' and fk_user='"+fk_user+"';";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int deleteArticleComment(String pk_comment,String fk_user)throws SQLException{
+		String sql="delete from t_comment_art where pk_comment='"+pk_comment+"' and fk_user='"+fk_user+"';";
 		return DBManager.simpleUpdate(sql);
 	}
 

@@ -17,6 +17,7 @@ public class DeleteComment extends HttpServlet {
 
 		String quote = request.getParameter("quote");
 		String iname = request.getParameter("iname");
+		String pk_post = request.getParameter("pk_post");
 		String pk_comment = request.getParameter("pk_comment");
 		String fk_user = request.getParameter("fk_user");
 
@@ -27,6 +28,9 @@ public class DeleteComment extends HttpServlet {
 			}else if(iname != null) {
 				request.setAttribute("iname", iname);
 				DAO.deleteIndustryComment(pk_comment, fk_user);
+			}else if(pk_post != null) {
+				request.setAttribute("pk_post", pk_post);
+				DAO.deleteArticleComment(pk_comment, fk_user);
 			}else {
 				DAO.deleteMarketComment(pk_comment, fk_user);
 			}

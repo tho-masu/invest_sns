@@ -20,6 +20,7 @@ public class Comment extends HttpServlet {
 
 		String scode = request.getParameter("quote");
 		String iname = request.getParameter("iname");
+		String pk_post = request.getParameter("pk_post");
 		String comment = request.getParameter("comment");
 		UserBean ubean= (UserBean)session.getAttribute("login_account");
 
@@ -29,6 +30,8 @@ public class Comment extends HttpServlet {
 					DAO.registerCompanyComment(ubean.getPk_id(),scode, comment);
 				}else if(iname != null) {
 					DAO.registerIndustryComment(ubean.getPk_id(),iname, comment);
+				}else if(pk_post != null) {
+					DAO.registerArticleComment(ubean.getPk_id(), pk_post, comment);
 				}else {
 					DAO.registerMarketComment(ubean.getPk_id(),comment);
 				}
@@ -44,6 +47,8 @@ public class Comment extends HttpServlet {
 			request.setAttribute("quote", scode);
 		}else if(iname != null) {
 			request.setAttribute("iname", iname);
+		}else if(pk_post != null) {
+			request.setAttribute("pk_post", pk_post);
 		}
 
 		request.getRequestDispatcher("/masui_jsp/comment_posted.jsp").forward(request, response);

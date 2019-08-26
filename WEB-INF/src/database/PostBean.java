@@ -3,6 +3,10 @@ package database;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
+
+import api.DAO;
 
 public class PostBean {
 	private int pk_id;
@@ -135,5 +139,15 @@ public class PostBean {
 		return count;
 	}
 
+	public List<CommentBean> getCommentList(){
+		List<CommentBean> clist = new ArrayList<CommentBean>();
+		try {
+			clist = DAO.getArticleCommentList(getPk_post());
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return clist;
+	}
 
 }

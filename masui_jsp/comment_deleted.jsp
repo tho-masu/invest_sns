@@ -8,6 +8,7 @@
 <%
 String quote = (String)request.getAttribute("quote");
 String iname = (String)request.getAttribute("iname");
+String pk_post = (String)request.getAttribute("pk_post");
 %>
 
 <title>削除完了</title>
@@ -37,6 +38,8 @@ String iname = (String)request.getAttribute("iname");
 	<input type="hidden" name="iname" value="<%=iname %>">
 	<div><input type="submit" value="元のページへ" align="center"></div>
 </form>
+<%}else if(pk_post != null){ %>
+	<div><input type="button" value="ホーム画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/'"></div>
 <%}else{ %>
 	<div><input type="button" value="元のページへ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/market'"></div>
 <%} %>

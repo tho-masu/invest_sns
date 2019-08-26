@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.List,database.PostBean"%>
+    pageEncoding="UTF-8" import="java.util.List,database.PostBean,database.CommentBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -67,7 +67,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 	</form>
 	</div>
 	<div class="table_in_icon solid_right click_open">
-     <img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"><div>13</div>
+     <img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"><div><%=post.getCommentList().size() %></div>
 	</div>
 	<div class="table_in_icon">
 			<%if(post.getIsLoginAccountGood()){ %>
@@ -91,45 +91,31 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 
      <%--コメント記入欄 --%>
      <div class="response_comment">
-       <form action="<%=request.getContextPath()%>/" method="POST">
-         <div><textarea></textarea></div>
+       <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
+         <div><textarea  name="comment"></textarea></div>
+         <input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
          <div><input type="submit" value="送信"></div>
        </form>
      </div>
-
-     <%--1人目の返信 --%>
+	<%for(CommentBean comment : post.getCommentList()){ %>
+     <%--返信 --%>
      <div class="top_article">
-     <%--アイコン --%>
+     <%--アイコン
        <div class="top_icon_home">
          <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
        </div>
+      --%>
        <%-- name（クリックでその人のページへ） --%>
-       <p class="top_name_home"><a href="">namename</a></p>
+       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>"><%=comment.getUsername() %></a></p>
        <div class="top_article_home top_article_homeonly">
        <%--日付 --%>
-         <div>2020-02-02</div>
+         <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
        <%--返信内容 --%>
-         <article>postpostpostpostpostpostpostpostpostpostpostpost</article>
+         <article><%=comment.getComment() %></article>
        </div>
      </div>
-     <%--1人目の返信ここまで --%>
-
-     <%--2人目の返信 サンプル--%>
-     <div class="top_article">
-     <%--アイコン --%>
-       <div class="top_icon_home">
-         <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
-       </div>
-       <%-- name（クリックでその人のページへ） --%>
-       <p class="top_name_home"><a href="">namename</a></p>
-       <div class="top_article_home top_article_homeonly">
-       <%--日付 --%>
-         <div>2020-02-03</div>
-       <%--返信内容 --%>
-         <article>xxxxaaaaxxxxxxxxxxxaaaaaaaaaaa</article>
-       </div>
-     </div>
-     <%--2人目の返信ここまで --%>
+     <%--返信ここまで --%>
+	<%} %>
    </div>
    </td>
  </tr>
