@@ -92,6 +92,14 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
    <%--コメント返信欄(コメントアイコンを押すと表示される)--%>
    <div style="display:none">
 
+     <%--コメント記入欄 --%>
+     <div class="response_comment">
+       <form action="<%=request.getContextPath()%>/" method="POST">
+         <div><textarea></textarea></div>
+         <div><input type="submit" value="送信"></div>
+       </form>
+     </div>
+
      <%--1人目の返信 --%>
      <div class="top_article">
      <%--アイコン --%>
@@ -171,7 +179,13 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 
    <%--コメント返信欄(コメントアイコンを押すと表示される)--%>
    <div style="display:none">
-
+     <%--コメント記入欄 --%>
+     <div class="response_comment">
+       <form action="<%=request.getContextPath()%>/" method="POST">
+         <div><textarea></textarea></div>
+         <div><input type="submit" value="送信"></div>
+       </form>
+     </div>
      <%--1人目の返信 --%>
      <div class="top_article">
      <%--アイコン --%>
