@@ -5,6 +5,18 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     version="2.5">
 
+	<session-config>
+    	<session-timeout>10</session-timeout>
+  	</session-config>
+
+    <filter>
+        <filter-name>sessionCheckF</filter-name>
+        <filter-class>masui_java.SessionCheckFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sessionCheckF</filter-name>
+        <url-pattern>/masui_jsp/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>masuiCompanyS</servlet-name>
@@ -111,7 +123,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiLoginS</servlet-name>
-        <url-pattern>/masui_jsp/login</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <servlet>

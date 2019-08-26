@@ -32,7 +32,7 @@
       <h1>Hi Guest</h1>
     </div>
     <div class="form_box">
-    <form action="<%=request.getContextPath()%>/masui_jsp/login" method="POST">
+    <form action="<%=request.getContextPath()%>/login" method="POST">
       <div class="form_write"><input type="text" name="user_id" placeholder="user_ID"></div>
       <div class="form_write"><input type="password" name="password" placeholder="password"></div>
       <div><input type="submit" value="ログイン" class="log_btn"></div>

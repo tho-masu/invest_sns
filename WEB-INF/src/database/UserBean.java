@@ -4,15 +4,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import api.DAO;
 
-public class UserBean implements HttpSessionBindingListener{
+public class UserBean {
 	private int pk_id;
 	private String user_id;
 	private String username;
@@ -34,14 +31,6 @@ public class UserBean implements HttpSessionBindingListener{
 		this.user_id = user_id;
 		this.username = username;
 		this.password = password;
-	}
-
-	public void valueBound (HttpSessionBindingEvent event) {
-
-	}
-
-	public void valueUnbound (HttpSessionBindingEvent event) {
-
 	}
 
 	public int getPk_id() {

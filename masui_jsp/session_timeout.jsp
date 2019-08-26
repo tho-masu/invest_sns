@@ -11,28 +11,24 @@ String iname = (String)request.getAttribute("iname");
 String error = (String)request.getAttribute("error");
 %>
 
-<title><%if(error == null){ %>送信完了<%}else{ %>エラー<%} %></title>
+<title>タイムアウト</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<jsp:include page="header.jsp" flush="true" />
+
 
 <table class="comment_submit">
 <tr>
 <td class="point_top">
-<%if(error == null){ %>
-投稿の送信が完了しました
-<%}else{ %>
-<%=error %>
-<%} %>
+接続がタイムアウトしました
 </td>
 </tr>
 <tr>
 <td class="sub" style="background-color: #FFFFFF">
 <br><br>
-	<div><input type="button" value="ホーム画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/'"></div>
+	<div><input type="button" value="ログイン画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/login.jsp'"></div>
 </td>
 </tr>
 </table>
