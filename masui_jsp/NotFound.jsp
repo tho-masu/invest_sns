@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 
 <%
-String error = (String)request.getAttribute("error");
+String user_id = (String)request.getAttribute("user_id");
 %>
 
-<title><%if(error == null){ %>送信完了<%}else{ %>エラー<%} %></title>
+<title>NotFound</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -20,20 +20,16 @@ String error = (String)request.getAttribute("error");
 <table class="comment_submit">
 <tr>
 <td class="point_top">
-<%if(error == null){ %>
-投稿の送信が完了しました
-<%}else{ %>
-<%=error %>
-<%} %>
+検索に一致する友達がいません
 </td>
 </tr>
 <tr>
 <td class="sub" style="background-color: #FFFFFF">
 <br><br>
-	<div><input type="button" value="ホーム画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/'"></div>
+<form action="" method="GET">
+	<input type="hidden" name="user_id" value="<%=user_id %>">
+	<div><input type="button" onClick="window.history.back() ; return false;" value="元のページへ" align="center"></div>
+</form>
 </td>
 </tr>
 </table>
-
-</body>
-</html>

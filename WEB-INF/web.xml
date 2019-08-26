@@ -216,4 +216,22 @@
         <url-pattern>/masui_jsp/share</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiMayfollowS</servlet-name>
+        <servlet-class>masui_java.Mayfollow</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiMayfollowS</servlet-name>
+        <url-pattern>/masui_jsp/mayfollow</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>masuiSearchS</servlet-name>
+        <servlet-class>masui_java.Search</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiSearchS</servlet-name>
+        <url-pattern>/masui_jsp/search</url-pattern>
+    </servlet-mapping>
+
 </web-app>

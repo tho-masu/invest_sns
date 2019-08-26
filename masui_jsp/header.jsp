@@ -5,6 +5,28 @@
 UserBean ubean = (UserBean)session.getAttribute("login_account");
 %>
 
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script>
+jQuery(function() {
+    var pagetop = $('#page_top');
+    pagetop.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {  //100pxスクロールしたら表示
+            pagetop.fadeIn();
+        } else {
+            pagetop.fadeOut();
+        }
+    });
+    pagetop.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500); //0.5秒かけてトップへ移動
+        return false;
+    });
+});
+
+</script>
+
 <!-- ヘッダーはじまり -->
 <br>
 <header>
@@ -12,6 +34,17 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
 <a href="<%=request.getContextPath() %>/masui_jsp/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
 </div>
 
+<div class="button_second" id="btn_search_">
+	        	<form action="<%=request.getContextPath()%>/masui_jsp/search" method="POST">
+	        		<input class="search_box" type="text" placeholder="検索" name="search">
+	        		<input class="search_btn" type="submit" id="search_button" value="友達検索">
+	        	</form>
+</div>
+<div class="follow_img" >
+<a href="<%=request.getContextPath() %>/masui_jsp/mayfollow?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow.png" width="45px"></a>
+</div>
+
+<div class="header_contents">
 <nav>
   <ul>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/">ホーム</a></li>
@@ -20,11 +53,15 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
     <li><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>">マイページ</a></li>
   </ul>
 </nav>
+</div>
 </header>
 
 <br><br>
 
 <!-- ヘッダー終わり -->
+
+<%-- ページトップへ行くボタン表示 --%>
+<div id="page_top"><a href="#"></a></div>
 
 <%-- 投稿ページへのボタン --%>
 <div class="post_icon_function">

@@ -6,8 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/login_register.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login_register.css">
 <title>investagramログイン</title>
 </head>
 <body>
