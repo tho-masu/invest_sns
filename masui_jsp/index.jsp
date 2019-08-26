@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.List,database.PostBean,database.CommentBean"%>
+    pageEncoding="UTF-8" import="java.util.List,database.PostBean,database.CommentBean,database.UserBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -19,6 +19,7 @@ $(function(){
 </script>
 
 <%
+UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 %>
 
@@ -110,6 +111,15 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
        <div class="top_article_home top_article_homeonly">
        <%--日付 --%>
          <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
+       <%--削除ボタン --%>
+       <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
+     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+     			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
+     			<input type="hidden" name="fk_user" value="<%=comment.getFk_user() %>">
+     			<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+				<input type="submit" name="btn" value="削除">
+		</form>
+		<%}%>
        <%--返信内容 --%>
          <article><%=comment.getComment() %></article>
        </div>
@@ -121,6 +131,12 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
  </tr>
  <%} %>
 </table>
+
+<br><br><br>
+<footer>
+<center><font size="2">Copyright(C)2019 QUICK Corp.Allright Reserved.</font></center>
+</footer>
+<br>
 
 </body>
 </html>
