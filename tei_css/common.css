@@ -222,3 +222,29 @@ table{
 	border:none;
 	background-color:#d3d3d3;
 }
+
+
+/*友達検索のデザイン*/
+.button_second{
+	margin-left:35px;
+	margin-top:20px;
+    float:left;
+}
+
+.search_btn{
+	background: #52c2d0;
+    color:#ffffff;
+}
+
+.search_box{
+	border:2px solid #52c2d0;
+}
+.follow_img{
+	float:left;
+
+}
+
+.header_contents{
+	clear:both;
+
+}

@@ -64,7 +64,7 @@ if(uList != null){
   <tr>
     <td class="follow_img">
       <%--ユーザのICON --%>
-      <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+      <img src="<%=request.getContextPath() %>/img/user_icon/<%=ubean.getIcon_name() %>" width="50px" height="50x">
       <%--ユーザネーム　<a>でその人のユーザページへ --%>
 
     </td>
