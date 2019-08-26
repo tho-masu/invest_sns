@@ -77,6 +77,7 @@ table{
 	margin-bottom:50px;
 	margin-top:50px;
 	border:none;
+	border-collapse: collapse;/*追加*/
 	table-layout:fixed;
 	word-break:break-all;
 	word-wrap:break-word;
@@ -89,6 +90,7 @@ table{
     position: fixed;
     bottom: 80px;
     right: 80px;
+    z-index:3;
 }
 /*ページトップボタンのデザイン、位置設定*/
 #page_top{
@@ -99,6 +101,7 @@ table{
   bottom: 165px;
   background: #3f98ef;
   border-radius: 50%;
+  z-index:3;
 }
 #page_top a{
   position: relative;
@@ -123,8 +126,13 @@ table{
   margin: auto;
   text-align: center;
 }
-
-
+/*コメント削除デザイン設定（追加）*/
+.comment_delete input[type="image"]{
+	float:right;
+}
+.comment_delete input[type="image"]:hover{
+	opacity:0.7;
+}
 /*
 ////////company.jspデザイン変更/////////////
 */
@@ -380,19 +388,17 @@ table{
 }
 
 /*-----------おすすめ企業一覧デザイン設定-------------*/
+.recommend_table td{
+	padding:10px;
+}
+.recommend_table tr:nth-child(odd){
+	background:#e6f2ff;
+}
 .recommend{
 	background-color:#87ceeb;
 	color:white;
 }
-.company_name{
-	width:60%;
-}
-.code_num{
-	width:20%;
-}
-.stock_price{
-	width:20%;
-}
+
 
 /*
 ---------------market.jsp編集----------------------
@@ -478,13 +484,16 @@ table{
 .top_article_home a{
 	text-decoration:none;
 }
-.top_article_homeonly:hover{
-	opacity:0.7;
-}
+
 .top_article_home div{
 	margin-bottom:5px;
 }
 /*シェア、コメント、いいねアイコンの位置設定*/
+.table_in_icon{
+	width:33.2%;
+	float:left;
+}
+
 .name_n_icon{
 	vertical-align:middle;
 }
@@ -514,6 +523,10 @@ table{
 .function_icon td{
 	text-align: center;
 	vertical-align:middle;
+}
+/*コメントアイコン押したときに見れる部分の設定*/
+.top_article_homeonly{
+	text-align:left;
 }
 
 /*
@@ -608,6 +621,9 @@ table{
 .post_article{
 	width:400px;
 }
+.post_article_all{
+/**/background:whitesmoke;
+}
 .post_list{
 	background:#00ffff;
 	width:550px;
@@ -619,14 +635,26 @@ table{
 	word-wrap: break-word;
 	padding:10px;
 	background:whitesmoke;
-
-
+/**/float:left;
 }
+/**/
+.post_list form{
+	float:right;
+}
+.post_delete{
+	margin-top:9px;
+	margin-right:10px;
+}
+.post_delete:hover{
+	opacity:0.7;
+}
+/**/
+
 .post_content{
 	word-wrap: break-word;
 	padding:10px;
 	background:whitesmoke;
-
+/**/clear:both;
 }
 .post_icon{
 	background:whitesmoke;

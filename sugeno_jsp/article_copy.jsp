@@ -109,8 +109,12 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
        <p class="top_name_home"><a href="">xxxxnamexxxx</a></p>
-       <div class="top_article_home"><article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</article></div>
+       <div class="top_article_home">
+       <div>2019-12-12</div>
+         <article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         </article>
+       </div>
      </div>
    </td>
  </tr>

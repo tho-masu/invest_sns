@@ -96,32 +96,56 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
   <%--このユーザの投稿記事一覧表示 --%>
   <div class="post_list">
     <div class="heading"><p>投稿記事</p></div>
+    <%--投稿の日付、内容、コメントボタンなど --%>
+    <div class="post_article_all">
+      <div class="post_date"><p>2019年12月19日</p></div>
+      <%--投稿削除ボタン --%>
+      <%--追加 --%>
+        <form action="" method="POST" class="post_delete">
+          <input type="hidden" name="pk_post" value="">
+		  <%--<input type="submit" name="btn" value="削除"> --%>
+		  <input type="image" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+	    </form><%--追加 --%>
 
-    <div class="post_date"><p>2019年12月19日</p></div>
-    <div class="post_content"><p>記事内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
-    <%--シェア、コメント、いいね数 --%>
-    <div class="post_icon">
-      <table class="post_table">
-        <tr>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div></td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div></td>
-        </tr>
-      </table>
+
+      <div class="post_content"><p>記事内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+      <%--シェア、コメント、いいね数 --%>
+      <div class="post_icon">
+        <table class="post_table">
+          <tr>
+            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div></td>
+            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
+            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div></td>
+          </tr>
+        </table>
+      </div>
     </div>
+    <%--投稿一つ目終了 --%>
+    <%--投稿二つ目始まり --%>
+    <div class="post_article_all">
+      <div class="post_date"><p>3月17日</p></div>
+      <%--投稿削除ボタン --%>
+      <%--追加 --%>
+        <form action="" method="POST" class="post_delete">
+          <input type="hidden" name="pk_post" value="">
+		  <%--<input type="submit" name="btn" value="削除"> --%>
+		  <input type="image" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+	    </form><%--追加 --%>
 
-    <div class="post_date"><p>3月17日</p></div>
-    <div class="post_content"><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
-    <div class="post_icon">
-      <table class="post_table">
-        <tr>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a><div>12</div></td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a><div>13</div></td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a><div>14</div></td>
-        </tr>
-      </table>
+      <div class="post_content"><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+      <div class="post_icon">
+        <table class="post_table">
+          <tr>
+            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a><div>12</div></td>
+            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a><div>13</div></td>
+            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a><div>14</div></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
+  <%--投稿二つ目終了 --%>
+
   <%--ブックマーク企業一覧表示 --%>
   <div class="bookmark_list">
     <div align="center" class="heading"><p>ブックマーク企業</p></div>

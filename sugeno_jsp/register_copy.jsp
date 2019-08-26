@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/login_register.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
-<title>investagramログイン</title>
+<title>investagram新規登録</title>
 </head>
 
 <body>

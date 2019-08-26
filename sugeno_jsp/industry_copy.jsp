@@ -72,7 +72,7 @@ List<String> industryList = StaticList.industryList;
       </td>
       <%--天気を表示 --%>
       <td  rowspan="2" align="center" width="200px">
-        <img src="<%=request.getContextPath() %>/img/weather/晴れる.png" width="100px">
+        <img src="<%=request.getContextPath() %>/img/weather/Sunny.png" width="100px">
       </td>
     </tr>
   </table>
@@ -96,7 +96,7 @@ List<String> industryList = StaticList.industryList;
   </table>
 
   <%--おすすめ企業 --%>
-  <table align="center" width="80%" class="list">
+  <table class="list recommend_table"><%--追加 --%>
     <tr>
       <th align="center" colspan="3" class="point_top">
         おすすめ企業
@@ -125,6 +125,17 @@ List<String> industryList = StaticList.industryList;
       	<%--=anode.get(i).get("price").asDouble() --%>円
       </td>
     </tr>
+    <tr class="sub reco_info">
+      <td>
+      	<%--<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a> --%>
+      </td>
+      <td>
+		<%--=anode.get(i).get("securities_code").asText() --%>
+      </td>
+      <td>
+      	<%--=anode.get(i).get("price").asDouble() --%>円
+      </td>
+     </tr>
 <%--} --%>
   </table>
 
@@ -152,12 +163,49 @@ List<String> industryList = StaticList.industryList;
     コメント一覧
    </td>
   </tr>
-  <tr>
-   <td class="sub" class="commentword">
-    コメント内容
-   </td>
-  </tr>
  </table>
+
+ <%--コメントとコメントした人の名前やアイコン --%>
+<table class="article_table">
+ <%--一人目コメント --%>
+ <tr>
+   <td colspan="3" valign="middle"  class="function_cell">
+     <div class="top_article">
+       <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
+       <div class="top_icon_home">
+         <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
+       </div>
+       <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
+       <p class="top_name_home"><a href="">xxxxnamexxxx</a></p>
+       <div class="top_article_home">
+         <div>1997-10-10</div>
+         <article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         </article>
+        </div>
+     </div>
+   </td>
+ </tr>
+ <%--二人目コメント --%>
+ <tr>
+   <td colspan="3" valign="middle"  class="function_cell">
+     <div class="top_article">
+       <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
+       <div class="top_icon_home">
+         <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px"></a>
+       </div>
+       <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
+       <p class="top_name_home"><a href="">xxxxnamexxxx</a></p>
+       <div class="top_article_home">
+         <div>1997-10-10</div>
+         <article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         </article>
+        </div>
+     </div>
+   </td>
+ </tr>
+</table>
 
 
 </body>
