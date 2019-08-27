@@ -1,19 +1,4 @@
-<%--コメント送信 --%>
- <table class="comment_submit">
-  <tr>
-   <td class="point_top">コメント欄</td>
-  </tr>
-  <form>
-  <tr>
-   <td class="sub">
-     <div><textarea name="comment"></textarea></div>
-     <div><input type="submit" value="送信" align="center" class="submit_div"></div>
-   </td>
-  </tr>
-  </form>
- </table>
-
- <table class="comment_list">
+<table class="comment_list">
   <tr>
    <td class="point_top">
     コメント一覧
@@ -33,6 +18,16 @@
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
        <p class="top_name_home"><a href="">xxxxnamexxxx</a></p>
+
+       <%--追加(削除ボタン) --%>
+       <form class="comment_delete" action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+         <input type="hidden" name="pk_comment" value="<%--=cbean.getPk_comment() --%>">
+     	 <input type="hidden" name="fk_user" value="<%--=cbean.getFk_user() --%>">
+		 <%--<input type="submit" name="btn" value="削除"> --%>
+		 <input type="image" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+	   </form>
+	   <%--追加ここまで --%>
+
        <div class="top_article_home">
          <div>1997-10-10</div>
          <article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -53,6 +48,15 @@
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
        <p class="top_name_home"><a href="">xxxxnamexxxx</a></p>
+
+       <%--追加(削除ボタン) --%>
+       <form class="comment_delete" action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+         <input type="hidden" name="pk_comment" value="<%--=cbean.getPk_comment() --%>">
+     	 <input type="hidden" name="fk_user" value="<%--=cbean.getFk_user() --%>">
+		 <%--<input type="submit" name="btn" value="削除"> --%>
+		 <input type="image" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+	   </form>
+
        <div class="top_article_home">
          <div>1997-10-10</div>
          <article>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -64,3 +68,6 @@
  </tr>
  <%--二人目終了 --%>
 </table>
+
+
+
