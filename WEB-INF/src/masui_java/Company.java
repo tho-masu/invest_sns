@@ -3,6 +3,7 @@ package masui_java;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,10 @@ public class Company extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		String scode = request.getParameter("quote");
+		//入力値チェック
+		if(!isHalfAlphanumeric(scode)) {
+			throw new ServletException();
+		}
 		String days = "7";
 
 		if(request.getParameter("days")!=null) {
@@ -61,4 +66,8 @@ public class Company extends HttpServlet {
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		doGet(request,response);
 	}
+
+	public static boolean isHalfAlphanumeric(String str) {
+        return Pattern.matches("^[0-9a-zA-Z]+$", str);
+    }
 }

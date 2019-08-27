@@ -3,6 +3,8 @@ package api;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -227,29 +229,49 @@ public class DAO {
 	public static int registerCompanyComment(int pk_id,String quote,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_com"+
 				"(fk_user,quote,comment,com_date) VALUES("+
-				"'"+pk_id+"','"+quote+"','"+comment+"',"+"now()"+");";
-		return DBManager.simpleUpdate(sql);
+				"?,?,?,"+"now()"+");";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setInt(1,pk_id);
+		smt.setInt(2, Integer.parseInt(quote));
+		smt.setString(3, comment);
+
+		return DBManager.simpleUpdate(smt,con);
 	}
 
 	public static int registerIndustryComment(int pk_id,String iname,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_ind"+
 				"(fk_user,industry_name,comment,com_date) VALUES("+
-				"'"+pk_id+"','"+iname+"','"+comment+"',"+"now()"+");";
-		return DBManager.simpleUpdate(sql);
+				"?,?,?,"+"now()"+");";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setInt(1,pk_id);
+		smt.setString(2,iname);
+		smt.setString(3, comment);
+		return DBManager.simpleUpdate(smt,con);
 	}
 
 	public static int registerMarketComment(int pk_id,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_mar"+
 				"(fk_user,comment,com_date) VALUES("+
-				"'"+pk_id+"','"+comment+"',"+"now()"+");";
-		return DBManager.simpleUpdate(sql);
+				"?,?,"+"now()"+");";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setInt(1, pk_id);
+		smt.setString(2, comment);
+		return DBManager.simpleUpdate(smt,con);
 	}
 
 	public static int registerArticleComment(int pk_id,String pk_post,String comment)throws SQLException{
 		String sql="INSERT INTO t_comment_art"+
 				"(fk_user,fk_post,comment,com_date) VALUES("+
-				"'"+pk_id+"','"+pk_post+"','"+comment+"',"+"now()"+");";
-		return DBManager.simpleUpdate(sql);
+				"?,?,?,"+"now()"+");";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setInt(1, pk_id);
+		smt.setInt(2, Integer.parseInt(pk_post));
+		smt.setString(3, comment);
+		return DBManager.simpleUpdate(smt,con);
 	}
 
 	public static List<CommentBean> getCompanyCommentList(String quote)throws SQLException{

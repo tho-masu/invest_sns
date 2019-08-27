@@ -59,8 +59,10 @@ public class MypageEdit extends HttpServlet {
 	public static void updateIcon(String pk_id,Part part,ServletContext context)throws ServletException,IOException, SQLException{
 		String name = getFileName(part);
 		String extension = getExtension(name);
-		part.write(context.getRealPath("/img/user_icon") + "/" + pk_id +"."+ extension);
-		UserDAO.icon_update(pk_id,pk_id+"."+extension);
+		if(extension != null) {
+			part.write(context.getRealPath("/img/user_icon") + "/" + pk_id +"."+ extension);
+			UserDAO.icon_update(pk_id,pk_id+"."+extension);
+		}
 	}
 
 	private static String getFileName(Part part) {

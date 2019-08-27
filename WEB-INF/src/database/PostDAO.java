@@ -1,5 +1,7 @@
 package database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.StringJoiner;
@@ -81,11 +83,14 @@ public class PostDAO {
 
 	public static int registerArticle(PostBean pbean)throws SQLException{
 		String sql = "INSERT INTO T_POST" +
-				"(FK_USER, SHARE_NUM, NICE_NUM, ARTICLE, CREATE_DATE) VALUES('" +
-				pbean.getPk_id() + "' , '0' , '0' ," +
-				"'" + pbean.getArticle() + "', " +
+				"(FK_USER, SHARE_NUM, NICE_NUM, ARTICLE, CREATE_DATE) VALUES(? , '0' , '0' ," +
+				"?, " +
 				"now()" + ");";
-		return DBManager.simpleUpdate(sql);
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setInt(1, pbean.getPk_id());
+		smt.setString(2, pbean.getArticle());
+		return DBManager.simpleUpdate(smt,con);
 	}
 
 	public static int deleteArticle(String pk_post,String fk_user)throws SQLException{

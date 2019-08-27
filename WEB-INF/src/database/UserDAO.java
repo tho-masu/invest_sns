@@ -1,5 +1,7 @@
 package database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -71,8 +73,11 @@ public class UserDAO {
 		return DBManager.findOne(sql, new UserBeanMapping());
 	}
 	public static int checkUserId(UserBean ubean) throws SQLException{
-		String sql = "SELECT COUNT(USER_ID) FROM T_USER WHERE USER_ID = '" + ubean.getUser_id() + "'";
-		return DBManager.simpleCount(sql);
+		String sql = "SELECT COUNT(USER_ID) FROM T_USER WHERE USER_ID = ?";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setString(1,ubean.getUser_id());
+		return DBManager.simpleCount(smt,con);
 	}
 	/*public static List<UserBean> getUserAccount() throws SQLException{
 		String sql = "SELECT USERNAME, PASSWORD, USER_ID FROM T_USER WHERE USER_ID = '" + ubean.getId() + "'";
@@ -106,12 +111,18 @@ public class UserDAO {
 
 
 	public static int updateUserProfile(String pk_id,String user_id,String item,String edit)throws SQLException {
-		String sql = "UPDATE t_user SET "+item+"='"+edit+"' WHERE pk_id='"+pk_id+"' and user_id='"+user_id+"';";
-		return DBManager.simpleUpdate(sql);
+		String sql = "UPDATE t_user SET "+item+"=? WHERE pk_id=? and user_id=?;";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setString(1,edit);
+		smt.setInt(2, Integer.parseInt(pk_id));
+		smt.setString(3, user_id);
+		return DBManager.simpleUpdate(smt,con);
 	}
 
 
 	public static List<UserBean> getSearchUser(String searchword)throws SQLException{
+		searchword = "%"+searchword+"%";
 		String sql = "SELECT T_USER.PK_ID AS PK_ID, " +
 				"T_USER.USERNAME AS USERNAME, " +
 				"T_USER.PASSWORD AS PASSWORD, " +
@@ -121,8 +132,12 @@ public class UserDAO {
 				"T_ICON.ICON_NAME AS ICON_NAME " +
 				"FROM T_USER " +
 				"RIGHT OUTER JOIN T_ICON ON T_USER.PK_ID = T_ICON.FK_USER " +
-				"WHERE USERNAME ILIKE '%" + searchword + "%';";
-		return DBManager.findAll(sql, new UserBeanMapping());
+				"WHERE USERNAME ILIKE ?;";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setString(1,searchword);
+
+		return DBManager.findAll(smt,con, new UserBeanMapping());
 	}
 }
 

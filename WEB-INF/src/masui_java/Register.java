@@ -48,6 +48,9 @@ public class Register extends HttpServlet {
 				//パスワードの長さが6以上になっているかチェック
 				errorMessage = "パスワードに誤りがあります";
 				throw new RegisterException();
+			}else if(!isHalfAlphanumeric(user_id)) {
+				errorMessage="ユーザーIDには半角英数しか使えません";
+				throw new RegisterException();
 			}else{
 			}
 
