@@ -2,6 +2,8 @@ package tei_java;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,19 +22,19 @@ public class Search extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		UserBean ubean = null;
 
 		String searchWord = request.getParameter("search");
 		String forwardURL=null;
 
 		 try {
-	    	  ubean=UserDAO.getSearchUser(searchWord);
-	    	   request.setAttribute("ubean", ubean);
-				if(ubean==null){
+			 List<UserBean> uList = new ArrayList<UserBean>();
+	    	  uList=UserDAO.getSearchUser(searchWord);
+	    	   request.setAttribute("uList", uList);
+				if(uList==null){
 					forwardURL="/tei_jsp/NotFound.jsp";
 				}
 
-				forwardURL="/tei_java/mypage?user_id="+ubean.getUser_id();
+				forwardURL="/tei_jsp/mayfollow.jsp";
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}catch(Exception e){

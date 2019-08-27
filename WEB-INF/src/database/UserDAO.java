@@ -111,7 +111,7 @@ public class UserDAO {
 	}
 
 
-	public static UserBean getSearchUser(String searchword)throws SQLException{
+	public static List<UserBean> getSearchUser(String searchword)throws SQLException{
 		String sql = "SELECT T_USER.PK_ID AS PK_ID, " +
 				"T_USER.USERNAME AS USERNAME, " +
 				"T_USER.PASSWORD AS PASSWORD, " +
@@ -122,7 +122,7 @@ public class UserDAO {
 				"FROM T_USER " +
 				"RIGHT OUTER JOIN T_ICON ON T_USER.PK_ID = T_ICON.FK_USER " +
 				"WHERE USERNAME ILIKE '%" + searchword + "%';";
-		return DBManager.findOne(sql, new UserBeanMapping());
+		return DBManager.findAll(sql, new UserBeanMapping());
 	}
 }
 
