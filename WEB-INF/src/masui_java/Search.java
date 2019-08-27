@@ -2,6 +2,8 @@ package masui_java;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,19 +22,19 @@ public class Search extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		UserBean ubean = null;
+		List<UserBean> uList = new ArrayList<UserBean>();
 
 		String searchWord = request.getParameter("search");
 		String forwardURL=null;
 
 		 try {
-	    	  ubean=UserDAO.getSearchUser(searchWord);
-	    	   request.setAttribute("ubean", ubean);
-				if(ubean==null){
+	    	  uList=UserDAO.getSearchUser(searchWord);
+	    	   request.setAttribute("uList", uList);
+				if(uList.size() == 0){
 					forwardURL="/masui_jsp/NotFound.jsp";
+				}else {
+					forwardURL="/masui_jsp/mayfollow.jsp";
 				}
-
-				forwardURL="/masui_jsp/mypage?user_id="+ubean.getUser_id();
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}catch(Exception e){

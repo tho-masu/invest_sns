@@ -44,6 +44,13 @@ jQuery(function() {
 <a href="<%=request.getContextPath() %>/masui_jsp/mayfollow?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow.png" width="45px"></a>
 </div>
 
+<%--ログアウトボタン --%>
+<div class="log_out_btn">
+	<form action="<%=request.getContextPath()%>/logout" method="POST">
+		<input type="submit" value="ログアウト">
+	</form>
+</div>
+
 <div class="header_contents">
 <nav>
   <ul>

@@ -55,7 +55,7 @@ public class Register extends HttpServlet {
 			//ユーザーの登録
 			int pk_id = database.UserDAO.register(ubean);
 			database.UserDAO.registerIcon(pk_id);
-			forwardURL = "/tei_jsp/login.jsp";
+			forwardURL = "/";
 			request.getRequestDispatcher(forwardURL).forward(request, response);
 			/*if (updateCount < 1) {
 				//updateCountではSQL文を実行した数が表示される
@@ -72,7 +72,7 @@ public class Register extends HttpServlet {
 			e.printStackTrace();
 		} catch(RegisterException e){
 			request.setAttribute("errorMessage", errorMessage);
-			forwardURL = "/tei_jsp/register.jsp";
+			forwardURL = "/register.jsp";
 			request.getRequestDispatcher(forwardURL).forward(request, response);
 
 			//out.println(errorMessage);

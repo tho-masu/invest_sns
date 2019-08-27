@@ -16,7 +16,7 @@
 <table class="comment_submit">
 <tr>
 <td class="point_top">
-接続がタイムアウトしました
+ログアウトしました
 </td>
 </tr>
 <tr>

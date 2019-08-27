@@ -30,7 +30,7 @@
       <h1>Hi Guest</h1>
     </div>
     <div class="form_box">
-    <form action="<%=request.getContextPath() %>/tei_java/register" method="POST">
+    <form action="<%=request.getContextPath() %>/register" method="POST">
       <div class="form_write"><input type="text" name="username" placeholder="username"></div>
       <div class="form_write"><input type="text" name="user_id" placeholder="user_id"></div>
       <div class="form_write"><input type="password" name="password" placeholder="password（6文字以上半角英数字）"></div>

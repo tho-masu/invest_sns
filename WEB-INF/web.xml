@@ -127,12 +127,21 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>masuiLogoutS</servlet-name>
+        <servlet-class>masui_java.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiLogoutS</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>masuiRegisterS</servlet-name>
         <servlet-class>masui_java.Register</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiRegisterS</servlet-name>
-        <url-pattern>/masui_jsp/register</url-pattern>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
     <servlet>

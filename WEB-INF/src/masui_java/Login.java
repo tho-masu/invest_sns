@@ -2,7 +2,6 @@ package masui_java;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
@@ -47,12 +46,7 @@ public class Login extends HttpServlet{
 			//UserBeanクラスでアカウント情報をセッションに登録(ユーザー名、パスワード、ユーザーID)
 			session.setAttribute("login_account", ubeanAccount);
 
-			//いいねの初期値　false
-			HashMap<Integer, Boolean> nice = new HashMap<Integer, Boolean>();
-			session.setAttribute("niceFlag", nice);
-
 			forwardURL= "/masui_jsp/";
-			//forwardURL= "/mainpage/home.jsp";
 		}else{
 			errorMessage = "パスワードに誤りがあります";
 			throw new LoginFailedException();
@@ -60,7 +54,7 @@ public class Login extends HttpServlet{
 
 	}catch(LoginFailedException e){
 		request.setAttribute("errorMessage", errorMessage);
-		forwardURL="/masui_jsp/login.jsp";
+		forwardURL="/";
 	}catch (Exception e) {
 		e.printStackTrace();
 	}

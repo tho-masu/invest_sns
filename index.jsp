@@ -36,7 +36,7 @@
       <div class="form_write"><input type="password" name="password" placeholder="password"></div>
       <div><input type="submit" value="ログイン" class="log_btn"></div>
       <div style="margin-top:20px;">
-        <input type="button" value="新規登録"onClick="location.href='<%=request.getContextPath()%>/masui_jsp/register.jsp'" class="log_btn">
+        <input type="button" value="新規登録"onClick="location.href='<%=request.getContextPath()%>/register.jsp'" class="log_btn">
       </div>
     </form>
     </div>
