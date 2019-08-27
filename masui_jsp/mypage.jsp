@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="database.UserBean,database.PostBean,java.util.List,com.fasterxml.jackson.databind.JsonNode,com.fasterxml.jackson.databind.node.ArrayNode"%>
+    pageEncoding="UTF-8" import="database.UserBean,database.CommentBean,database.PostBean,java.util.List,com.fasterxml.jackson.databind.JsonNode,com.fasterxml.jackson.databind.node.ArrayNode"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -8,6 +8,15 @@
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 
 <title>ユーザページ</title>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script>
+$(function(){
+	$('.click_open').click(function(){
+		$(this).next().next().slideToggle();
+	});
+})
+</script>
 
 <%
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
@@ -89,54 +98,98 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
   <div class="post_list">
     <div class="heading"><p>投稿</p></div>
 <%for(PostBean post : plist){ %>
-    <div class="post_date"><p>
-    	<%=post.getCreate_date() %>　<%=post.getCreate_time() %>
+	<div class="post_article_all">
+    <div class="post_date"><p><%=post.getCreate_date() %>　<%=post.getCreate_time() %></p></div>
     	<%--投稿削除ボタン --%>
-    	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST">
+    	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST" class="post_delete">
      			<input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
-				<input type="submit" name="btn" value="削除">
+				<input type="image" title="投稿を削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 		</form>
-    </p></div>
 
     <div class="post_content"><p><%=post.getArticle() %></p></div>
-    <%--シェア、コメント、いいね数 --%>
+
+    <%--シェア、コメント、いいね --%>
     <div class="post_icon">
-      <table class="post_table">
-        <tr>
-          <td>
-          	<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
-				<input type="hidden" name="article" value="<%=post.getArticle()%>">
-				<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
-				<input type="hidden" name="user_name" value="<%=post.getUsername()%>">
-				<input type="image" title="シェア" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
-			</form>
-     		<div></div>
-          </td>
-          <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
-          <td>
+    <table class="post_table">
+    	<tr>
+    		<td>
+    <div class="table_in_icon solid_right">
+     <form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
+		<input type="hidden" name="article" value="<%=post.getArticle()%>">
+		<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
+		<input type="hidden" name="user_name" value="<%=post.getUsername()%>">
+		<input type="image" title="シェア" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
+		<p></p>
+	</form>
+	</div>
+	<div class="table_in_icon solid_right click_open">
+     <img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px">
+     <p><%=post.getCommentList().size() %></p>
+	</div>
+	<div class="table_in_icon">
 			<%if(post.getIsLoginAccountGood()){ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
-          		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
 				<input type="image" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
-          		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
 				<input type="image" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
 				</form>
 			<%} %>
-			<div><%=post.countGood() %></div>
-          </td>
-        </tr>
-      </table>
-    </div>
-<%} %>
-  </div>
+			<p><%=post.countGood() %></p>
+	</div>
+	<%--投稿ここまで --%>
+   <%--コメント返信欄(コメントアイコンを押すと表示される)--%>
+   <div class="mypage_comment_list" style="display:none">
 
+     <%--コメント記入欄 --%>
+     <div>
+       <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
+         <div><textarea  name="comment"></textarea></div>
+         <input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
+         <div><input type="submit" value="送信"></div>
+       </form>
+     </div>
+	<%for(CommentBean comment : post.getCommentList()){ %>
+     <%--返信 --%>
+     <div class="top_article">
+     <%--アイコン
+       <div class="top_icon_home">
+         <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+       </div>
+      --%>
+       <%-- name（クリックでその人のページへ） --%>
+       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>"><%=comment.getUsername() %></a></p>
+       <div class="top_article_home top_article_homeonly">
+       <%--日付 --%>
+         <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
+       <%--削除ボタン --%>
+       <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
+     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST" class="comment_delete">
+     			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
+     			<input type="hidden" name="fk_user" value="<%=comment.getFk_user() %>">
+     			<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+				<input type="image" title="コメントを削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+		</form>
+		<%}%>
+       <%--返信内容 --%>
+         <article><%=comment.getComment() %></article>
+       </div>
+     </div>
+     <%--返信ここまで --%>
+	<%} %>
+  </div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<%} %>
+</div>
 
   <%--ブックマーク企業一覧表示 --%>
   <div class="bookmark_list">

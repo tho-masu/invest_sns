@@ -37,6 +37,9 @@
       <div class="form_write"><input type="password" name="password_confirm" placeholder="password(確認用)"></div>
       <div><input type="submit" value="登録" class="log_btn"></div>
     </form>
+    <div style="margin-top:20px;">
+        <input type="button" value="ログイン画面へ"onClick="location.href='<%=request.getContextPath()%>/'" class="log_btn">
+     </div>
     </div><font color="red"></font>
     <div align="center" >
 	<%String word;
