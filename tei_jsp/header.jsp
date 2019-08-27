@@ -20,7 +20,7 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
 	        	</form>
 </div>
 <div class="follow_img" >
-<a href="<%=request.getContextPath() %>/tei_java/mayfollow?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow.png" width="45px"></a>
+<a href="<%=request.getContextPath() %>/tei_java/mayfollow?pk_id=<%=ubean.getPk_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow.png" width="45px"></a>
 </div>
 
 <div class="header_contents">
