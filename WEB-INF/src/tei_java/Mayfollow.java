@@ -17,11 +17,11 @@ public class Mayfollow extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		String user_id = request.getParameter("user_id");
+		int pk_id = Integer.parseInt(request.getParameter("pk_id"));
 
 		List<UserBean> uList =  new ArrayList<UserBean>();
 		try {
-			uList= DAO.getUnfollowedList(user_id);
+			uList= DAO.getUnfollowedList(pk_id);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

@@ -369,17 +369,11 @@ public class DAO {
 		return ulist;
 	}
 
-	public static List<UserBean> getUnfollowedList(String user_id) throws SQLException{
-		String sql = "SELECT T_USER.PK_ID AS PK_ID, " +
-				"T_USER.USERNAME AS USERNAME, " +
-				"T_USER.PASSWORD AS PASSWORD, " +
-				"T_USER.MESSAGE AS MESSAGE, " +
-				"T_USER.USER_ID AS USER_ID, " +
-				"T_USER.INVEST_TIME AS INVEST_TIME,"+
-				"T_ICON.ICON_NAME AS ICON_NAME " +
-				"FROM T_USER " +
-				"RIGHT OUTER JOIN T_ICON ON T_USER.PK_ID = T_ICON.FK_USER " +
-				"WHERE USER_ID not in ('" + user_id + "');";
+	public static List<UserBean> getUnfollowedList(int pk_id) throws SQLException{
+		String sql = "select * from t_user u right outer join t_icon i on u.pk_id=i.fk_user where not exists"+
+				"(select followed_user from t_follow f where "
+				+ "(u.pk_id=f.followed_user AND f.fk_user='"+pk_id+"')"
+						+ "or u.pk_id='"+pk_id+"');";
 		return DBManager.findAll(sql, new UserBeanMapping());
 	}
 }
