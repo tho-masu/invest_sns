@@ -127,7 +127,7 @@ public class UserBean {
 	public List<UserBean> getUnfollowedList() {
 		List<UserBean> unfollowedList = null;
 		try {
-			unfollowedList =  DAO.getUnfollowedList(getUser_id());
+			unfollowedList =  DAO.getUnfollowedList(getPk_id());
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
