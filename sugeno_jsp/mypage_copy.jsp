@@ -111,19 +111,83 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
       <div class="post_content"><p>記事内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
       <%--シェア、コメント、いいね数 --%>
       <div class="post_icon">
+      <%--変更 --%>
         <table class="post_table">
           <tr>
-            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a><div>12</div></td>
-            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"></a><div>13</div></td>
-            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png" width="30px" height="30px"></a><div>14</div></td>
+            <td>
+
+                <%--シェア、コメント、いいねアイコン --%>
+                <div class="table_in_icon solid_right">
+                   <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a>
+                   <p>12</p>
+                </div>
+                <div class="table_in_icon solid_right click_open">
+                  <img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px">
+                  <p>13</p>
+                </div>
+                <div class="table_in_icon">
+                  <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px"></a>
+                  <p>14</p>
+                </div>
+                <%--コメントアイコンを押したときに表示されるもの --%>
+                <div class="mypage_comment_list" style="display:none">
+                  <%--コメント記入欄 --%>
+                  <div class="">
+                    <form action="<%=request.getContextPath()%>/" method="POST">
+                      <div><textarea class="mypage_textarea"></textarea></div>
+                      <div><input type="submit" value="送信"></div>
+                    </form>
+                  </div>
+                  <%--1人目の返信 --%>
+                  <div class="top_article">
+                    <%--アイコン --%>
+                    <div class="top_icon_home">
+                      <a href="">
+                        <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+                      </a>
+                    </div>
+                    <%-- name（クリックでその人のページへ） --%>
+                    <p class="top_name_home"><a href="">namename</a></p>
+                    <div class="top_article_home top_article_homeonly">
+                      <%--日付 --%>
+                      <div>2020-02-02</div>
+                      <%--返信内容 --%>
+                      <article>postpostpostpostpostpostpostpostpostpostpostpost</article>
+                    </div>
+                  </div>
+                  <%--1人目の返信ここまで --%>
+
+                  <%--2人目の返信 サンプル--%>
+                  <div class="top_article">
+                    <%--アイコン --%>
+                    <div class="top_icon_home">
+                      <a href="">
+                        <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+                      </a>
+                    </div>
+                    <%-- name（クリックでその人のページへ） --%>
+                    <p class="top_name_home"><a href="">namename</a></p>
+                    <div class="top_article_home top_article_homeonly">
+                      <%--日付 --%>
+                      <div>2020-02-03</div>
+                      <%--返信内容 --%>
+                      <article>xxxxaaaaxxxxxxxxxxxaaaaaaaaaaa</article>
+                    </div>
+                  </div>
+                  <%--2人目の返信ここまで --%>
+                </div>
+            </td>
           </tr>
+        <%--変更終了 --%>
+
+
         </table>
       </div>
     </div>
     <%--投稿一つ目終了 --%>
     <%--投稿二つ目始まり --%>
     <div class="post_article_all">
-      <div class="post_date"><p>3月17日</p></div>
+      <div class="post_date"><p>2019年12月19日</p></div>
       <%--投稿削除ボタン --%>
       <%--追加 --%>
         <form action="" method="POST" class="post_delete">
@@ -132,19 +196,86 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 		  <input type="image" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 	    </form><%--追加 --%>
 
-      <div class="post_content"><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+
+      <div class="post_content"><p>記事内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+      <%--シェア、コメント、いいね数 --%>
       <div class="post_icon">
+      <%--変更 --%>
         <table class="post_table">
           <tr>
-            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png"></a><div>12</div></td>
-            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png"></a><div>13</div></td>
-            <td><a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good_icon.png"></a><div>14</div></td>
+            <td>
+
+                <%--シェア、コメント、いいねアイコン --%>
+                <div class="table_in_icon solid_right">
+                   <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a>
+                   <p>12</p>
+                </div>
+                <div class="table_in_icon solid_right click_open">
+                  <img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px">
+                  <p>13</p>
+                </div>
+                <div class="table_in_icon">
+                  <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px"></a>
+                  <p>14</p>
+                </div>
+                <%--コメントアイコンを押したときに表示されるもの --%>
+                <div class="mypage_comment_list" style="display:none">
+                  <%--コメント記入欄 --%>
+                  <div class="">
+                    <form action="<%=request.getContextPath()%>/" method="POST">
+                      <div><textarea class="mypage_textarea"></textarea></div>
+                      <div><input type="submit" value="送信"></div>
+                    </form>
+                  </div>
+                  <%--1人目の返信 --%>
+                  <div class="top_article">
+                    <%--アイコン --%>
+                    <div class="top_icon_home">
+                      <a href="">
+                        <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+                      </a>
+                    </div>
+                    <%-- name（クリックでその人のページへ） --%>
+                    <p class="top_name_home"><a href="">namename</a></p>
+                    <div class="top_article_home top_article_homeonly">
+                      <%--日付 --%>
+                      <div>2020-02-02</div>
+                      <%--返信内容 --%>
+                      <article>postpostpostpostpostpostpostpostpostpostpostpost</article>
+                    </div>
+                  </div>
+                  <%--1人目の返信ここまで --%>
+
+                  <%--2人目の返信 サンプル--%>
+                  <div class="top_article">
+                    <%--アイコン --%>
+                    <div class="top_icon_home">
+                      <a href="">
+                        <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+                      </a>
+                    </div>
+                    <%-- name（クリックでその人のページへ） --%>
+                    <p class="top_name_home"><a href="">namename</a></p>
+                    <div class="top_article_home top_article_homeonly">
+                      <%--日付 --%>
+                      <div>2020-02-03</div>
+                      <%--返信内容 --%>
+                      <article>xxxxaaaaxxxxxxxxxxxaaaaaaaaaaa</article>
+                    </div>
+                  </div>
+                  <%--2人目の返信ここまで --%>
+                </div>
+            </td>
           </tr>
+        <%--変更終了 --%>
+
+
         </table>
       </div>
     </div>
+    <%--投稿二つ目終了 --%>
+
   </div>
-  <%--投稿二つ目終了 --%>
 
   <%--ブックマーク企業一覧表示 --%>
   <div class="bookmark_list">

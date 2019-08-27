@@ -706,14 +706,19 @@ table{
 	padding-top:15px;
 	padding-bottom:15px;
 }
+.post_n_bookmark img:hover{
+/**/opacity:0.7;
+}
 .post_article{
 	width:400px;
 }
 .post_article_all{
-/**/background:whitesmoke;
+/**/background:#fff;
+    border-right: 1px solid #a9a9a9;
+    border-left: 1px solid #a9a9a9;
+    border-bottom: 1px solid #a9a9a9;
 }
 .post_list{
-	background:#00ffff;
 	width:550px;
 	margin-right:100px;
 	float:left;
@@ -722,11 +727,10 @@ table{
 .post_date{
 	word-wrap: break-word;
 	padding:10px;
-	background:whitesmoke;
 /**/float:left;
 }
 /**/
-.post_list form{
+.post_delete{
 	float:right;
 }
 .post_delete{
@@ -741,14 +745,10 @@ table{
 .post_content{
 	word-wrap: break-word;
 	padding:10px;
-	background:whitesmoke;
+
 /**/clear:both;
 }
-.post_icon{
-	background:whitesmoke;
 
-    border-bottom : solid 2px #52c2d0 ;
-}
 .post_table{
 	margin:0;
 	width:550px;
@@ -759,18 +759,50 @@ table{
 .post_table span{
 	margin-bottom:10px;
 }
+/*コメントアイコン押したら開くところの設定*/
+.mypage_comment_list{
+	margin-top:80px;
+}
+
+.mypage_comment_list input{
+	padding: 10px 30px;
+	border-style: none;
+	font-size: 15px;
+	position: relative;
+	display: inline;
+	width: 100px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #26C6DA;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+.mypage_comment_list input:activate{
+	border-bottom: 2px solid #26C6DA;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+.mypage_comment_list input:hover{
+	background-color:#74f1fc;
+}
+.mypage_textarea{
+	width:80%;
+	height:150px;
+}
+
 /*--------ブックマーク企業一覧設定--------*/
 .bookmark_list{
 	width:350px;
-	background:#ff00ff;
 	float:left;
 }
 .bookmark_company{
 	padding:10px;
 	text-align:center;
-	background:whitesmoke;
-
-    border-bottom : solid 2px #52c2d0 ;
+    border-right: 1px solid #a9a9a9;
+    border-left: 1px solid #a9a9a9;
+    border-bottom: 1px solid #a9a9a9;
     position:relative;
     width:330px;
     height:50px;
