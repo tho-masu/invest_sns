@@ -117,7 +117,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
             <td>
 
                 <%--シェア、コメント、いいねアイコン --%>
-                <div class="table_in_icon solid_right">
+                <div class="table_in_icon">
                    <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a>
                    <p>12</p>
                 </div>
@@ -206,7 +206,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
             <td>
 
                 <%--シェア、コメント、いいねアイコン --%>
-                <div class="table_in_icon solid_right">
+                <div class="table_in_icon">
                    <a href=""><img src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="30px" height="30px"></a>
                    <p>12</p>
                 </div>

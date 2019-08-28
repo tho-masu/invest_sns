@@ -501,6 +501,7 @@ table{
 
 .solid_right{
 	border-right:1px solid #a9a9a9;
+	border-left:1px solid #a9a9a9;
 }
 /*見出し「フォローしている人の投稿」の設定*/
 
@@ -721,6 +722,7 @@ table{
 .post_list{
 	width:550px;
 	margin-right:100px;
+	margin-bottom:100px;
 	float:left;
 
 }
@@ -796,9 +798,10 @@ table{
 .bookmark_list{
 	width:350px;
 	float:left;
+	margin-bottom:100px;
 }
 .bookmark_company{
-	padding:10px;
+	padding: 10px 9px;
 	text-align:center;
     border-right: 1px solid #a9a9a9;
     border-left: 1px solid #a9a9a9;
