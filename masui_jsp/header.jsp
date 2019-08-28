@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="database.UserBean"%>
+    pageEncoding="UTF-8" import="database.UserBean,java.util.List"%>
 
 <%
 UserBean ubean = (UserBean)session.getAttribute("login_account");
+List<StringBuffer> pageHistory = (List<StringBuffer>)session.getAttribute("pageHistory");
 %>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>

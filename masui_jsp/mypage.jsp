@@ -101,10 +101,12 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 	<div class="post_article_all">
     <div class="post_date"><p><%=post.getCreate_date() %>　<%=post.getCreate_time() %></p></div>
     	<%--投稿削除ボタン --%>
+    	<%if(post.getPk_id() == loginAccount.getPk_id()){ %>
     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST" class="post_delete">
      			<input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
 				<input type="image" title="投稿を削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 		</form>
+		<%} %>
 
     <div class="post_content"><p><%=post.getArticle() %></p></div>
 
@@ -113,7 +115,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     <table class="post_table">
     	<tr>
     		<td>
-    <div class="table_in_icon solid_right">
+    <div class="table_in_icon">
      <form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
 		<input type="hidden" name="article" value="<%=post.getArticle()%>">
 		<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
@@ -157,13 +159,14 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 	<%for(CommentBean comment : post.getCommentList()){ %>
      <%--返信 --%>
      <div class="top_article">
-     <%--アイコン
+     <%--アイコン--%>
+     <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>">
        <div class="top_icon_home">
-         <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+         <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
        </div>
-      --%>
        <%-- name（クリックでその人のページへ） --%>
-       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>"><%=comment.getUsername() %></a></p>
+       <p class="top_name_home"><%=comment.getUsername() %></p>
+      </a>
        <div class="top_article_home top_article_homeonly">
        <%--日付 --%>
          <div><%=comment.getDate() %>　<%=comment.getTime() %></div>

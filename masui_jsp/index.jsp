@@ -58,8 +58,8 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 
  <tr align="center">
  <%--share,comment,goodボタン（仮　できれば） --%>
-   <td colspan="3" width="33.333%" class="solid_right">
-   <div class="table_in_icon solid_right">
+   <td colspan="3" width="33.333%">
+   <div class="table_in_icon">
      <form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
 		<input type="hidden" name="article" value="<%=post.getArticle()%>">
 		<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
@@ -101,13 +101,14 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 	<%for(CommentBean comment : post.getCommentList()){ %>
      <%--返信 --%>
      <div class="top_article">
-     <%--アイコン
+     <%--アイコン--%>
+     <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>">
        <div class="top_icon_home">
-         <img src="<%=request.getContextPath() %>/img/user_icon/default_icon.png" width="50px" height="50px">
+         <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
        </div>
-      --%>
        <%-- name（クリックでその人のページへ） --%>
-       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>"><%=comment.getUsername() %></a></p>
+       <p class="top_name_home"><%=comment.getUsername() %></p>
+      </a>
        <div class="top_article_home top_article_homeonly">
        <%--日付 --%>
          <div><%=comment.getDate() %>　<%=comment.getTime() %></div>

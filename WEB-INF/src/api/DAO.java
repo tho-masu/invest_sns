@@ -275,22 +275,22 @@ public class DAO {
 	}
 
 	public static List<CommentBean> getCompanyCommentList(String quote)throws SQLException{
-		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_com INNER JOIN t_user ON t_comment_com.fk_user=t_user.pk_id where quote='"+quote+"' order by com_date asc;";
+		String sql="SELECT pk_comment,t_comment_com.fk_user as fk_user,username,user_id,icon_name,comment,com_date FROM t_comment_com INNER JOIN t_user ON t_comment_com.fk_user=t_user.pk_id INNER JOIN t_icon ON t_comment_com.fk_user=t_icon.fk_user where quote='"+quote+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
 	public static List<CommentBean> getIndustryCommentList(String iname)throws SQLException{
-		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_ind INNER JOIN t_user ON t_comment_ind.fk_user=t_user.pk_id where industry_name='"+iname+"' order by com_date asc;";
+		String sql="SELECT pk_comment,t_comment_ind.fk_user as fk_user,username,user_id,icon_name,comment,com_date FROM t_comment_ind INNER JOIN t_user ON t_comment_ind.fk_user=t_user.pk_id INNER JOIN t_icon ON t_comment_ind.fk_user=t_icon.fk_user where industry_name='"+iname+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
 	public static List<CommentBean> getMarketCommentList()throws SQLException{
-		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_mar INNER JOIN t_user ON t_comment_mar.fk_user=t_user.pk_id order by com_date asc;";
+		String sql="SELECT pk_comment,t_comment_mar.fk_user as fk_user,username,user_id,icon_name,comment,com_date FROM t_comment_mar INNER JOIN t_user ON t_comment_mar.fk_user=t_user.pk_id INNER JOIN t_icon ON t_comment_mar.fk_user=t_icon.fk_user order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 
 	public static List<CommentBean> getArticleCommentList(int pk_post)throws SQLException{
-		String sql="SELECT pk_comment,fk_user,username,user_id,comment,com_date FROM t_comment_art INNER JOIN t_user ON t_comment_art.fk_user=t_user.pk_id where fk_post='"+pk_post+"' order by com_date asc;";
+		String sql="SELECT pk_comment,t_comment_art.fk_user as fk_user,username,user_id,icon_name,comment,com_date FROM t_comment_art INNER JOIN t_user ON t_comment_art.fk_user=t_user.pk_id INNER JOIN t_icon ON t_comment_art.fk_user=t_icon.fk_user where fk_post='"+pk_post+"' order by com_date asc;";
 		return DBManager.findAll(sql, new CommentBeanMapping());
 	}
 

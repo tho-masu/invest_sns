@@ -2,6 +2,8 @@ package masui_java;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
@@ -45,6 +47,9 @@ public class Login extends HttpServlet{
 			HttpSession session = request.getSession();
 			//UserBeanクラスでアカウント情報をセッションに登録(ユーザー名、パスワード、ユーザーID)
 			session.setAttribute("login_account", ubeanAccount);
+			//ページ遷移履歴を記述するリストをセッションに登録
+			List<StringBuffer> pageHistory = new ArrayList<StringBuffer>();
+			session.setAttribute("pageHistory", pageHistory);
 
 			forwardURL= "/masui_jsp/";
 		}else{

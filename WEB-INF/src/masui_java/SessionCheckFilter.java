@@ -1,6 +1,7 @@
 package masui_java;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -27,6 +28,14 @@ public class SessionCheckFilter implements Filter {
 		if(session == null) {
 			request.getRequestDispatcher("/masui_jsp/session_timeout.jsp").forward(request, response);
 		}
+
+		List<StringBuffer> pageHistory = (List<StringBuffer>)session.getAttribute("pageHistory");
+		StringBuffer sb = ((HttpServletRequest)request).getRequestURL();
+		pageHistory.add(sb);
+		if(pageHistory.size() > 3) {
+			pageHistory.remove(0);
+		}
+
 		chain.doFilter(request, response);
 	}
 

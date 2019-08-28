@@ -23,7 +23,7 @@ public class Share extends HttpServlet {
 		String userId = request.getParameter("user_id");
 		String userName = request.getParameter("user_name");
 		UserBean loginAccount = (UserBean)session.getAttribute("login_account");
-		PostBean pbean = new PostBean(loginAccount.getPk_id(),"["+userName+"さんからのシェア]<br> ＞ "+article);
+		PostBean pbean = new PostBean(loginAccount.getPk_id(),"<font color=blue>["+userName+"さんからのシェア]</font><br> ＞ "+article);
 
 		try {
 			PostDAO.registerArticle(pbean);
