@@ -132,12 +132,14 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 			<%if(post.getIsLoginAccountGood()){ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+          		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
 				<input type="image" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+          		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
 				<input type="image" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
 				</form>

@@ -21,6 +21,11 @@ $(function(){
 <%
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
+String pageNumberString = request.getParameter("page");
+int pageNumber = 1;
+if(pageNumberString != null){
+	pageNumber = Integer.parseInt(pageNumberString);
+}
 %>
 
 </head>
@@ -29,6 +34,19 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 
 <jsp:include page="header.jsp" flush="true" />
 
+<%if(plist.size() >= 11){ %>
+<br>
+<center>
+page:
+<% for(int i=0;i<(plist.size() - 1)/10 + 1;i++){%>
+	<%if(i+1 != pageNumber){ %>
+		<a href="<%=request.getContextPath()%>/masui_jsp/?page=<%=i+1%>"><%=i+1 %></a>
+	<%}else{ %>
+		<%=i+1 %>
+	<%} %>
+<%} %>
+</center>
+<%} %>
 
 <%--フォローしたユーザーの投稿を表示する --%>
 <table class="article_table">
@@ -36,20 +54,21 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
  <tr>
    <th class="point_top" colspan="3">フォローした人の投稿</th>
  </tr>
-<%for(PostBean post : plist){ %>
+<%for(int i=(pageNumber-1)*10;i<pageNumber*10;i++){ %>
+<% if(pageNumber >= (plist.size() - 1)/10 + 1){ if(i >= plist.size()){break;}  } %>
  <tr>
    <td colspan="3" valign="middle"  class="function_cell">
      <div class="top_article">
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=post.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=post.getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=plist.get(i).getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前 クリックでそのユーザのページへ--%>
-       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=post.getUser_id()%>"><%=post.getUsername() %></a></p>
+       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><%=plist.get(i).getUsername() %></a></p>
        <div class="top_article_home">
-         <div><%=post.getCreate_date() %>　<%=post.getCreate_time() %></div>
+         <div><%=plist.get(i).getCreate_date() %>　<%=plist.get(i).getCreate_time() %></div>
          <article>
-         	<%=post.getArticle() %>
+         	<%=plist.get(i).getArticle() %>
          </article>
        </div>
      </div>
@@ -61,30 +80,30 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
    <td colspan="3" width="33.333%">
    <div class="table_in_icon">
      <form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
-		<input type="hidden" name="article" value="<%=post.getArticle()%>">
-		<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
-		<input type="hidden" name="user_name" value="<%=post.getUsername()%>">
+		<input type="hidden" name="article" value="<%=plist.get(i).getArticle()%>">
+		<input type="hidden" name="user_id" value="<%=plist.get(i).getUser_id()%>">
+		<input type="hidden" name="user_name" value="<%=plist.get(i).getUsername()%>">
 		<input type="image" title="シェア" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
 	</form>
 	</div>
 	<div class="table_in_icon solid_right click_open">
-     <img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"><div><%=post.getCommentList().size() %></div>
+     <img src="<%=request.getContextPath() %>/img/function_icon/comment_icon.png" width="30px" height="30px"><div><%=plist.get(i).getCommentList().size() %></div>
 	</div>
 	<div class="table_in_icon">
-			<%if(post.getIsLoginAccountGood()){ %>
+			<%if(plist.get(i).getIsLoginAccountGood()){ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
-          		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+          		<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
 				<input type="image" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
-          		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
+          		<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
 				<input type="image" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
 				</form>
 			<%} %>
-			<div><%=post.countGood() %></div>
+			<div><%=plist.get(i).countGood() %></div>
 	</div>
 	<%--投稿ここまで --%>
    <%--コメント返信欄(コメントアイコンを押すと表示される)--%>
@@ -94,11 +113,11 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
      <div class="response_comment">
        <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
          <div><textarea  name="comment"></textarea></div>
-         <input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
+         <input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post() %>">
          <div><input type="submit" value="送信"></div>
        </form>
      </div>
-	<%for(CommentBean comment : post.getCommentList()){ %>
+	<%for(CommentBean comment : plist.get(i).getCommentList()){ %>
      <%--返信 --%>
      <div class="top_article">
      <%--アイコン--%>
@@ -114,11 +133,11 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
          <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
        <%--削除ボタン --%>
        <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
-     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST" class="comment_delete">
      			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
      			<input type="hidden" name="fk_user" value="<%=comment.getFk_user() %>">
-     			<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
-				<input type="submit" name="btn" value="削除">
+     			<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
+				<input type="image" title="コメントを削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 		</form>
 		<%}%>
        <%--返信内容 --%>
@@ -132,6 +151,15 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
  </tr>
  <%} %>
 </table>
+
+<%if(plist.size() >= 11){ %>
+<center>
+page:
+<% for(int i=0;i<(plist.size() - 1)/10 + 1;i++){%>
+<a href="<%=request.getContextPath()%>/masui_jsp/?page=<%=i+1%>"><%=i+1 %></a>
+<%} %>
+</center>
+<%} %>
 
 <br><br><br>
 <footer>
