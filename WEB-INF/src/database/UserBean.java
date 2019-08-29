@@ -3,6 +3,7 @@ package database;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -144,6 +145,14 @@ public class UserBean {
 			e.printStackTrace();
 		}
 		return plist;
+	}
+
+	public boolean getIsCompany() {
+		if(Pattern.matches("[0-9]+", getUser_id())) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }

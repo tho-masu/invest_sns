@@ -79,10 +79,15 @@ public class UserDAO {
 		smt.setString(1,ubean.getUser_id());
 		return DBManager.simpleCount(smt,con);
 	}
-	/*public static List<UserBean> getUserAccount() throws SQLException{
-		String sql = "SELECT USERNAME, PASSWORD, USER_ID FROM T_USER WHERE USER_ID = '" + ubean.getId() + "'";
-		return DBManager.findAll(sql, new UserBeanMapping());
-	}*/
+
+	public static int checkUserId(String user_id) throws SQLException{
+		String sql = "SELECT COUNT(USER_ID) FROM T_USER WHERE USER_ID = ?";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setString(1,user_id);
+		return DBManager.simpleCount(smt,con);
+	}
+
 	public static int userUpdate(UserBean ubean) throws SQLException{
 		String sql1 = "UPDATE T_USER SET USERNAME = '" + ubean.getUsername() + "', " +
 				"MESSAGE = '" + ubean.getMessage() + "'" +

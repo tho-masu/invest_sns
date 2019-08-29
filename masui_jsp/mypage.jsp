@@ -42,7 +42,9 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
      </div>
      <div class="user_introduction">
      <%--ユーザの名前 --%>
-       <p class="user_name"><%=ubean.getUsername() %></p>
+       <p class="user_name">
+       	<%=ubean.getUsername() %>
+       </p>
      <%--ユーザの自己紹介、投資経験 --%>
        <p class="invest_histry">投資経験：<%=ubean.getInvest_time() %></p>
        <p class="introduction_word"><%=ubean.getMessage() %></p>
