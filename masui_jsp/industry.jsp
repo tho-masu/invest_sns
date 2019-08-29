@@ -25,6 +25,19 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <jsp:include page="header.jsp" flush="true" />
 
+<div class="industry_filter" align="center">
+  <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
+    <select name="iname">
+      <option value="全業界（日経平均採用銘柄）" class="industry_option">全ての業界</option>
+      <%for(String element : industryList){%>
+		<option <%if(element.equals(iname)){ %>selected<%} %> value="<%=element%>" class="industry_option"><%=element %></option>
+	  <%} %>
+    </select>
+    <input type="submit" value="GO！">
+  </form>
+</div>
+
+
 <%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
 
 <!-- チャートを入れるテーブルはじめ -->
@@ -88,19 +101,6 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <%} %>
 
-<div class="industry_filter" align="center">
-  <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
-    <select name="iname">
-      <option value="全業界（日経平均採用銘柄）" class="industry_option">全ての業界</option>
-      <%for(String element : industryList){%>
-		<option <%if(element.equals(iname)){ %>selected<%} %> value="<%=element%>" class="industry_option"><%=element %></option>
-	  <%} %>
-    </select>
-    <input type="submit" value="GO！">
-  </form>
-</div>
-
-<br>
 
   <%--業界ページトップ、天気表示 --%>
   <table align="center" cellpadding="5px" class="industry_top" height="210px">

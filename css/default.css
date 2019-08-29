@@ -62,6 +62,11 @@ nav ul li a:hover {
 .reco_info td:hover {
     opacity: 0.7;    /* マウスオーバー時のセルの背景色 */
 }
+.reco_info td{
+	padding-left:10px;
+	padding-top:8px;
+	padding-bottom:8px;
+}
 /* 行全体をリンクに */
 
 a.widelink { display: block; }
@@ -193,6 +198,9 @@ table{
 
 /*///////コメント欄/////////*/
 /*位置設定*/
+.comment_submit{
+	border-collapse:collapse;
+}
 .comment_submit td{
 	text-align:center;
 }
@@ -205,7 +213,7 @@ table{
 /*送信ボタンのデザイン*/
 .comment_submit input{
 	margin-top:3px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	padding: 10px 30px;
 	border-style: none;
 	font-size: 20px;
@@ -277,7 +285,7 @@ margin-left:auto;
 	text-decoration: none;
 	color: #FFF;
 	background: #deb887;
-	border-bottom: 2px solid #00838F;
+
 	border-radius: 4px;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
 }
@@ -286,7 +294,7 @@ margin-left:auto;
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 .industry_filter input:hover{
-	background-color:#74f1fc;
+	background-color:#ff7f50;
 
 }
 
@@ -320,6 +328,7 @@ margin-left:auto;
 .industry_overview{
 	border:none;
 	background-color:#52c2d0;
+	border-collapse:collapse;
 }
 .overview{
 	width:750px;
@@ -342,9 +351,14 @@ margin-left:auto;
 }
 
 /*-----------おすすめ企業一覧デザイン設定-------------*/
+
 .recommend{
 	background-color:#87ceeb;
 	color:white;
+}
+.recommend th{
+	padding-top:10px;
+	padding-bottom:10px;
 }
 .company_name{
 	width:60%;
@@ -564,9 +578,14 @@ margin-left:auto;
 .post_table{
 	margin:0;
 	width:550px;
+	margin-bottom:10px;
+ 	table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 .post_table td{
 	text-align:center;
+	width:550px;
 }
 .post_table span{
 	margin-bottom:10px;
@@ -814,6 +833,7 @@ textarea{
 .top_article{
 	padding:10px;
 	margin-bottom:10px;
+	word-wrap: break-word;
 }
 .top-margin{
 	margin-top:125px;
@@ -852,7 +872,7 @@ textarea{
 }
 /*シェア、コメント、いいねアイコンの位置設定*/
 .table_in_icon{
-	width:33.2%;
+	width:33%;
 	float:left;
 }
 
@@ -1031,7 +1051,7 @@ textarea{
   position: fixed;
   right: 60px;
   bottom: 165px;
-  background: #3f98ef;
+  background: #ffffff;
   border-radius: 50%;
   z-index:3;
 }
@@ -1042,17 +1062,17 @@ textarea{
   height: 80px;
   text-decoration: none;
 }
+#page_top img{
+	width:80px;
+	height:80px;
+}
 #page_top a::before{
-  font-weight: bold;
-  content: '↑';
-  font-size: 40px;
-  color: #fff;
   position: absolute;
   width: 25px;
   height: 25px;
-  top: -27px;
+  top: -5px;
   bottom: 0;
-  right: 15px;
+  right: 0;
   left: 0;
   margin: auto;
   text-align: center;

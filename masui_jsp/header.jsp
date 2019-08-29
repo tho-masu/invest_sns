@@ -69,7 +69,7 @@ jQuery(function() {
 <!-- ヘッダー終わり -->
 
 <%-- ページトップへ行くボタン表示 --%>
-<div id="page_top"><a href="#"></a></div>
+<div id="page_top"><a href="#"><img src="/invest_sns/img/function_icon/toppage.png"></a></div>
 
 <%-- 投稿ページへのボタン --%>
 <div class="post_icon_function">
