@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math,java.util.List,java.util.Date,java.sql.Time,database.CommentBean,database.UserBean"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math,java.util.List,java.util.Date,java.sql.Time,database.CommentBean,database.UserBean,database.PostBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -14,7 +14,17 @@ JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
 List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 boolean isRegisteredBookmark = (boolean)request.getAttribute("isRegisteredBookmark");
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
+List<PostBean> plist = (List<PostBean>)request.getAttribute("companyPosts");
 %>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script>
+$(function(){
+	$('.click_open').click(function(){
+		$(this).next().next().slideToggle();
+	});
+})
+</script>
 
 <title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
@@ -158,6 +168,85 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
   </tr>
   </table>
 
+<%if(plist != null){ %>
+<%if(!(plist.isEmpty())){ %>
+<%--企業の投稿を表示する --%>
+<table class="article_table">
+ <%--見出し --%>
+ <tr>
+   <th class="point_top" colspan="3">この企業からの投稿</th>
+ </tr>
+<%for(int i=0;i<plist.size();i++){ %>
+ <tr>
+   <td colspan="3" valign="middle"  class="function_cell">
+     <div class="top_article">
+       <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
+       <div class="top_icon_home">
+         <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=plist.get(i).getIcon_name() %>" width="50px" height="50px"></a>
+       </div>
+       <%--フォローしたユーザの名前 クリックでそのユーザのページへ--%>
+       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><%=plist.get(i).getUsername() %></a></p>
+       <div class="top_article_home">
+         <div><%=plist.get(i).getCreate_date() %>　<%=plist.get(i).getCreate_time() %></div>
+         <article>
+         	<%=plist.get(i).getArticle() %>
+         </article>
+       </div>
+     </div>
+   </td>
+ </tr>
+
+ <tr align="center">
+   <td colspan="3" width="33.333%">
+
+	<%--投稿ここまで --%>
+   <%--コメント返信欄(コメントアイコンを押すと表示される)--%>
+   <div style="display:none">
+
+     <%--コメント記入欄 --%>
+     <div class="response_comment">
+       <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
+         <div><textarea  name="comment"></textarea></div>
+         <input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post() %>">
+         <div><input type="submit" value="送信"></div>
+       </form>
+     </div>
+	<%for(CommentBean comment : plist.get(i).getCommentList()){ %>
+     <%--返信 --%>
+     <div class="top_article">
+     <%--アイコン--%>
+     <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>">
+       <div class="top_icon_home">
+         <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
+       </div>
+       <%-- name（クリックでその人のページへ） --%>
+       <p class="top_name_home"><%=comment.getUsername() %></p>
+      </a>
+       <div class="top_article_home top_article_homeonly">
+       <%--日付 --%>
+         <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
+       <%--削除ボタン --%>
+       <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
+     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST" class="comment_delete">
+     			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
+     			<input type="hidden" name="fk_user" value="<%=comment.getFk_user() %>">
+     			<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
+				<input type="image" title="コメントを削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+		</form>
+		<%}%>
+       <%--返信内容 --%>
+         <article><%=comment.getComment() %></article>
+       </div>
+     </div>
+     <%--返信ここまで --%>
+	<%} %>
+   </div>
+   </td>
+ </tr>
+ <%} %>
+</table>
+<%} %>
+<%} %>
 
  <%-- 今日のニュースはじめ --%>
 <table class="comment_list">

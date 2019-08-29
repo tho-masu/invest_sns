@@ -36,10 +36,10 @@ public class Good extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		if(user_id == null) {
-			request.getRequestDispatcher("/masui_jsp/").forward(request, response);
-		}else {
+		if(user_id != null) {
 			request.getRequestDispatcher("/masui_jsp/mypage?user_id="+user_id).forward(request, response);
+		}else {
+			request.getRequestDispatcher("/masui_jsp/").forward(request, response);
 		}
 	}
 }
