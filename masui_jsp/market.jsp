@@ -23,6 +23,14 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <jsp:include page="header.jsp" flush="true" />
 
+<%--証券番号検索ボタン --%>
+<div class="top_market_search">
+  <p align="center">証券コードを入力してください</p>
+  <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
+	  <input type="tel" name="quote" maxlength="4">
+	  <input type="submit" value="銘柄詳細へ">
+  </form>
+</div>
 
 <!-- チャートを入れるテーブルはじめ -->
 
@@ -87,15 +95,14 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <!-- チャートを入れるテーブル終わり -->
 
-<br>
 
-<div align="center">証券コードを入力してください</div>
+
+<%--div align="center">証券コードを入力してください</div>
 <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET" align="center">
 	<input type="text" name="quote">
 	<input type="submit" value="銘柄詳細へ">
-</form>
+</form--%>
 
-<br>
 
 <table align="center" border="1" class="list industryweather">
 	<tr class="industryweather_head">

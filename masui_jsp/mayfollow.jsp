@@ -26,7 +26,7 @@
 <%--follow_list画面 --%>
 <table class="follow_follower">
   <tr>
-    <th class="point_top" colspan="2">
+    <th class="point_top">
       <p>おすすめの友だち</p>
     </th>
 <%
@@ -37,21 +37,16 @@ if(uList != null){
 %>
   <tr>
     <td class="follow_img">
-      <%--ユーザのICON --%>
-      <img src="<%=request.getContextPath() %>/img/user_icon/<%=ubean.getIcon_name() %>" width="50px" height="50x">
-      <%--ユーザネーム　<a>でその人のユーザページへ --%>
-
-    </td>
-    <td  class="follow_btn">
-      <%--<a>クリックでその人をフォローできる --%>
-      <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>"><%=ubean.getUsername() %><img src="<%=request.getContextPath() %>/img/function_icon/plus.png" width="40px" height="40px"></a>
+      <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>">
+        <%--ユーザのICON<a>押すとその人のユーザページへ --%>
+        <img src="<%=request.getContextPath() %>/img/user_icon/<%=ubean.getIcon_name() %>" width="50px" height="50x">
+        <%--ユーザネーム　<a>でその人のユーザページへ --%>
+        <%=ubean.getUsername() %>
+      </a>
     </td>
   </tr>
   <%}} %>
   <%--以下サンプル --%>
-  <tr>
-
-  </tr>
 </table>
 
 

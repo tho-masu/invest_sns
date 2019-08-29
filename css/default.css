@@ -359,8 +359,50 @@ margin-left:auto;
 /*
 ---------------market.jsp編集----------------------
 */
-
+/*証券番号検索ボタン編集設定*/
+.top_market_search{
+	background:#52c2d0;
+	padding-top:50px;
+	padding-bottom:50px;
+	margin-top:45px;
+	text-align:center;
+}
+.top_market_search p{
+	color:white;
+	font-weight:bold;
+	font-size:35px;
+}
+.top_market_search input[type="tel"]{
+	width: 280px;
+    height: 40px;
+    color: #666666;
+    font-size: 20px;
+}
+.top_market_search input[type="submit"]{
+	border: 2px solid #ffffff;
+	margin-top: 3px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    position: relative;
+    display: inline;
+    width: 100px;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    background: #52c2d0;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+.top_market_search input[type="submit"]:hover{
+	background-color: #74f1fc;
+}
+.top_market_search input[type="submit"]:activate{
+	border-bottom: 2px solid #26C6DA;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
 /*market.jspデザイン設定*/
+
 .industryweather{
 	border-collapse:collapse;
 }
