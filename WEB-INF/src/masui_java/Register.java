@@ -27,6 +27,7 @@ public class Register extends HttpServlet {
 		String password_confirm = request.getParameter("password_confirm");
 		String forwardURL = null;
 		String errorMessage = null;
+		String isCompany = request.getParameter("is_company");
 
 		try {
 			database.UserBean ubean = new database.UserBean(user_id, username,
@@ -51,7 +52,16 @@ public class Register extends HttpServlet {
 			}else if(!isHalfAlphanumeric(user_id)) {
 				errorMessage="ユーザーIDには半角英数しか使えません";
 				throw new RegisterException();
-			}else{
+			}else if(isCompany != null){
+				if(!isHalfNumber(user_id)) {
+					errorMessage = "ユーザーIDには半角数字のみを入力してください";
+					throw new RegisterException();
+				}
+			}else if(isCompany == null) {
+				if(isHalfNumber(user_id)) {
+					errorMessage = "半角数字のみのユーザーIDは登録できません";
+					throw new RegisterException();
+				}
 			}
 
 			// データベース処理
@@ -75,7 +85,11 @@ public class Register extends HttpServlet {
 			e.printStackTrace();
 		} catch(RegisterException e){
 			request.setAttribute("errorMessage", errorMessage);
-			forwardURL = "/register.jsp";
+			if(isCompany == null) {
+				forwardURL = "/register.jsp";
+			}else {
+				forwardURL = "/company_register.jsp";
+			}
 			request.getRequestDispatcher(forwardURL).forward(request, response);
 
 			//out.println(errorMessage);
@@ -85,7 +99,12 @@ public class Register extends HttpServlet {
 	}
 	public class RegisterException extends Exception{
 	}
+
     public static boolean isHalfAlphanumeric(String str) {
         return Pattern.matches("^[0-9a-zA-Z]+$", str);
+    }
+
+    public static boolean isHalfNumber(String str) {
+    	return Pattern.matches("[0-9]+", str);
     }
 }

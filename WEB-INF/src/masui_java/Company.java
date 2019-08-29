@@ -15,7 +15,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import api.DAO;
 import database.CommentBean;
+import database.PostBean;
+import database.PostDAO;
 import database.UserBean;
+import database.UserDAO;
 
 public class Company extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
@@ -54,11 +57,22 @@ public class Company extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 		}
 
+		List<PostBean> companyPosts = null;
+		try {
+			if(UserDAO.checkUserId(scode) == 1) {
+				companyPosts =  PostDAO.getAllPostDESC(scode);
+			}
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
 		request.setAttribute("isRegisteredBookmark", isRegisteredBookmark);
 		request.setAttribute("dnode", dnode);
 		request.setAttribute("hnode", hnode);
 		request.setAttribute("nnode", nnode);
 		request.setAttribute("clist", clist);
+		request.setAttribute("companyPosts", companyPosts);
 		request.getRequestDispatcher("/masui_jsp/company.jsp").forward(request, response);
 
 	}
