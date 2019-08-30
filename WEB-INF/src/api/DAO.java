@@ -61,7 +61,7 @@ public class DAO {
 	public static JsonNode getCompanyHistorical(String scode,String days){
 		HashMap<String,String> query = new HashMap<String,String>();
 		query.put("quote", scode);
-		query.put("item","price");
+		query.put("item","price,price_pchg");/*菅野price_pchg追加*/
 		query.put("count",days);
 		query.put("direction","backward");
 
@@ -209,6 +209,30 @@ public class DAO {
 		JsonNode hnode = node.get("historical_monthly").get("data");
 
 		return hnode;
+	}
+	/*菅野追加*/
+	public static JsonNode getCompanyHistorical_count(String scode,String days){
+		HashMap<String,String> query = new HashMap<String,String>();
+		query.put("quote", scode);
+		query.put("item","price_pchg");
+		query.put("count",days);
+		query.put("direction","backword");
+
+		String result = APIManager.getData("historical_daly_count", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode hcnode = node.get("historical_daily").get("data").get(0).get("value");
+
+		return hcnode;
 	}
 
 /* ここまでAPI用DAO */
