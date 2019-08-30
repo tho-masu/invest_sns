@@ -243,4 +243,13 @@
         <url-pattern>/masui_jsp/search</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>sugeno_Chart_sampleS</servlet-name>
+        <servlet-class>sugeno_java.Chart_sample</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sugeno_Chart_sampleS</servlet-name>
+        <url-pattern>/sugeno_jsp/chart_sample</url-pattern>
+    </servlet-mapping>
+
 </web-app>
