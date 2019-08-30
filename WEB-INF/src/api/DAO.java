@@ -43,7 +43,7 @@ public class DAO {
 
 		ObjectMapper mapper = new ObjectMapper();
 
-		JsonNode node=null
+		JsonNode node=null;
 				;
 		try {
 			node = mapper.readTree(result);
