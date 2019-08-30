@@ -42,31 +42,44 @@ $(function(){
      <td colspan="4" align="center" id="top_company"><%=dnode.get("v-name").asText() %>（<%=dnode.get("price").asDouble() %>円）</td>
    </tr>
    <tr class="top_sub">
-     <td rowspan="3" width="40%">簡単紹介</td>
-     <td align="left">お買い<font color="red">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
-     <td rowspan="3" align="right" width="15%">
+     <td rowspan="3" width="40%">
+     <%if(dnode.get("price_chg").asDouble()>0){ %>
+       <p>前日比：<font color="blue"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
+
+     <%} else if(dnode.get("price_chg").asDouble()<0){ %>
+       <p>前日比：<font color="red"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
+
+     <%} else{ %>
+       <p>前日比：<%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</p>
+
+     <%} %>
+     </td>
+     <td align="left" width="40%">お買い<font color="red">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
+     <td rowspan="3" align="right" width="20%">
 
      <% if(!isRegisteredBookmark){%>
      	<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
 			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
 			<input type="hidden" name="registerOrDelete" value="register">
-			<div><input type="submit" value="bookmarkに登録" align="center"></div>
+			<%--div><input type="submit" value="bookmarkに登録" align="center"></div> --%>
+			<div align="center"><input type="image" title="bookmarkに登録" src="<%=request.getContextPath()%>/img/function_icon/not_bookm.png" width="40px" height="40px"></div>
 		</form>
 	<%}else{ %>
 		<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
 			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
 			<input type="hidden" name="registerOrDelete" value="delete">
-			<div><input type="submit" value="bookmarkから削除" align="center"></div>
+			<%--div><input type="submit" value="bookmarkから削除" align="center"></div>--%>
+			<div align="center"><input type="image" title="bookmarkから削除" src="<%=request.getContextPath()%>/img/function_icon/bookm.png" width="40px" height="40px"></div>
 		</form>
 	<%} %>
 
      </td>
    </tr>
    <tr class="top_sub">
-     <td align="left">お買い<font color="blue">得</font>度（1/PER)：<%=(double)Math.round( 10000/(dnode.get("co_per").asDouble()) ) / 10000 %></td>
+     <td align="left" width="40%">お買い<font color="blue">得</font>度（1/PER)：<%=(double)Math.round( 10000/(dnode.get("co_per").asDouble()) ) / 10000 %></td>
    </tr>
    <tr class="top_sub">
-     <td align="left">企業の稼ぐ力（ROE)：<%=dnode.get("co_settle_roe").asDouble() %></td>
+     <td align="left" width="40%">企業の稼ぐ力（ROE)：<%=dnode.get("co_settle_roe").asDouble() %></td>
    </tr>
  </table>
 
@@ -106,8 +119,9 @@ $(function(){
       	  	<%=hnode.get(i).get("price").asDouble()%>
       	  <%}%>
         	  ],
-          borderColor: "rgba(255,0,0,1)",
-          backgroundColor: "rgba(0,0,0,0)"
+          borderColor: "#66ccff",
+          fillColor : "rgba(0,180,255,0.1)",
+          fullColor:"rgba(0,180,225,0.1)"
         }
       ],
     },

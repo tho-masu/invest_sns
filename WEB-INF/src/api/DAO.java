@@ -37,7 +37,7 @@ public class DAO {
 	public static JsonNode getCompanyInfo(String scode){
 		HashMap<String,String> query = new HashMap<String,String>();
 		query.put("quote", scode);
-		query.put("item","v-name,v-name_en,short_name,co_settle_fy_ended,price,co_per,co_settle_roe,marketcap,co_settle_dps,co_settle_dividend_payout");
+		query.put("item","v-name,v-name_en,short_name,co_settle_fy_ended,price,co_per,co_settle_roe,marketcap,co_settle_dps,co_settle_dividend_payout,price_chg,price_pchg");
 
 		String result = APIManager.getData("quote", query);
 

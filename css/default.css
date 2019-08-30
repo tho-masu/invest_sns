@@ -112,6 +112,7 @@ table{
 /*企業名と株価の欄のデザイン*/
 #top_table{
 	border-color:whitesmoke;
+	border-collapse:collapse;
 }
 #top_company{
 	font-weight: bold;
@@ -126,11 +127,21 @@ table{
 	background-color:whitesmoke;
 	border-color:whitesmoke;
 }
-
+.top_sub{
+	text-align:center;
+	padding:10px;
+}
+.top_sub td{
+	text-align:center;
+	padding:10px;
+}
 /*//////チャート//////*/
 /*見出し「チャート」*/
-.chart tr{
-	border-bottom:solid 2px white;
+.chart{
+	border-collapse:collapse;
+}
+.chart td{
+	padding:20px;
 }
 /*「７、３０日間のボタンデザイン」*/
 #chartbtn_margin{
@@ -180,9 +191,6 @@ table{
 .attention_point th.last{
 	border-bottom:solid 1px black;
 }
-.attention_point td{
-	background-color:whitesmoke;
-}
 
 .sub_point{
 	background-color:#afeeee;
@@ -194,10 +202,17 @@ table{
 }
 .attention_point td{
 	background-color:#afeeee;
+	padding-left:20px;
 }
 
 /*///////コメント欄/////////*/
 /*位置設定*/
+.comment_list{
+	border-collapse:collapse;
+}
+.comment_list td{
+	padding:20px;
+}
 .comment_submit{
 	border-collapse:collapse;
 }
