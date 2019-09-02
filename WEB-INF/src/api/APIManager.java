@@ -93,7 +93,9 @@ public class APIManager {
 		return response.toString();
 	}
 
-	public static String getYudaiData(String str) {
+	public static String getYutaiData(String str) {
+		//取得先は社内ネットワーク内なのでプロキシを経由しないことを明示しないとエラーになる
+		System.setProperty("http.nonProxyHosts","localhost|172.22.88.215|*.nonproxy.com");
 
 	     StringBuffer response = new StringBuffer();
 
