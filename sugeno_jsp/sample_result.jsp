@@ -55,7 +55,8 @@ var trace = {
     }
   };
 var layout = {
-
+		xaxis: {title: "前日比騰落率（％）"},
+		yaxis: {title: "日数"},
 		bargap: 0.3,
 		shapes:[
 			{
@@ -83,8 +84,6 @@ Plotly.newPlot('myDiv', data, layout);
 
 <!-- チャートを入れるテーブル終わり -->
 
-<%-- 勝率の円グラフ入れる --%>
-
 <%
 int win = 0;
 int lose = 0;
@@ -102,7 +101,13 @@ for(int i=0;i<hnode.size();i++){
 	}
 }
 %>
-
+<%-- 勝率の円グラフ入れる --%>
+<table>
+  <tr>
+    <td class="point_top">円グラフ</td>
+  </tr>
+  <tr class="sub">
+    <td>
 <canvas id="myPieChart"></canvas>
 
 <script>
@@ -129,5 +134,9 @@ var myPieChart = new Chart(ctx, {
 });
 </script>
 <%--勝率の円グラフ終了 --%>
+</td>
+  </tr>
+</table>
+
 </body>
 </html>

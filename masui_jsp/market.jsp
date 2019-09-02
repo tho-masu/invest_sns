@@ -64,8 +64,9 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
       	  	<%=hnode.get(i).get("price").asDouble()%>
       	  <%}%>
         	  ],
-          borderColor: "rgba(255,0,0,1)",
-          backgroundColor: "rgba(0,0,0,0)"
+        	  borderColor: "#66ccff",
+              fillColor : "rgba(0,180,255,0.1)",
+              fullColor:"rgba(0,180,225,0.1)"
         }
       ],
     },

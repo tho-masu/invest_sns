@@ -363,6 +363,7 @@ margin-left:auto;
 /*画像設定*/
 .overview_img img{
 	margin-top:25px;
+	margin-bottom:25px;
 }
 
 /*-----------おすすめ企業一覧デザイン設定-------------*/
@@ -827,6 +828,29 @@ textarea{
 /*
 ---------------index.jsp編集----------------------
 */
+/*-------次へページデザイン設定--------------*/
+center{
+	color:#fff;
+}
+center span{
+	padding:20px;
+	margin-right:10px;
+
+	background:#39faf0;
+	border-radius:50px 50px;
+}
+center a{
+	padding:20px;
+	margin-right:10px;
+
+	border-radius:50px 50px;
+	text-decoration:none;
+	color:#fff;
+	background:#16caf7;
+}
+center a:hover{
+	opacity:0.7;
+}
 /*-------------アイコンと記事本文の編集設定------------*/
 /*ライン設定*/
 .article_table{

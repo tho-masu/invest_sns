@@ -34,19 +34,7 @@ if(pageNumberString != null){
 
 <jsp:include page="header.jsp" flush="true" />
 
-<%if(plist.size() >= 11){ %>
-<br>
-<center>
-page:
-<% for(int i=0;i<(plist.size() - 1)/10 + 1;i++){%>
-	<%if(i+1 != pageNumber){ %>
-		<a href="<%=request.getContextPath()%>/masui_jsp/?page=<%=i+1%>"><%=i+1 %></a>
-	<%}else{ %>
-		<%=i+1 %>
-	<%} %>
-<%} %>
-</center>
-<%} %>
+
 
 <%--フォローしたユーザーの投稿を表示する --%>
 <table class="article_table">
@@ -153,10 +141,15 @@ page:
 </table>
 
 <%if(plist.size() >= 11){ %>
+<br>
 <center>
-page:
+
 <% for(int i=0;i<(plist.size() - 1)/10 + 1;i++){%>
-<a href="<%=request.getContextPath()%>/masui_jsp/?page=<%=i+1%>"><%=i+1 %></a>
+	<%if(i+1 != pageNumber){ %>
+		<a href="<%=request.getContextPath()%>/masui_jsp/?page=<%=i+1%>"><%=i+1 %></a>
+	<%}else{ %>
+		<span><%=i+1 %></span>
+	<%} %>
 <%} %>
 </center>
 <%} %>

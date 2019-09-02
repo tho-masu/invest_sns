@@ -262,6 +262,20 @@ $(function(){
 <%} %>
 <%} %>
 
+<%--優待情報 --%>
+<table class="comment_list">
+  <tr>
+   <td class="point_top">
+      優待情報
+   </td>
+  </tr>
+  <tr>
+   <td class="sub" id="commentword">
+
+   </td>
+  </tr>
+ </table>
+
  <%-- 今日のニュースはじめ --%>
 <table class="comment_list">
   <tr>
