@@ -93,4 +93,60 @@ public class APIManager {
 		return response.toString();
 	}
 
+	public static String getYudaiData(String str) {
+
+	     StringBuffer response = new StringBuffer();
+
+		try {
+			String path = "http://172.22.88.215:20008/qr/yuutai/imgservice/yuutai.asp?rcode="+str+"&user=1";
+
+			URL url = new URL(path);
+
+			HttpURLConnection con = null;
+			con = (HttpURLConnection)url.openConnection();
+			con.setRequestMethod("GET");
+
+			// アクセスキーの設定
+			//con.setRequestProperty("Authorization", "Bearer 00119c31ab8f86113fbe4c78f3ed76e2733a7d5e176e05b94b5122361ab8234c");
+			// gzip圧縮の要求
+			//con.setRequestProperty("Accept-Encoding", "gzip, deflate");
+
+			// リクエスト送信
+			con.connect();
+
+			// HTTPステータス判定
+			int status = con.getResponseCode();
+			if (status == HttpURLConnection.HTTP_OK) {
+
+				// 期待する応答データに沿って書き変えて下さい
+
+				BufferedReader in = null;
+				String enc = con.getContentEncoding();
+				if ("gzip".equals(enc)) {
+					in = new BufferedReader(new InputStreamReader(new GZIPInputStream(con.getInputStream()), "Shift_JIS"));
+				}
+				else if ("deflate".equals(enc)) {
+					in = new BufferedReader(new InputStreamReader(new InflaterInputStream(con.getInputStream()), "Shift_JIS"));
+				}
+				else {
+					in = new BufferedReader(new InputStreamReader(con.getInputStream(), "Shift_JIS"));
+				}
+				String inputLine = null;
+				while ((inputLine = in.readLine()) != null) {
+					response.append(inputLine);
+				}
+				in.close();
+			}
+			if (con != null) {
+				con.disconnect();
+			}
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return response.toString();
+	}
+
 }
