@@ -21,13 +21,17 @@ public class Chart_sample extends HttpServlet {
 
 		//JsonNode hcnode = DAO.getCompanyHistorical_count(scode,days);
 		JsonNode hnode = DAO.getCompanyHistorical(scode,days);
+		//JsonNode ynode = YutaiDAO.getYutaiInfo(scode);
 
 		//request.setAttribute("hcnode", hcnode);
 		request.setAttribute("hnode", hnode);
+		//request.setAttribute("ynode", ynode);
 		request.getRequestDispatcher("/sugeno_jsp/sample_result.jsp").forward(request, response);
 	}
+
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		doGet(request,response);
 	}
+
 
 }
