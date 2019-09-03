@@ -85,6 +85,32 @@ public class DAO {
 		return hnode;
 	}
 
+	/*増井追加*/
+	public static JsonNode getCompanyHistoricalList(String scode,String days){
+		HashMap<String,String> query = new HashMap<String,String>();
+		query.put("quote", scode);
+		query.put("item","price,price_pchg");
+		query.put("count",days);
+		query.put("direction","backward");
+
+		String result = APIManager.getData("historical_daly_count", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null
+				;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode hnode = node.get("historical_daily").get("data");
+
+		return hnode;
+	}
+
 	public static JsonNode getCompanyNews(String sname){
 		HashMap<String,String> query = new HashMap<String,String>();
 		Calendar cal = Calendar.getInstance();
