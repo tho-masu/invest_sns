@@ -427,9 +427,10 @@ public class DAO {
 		return DBManager.findAll(sql, new UserBeanMapping());
 	}
 
-	public static List<YutaiBean> getYutaiInfo(String scode)throws SQLException{
+	public static YutaiBean getYutaiInfo(String scode)throws SQLException{
 		String sql="SELECT pk_yutai,quote,title,subfld FROM t_yutai where quote='"+scode+"';";
-		return DBManager.findAll(sql, new YutaiBeanMapping());
+		List<YutaiBean> ylist=DBManager.findAll(sql, new YutaiBeanMapping());
+		return ylist.get(0);
 
 	}
 }
