@@ -1,9 +1,12 @@
 package database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.StringJoiner;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
 
 public class YutaiDAO {
 	public static int deleteYutaiInfo()throws SQLException{
@@ -21,5 +24,13 @@ public class YutaiDAO {
 			}
 		}
 		return DBManager.simpleUpdate(joiner.toString());
+	}
+
+	public static int checkQuote(YutaiBean ybean) throws SQLException{
+		String sql = "SELECT COUNT(quote) FROM T_yutai WHERE quote = ?";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setInt(1,ybean.getQuote());
+		return DBManager.simpleCount(smt,con);
 	}
 }
