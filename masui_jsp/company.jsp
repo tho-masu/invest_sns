@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math,java.util.List,java.util.Date,java.sql.Time,database.CommentBean,database.UserBean,database.PostBean"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.lang.Math,java.util.List,java.util.Date,java.sql.Time,database.CommentBean,database.UserBean,database.PostBean,database.YutaiBean"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -15,6 +15,7 @@ List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 boolean isRegisteredBookmark = (boolean)request.getAttribute("isRegisteredBookmark");
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 List<PostBean> plist = (List<PostBean>)request.getAttribute("companyPosts");
+YutaiBean yinfo = (YutaiBean)request.getAttribute("yinfo");
 %>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
@@ -44,17 +45,17 @@ $(function(){
    <tr class="top_sub">
      <td rowspan="3" width="40%">
      <%if(dnode.get("price_chg").asDouble()>0){ %>
-       <p>前日比：<font color="blue"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
+       <p>前日比：<font color="red"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
 
      <%} else if(dnode.get("price_chg").asDouble()<0){ %>
-       <p>前日比：<font color="red"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
+       <p>前日比：<font color="blue"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
 
      <%} else{ %>
        <p>前日比：<%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</p>
 
      <%} %>
      </td>
-     <td align="left" width="40%">お買い<font color="red">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
+     <td align="left" width="40%">お買い<font color="blue">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
      <td rowspan="3" align="right" width="20%">
 
      <% if(!isRegisteredBookmark){%>
@@ -76,7 +77,7 @@ $(function(){
      </td>
    </tr>
    <tr class="top_sub">
-     <td align="left" width="40%">お買い<font color="blue">得</font>度（1/PER)：<%=(double)Math.round( 10000/(dnode.get("co_per").asDouble()) ) / 10000 %></td>
+     <td align="left" width="40%">お買い<font color="red">得</font>度（1/PER)：<%=(double)Math.round( 10000/(dnode.get("co_per").asDouble()) ) / 10000 %></td>
    </tr>
    <tr class="top_sub">
      <td align="left" width="40%">企業の稼ぐ力（ROE)：<%=dnode.get("co_settle_roe").asDouble() %></td>
@@ -270,8 +271,16 @@ $(function(){
    </td>
   </tr>
   <tr>
+   <%--優待内容 --%>
    <td class="sub" id="commentword">
-
+   <%if (yinfo!=null){%>
+     <h2>権利確定月</h2>
+     <div><%=yinfo.getSubfld() %></div>
+     <h2>優待内容</h2>
+     <div><%=yinfo.getTitle() %></div>
+   <%}else{%>
+     <p>優待情報なし</p>
+     <%}%>
    </td>
   </tr>
  </table>

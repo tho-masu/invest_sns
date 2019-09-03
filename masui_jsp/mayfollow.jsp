@@ -41,7 +41,7 @@ if(uList != null){
         <%--ユーザのICON<a>押すとその人のユーザページへ --%>
         <img src="<%=request.getContextPath() %>/img/user_icon/<%=ubean.getIcon_name() %>" width="50px" height="50x">
         <%--ユーザネーム　<a>でその人のユーザページへ --%>
-        <%=ubean.getUsername() %>
+        <span><%=ubean.getUsername() %></span>
       </a>
     </td>
   </tr>

@@ -32,7 +32,7 @@ jQuery(function() {
 <br>
 <header>
 <div align="center">
-<a href="<%=request.getContextPath() %>/masui_jsp/"><img src="<%=request.getContextPath() %>/img/investagram.png" width="240px"></a>
+<img src="<%=request.getContextPath() %>/img/investagram.png" width="240px">
 </div>
 
 <div class="button_second" id="btn_search_">
@@ -58,6 +58,7 @@ jQuery(function() {
     <li><a href="<%=request.getContextPath() %>/masui_jsp/">ホーム</a></li>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/market">市場</a></li>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/industry">業界</a></li>
+    <li><a href="<%=request.getContextPath() %>/masui_jsp/deal.jsp">取引</a></li>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>">マイページ</a></li>
   </ul>
 </nav>

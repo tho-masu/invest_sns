@@ -33,4 +33,11 @@ public class YutaiDAO {
 		smt.setInt(1,ybean.getQuote());
 		return DBManager.simpleCount(smt,con);
 	}
+	public static int checkQuote(String scode) throws SQLException{
+		String sql = "SELECT COUNT(quote) FROM T_yutai WHERE quote = ?";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setString(1,scode);
+		return DBManager.simpleCount(smt,con);
+	}
 }

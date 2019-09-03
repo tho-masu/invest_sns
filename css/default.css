@@ -38,7 +38,7 @@ nav {
 }
 nav ul li{
 	float: left;
-	width: 25%;
+	width: 20%;
 	border-right: 1px solid #e6e4e4;
 	border-bottom: 1px solid #e6e4e4;
 	box-sizing: border-box;
@@ -203,6 +203,10 @@ table{
 .attention_point td{
 	background-color:#afeeee;
 	padding-left:20px;
+}
+/*/////////優待情報欄///////*/
+yutai{
+	width:800px;
 }
 
 /*///////コメント欄/////////*/
@@ -953,6 +957,7 @@ center a:hover{
 /*コメント記入欄デザイン、位置設定*/
 .response_comment{
 	margin-top:80px;
+	margin-bottom:10px;
 }
 .response_comment textarea{
 	width:800px;
@@ -1009,6 +1014,9 @@ center a:hover{
 	float:left;
 	display:block;
 	margin-top:5px;
+}
+.follow_follower span{
+	padding-left:20px;
 }
 .follow_img p{
 	float:left;

@@ -30,7 +30,7 @@ UserBean ubean = (UserBean)request.getAttribute("ubean");
       	<%--ユーザのICON<a>押すとその人のユーザページへ --%>
       	<img src="<%=request.getContextPath() %>/img/user_icon/<%=follow.getIcon_name() %>" width="50px" height="50px">
       	<%--ユーザネーム <a>押すとその人のユーザページへ --%>
-      	<%=follow.getUsername() %>
+      	<span><%=follow.getUsername() %></span>
       </a>
     </td>
   </tr>
@@ -51,7 +51,7 @@ UserBean ubean = (UserBean)request.getAttribute("ubean");
       	<%--ユーザのICON<a>押すとその人のユーザページへ --%>
       	<img src="<%=request.getContextPath() %>/img/user_icon/<%=follower.getIcon_name() %>" width="50px" height="50px">
       	<%--ユーザネーム <a>押すとその人のユーザページへ --%>
-      	<%=follower.getUsername() %>
+      	<span><%=follower.getUsername() %></span>
       </a>
     </td>
   </tr>

@@ -61,14 +61,18 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
 			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
 			<input type="hidden" name="registerOrDelete" value="register">
-			<div><input type="submit" value="フォロー" align="center"></div>
+			<div style="float:right;">
+			  <input type="image" value="フォロー" src="<%=request.getContextPath() %>/img/function_icon/unfollow.png" width="45px">
+			</div>
 		</form>
 	<%}else{ %>
 		<form action="<%=request.getContextPath() %>/masui_jsp/follow" method="POST">
 			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
 			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
 			<input type="hidden" name="registerOrDelete" value="delete">
-			<div><input type="submit" value="フォロー解除" align="center"></div>
+			<div style="float:right;">
+			  <input type="image" value="フォロー解除" src="<%=request.getContextPath() %>/img/function_icon/follow1.png" width="45px">
+			</div>
 		</form>
 	<%} %>
 	<%} %>

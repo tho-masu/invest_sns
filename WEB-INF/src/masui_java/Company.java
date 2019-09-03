@@ -19,6 +19,8 @@ import database.PostBean;
 import database.PostDAO;
 import database.UserBean;
 import database.UserDAO;
+import database.YutaiBean;
+import database.YutaiDAO;
 
 public class Company extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
@@ -66,12 +68,23 @@ public class Company extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 		}
 
+		YutaiBean yinfo = null;
+		try {
+			if(YutaiDAO.checkQuote(scode) == 1) {
+				yinfo = DAO.getYutaiInfo(scode);
+			}
+
+		} catch(SQLException e) {
+
+		}
+
 		request.setAttribute("isRegisteredBookmark", isRegisteredBookmark);
 		request.setAttribute("dnode", dnode);
 		request.setAttribute("hnode", hnode);
 		request.setAttribute("nnode", nnode);
 		request.setAttribute("clist", clist);
 		request.setAttribute("companyPosts", companyPosts);
+		request.setAttribute("yinfo", yinfo);
 		request.getRequestDispatcher("/masui_jsp/company.jsp").forward(request, response);
 
 	}
