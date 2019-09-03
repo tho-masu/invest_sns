@@ -25,7 +25,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <jsp:include page="header.jsp" flush="true" />
 
-<div class="industry_filter" align="center">
+<div class="industry_filter">
   <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
     <select name="iname">
       <option value="全業界（日経平均採用銘柄）" class="industry_option">全ての業界</option>
@@ -37,69 +37,6 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
   </form>
 </div>
 
-
-<%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
-
-<!-- チャートを入れるテーブルはじめ -->
-
-<table align="center" border="1">
-<tr><td>
-
-<!-- チャートはじめ -->
-
- <canvas id="myLineChart" height="100px"></canvas>
-
-<script>
-  var ctx = document.getElementById("myLineChart");
-  var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [
-    	  <%for(int i=0;i<ahistorical.size();i++){%>
-    	  	<%if(i!=0){%>,<%}%>
-    	  	'<%=(String)ahistorical.get(i).get(0)%>'
-    	  <%}%>
-    	  ],
-      datasets: [
-        {
-          label: '株価',
-          data: [
-        	  <%for(int i=0;i<ahistorical.size();i++){%>
-      	  	<%if(i!=0){%>,<%}%>
-      	  	<%=(Double)ahistorical.get(i).get(1)%>
-      	  <%}%>
-        	  ],
-          borderColor: "rgba(255,0,0,1)",
-          backgroundColor: "rgba(0,0,0,0)"
-        }
-      ],
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'この業界の平均株価'
-      },
-      scales: {
-        yAxes: [{
-          ticks: {
-            callback: function(value, index, values){
-              return  value +  '円'
-            }
-          }
-        }]
-      },
-    }
-  });
-  </script>
-
-  <!-- チャート終わり -->
-
-  </td></tr>
-</table>
-
-<!-- チャートを入れるテーブル終わり -->
-
-<%} %>
 
 
   <%--業界ページトップ、天気表示 --%>
@@ -133,6 +70,71 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
       </td>
     </tr>
   </table>
+
+<%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
+
+<!-- チャートを入れるテーブルはじめ -->
+
+<table align="center" border="1">
+<tr><td>
+
+<!-- チャートはじめ -->
+
+ <canvas id="myLineChart" height="100px"></canvas>
+
+<script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+    	  <%for(int i=0;i<ahistorical.size();i++){%>
+    	  	<%if(i!=0){%>,<%}%>
+    	  	'<%=(String)ahistorical.get(i).get(0)%>'
+    	  <%}%>
+    	  ],
+      datasets: [
+        {
+          label: '株価',
+          data: [
+        	  <%for(int i=0;i<ahistorical.size();i++){%>
+      	  	<%if(i!=0){%>,<%}%>
+      	  	<%=(Double)ahistorical.get(i).get(1)%>
+      	  <%}%>
+        	  ],
+        	  borderColor: "#66ccff",
+              fillColor : "rgba(0,180,255,0.1)",
+              fullColor:"rgba(0,180,225,0.1)"
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'この業界の平均株価'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            callback: function(value, index, values){
+              return  value +  '円'
+            }
+          }
+        }]
+      },
+    }
+  });
+  </script>
+
+  <!-- チャート終わり -->
+
+  </td></tr>
+</table>
+
+<!-- チャートを入れるテーブル終わり -->
+
+<%} %>
+
 
   <%--おすすめ企業 --%>
   <table align="center" width="80%" class="list">
