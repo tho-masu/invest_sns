@@ -23,8 +23,6 @@ JsonNode hnode = (JsonNode)request.getAttribute("hnode");
 
 <body>
 
-
-
  <table class="chart">
   <%--見出し --%>
   <tr><td align="center" class="point_top">前日比騰落率(直近90日)</td></tr>
