@@ -212,30 +212,7 @@ public class DAO {
 
 		return hnode;
 	}
-	/*菅野追加*/
-	public static JsonNode getCompanyHistorical_count(String scode,String days){
-		HashMap<String,String> query = new HashMap<String,String>();
-		query.put("quote", scode);
-		query.put("item","price_pchg");
-		query.put("count",days);
-		query.put("direction","backword");
 
-		String result = APIManager.getData("historical_daly_count", query);
-
-		ObjectMapper mapper = new ObjectMapper();
-
-		JsonNode node=null;
-		try {
-			node = mapper.readTree(result);
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-
-		JsonNode hcnode = node.get("historical_daily").get("data").get(0).get("value");
-
-		return hcnode;
-	}
 
 /* ここまでAPI用DAO */
 
@@ -433,4 +410,15 @@ public class DAO {
 		return ylist.get(0);
 
 	}
+
+
+	public static int registerLike(int pk_id,String quote)throws SQLException {
+		String sql="INSERT INTO t_like(fk_user,quote) VALUES('"+pk_id+"','"+quote+"');";
+		return DBManager.simpleUpdate(sql);
+	}
+
+	public static int deleteLike(int pk_id,String quote)throws SQLException {
+		String sql="DELETE FROM t_bookmark WHERE fk_user='"+pk_id+"' and quote='"+quote+"';";
+		return DBManager.simpleUpdate(sql);
+      }
 }

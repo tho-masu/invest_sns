@@ -24,9 +24,9 @@ public class Like  extends HttpServlet {
 
 		try {
 			if(registerOrDelete.equals("register")) {
-				DAO.registerBookmark(ubean.getPk_id(),quote);
+				DAO.registerLike(ubean.getPk_id(),quote);
 			}else if(registerOrDelete.equals("delete")) {
-				DAO.deleteBookmark(ubean.getPk_id(), quote);
+				DAO.deleteLike(ubean.getPk_id(), quote);
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
