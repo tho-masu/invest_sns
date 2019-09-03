@@ -29,6 +29,8 @@ import database.IndustryBeanMapping;
 import database.UserBean;
 import database.UserBeanMapping;
 import database.UserDAO;
+import database.YutaiBean;
+import database.YutaiBeanMapping;
 
 public class DAO {
 
@@ -245,6 +247,8 @@ public class DAO {
 		return ilist.get(0);
 	}
 
+
+
 	public static List<IndustryBean> getIndustryList()throws SQLException{
 		String sql="SELECT industry_name,industry_dis,industry_fut,weather FROM t_industry order by pk_industry asc;";
 		return DBManager.findAll(sql, new IndustryBeanMapping());
@@ -421,5 +425,11 @@ public class DAO {
 				+ "(u.pk_id=f.followed_user AND f.fk_user='"+pk_id+"')"
 						+ "or u.pk_id='"+pk_id+"');";
 		return DBManager.findAll(sql, new UserBeanMapping());
+	}
+
+	public static List<YutaiBean> getYutaiInfo(String scode)throws SQLException{
+		String sql="SELECT pk_yutai,quote,title,subfld FROM t_yutai where quote='"+scode+"';";
+		return DBManager.findAll(sql, new YutaiBeanMapping());
+
 	}
 }
