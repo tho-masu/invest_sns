@@ -37,7 +37,7 @@ public class YutaiDAO {
 		String sql = "SELECT COUNT(quote) FROM T_yutai WHERE quote = ?";
 		Connection con = DBManager.getConnection();
 		PreparedStatement smt = con.prepareStatement(sql);
-		smt.setString(1,scode);
+		smt.setInt(1,Integer.parseInt(scode));
 		return DBManager.simpleCount(smt,con);
 	}
 }

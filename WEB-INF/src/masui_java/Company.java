@@ -75,6 +75,7 @@ public class Company extends HttpServlet {
 			}
 
 		} catch(SQLException e) {
+			e.printStackTrace();
 
 		}
 
