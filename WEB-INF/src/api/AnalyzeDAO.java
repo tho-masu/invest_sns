@@ -14,7 +14,7 @@ import database.BookmarkBeanMapping;
 import database.DBManager;
 
 public class AnalyzeDAO {
-	public static CompanyAnalyzeBean getBookmarkCompanyInfo(int pk_id) throws SQLException{
+	public static CompanyAnalyzeBean getBookmarkCompanyAnalyze(int pk_id) throws SQLException{
 		String sql="SELECT * FROM t_bookmark WHERE fk_user='"+pk_id+"';";
 		List<BookmarkBean> list = DBManager.findAll(sql,new BookmarkBeanMapping());
 
@@ -24,7 +24,13 @@ public class AnalyzeDAO {
 			joiner.add(String.valueOf(bbean.getQuote()));
 		}
 
-		return new CompanyAnalyzeBean(getDnode(joiner.toString()),getEpsNode(joiner.toString()),getIncomeNode(joiner.toString()));
+		return new CompanyAnalyzeBean(getDnode(joiner.toString()),getHnode(joiner.toString()),getEpsNode(joiner.toString()),getIncomeNode(joiner.toString()));
+
+	}
+
+	public static CompanyAnalyzeBean getCompanyAnalyze(String quote) throws SQLException{
+
+		return new CompanyAnalyzeBean(getDnode(quote),getHnode(quote),getEpsNode(quote),getIncomeNode(quote));
 
 	}
 
@@ -47,6 +53,11 @@ public class AnalyzeDAO {
 		}
 
 		return dnode.get("quote").get("data");
+	}
+
+	private static JsonNode getHnode(String joinerToString) throws SQLException {
+
+		return DAO.getCompanyHistoricalList(joinerToString,"180");
 	}
 
 	private static JsonNode getEpsNode(String joinerToString) throws SQLException {

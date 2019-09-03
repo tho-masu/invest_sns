@@ -261,4 +261,13 @@
         <url-pattern>/sugeno_jsp/chart_sample</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiBookmarkAnalyzeS</servlet-name>
+        <servlet-class>masui_java.BookmarkAnalyze</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiBookmarkAnalyzeS</servlet-name>
+        <url-pattern>/masui_jsp/bookmark_analyze</url-pattern>
+    </servlet-mapping>
+
 </web-app>
