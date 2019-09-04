@@ -26,6 +26,8 @@ import database.FollowBean;
 import database.FollowBeanMapping;
 import database.IndustryBean;
 import database.IndustryBeanMapping;
+import database.LikeBean;
+import database.LikeBeanMapping;
 import database.UserBean;
 import database.UserBeanMapping;
 import database.UserDAO;
@@ -461,6 +463,19 @@ public class DAO {
 		}else {
 			return true;
 		}
+	}
+
+	public static ArrayNode getLikeList()throws SQLException {
+		String sql="SELECT COUNT(*), quote FROM t_like GROUP BY quote ORDER BY COUNT(*) DESC, quote offset 0 limit 10;";
+		List<LikeBean> list = DBManager.findAll(sql,new LikeBeanMapping());
+
+                ObjectMapper mapper = new ObjectMapper();
+                 ArrayNode anode=mapper.createArrayNode();
+
+                for(LikeBean lbean:list){
+                  anode.add(getCompanyInfo(String.valueOf(lbean.getQuote())));
+}
+		return anode;
 	}
 
 

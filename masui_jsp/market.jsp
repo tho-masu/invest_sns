@@ -126,6 +126,16 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 	<%} %>
 </table>
 
+ <%--ブックマーク企業一覧表示 --%>
+  <table class="comment_list">
+  <tr>
+    <td class="point_top">株主優待人気ランキング上位10</td>
+  </tr>
+  <tr>
+   <td> </td>
+  </tr>
+ </table>
+
 <%--コメント送信 --%>
  <table class="comment_submit">
   <tr>
