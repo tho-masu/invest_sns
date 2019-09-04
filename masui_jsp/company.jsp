@@ -19,6 +19,7 @@ YutaiBean yinfo = (YutaiBean)request.getAttribute("yinfo");
 %>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/read_more.js"></script>
 <script>
 $(function(){
 	$('.click_open').click(function(){
@@ -26,11 +27,7 @@ $(function(){
 	});
 })
 </script>
-
-<title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
-</head>
-
 <body>
 
 <jsp:include page="header.jsp" flush="true" />
@@ -276,10 +273,17 @@ $(function(){
    <%--優待内容 --%>
    <td class="sub" id="commentword">
    <%if (yinfo!=null){%>
-     <h2>権利確定月</h2>
-     <div><%=yinfo.getSubfld() %></div>
-     <h2>優待内容</h2>
-     <div><%=yinfo.getTitle() %></div>
+     <div class="main onhidden">
+       <div class="text">
+         <h2>権利確定月</h2>
+         <div><%=yinfo.getSubfld() %></div>
+         <h2>優待内容</h2>
+         <div><%=yinfo.getTitle() %></div>
+       </div>
+       <div class="readmore">
+         <span>続きを読む</span>
+       </div>
+     </div>
    <%}else{%>
      <p>優待情報なし</p>
      <%}%>
