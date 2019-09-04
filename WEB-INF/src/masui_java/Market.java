@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import api.DAO;
 import database.CommentBean;
@@ -37,9 +39,23 @@ public class Market extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 		}
 
+
+		ObjectMapper mapper = new ObjectMapper();
+	    ArrayNode llist = mapper.createArrayNode();
+
+		   try{
+		        llist=DAO.getLikeList();
+		       } catch (SQLException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
+
+
+
 		request.setAttribute("ilist", ilist);
 		request.setAttribute("hnode", hnode);
 		request.setAttribute("clist", clist);
+		request.setAttribute("llist",llist);
 		request.getRequestDispatcher("/masui_jsp/market.jsp").forward(request, response);
 
 	}

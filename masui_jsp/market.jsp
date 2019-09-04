@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,database.IndustryBean,database.CommentBean,database.UserBean"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,database.IndustryBean,database.CommentBean,database.UserBean,com.fasterxml.jackson.databind.node.ArrayNode"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -15,6 +15,7 @@ JsonNode hnode = (JsonNode)request.getAttribute("hnode");
 List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
 List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
+ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 %>
 
 </head>
@@ -132,7 +133,9 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
     <td class="point_top">株主優待人気ランキング上位10</td>
   </tr>
   <tr>
-   <td> </td>
+   <td><% for(JsonNode jnode : llist){%>
+    	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>
+    <%} %> </td>
   </tr>
  </table>
 
