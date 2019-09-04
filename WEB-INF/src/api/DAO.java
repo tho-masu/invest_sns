@@ -350,8 +350,8 @@ public class DAO {
 		return DBManager.simpleUpdate(sql);
 	}
 
-	public static boolean isRegisteredBookmark(int user_id,String quote)throws SQLException {
-		String sql="SELECT COUNT(*) FROM t_bookmark WHERE fk_user='"+user_id+"' and quote='"+quote+"';";
+	public static boolean isRegisteredBookmark(int pk_id,String quote)throws SQLException {
+		String sql="SELECT COUNT(*) FROM t_bookmark WHERE fk_user='"+pk_id+"' and quote='"+quote+"';";
 		int count = DBManager.count(sql);
 		if(count==0) {
 			return false;
@@ -449,7 +449,20 @@ public class DAO {
 	}
 
 	public static int deleteLike(int pk_id,String quote)throws SQLException {
-		String sql="DELETE FROM t_bookmark WHERE fk_user='"+pk_id+"' and quote='"+quote+"';";
+		String sql="DELETE FROM t_like WHERE fk_user='"+pk_id+"' and quote='"+quote+"';";
 		return DBManager.simpleUpdate(sql);
       }
+
+	public static boolean isRegisteredLike(int pk_id,String quote)throws SQLException {
+		String sql="SELECT COUNT(*) FROM t_like WHERE fk_user='"+pk_id+"' and quote='"+quote+"';";
+		int count = DBManager.count(sql);
+		if(count==0) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+
+
 }

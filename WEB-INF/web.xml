@@ -99,6 +99,15 @@
         <url-pattern>/tei_java/chart_sample</url-pattern>
     </servlet-mapping>
 
+        <servlet>
+        <servlet-name>teiLikeS</servlet-name>
+        <servlet-class>tei_java.Like</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teiLikeS</servlet-name>
+        <url-pattern>/tei_java/like</url-pattern>
+    </servlet-mapping>
+
 	<servlet>
         <servlet-name>masuiCommentS</servlet-name>
         <servlet-class>masui_java.Comment</servlet-class>

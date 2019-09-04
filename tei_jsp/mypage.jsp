@@ -97,7 +97,7 @@ PostBean pbean=(PostBean)request.getAttribute("pbean");
   </div>
   <%--ブックマーク企業一覧表示 --%>
   <div class="bookmark_list">
-    <div align="center" class="heading"><p>ブックマーク企業</p></div>
+    <div align="center" class="heading"><p>人気銘柄</p></div>
     <%--クリックでその企業ページに画面遷移 --%>
     <% for(JsonNode jnode : blist){%>
     	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>

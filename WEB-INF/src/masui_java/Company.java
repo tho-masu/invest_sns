@@ -52,6 +52,14 @@ public class Company extends HttpServlet {
 			e1.printStackTrace();
 		}
 
+		boolean isRegisteredLike = false;
+		try {
+			isRegisteredLike = DAO.isRegisteredLike(ubean.getPk_id(), scode);
+		} catch (SQLException e1) {
+			// TODO 自動生成された catch ブロック
+			e1.printStackTrace();
+		}
+
 		List<CommentBean> clist = null;
 		try {
 			clist = DAO.getCompanyCommentList(scode);
@@ -80,6 +88,7 @@ public class Company extends HttpServlet {
 		}
 
 		request.setAttribute("isRegisteredBookmark", isRegisteredBookmark);
+		request.setAttribute("isRegisteredLike", isRegisteredLike);
 		request.setAttribute("dnode", dnode);
 		request.setAttribute("hnode", hnode);
 		request.setAttribute("nnode", nnode);
