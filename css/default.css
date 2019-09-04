@@ -1169,6 +1169,9 @@ center a:hover{
 	height:300px;
 	overflow-y:hidden;
 }
+.main.ondisclose{
+
+}
 .main .readmore{
 	position:absolute;
 	bottom:0;
