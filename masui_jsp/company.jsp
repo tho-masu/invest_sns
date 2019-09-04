@@ -18,7 +18,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 List<PostBean> plist = (List<PostBean>)request.getAttribute("companyPosts");
 YutaiBean yinfo = (YutaiBean)request.getAttribute("yinfo");
 %>
-
+<title><%=dnode.get("short_name").asText()%></title>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/read_more.js"></script>
 <script>
@@ -378,7 +378,7 @@ $(function(){
      <div class="top_article">
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
        <p class="top_name_home"><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
