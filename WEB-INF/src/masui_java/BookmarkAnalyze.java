@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import api.AnalyzeDAO;
 import api.CompanyAnalyzeBean;
@@ -45,13 +46,14 @@ public class BookmarkAnalyze extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		JsonNode hnode = cabean.getHnode();
+		ArrayNode hnode = cabean.getHnode();
 		JsonNode epsNode = cabean.getEpsNode();
 		JsonNode incomeNode = cabean.getIncomeNode();
 
 		cabean.setEpsPchgList(getEpsPchgList(epsNode));
 		cabean.setIncomePchgList(getIncomePchgList(incomeNode));
 		cabean.setGradientList(getGradientList(hnode));
+		cabean.setBookmarkPortfolio(calcBookmarkPortfolio(hnode));
 
 		return cabean;
 
@@ -83,7 +85,7 @@ public class BookmarkAnalyze extends HttpServlet {
 	}
 
 
-	public static List<Double> getGradientList(JsonNode hnode){
+	public static List<Double> getGradientList(ArrayNode hnode){
 		List<Double> gradientList = new ArrayList<Double>();
 
 		for(int i=0;i<hnode.size();i++) {
@@ -97,7 +99,7 @@ public class BookmarkAnalyze extends HttpServlet {
 		int n = jnode.size();
 
 		//時間インデックス（0～N）の平均
-		double xAve = (n - 1)/2.0;
+		double xAve = 15.0 * (n - 1);
 
 		//株価（y）の平均を求める
 		double ySum = 0.0;
@@ -109,19 +111,19 @@ public class BookmarkAnalyze extends HttpServlet {
 		//時間インデックス（0～N）と株価の積（xy）の平均を求める
 		double xySum = 0.0;
 		for(int i=0;i<n;i++) {
-			xySum += i * jnode.get(i).get("price").asDouble();
+			xySum += 30*i * jnode.get(i).get("price").asDouble();
 		}
 		double xyAve = xySum / n;
 
 		//x=時間インデックス、y=株価として単回帰分析したときのグラフの傾きを返す
-		return (xyAve - xAve * yAve)/ ((n * n - 1)/12);
+		return (xyAve - xAve * yAve)/ (75*(n * n - 1));
 	}
 
 	public static double calcIntercept(JsonNode jnode) {
 		int n = jnode.size();
 
 		//時間インデックス（0～N）の平均
-		double xAve = (n - 1)/2.0;
+		double xAve = 15.0 * (n - 1);
 
 		//株価（y）の平均を求める
 		double ySum = 0.0;
@@ -135,6 +137,18 @@ public class BookmarkAnalyze extends HttpServlet {
 
 		//β0ハットを返す
 		return yAve - b1 * xAve;
+	}
+
+	public static List<Double> calcBookmarkPortfolio(ArrayNode hnode){
+		List<Double> bookmarkPortfolio = new ArrayList<Double>();
+		for(int j=0;j<hnode.get(0).get("value").size();j++){
+		double sum = 0.0;
+		for(int i=0;i<hnode.size();i++){
+			sum += hnode.get(i).get("value").get(j).get("price").asDouble();
+		}
+		bookmarkPortfolio.add(sum);
+		}
+		return bookmarkPortfolio;
 	}
 }
 

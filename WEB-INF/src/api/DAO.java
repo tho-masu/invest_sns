@@ -86,29 +86,34 @@ public class DAO {
 	}
 
 	/*増井追加*/
-	public static JsonNode getCompanyHistoricalList(String scode,String days){
-		HashMap<String,String> query = new HashMap<String,String>();
-		query.put("quote", scode);
-		query.put("item","price,price_pchg");
-		query.put("count",days);
-		query.put("direction","backward");
-
-		String result = APIManager.getData("historical_daly_count", query);
-
+	public static ArrayNode getCompanyHistoricalList(List<BookmarkBean> list,String months){
 		ObjectMapper mapper = new ObjectMapper();
 
-		JsonNode node=null
+		ArrayNode anode = mapper.createArrayNode();
+
+		for(BookmarkBean bbean : list) {
+			HashMap<String,String> query = new HashMap<String,String>();
+			query.put("quote", String.valueOf(bbean.getQuote()));
+			query.put("item","price,price_pchg");
+			query.put("count",months);
+			query.put("direction","backward");
+
+			String result = APIManager.getData("historical_monthly_count", query);
+
+
+			JsonNode node=null
 				;
-		try {
-			node = mapper.readTree(result);
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			try {
+				node = mapper.readTree(result);
+			} catch (IOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+
+			anode.add(node.get("historical_monthly").get("data").get(0));
 		}
 
-		JsonNode hnode = node.get("historical_daily").get("data");
-
-		return hnode;
+		return anode;
 	}
 
 	public static JsonNode getCompanyNews(String sname){

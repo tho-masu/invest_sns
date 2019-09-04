@@ -3,6 +3,7 @@ package api;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class CompanyAnalyzeBean {
 	//JsonNodeの中のフィールドとしては以下のようなデータが含まれているというメモ
@@ -10,15 +11,16 @@ public class CompanyAnalyzeBean {
 	private String v_name,v_name_en,co_settle_fy_ended;
 	private double price,co_per,co_settle_roe,marketcap,co_settle_dps,co_settle_dividend_payout,co_qtr_settle_eps(対前期比計算用),co_settle_operating_income_pchg(過去5年間集計用);
 	*/
-	private JsonNode dnode,hnode,epsNode,incomeNode;
-	private List<Double> gradientList,epsPchgList;
+	private JsonNode dnode,epsNode,incomeNode;
+	private ArrayNode hnode;
+	private List<Double> gradientList,epsPchgList,bookmarkPortfolio;
 	private List<List<Double>> incomePchgList;
 
 
 	public CompanyAnalyzeBean(){
 	}
 
-	public CompanyAnalyzeBean(JsonNode dnode,JsonNode hnode,JsonNode epsNode,JsonNode incomeNode) {
+	public CompanyAnalyzeBean(JsonNode dnode,ArrayNode hnode,JsonNode epsNode,JsonNode incomeNode) {
 		this.dnode = dnode.deepCopy();
 		this.hnode = hnode.deepCopy();
 		this.epsNode = epsNode.deepCopy();
@@ -30,7 +32,7 @@ public class CompanyAnalyzeBean {
 		return dnode;
 	}
 
-	public JsonNode getHnode() {
+	public ArrayNode getHnode() {
 		return hnode;
 	}
 
@@ -64,6 +66,14 @@ public class CompanyAnalyzeBean {
 
 	public void setIncomePchgList(List<List<Double>> incomePchgList) {
 		this.incomePchgList = incomePchgList;
+	}
+
+	public List<Double> getBookmarkPortfolio() {
+		return bookmarkPortfolio;
+	}
+
+	public void setBookmarkPortfolio(List<Double> bookmarkPortfolio) {
+		this.bookmarkPortfolio = bookmarkPortfolio;
 	}
 
 }

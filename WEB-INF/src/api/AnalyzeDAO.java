@@ -8,6 +8,7 @@ import java.util.StringJoiner;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import database.BookmarkBean;
 import database.BookmarkBeanMapping;
@@ -24,15 +25,10 @@ public class AnalyzeDAO {
 			joiner.add(String.valueOf(bbean.getQuote()));
 		}
 
-		return new CompanyAnalyzeBean(getDnode(joiner.toString()),getHnode(joiner.toString()),getEpsNode(joiner.toString()),getIncomeNode(joiner.toString()));
+		return new CompanyAnalyzeBean(getDnode(joiner.toString()),getHnode(list),getEpsNode(joiner.toString()),getIncomeNode(joiner.toString()));
 
 	}
 
-	public static CompanyAnalyzeBean getCompanyAnalyze(String quote) throws SQLException{
-
-		return new CompanyAnalyzeBean(getDnode(quote),getHnode(quote),getEpsNode(quote),getIncomeNode(quote));
-
-	}
 
 	private static JsonNode getDnode(String joinerToString) throws SQLException {
 
@@ -55,9 +51,9 @@ public class AnalyzeDAO {
 		return dnode.get("quote").get("data");
 	}
 
-	private static JsonNode getHnode(String joinerToString) throws SQLException {
+	private static ArrayNode getHnode(List<BookmarkBean> list) throws SQLException {
 
-		return DAO.getCompanyHistoricalList(joinerToString,"180");
+		return DAO.getCompanyHistoricalList(list,"13");
 	}
 
 	private static JsonNode getEpsNode(String joinerToString) throws SQLException {
