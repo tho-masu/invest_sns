@@ -60,6 +60,7 @@ jQuery(function() {
     <li><a href="<%=request.getContextPath() %>/masui_jsp/industry">業界</a></li>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/deal.jsp">取引</a></li>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>">マイページ</a></li>
+    <li><a href="<%=request.getContextPath() %>/masui_jsp/bookmark_analyze">ブックマーク分析</a></li>
   </ul>
 </nav>
 </div>

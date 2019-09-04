@@ -25,6 +25,8 @@ List<Double> bookmarkPortfolio = cabean.getBookmarkPortfolio();
 
 <body>
 
+<jsp:include page="header.jsp" flush="true" />
+
 <!-- チャートを入れるテーブルはじめ -->
 
 <table align="center" border="1">
@@ -64,7 +66,7 @@ List<Double> bookmarkPortfolio = cabean.getBookmarkPortfolio();
     options: {
       title: {
         display: true,
-        text: 'ポートフォリオの株価（各銘柄1単位ずつ配分）'
+        text: 'ブックマークしている銘柄で仮に組んだポートフォリオの株価推移（各銘柄1株ずつ配分）'
       },
       scales: {
         yAxes: [{
