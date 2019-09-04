@@ -108,14 +108,14 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 <table align="center" border="1" class="list industryweather">
 	<tr class="industryweather_head">
 		<th width="70%">
-			業界
+			業界(クリックで一覧表示)
 		</th>
 		<th width="30%">
 			景気動向
 		</th>
 	</tr>
 	<% for(IndustryBean element : ilist){ %>
-	<tr class="reco_info">
+	<tr class="reco_info industinfo">
 		<td align="center">
 			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
 		</td>

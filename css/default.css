@@ -448,6 +448,9 @@ margin-left:auto;
 .industryweather td{
 	padding:10px;
 }
+.industinfo{
+	display:none;
+}
 .industryweather th{
 	color:white;
 	font-weight: bold;
