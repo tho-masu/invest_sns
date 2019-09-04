@@ -268,6 +268,8 @@ $(function(){
   <tr>
    <td class="point_top">
       優待情報
+      <%--ハートのお気に入り登録ボタン --%>
+      <img src="<%=request.getContextPath()%>/img/function_icon/unheart.png" width="50px" height="50px" class="yutai_good">
    </td>
   </tr>
   <tr>

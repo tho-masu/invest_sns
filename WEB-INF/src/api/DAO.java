@@ -63,7 +63,7 @@ public class DAO {
 	public static JsonNode getCompanyHistorical(String scode,String days){
 		HashMap<String,String> query = new HashMap<String,String>();
 		query.put("quote", scode);
-		query.put("item","price,price_pchg");/*菅野price_pchg追加*/
+		query.put("item","price,price_pchg,price_high,price_low");/*菅野price_pchg,price_high,price_low追加*/
 		query.put("count",days);
 		query.put("direction","backward");
 

@@ -138,5 +138,114 @@ var myPieChart = new Chart(ctx, {
   </tr>
 </table>
 
+<div id="mychart"></div>
+
+<script>
+var high = [
+	<%for(int i=0;i<hnode.size();i++){%>
+	<%if(i!=0){%>,<%}%>
+	<%=hnode.get(i).get("price_high").asDouble()%>
+	<%}%>];
+
+var low = [
+	<%for(int i=0;i<hnode.size();i++){%>
+	<%if(i!=0){%>,<%}%>
+	<%=hnode.get(i).get("price_low").asDouble()%>
+	<%}%>];
+
+var date = [
+	<%for(int i=0;i<hnode.size();i++){%>
+	<%if(i!=0){%>,<%}%>
+	<%=hnode.get(i).get("start_date").asText()%>
+	<%}%>];
+
+
+var trace1 = {
+		  type: "scatter",
+		  mode: "lines",
+		  name: 'High_price',
+		  x: date,
+		  y: high,
+		  line: {color: '#17BECF'}
+		}
+
+		var trace2 = {
+		  type: "scatter",
+		  mode: "lines",
+		  name: 'Low_price',
+		  x: date,
+		  y: low,
+		  line: {color: '#7F7F7F'}
+		}
+
+		var data = [trace1,trace2];
+
+		var layout = {
+		  title: 'Basic Time Series',
+		};
+
+		Plotly.newPlot('mychart', data, layout);
+		})
+
+</script>
+
+<canvas id="doublechart"></canvas>
+
+<script type="text/javascript">
+        var ctx = document.getElementById('doublechart').getContext('2d');
+        var doublechart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [<%for(int i=0;i<hnode.size();i++){%>
+            			<%if(i!=0){%>,<%}%>
+            			<%=hnode.get(i).get("start_date").asText()%>
+            			<%}%>],
+                datasets: [{
+                    label: '折れ線A',
+                    type: "line",
+                    fill: false,
+                    data: [<%for(int i=0;i<hnode.size();i++){%>
+                		<%if(i!=0){%>,<%}%>
+                		<%=hnode.get(i).get("price_high").asDouble()%>
+                		<%}%>],
+                    borderColor: "rgb(154, 162, 235)",
+                    yAxisID: "y-axis-1",
+                }, {
+                    label: '折れ線B',
+                    type: "line",
+                    fill: false,
+                    data: [<%for(int i=0;i<hnode.size();i++){%>
+                		<%if(i!=0){%>,<%}%>
+                		<%=hnode.get(i).get("price_low").asDouble()%>
+                		<%}%>],
+                    borderColor: "rgb(54, 162, 235)",
+                    yAxisID: "y-axis-1",
+                }]
+            },
+            options: {
+                tooltips: {
+                    mode: 'nearest',
+                    intersect: false,
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        id: "y-axis-1",
+                        type: "linear",
+                        position: "left"
+                    }, {
+                        id: "y-axis-2",
+                        type: "linear",
+                        position: "right",
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                },
+            }
+        });
+
+</script>
+
 </body>
 </html>
