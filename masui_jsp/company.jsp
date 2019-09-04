@@ -13,6 +13,7 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
 List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 boolean isRegisteredBookmark = (boolean)request.getAttribute("isRegisteredBookmark");
+boolean isRegisteredLike=(boolean)request.getAttribute("isRegisteredLike");
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 List<PostBean> plist = (List<PostBean>)request.getAttribute("companyPosts");
 YutaiBean yinfo = (YutaiBean)request.getAttribute("yinfo");
@@ -266,7 +267,22 @@ $(function(){
    <td class="point_top">
       優待情報
       <%--ハートのお気に入り登録ボタン --%>
-      <img src="<%=request.getContextPath()%>/img/function_icon/unheart.png" width="50px" height="50px" class="yutai_good">
+       <% if(!isRegisteredLike){%>
+     	<form action="<%=request.getContextPath() %>/tei_java/like" method="POST">
+			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+			<input type="hidden" name="registerOrDelete" value="register">
+
+			<div align="center"><input type="image" title="お気に入り登録" src="<%=request.getContextPath()%>/img/function_icon/unheart.png" width="50px" height="50px" class="yutai_good"></div>
+		</form>
+	<%}else{ %>
+		<form action="<%=request.getContextPath() %>/tei_java/like" method="POST">
+			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+			<input type="hidden" name="registerOrDelete" value="delete">
+
+			<div align="center"><input type="image" title="お気に入りから削除" src="<%=request.getContextPath()%>/img/function_icon/heart.png" width="50px" height="50px" class="yutai_good"></div>
+		</form>
+	<%} %>
+
    </td>
   </tr>
   <tr>
