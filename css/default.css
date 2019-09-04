@@ -1158,3 +1158,35 @@ center a:hover{
 .log_out_btn input:hover{
 	background-color:#74f1fc;
 }
+
+/*続きを読むの設定*/
+.main{
+	position:relative;
+	z-index:0;
+}
+
+.main.onhidden{
+	height:300px;
+	overflow-y:hidden;
+}
+.main.ondisclose{
+
+}
+.main .readmore{
+	position:absolute;
+	bottom:0;
+	width:100%;
+	padding:20px 0;
+	text-align:center;
+	background: rgba(0, 0, 0, 0) linear-gradient(180deg, rgba(255, 255, 255, 0.5), white) repeat scroll 0 0;
+	font-weight:bold;
+	cursor:pointer;
+	z-index:999;
+}
+
+.main .readmore span{
+	border-radius:20px;
+	padding:5px 30px;
+	background-color:#1ebaf7;
+	color:#FFF;
+}
