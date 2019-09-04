@@ -9,7 +9,7 @@
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-
+<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/table_open.js"></script>
 <%
 JsonNode hnode = (JsonNode)request.getAttribute("hnode");
 List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
