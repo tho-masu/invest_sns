@@ -38,7 +38,7 @@ nav {
 }
 nav ul li{
 	float: left;
-	width: 16.66%;
+	width: 16.66666%;
 	border-right: 1px solid #e6e4e4;
 	border-bottom: 1px solid #e6e4e4;
 	box-sizing: border-box;
