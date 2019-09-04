@@ -208,7 +208,10 @@ table{
 yutai{
 	width:800px;
 }
-
+.yutai_good{
+	float:right;
+	top:10px;
+}
 /*///////コメント欄/////////*/
 /*位置設定*/
 .comment_list{
