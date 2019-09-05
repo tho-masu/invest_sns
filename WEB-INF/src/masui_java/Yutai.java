@@ -19,7 +19,7 @@ public class Yutai {
 			// TODO 自動生成された catch ブロック
 			e2.printStackTrace();
 		}
-		JsonNode nikkei225 = DAO.getNikkei225();
+		JsonNode nikkei225 = DAO.getTopix();
 		int ten_count = 0;
 		StringJoiner joiner = new StringJoiner(",","","");
 		ObjectMapper mapper = new ObjectMapper();

@@ -184,6 +184,30 @@ public class DAO {
 		return unode;
 	}
 
+	public static JsonNode getTopix(){
+		HashMap<String,String> query = new HashMap<String,String>();
+		query.put("universe", "topix");
+		query.put("universe_limit","2200");
+		query.put("item","industry_name,industry_name_en,v-name,securities_code,price");
+
+		String result = APIManager.getData("quote", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null
+				;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode unode = node.get("quote").get("data");
+
+		return unode;
+	}
+
 	public static JsonNode getNikkei225IntradayHistorical() {
 		HashMap<String,String> query = new HashMap<String,String>();
 		query.put("quote", "101/T");

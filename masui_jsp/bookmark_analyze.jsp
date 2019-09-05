@@ -28,12 +28,14 @@ List<Double> bookmarkPortfolio = cabean.getBookmarkPortfolio();
 
 <jsp:include page="header.jsp" flush="true" />
 
-<!-- チャートを入れるテーブルはじめ -->
+ <%-- チャート --%>
+ <table class="chart">
+  <%--見出し --%>
+  <tr><td align="center" class="point_top">チャート（ブックマークポートフォリオ）</td></tr>
+	 <tr class="sub">
+   <td align="center" height="50px">
 
-<table align="center" border="1">
-<tr><td>
-
-<!-- チャートはじめ -->
+ <!-- チャートはじめ -->
 
  <canvas id="myLineChart" height="100px"></canvas>
 
