@@ -164,7 +164,10 @@ var myPieChart = new Chart(ctx, {
       	  <%}%>],
       	  borderColor: 'rgba(255, 100, 100, 1)',
           lineTension: 0,
-          fill: false,
+          fill: 1,
+          backgroundColor:"rgba(0,180,255,0.1)",
+          fillColor : "rgba(0,180,255,0.1)",
+          strokeColor:"rgba(0,180,255,0.1)",
           borderWidth: 3
         },
         {

@@ -26,7 +26,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <jsp:include page="header.jsp" flush="true" />
 
-<div class=maki><p><MARQUEE width="100%" scrollamount="4"><FONT color="#000099"><% for(int i=0;i<nnode.size();i++){%>
+<div class=maki><p><MARQUEE width="100%" scrollamount="4"><FONT color="#ffffff"><% for(int i=0;i<nnode.size();i++){%>
 		<%=nnode.get(i).get("headline").asText() %><%} %></FONT></MARQUEE></p></div>
 
 <%--証券番号検索ボタン --%>
@@ -71,8 +71,16 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
       	  <%}%>
         	  ],
         	  borderColor: "#66ccff",
+              borderWidth:5,
               fillColor : "rgba(0,180,255,0.1)",
-              fullColor:"rgba(0,180,225,0.1)"
+              backgroundColor:"rgba(0,180,255,0.1)",
+              strokeColor:"rgba(0,180,255,0.1)",
+              //pointBackgroundColor: "rgba(0,180,255,0.1)",
+              //pointBorderColor : "rgba(255, 255, 255,1)"",
+    		  pointBorderWidth:5,
+    		  pointColor : "rgba(0,180,255,0.1)",
+    		  pointStrokeColor : "rgba(255, 255, 255,1)",
+              lineTension:0
         }
       ],
     },

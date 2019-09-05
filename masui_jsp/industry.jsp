@@ -103,8 +103,16 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
       	  <%}%>
         	  ],
         	  borderColor: "#66ccff",
+              borderWidth:5,
               fillColor : "rgba(0,180,255,0.1)",
-              fullColor:"rgba(0,180,225,0.1)"
+              backgroundColor:"rgba(0,180,255,0.1)",
+              strokeColor:"rgba(0,180,255,0.1)",
+              //pointBackgroundColor: "rgba(0,180,255,0.1)",
+              //pointBorderColor : "rgba(255, 255, 255,1)"",
+    		  pointBorderWidth:10,
+    		  pointColor : "rgba(0,180,255,0.1)",
+    		  pointStrokeColor : "rgba(255, 255, 255,1)",
+              lineTension:0
         }
       ],
     },
