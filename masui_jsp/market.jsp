@@ -97,16 +97,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <!-- チャートを入れるテーブル終わり -->
 
-
-
-<%--div align="center">証券コードを入力してください</div>
-<form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET" align="center">
-	<input type="text" name="quote">
-	<input type="submit" value="銘柄詳細へ">
-</form--%>
-
-
-<table align="center" border="1" class="list industryweather">
+<table border="1" class="industryweather">
 	<tr class="industryweather_head">
 		<th width="70%">
 			業界(クリックで一覧表示)
@@ -116,7 +107,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 		</th>
 	</tr>
 	<% for(IndustryBean element : ilist){ %>
-	<tr class="reco_info industinfo">
+	<tr class="reco_info" style="display:none;">
 		<td align="center">
 			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
 		</td>
@@ -128,15 +119,17 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 </table>
 
  <%--ブックマーク企業一覧表示 --%>
-  <table class="comment_list">
+  <table class="follow_follower">
   <tr>
     <td class="point_top">株主優待人気ランキング上位10</td>
   </tr>
+  <% for(JsonNode jnode : llist){%>
   <tr>
-   <td><% for(JsonNode jnode : llist){%>
-    	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>
-    <%} %> </td>
+   <td class="bookmark_good">
+    <a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a>
+   </td>
   </tr>
+  <%} %>
  </table>
 
 <%--コメント送信 --%>

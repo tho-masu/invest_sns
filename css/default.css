@@ -448,9 +448,7 @@ margin-left:auto;
 .industryweather td{
 	padding:10px;
 }
-.industinfo{
-	display:none;
-}
+
 .industryweather th{
 	color:white;
 	font-weight: bold;
@@ -469,6 +467,17 @@ margin-left:auto;
 	font-size: 25px;
 	color:#4682b4;
 }
+/*ブックマークテーブルデザイン設定*/
+.bookmark_good{
+	line-height:60px;
+	vertical-align:middle;
+	text-align:center;
+	padding:0;
+}
+.bookmark_good:hover{
+	opacity:0.7;
+}
+
 
 /*
 ---------------mypage.jsp編集----------------------

@@ -1,5 +1,6 @@
 $(function(){
-	$('.industryweather_head').click(function(){
-		$('.industinfo').css({'display':'table-row'});
-	})
-}
+	$('th').click(function(){
+		$('tr').css({'display':'table-row'});
+		//$('.industinfo').slideToggle();
+	});
+})

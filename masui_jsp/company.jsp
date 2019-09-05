@@ -43,7 +43,7 @@ $(function(){
    <tr class="top_sub">
      <td rowspan="3" width="40%">
      <%if(dnode.get("price_chg").asDouble()>0){ %>
-       <p>前日比：<font color="red"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
+       <p>前日比：<font color="red">+<%=dnode.get("price_chg").asDouble() %>円(+<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
 
      <%} else if(dnode.get("price_chg").asDouble()<0){ %>
        <p>前日比：<font color="blue"><%=dnode.get("price_chg").asDouble() %>円(<%=dnode.get("price_pchg").asDouble() %>%)</font></p>
