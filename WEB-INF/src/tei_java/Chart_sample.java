@@ -16,18 +16,10 @@ public class Chart_sample extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		String scode1 = request.getParameter("quote");
-		String scode2="101/T";
-		String days = "90";
+		JsonNode nnode = DAO.getHeadline();
+		request.setAttribute("nnode", nnode);
 
-		//JsonNode hcnode = DAO.getCompanyHistorical_count(scode,days);
-		JsonNode hnode = DAO.getCompanyHistorical(scode1,days);
-		JsonNode tnode = DAO.getCompanyHistorical(scode2,days);
-
-		//request.setAttribute("hcnode", hcnode);
-		request.setAttribute("hnode", hnode);
-		request.setAttribute("tnode", tnode);
-		request.getRequestDispatcher("/tei_jsp/sample_result.jsp").forward(request, response);
+		request.getRequestDispatcher("/tei_jsp/market.jsp").forward(request, response);
 	}
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		doGet(request,response);

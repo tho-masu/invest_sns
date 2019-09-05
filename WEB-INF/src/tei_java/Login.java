@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
+import api.DAO;
+
 
 
 public class Login extends HttpServlet{
@@ -28,6 +32,10 @@ public class Login extends HttpServlet{
 
     String errorMessage = null;
     String forwardURL=null;
+
+    JsonNode nnode = DAO.getHeadline();
+	request.setAttribute("nnode", nnode);
+
     try{
 		database.UserBean ubean = new database.UserBean(user_id, password);
 		int checkUserId = database.UserDAO.checkUserId(ubean);
@@ -71,4 +79,5 @@ public class Login extends HttpServlet{
     public static boolean isHalfAlphanumeric(String str) {
         return Pattern.matches("^[0-9a-zA-Z]+$", str);
     }
+
 }

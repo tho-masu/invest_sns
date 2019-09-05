@@ -8,10 +8,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/sugeno_css/common.css">
 <link href="<%=request.getContextPath()%>/sugeno_css/default.css" rel="stylesheet" type="text/css">
-<%--
-JsonNode dnode = (JsonNode)(request.getAttribute("dnode"));
-JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
---%>
+<%
+JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
+%>
 
 <title>ホーム</title>
 </head>
@@ -23,6 +22,11 @@ JsonNode hnode = (JsonNode)(request.getAttribute("hnode"));
 
 <!-- ヘッダー終わり -->
 <%--homeでフォローしたユーザーの投稿を表示する --%>
+
+
+<div class=maki><p><MARQUEE width="100%" scrollamount="4"><FONT color="#000099"><% for(int i=0;i<nnode.size();i++){%>
+		<%=nnode.get(i).get("headline").asText() %><%} %></FONT></MARQUEE></p></div>
+
 <table border="1">
  <tr>
    <td colspan="3" valign="middle">

@@ -93,3 +93,8 @@ a.widelink { display: block; }
 .attention_point td{
 	background-color:whitesmoke;
 }
+
+.maki{
+	<MARQUEE width="400" scrollamount="4"><FONT color="#000099">ここに文字</FONT></MARQUEE>
+
+}

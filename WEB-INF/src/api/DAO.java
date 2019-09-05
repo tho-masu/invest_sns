@@ -270,6 +270,36 @@ public class DAO {
 		return hnode;
 	}
 
+	/*tei追加*/
+	public static JsonNode getHeadline(){
+		HashMap<String,String> query = new HashMap<String,String>();
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd000000");
+        String date = sdf.format(cal.getTime()).toString();
+
+		query.put("genre", "NNN");
+		query.put("from_date_time",date);
+		query.put("limit", "10");
+		query.put("article","false");
+
+		String result = APIManager.getData("news_headline", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null
+				;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode nnode = node.get("news_headline").get("data");
+
+		return nnode;
+
+	}
 
 /* ここまでAPI用DAO */
 

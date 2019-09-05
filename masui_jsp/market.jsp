@@ -13,6 +13,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/table_open.js"></script>
 <%
 JsonNode hnode = (JsonNode)request.getAttribute("hnode");
+JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
 List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
 List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
@@ -24,6 +25,9 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 <body>
 
 <jsp:include page="header.jsp" flush="true" />
+
+<div class=maki><p><MARQUEE width="100%" scrollamount="4"><FONT color="#000099"><% for(int i=0;i<nnode.size();i++){%>
+		<%=nnode.get(i).get("headline").asText() %><%} %></FONT></MARQUEE></p></div>
 
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">

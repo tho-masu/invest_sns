@@ -23,6 +23,7 @@ public class Market extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		JsonNode hnode = DAO.getNikkei225IntradayHistorical();
+		JsonNode nnode = DAO.getHeadline();
 		List<IndustryBean> ilist = null;
 		try {
 			ilist = DAO.getIndustryList();
@@ -56,6 +57,7 @@ public class Market extends HttpServlet {
 		request.setAttribute("hnode", hnode);
 		request.setAttribute("clist", clist);
 		request.setAttribute("llist",llist);
+		request.setAttribute("nnode", nnode);
 		request.getRequestDispatcher("/masui_jsp/market.jsp").forward(request, response);
 
 	}
