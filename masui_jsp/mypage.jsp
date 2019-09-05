@@ -154,12 +154,12 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 	</div>
 	<%--投稿ここまで --%>
    <%--コメント返信欄(コメントアイコンを押すと表示される)--%>
-   <div class="mypage_comment_list" style="display:none">
+   <div class="mypage_comment_list" style="display:none;clear:both;">
 
      <%--コメント記入欄 --%>
      <div>
        <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
-         <div><textarea  name="comment"></textarea></div>
+         <div><textarea class="comment_margin_top"  name="comment"></textarea></div>
          <input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
          <div><input type="submit" value="送信"></div>
        </form>

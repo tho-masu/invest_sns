@@ -614,8 +614,6 @@ margin-left:auto;
 .post_table{
 	margin:0;
 	width:550px;
-	margin-bottom:10px;
- 	table-layout: fixed;
     word-break: break-all;
     word-wrap: break-word;
 }
@@ -627,11 +625,11 @@ margin-left:auto;
 	margin-bottom:10px;
 }
 /*コメントアイコン押したら開くところの設定*/
-.mypage_comment_list{
-	margin-top:80px;
+.comment_margin_top{
+	margin-top:30px;
 }
-
 .mypage_comment_list input[type="submit"]{
+	margin-bottom:10px;
 	padding: 10px 30px;
 	border-style: none;
 	font-size: 15px;
@@ -972,12 +970,12 @@ center a:hover{
 
 /*コメント記入欄デザイン、位置設定*/
 .response_comment{
-	margin-top:80px;
 	margin-bottom:10px;
 }
 .response_comment textarea{
 	width:800px;
 	height:150px;
+	margin-top:30px;
 }
 .response_comment input{
 	padding: 10px 30px;

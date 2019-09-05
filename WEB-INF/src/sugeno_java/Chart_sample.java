@@ -17,7 +17,7 @@ public class Chart_sample extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		String scode = request.getParameter("quote");
-		String days = "365";
+		String days = "100";
 
 		//JsonNode hcnode = DAO.getCompanyHistorical_count(scode,days);
 		JsonNode hnode = DAO.getCompanyHistorical(scode,days);

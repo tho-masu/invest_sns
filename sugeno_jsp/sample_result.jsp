@@ -140,112 +140,70 @@ var myPieChart = new Chart(ctx, {
 
 <div id="mychart"></div>
 
+<div style="width:1200px;height:900px;margin-right:auto;margin-left:auto;">
+<canvas id="myLineChart"></canvas>
+</div>
+
 <script>
-var high = [
-	<%for(int i=0;i<hnode.size();i++){%>
-	<%if(i!=0){%>,<%}%>
-	<%=hnode.get(i).get("price_high").asDouble()%>
-	<%}%>];
-
-var low = [
-	<%for(int i=0;i<hnode.size();i++){%>
-	<%if(i!=0){%>,<%}%>
-	<%=hnode.get(i).get("price_low").asDouble()%>
-	<%}%>];
-
-var date = [
-	<%for(int i=0;i<hnode.size();i++){%>
-	<%if(i!=0){%>,<%}%>
-	<%=hnode.get(i).get("start_date").asText()%>
-	<%}%>];
-
-
-var trace1 = {
-		  type: "scatter",
-		  mode: "lines",
-		  name: 'High_price',
-		  x: date,
-		  y: high,
-		  line: {color: '#17BECF'}
-		}
-
-		var trace2 = {
-		  type: "scatter",
-		  mode: "lines",
-		  name: 'Low_price',
-		  x: date,
-		  y: low,
-		  line: {color: '#7F7F7F'}
-		}
-
-		var data = [trace1,trace2];
-
-		var layout = {
-		  title: 'Basic Time Series',
-		};
-
-		Plotly.newPlot('mychart', data, layout);
-		})
-
-</script>
-
-<canvas id="doublechart"></canvas>
-
-<script type="text/javascript">
-        var ctx = document.getElementById('doublechart').getContext('2d');
-        var doublechart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: [<%for(int i=0;i<hnode.size();i++){%>
-            			<%if(i!=0){%>,<%}%>
-            			<%=hnode.get(i).get("start_date").asText()%>
-            			<%}%>],
-                datasets: [{
-                    label: '折れ線A',
-                    type: "line",
-                    fill: false,
-                    data: [<%for(int i=0;i<hnode.size();i++){%>
-                		<%if(i!=0){%>,<%}%>
-                		<%=hnode.get(i).get("price_high").asDouble()%>
-                		<%}%>],
-                    borderColor: "rgb(154, 162, 235)",
-                    yAxisID: "y-axis-1",
-                }, {
-                    label: '折れ線B',
-                    type: "line",
-                    fill: false,
-                    data: [<%for(int i=0;i<hnode.size();i++){%>
-                		<%if(i!=0){%>,<%}%>
-                		<%=hnode.get(i).get("price_low").asDouble()%>
-                		<%}%>],
-                    borderColor: "rgb(54, 162, 235)",
-                    yAxisID: "y-axis-1",
-                }]
-            },
-            options: {
-                tooltips: {
-                    mode: 'nearest',
-                    intersect: false,
-                },
-                responsive: true,
-                scales: {
-                    yAxes: [{
-                        id: "y-axis-1",
-                        type: "linear",
-                        position: "left"
-                    }, {
-                        id: "y-axis-2",
-                        type: "linear",
-                        position: "right",
-                        gridLines: {
-                            drawOnChartArea: false,
-                        },
-                    }],
-                },
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+    	  <%for(int i=0;i<hnode.size();i++){%>
+    	  	<%if(i!=0){%>,<%}%>
+    	  	'<%=hnode.get(i).get("start_date").asText()%>'
+    	  <%}%>
+    	  ],
+      datasets: [{
+          label: '高値',
+          data: [
+        	  <%for(int i=0;i<hnode.size();i++){%>
+      	  	<%if(i!=0){%>,<%}%>
+      	  	<%=hnode.get(i).get("price_high").asDouble()%>
+      	  <%}%>],
+      	  borderColor: 'rgba(255, 100, 100, 1)',
+          lineTension: 0,
+          fill: false,
+          borderWidth: 3
+        },
+        {
+          label: '安値',
+          data: [
+              <%for(int i=0;i<hnode.size();i++){%>
+        	  <%if(i!=0){%>,<%}%>
+        	  <%=hnode.get(i).get("price_low").asDouble()%>
+        	  <%}%>],
+          borderColor: 'rgba(100, 100, 255, 1)',
+          lineTension: 0,
+          fill: false,
+          borderWidth: 3
+        }],
+    },
+    options: {
+      title: {
+        display: true,
+        text: '直近<%=hnode.size()%>営業日の株価'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            callback: function(value, index, values){
+              return  value +  '円'
             }
-        });
+          }
+        }]
+      },
+    }
+  });
+  </script>
 
-</script>
+
+
+
+
+
+
 
 </body>
 </html>

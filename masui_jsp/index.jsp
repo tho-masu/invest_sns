@@ -95,7 +95,7 @@ if(pageNumberString != null){
 	</div>
 	<%--投稿ここまで --%>
    <%--コメント返信欄(コメントアイコンを押すと表示される)--%>
-   <div style="display:none">
+   <div style="display:none;clear:both;">
 
      <%--コメント記入欄 --%>
      <div class="response_comment">
@@ -116,10 +116,7 @@ if(pageNumberString != null){
        <%-- name（クリックでその人のページへ） --%>
        <p class="top_name_home"><%=comment.getUsername() %></p>
       </a>
-       <div class="top_article_home top_article_homeonly">
-       <%--日付 --%>
-         <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
-       <%--削除ボタン --%>
+      <%--削除ボタン --%>
        <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
      	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST" class="comment_delete">
      			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
@@ -128,6 +125,10 @@ if(pageNumberString != null){
 				<input type="image" title="コメントを削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 		</form>
 		<%}%>
+       <div class="top_article_home top_article_homeonly">
+       <%--日付 --%>
+         <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
+
        <%--返信内容 --%>
          <article><%=comment.getComment() %></article>
        </div>
