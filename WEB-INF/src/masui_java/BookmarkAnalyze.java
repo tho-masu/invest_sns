@@ -26,11 +26,20 @@ public class BookmarkAnalyze extends HttpServlet {
 		HttpSession session = request.getSession();
 		UserBean loginAccount = (UserBean) session.getAttribute("login_account");
 
-		CompanyAnalyzeBean cabean = getCabean(loginAccount.getPk_id());
-
-		request.setAttribute("cabean", cabean);
-		request.getRequestDispatcher("/masui_jsp/bookmark_analyze.jsp").forward(request, response);
+		try {
+			if(AnalyzeDAO.countBookmark(loginAccount.getPk_id()) >= 1) {
+				CompanyAnalyzeBean cabean = getCabean(loginAccount.getPk_id());
+				request.setAttribute("cabean", cabean);
+				request.getRequestDispatcher("/masui_jsp/bookmark_analyze.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("/masui_jsp/bookmark_analyze_error.jsp").forward(request, response);
+			}
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 	}
+
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		doGet(request,response);
 	}

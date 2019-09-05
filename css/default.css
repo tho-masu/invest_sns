@@ -1203,3 +1203,11 @@ center a:hover{
 	background-color:#1ebaf7;
 	color:#FFF;
 }
+
+
+/*
+用語解説ポップアップの設定
+*/
+span.hint--top{
+	text-decoration: underline red;
+}

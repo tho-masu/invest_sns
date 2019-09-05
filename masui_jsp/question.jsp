@@ -1,0 +1,1 @@
+<img src="<%=request.getContextPath() %>/img/function_icon/question.png" width="15px">

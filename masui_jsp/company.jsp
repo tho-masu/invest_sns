@@ -29,6 +29,8 @@ $(function(){
 })
 </script>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/css/hint.css" rel="stylesheet" type="text/css">
+
 <body>
 
 <jsp:include page="header.jsp" flush="true" />
@@ -53,7 +55,10 @@ $(function(){
 
      <%} %>
      </td>
-     <td align="left" width="40%">お買い<font color="blue">損</font>度（PER)：<%=dnode.get("co_per").asDouble() %></td>
+     <td align="left" width="40%">お買い<font color="blue">損</font>度（
+     <%-- 用語説明を追加 --%>
+     <span class="hint--top hint--rounded" data-hint="Price Earnings Ratioの略称で和訳は株価収益率">PER<jsp:include page="question.jsp" flush="true" /></span>
+     )：<%=dnode.get("co_per").asDouble() %></td>
      <td rowspan="3" align="right" width="20%">
 
      <% if(!isRegisteredBookmark){%>
@@ -78,7 +83,10 @@ $(function(){
      <td align="left" width="40%">お買い<font color="red">得</font>度（1/PER)：<%=(double)Math.round( 10000/(dnode.get("co_per").asDouble()) ) / 10000 %></td>
    </tr>
    <tr class="top_sub">
-     <td align="left" width="40%">企業の稼ぐ力（ROE)：<%=dnode.get("co_settle_roe").asDouble() %></td>
+     <td align="left" width="40%">企業の稼ぐ力（
+      <%-- 用語説明を追加 --%>
+     <span class="hint--top hint--rounded" data-hint="Return On Equityの略称で和訳は自己資本利益率">ROE<jsp:include page="question.jsp" flush="true" /></span>
+     )：<%=dnode.get("co_settle_roe").asDouble() %></td>
    </tr>
  </table>
 

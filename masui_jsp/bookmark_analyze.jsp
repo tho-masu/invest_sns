@@ -7,6 +7,7 @@
 
 <title>分析</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/css/hint.css" rel="stylesheet" type="text/css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
@@ -101,13 +102,13 @@ List<Double> bookmarkPortfolio = cabean.getBookmarkPortfolio();
     		<b>企業名</b>
     	</th>
     	<th class="code_num">
-    		<b>トレンド（最近1年間）</b>
+    		<b><span class="hint--top hint--rounded" data-hint="下部の値はinvestagramがチャートを分析して算出した独自のものです">トレンド<jsp:include page="question.jsp" flush="true" /></span>（最近1年間）</b>
     	</th>
     	<th class="stock_price">
-    		<b>1株あたり利益の伸び率</b>
+    		<b><span class="hint--top hint--rounded" data-hint="EPS（1株あたり純利益）のことを指しています（単位：円）">1株あたり利益<jsp:include page="question.jsp" flush="true" /></span>の伸び率</b>
     	</th>
     	<th class="stock_price" colspan="5">
-    		<b>過去5年間の本業利益成長率</b>
+    		<b>過去5年間の<span class="hint--top hint--rounded" data-hint="営業利益のことを指しています">本業利益<jsp:include page="question.jsp" flush="true" /></span>成長率</b>
     	</th>
     </tr>
 <%for(int i=0;i<dnode.size();i++){ %>

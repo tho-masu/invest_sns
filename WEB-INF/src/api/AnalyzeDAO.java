@@ -105,4 +105,9 @@ public class AnalyzeDAO {
 
 		return incomeNode.get("ap_historical").get("data");
 	}
+
+	public static int countBookmark(int pk_id) throws SQLException {
+		String sql="SELECT count(*) FROM t_bookmark WHERE fk_user='"+pk_id+"';";
+		return DBManager.simpleCount(sql);
+	}
 }

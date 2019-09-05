@@ -16,7 +16,7 @@ import database.UserDAO;
 /*
  * 以下のディレクトリはプロジェクトのプロパティ→Tomcat→全般でeclipseのデフォルトのウェブアプリケーションワークが
  * 「work」に設定されているためコンテキストルート直下の「tmp」に一時ファイルを保存するための設定
- * サーバーにデプロイするときは「/tmp」に書き換える必要あり
+ * 開発時は「../tmp」、サーバーにデプロイするときは「/tmp」に書き換える必要あり
  */
 @MultipartConfig(location="../tmp", maxFileSize=1048576)
 

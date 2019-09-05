@@ -24,7 +24,7 @@ public class APIManager {
 	     System.setProperty("https.proxyHost","proxy-operation.aim.d.quick.aws");
 	     System.setProperty("https.proxyPort","8080");
 	     System.setProperty("http.nonProxyHosts","localhost|*.nonproxy.com");
-	     */
+		 */
 
 	     StringBuffer response = new StringBuffer();
 
