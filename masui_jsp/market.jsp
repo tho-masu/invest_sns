@@ -9,6 +9,7 @@
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/table_open.js"></script>
 <%
 JsonNode hnode = (JsonNode)request.getAttribute("hnode");
@@ -100,7 +101,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 <table border="1" class="industryweather">
 	<tr class="industryweather_head">
 		<th width="70%">
-			業界(クリックで一覧表示)
+			業界
 		</th>
 		<th width="30%">
 			景気動向
@@ -165,7 +166,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
      <div class="top_article">
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href=""><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
        <p class="top_name_home"><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
