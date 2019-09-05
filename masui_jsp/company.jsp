@@ -391,6 +391,7 @@ $(function(){
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
        <p class="top_name_home"><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
 
+	<%if(loginAccount.getPk_id() == cbean.getFk_user()){ %>
        <%--追加(削除ボタン) --%>
        <form class="comment_delete" action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
         	<input type="hidden" name="pk_comment" value="<%=cbean.getPk_comment() %>">
@@ -399,6 +400,7 @@ $(function(){
 		 	<input type="image" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 	   </form>
 	   <%--追加ここまで --%>
+	 <%} %>
 
        <div class="top_article_home">
          <div><%=cbean.getDate() %> <%=cbean.getTime() %></div>
