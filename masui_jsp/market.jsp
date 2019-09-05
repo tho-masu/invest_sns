@@ -107,7 +107,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 		</th>
 	</tr>
 	<% for(IndustryBean element : ilist){ %>
-	<tr class="reco_info" style="display:none;">
+	<tr class="reco_info">
 		<td align="center">
 			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
 		</td>

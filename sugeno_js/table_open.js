@@ -1,6 +1,7 @@
 $(function(){
-	$('th').click(function(){
-		$('tr').css({'display':'table-row'});
-		//$('.industinfo').slideToggle();
+	$('div').click(function(){
+		alert(aaa);
+		//$('tr').css({'display':'table-row'});
+		$('tr').slideToggle();
 	});
 })
