@@ -1,5 +1,6 @@
 package api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -74,6 +75,72 @@ public class CompanyAnalyzeBean {
 
 	public void setBookmarkPortfolio(List<Double> bookmarkPortfolio) {
 		this.bookmarkPortfolio = bookmarkPortfolio;
+	}
+
+
+	public List<Integer> getTotalEvaluation(){
+		List<Integer> totalEvaluation = new ArrayList<Integer>();
+
+		List<Integer> trend = checkTrend(getGradientList());
+		List<Integer> eps = checkEps(getEpsPchgList());
+		List<Integer> income = checkIncome(getIncomePchgList());
+
+		for(int i=0;i<trend.size();i++) {
+			totalEvaluation.add(trend.get(i)+eps.get(i)+income.get(i));
+		}
+
+		return totalEvaluation;
+	}
+
+	public List<Integer> checkTrend(List<Double> gradientList) {
+		List<Integer> trend = new ArrayList<Integer>();
+		for(int i=0;i<gradientList.size();i++) {
+			double gradient = gradientList.get(i);
+			if(gradient <= -0.2){
+				trend.add(0);
+			}else if(0.2 <= gradient) {
+				trend.add(2);
+			}else {
+				trend.add(1);
+			}
+		}
+		return trend;
+	}
+
+	public List<Integer> checkEps(List<Double> epsPchgList){
+		List<Integer> eps = new ArrayList<Integer>();
+		for(int i=0;i<gradientList.size();i++) {
+			double epsPchg = epsPchgList.get(i);
+			if(epsPchg <= 0.0){
+				eps.add(0);
+			}else if(20.0 <= epsPchg) {
+				eps.add(2);
+			}else {
+				eps.add(1);
+			}
+		}
+		return eps;
+	}
+
+	public List<Integer> checkIncome(List<List<Double>> incomePchgList){
+		List<Integer> income = new ArrayList<Integer>();
+		for(int i=0;i<incomePchgList.size();i++) {
+			int count = 0;
+			for(int j=0;j<incomePchgList.get(i).size();j++){
+				if(0 < incomePchgList.get(i).get(j)){
+					count++;
+				}
+			}
+
+			if(count >= 4) {
+				income.add(2);
+			}else if(count == 3) {
+				income.add(1);
+			}else {
+				income.add(0);
+			}
+		}
+		return income;
 	}
 
 }
