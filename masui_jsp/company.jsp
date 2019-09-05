@@ -18,7 +18,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 List<PostBean> plist = (List<PostBean>)request.getAttribute("companyPosts");
 YutaiBean yinfo = (YutaiBean)request.getAttribute("yinfo");
 %>
-<title><%=dnode.get("short_name").asText()%></title>
+<title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/read_more.js"></script>
 <script>
