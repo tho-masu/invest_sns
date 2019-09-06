@@ -17,6 +17,7 @@ ArrayList<ArrayList<Object>> ahistorical = (ArrayList<ArrayList<Object>>)request
 IndustryBean iinfo = (IndustryBean)request.getAttribute("iinfo");
 List<CommentBean> clist = (List<CommentBean>)request.getAttribute("clist");
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
+List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
 %>
 
 </head>
@@ -168,8 +169,11 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
     	<th class="code_num" style="border-right:1px solid #a9a9a9;">
     		<b>証券コード</b>
     	</th>
-    	<th class="stock_price">
+    	<th class="stock_price" style="border-right:1px solid #a9a9a9;">
     		<b>株価</b>
+    	</th>
+    	<th class="stock_price">
+    		<b>株主優待の有無</b>
     	</th>
     </tr>
 <%for(int i=0;i<anode.size();i++){ %>
@@ -180,8 +184,15 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
       <td style="border-right:1px solid #a9a9a9;">
 		<%=anode.get(i).get("securities_code").asText() %>
       </td>
-      <td>
+      <td style="border-right:1px solid #a9a9a9;">
       	<%=anode.get(i).get("price").asDouble() %>円
+      </td>
+      <td>
+      	<%if(existYutai.get(i) == true){ %>
+      		<font color=red>あり</font>
+      	<%}else{ %>
+      		<font color=blue>なし</font>
+      	<%} %>
       </td>
     </tr>
 <%} %>
