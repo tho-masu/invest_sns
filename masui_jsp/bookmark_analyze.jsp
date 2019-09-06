@@ -179,13 +179,13 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
         	以上の分析は<span class="hint--top hint--rounded" data-hint="米国の著名投資家ウィリアム・オニールが提唱した、急成長する見込みのある大化け株を選定する方法">CAN-SLIM投資法<jsp:include page="question.jsp" flush="true" /></span>
         	の銘柄選定基準の一部を採用した分析です。<br><br>
         	<b>■CAN-SLIM投資法のエッセンス</b><br><br>
-        	・<b>C … 直近の四半期のEPS（1株当たり純利益）が最低でも20%は増加し勢いよく成長している</b><br>
-        	・<b>A … 過去五年間に年間の利益が増加し、意味のある成長が認められる</b><br>
-        	・N … 株価がボックス圏を抜けて年初来高値、昨年来高値、上場来高値などをつけている<br>
-        	・S … 発行済み株式数が少なく、株式の需給の法則から値上がりしやすい小型株<br>
-        	・L … 少なくとも業界の上位2,3社に入っていて相場を主導する銘柄である<br>
-        	・I … 有力な機関投資家が保有している<br>
-        	・<b>M … 相場全体のトレンドが悪くなく、下降トレンドではない</b><br>　
+        	・<b><span class="hint--top hint--rounded" data-hint="Current Quarterly Earnings">C</span> … 直近の四半期のEPS（1株当たり純利益）が最低でも20%は増加し勢いよく成長している</b><br>
+        	・<b><span class="hint--top hint--rounded" data-hint="Annual Earnings Increases">A</span> … 過去五年間に年間の利益が増加し、意味のある成長が認められる</b><br>
+        	・<span class="hint--top hint--rounded" data-hint="Newer Companies,New Prodcts ,New Xxx New Hight Off Properly Formed Bases">N</span> … 株価がボックス圏を抜けて年初来高値、昨年来高値、上場来高値などをつけている<br>
+        	・<span class="hint--top hint--rounded" data-hint="Supply and Emand">S</span> … 発行済み株式数が少なく、株式の需給の法則から値上がりしやすい小型株<br>
+        	・<span class="hint--top hint--rounded" data-hint="Leader or Laggard">L</span> … 少なくとも業界の上位2,3社に入っていて相場を主導する銘柄である<br>
+        	・<span class="hint--top hint--rounded" data-hint="Institutional Sponsorship">I</span> … 有力な機関投資家が保有している<br>
+        	・<b><span class="hint--top hint--rounded" data-hint="Market Direction">M</span> … 相場全体のトレンドが悪くなく、下降トレンドではない</b><br>　
         </p>
       </td>
       <%--業界の関連画像表示 --%>
