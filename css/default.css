@@ -6,6 +6,9 @@ body{
 	padding:0;
 	/*position:absolute;*/
 }
+.line_add{
+	border: 1px solid #a9a9a9;
+}
 header,nav,ul,li,h1,p,a{margin:0;padding:0;}
 a {
 	color:#333;
@@ -81,8 +84,8 @@ table{
 	width:1000px;
 	margin-bottom:50px;
 	margin-top:50px;
+	border-collapse:collapse;
 
-	border: 1px solid #a9a9a9;
 }
 
 /*コメント削除デザイン設定（追加）*/
@@ -112,9 +115,7 @@ table{
 /*///////企業のトップ情報/////////*/
 /*企業名と株価の欄のデザイン*/
 #top_table{
-	border-color:#fff;
 	border-collapse:collapse;
-	border: 1px solid #a9a9a9;
 }
 #top_company{
 	font-weight: bold;
@@ -127,7 +128,7 @@ table{
 /*天気、紹介、PERなどのデザイン*/
 .top_sub{
 	background-color:#fff;
-	border-color:#fff;
+
 }
 .top_sub{
 	text-align:center;
@@ -226,7 +227,7 @@ yutai{
 }
 .comment_submit{
 	border-collapse:collapse;
-	border: 1px solid #a9a9a9;
+
 }
 .comment_submit td{
 	text-align:center;
@@ -379,7 +380,9 @@ margin-left:auto;
 }
 
 /*-----------おすすめ企業一覧デザイン設定-------------*/
-
+.backcolor:nth-child(odd){
+	background: #e6f2ff;
+}
 .recommend{
 	background-color:#87ceeb;
 	color:white;
@@ -1244,4 +1247,23 @@ center a:hover{
 */
 span.hint--top{
 	text-decoration: underline red;
+}
+/*bookmark_analyze.jsp設定*/
+.oneal{
+	vertical-align:middle;
+	text-align:center;
+
+}
+.william{
+	margin:auto;
+	text-align:center;
+	width:200px;
+}
+.william img{
+	display:block;
+	margin:0;
+}
+.william p{
+	color:#fff;
+	margin:0;
 }

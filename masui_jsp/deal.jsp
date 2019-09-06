@@ -25,7 +25,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 
 
-<table border="1" class="list industryweather">
+<table class="list industryweather line_add">
 	<tr class="industryweather_head">
 		<th>
 			大手証券会社一覧

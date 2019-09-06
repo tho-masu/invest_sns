@@ -30,7 +30,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
 <jsp:include page="header.jsp" flush="true" />
 
  <%-- チャート --%>
- <table class="chart">
+ <table class="chart line_add">
   <%--見出し --%>
   <tr><td align="center" class="point_top">チャート（ブックマークポートフォリオ）</td></tr>
 	 <tr class="sub">
@@ -94,7 +94,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
 
 
   <%--おすすめ企業 --%>
-  <table align="center" width="80%" class="list">
+  <table class="list line_add">
     <tr>
       <th align="center" colspan="9" class="point_top">
         ブックマークしている企業の分析
@@ -118,7 +118,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
     	</th>
     </tr>
 <%for(int i=0;i<dnode.size();i++){ %>
-    <tr class="sub reco_info">
+    <tr class="sub reco_info backcolor">
       <td>
       	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=dnode.get(i).get("req_code").asText() %>"><%=dnode.get(i).get("v-name").asText() %></a>
       </td>
@@ -185,9 +185,11 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
         </p>
       </td>
       <%--業界の関連画像表示 --%>
-      <td>
-        <img src="<%=request.getContextPath() %>/img/oneil.jpg" width="210px" height="auto" style="float:right;"><br>
-        <div style="color:white; float:right;">ウィリアム・オニール　　</div>
+      <td class="oneal">
+        <div class="william">
+          <img src="<%=request.getContextPath() %>/img/oneil.jpg" width="200px" height="auto">
+          <p>ウィリアム・オニール</p>
+        </div>
       </td>
     </tr>
   </table>

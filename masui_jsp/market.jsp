@@ -40,14 +40,14 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <!-- チャートを入れるテーブルはじめ -->
 
-<table width="800px" align="center">
+<table class="comment_submit line_add">
   <tr>
     <td class="point_top">日経平均株価（今日の現在までの値動き）</td>
   </tr>
   <tr class="sub">
     <td>
 	<!-- チャートはじめ -->
-     <div style="width:950px;height:540px;text-align:center;margin:auto;">
+     <div style="width:950px;text-align:center;margin:auto;">
        <canvas id="myLineChart"></canvas>
      </div>
 <script>
@@ -110,7 +110,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <!-- チャートを入れるテーブル終わり -->
 
-<table border="1" class="industryweather">
+<table class="industryweather line_add">
 	<tr class="industryweather_head">
 		<th width="70%">
 			業界
@@ -146,7 +146,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
  </table>
 
 <%--コメント送信 --%>
- <table class="comment_submit">
+ <table class="comment_submit line_add">
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
