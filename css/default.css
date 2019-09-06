@@ -398,12 +398,19 @@ margin-left:auto;
 /*
 ---------------market.jsp編集----------------------
 */
+/*動くニュースの設定*/
+.maki{
+	padding-top:5px;
+	color:#ffffff;
+	background:rgba(82, 194, 208,0.6);
+	margin-top:7px;
+}
 /*証券番号検索ボタン編集設定*/
 .top_market_search{
 	background:#52c2d0;
 	padding-top:50px;
 	padding-bottom:50px;
-	margin-top:45px;
+
 	text-align:center;
 }
 .top_market_search p{
