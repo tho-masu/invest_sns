@@ -50,7 +50,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
       </td>
       <%--天気を表示 --%>
       <td  rowspan="2" align="center" width="200px">
-        <img src="<%=request.getContextPath() %>/img/weather/<%=iinfo.getWeather() %>.png" width="100px">
+        <img src="<%=request.getContextPath() %>/img/weather/<%=iinfo.getWeather() %>.png" width="150px">
       </td>
     </tr>
   </table>
@@ -66,7 +66,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
       </td>
       <%--業界の関連画像表示 --%>
       <td class="overview_img">
-        <img src="<%=request.getContextPath() %>/img/industry/<%=iname %>.jpg" width="220px" height="auto" align="center">
+        <img src="<%=request.getContextPath() %>/img/industry/<%=iname %>.jpg" width="300px" height="auto">
       </td>
     </tr>
   </table>
@@ -74,13 +74,14 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 <%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
 
 <!-- チャートを入れるテーブルはじめ -->
-
-<table class="comment_submit line_add">
+<h1 class="heading_title"><%=iname %>の平均株価</h1>
+<table class="comment_submit">
+<%--
 <tr>
   <td class="point_top">
     <%=iname %>の平均株価
   </td>
-</tr>
+</tr> --%>
 <tr>
   <td>
 
@@ -151,12 +152,15 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 
   <%--おすすめ企業 --%>
+  <h1 class="heading_title">おすすめ企業</h1>
   <table class="list line_add">
+  <%--
     <tr>
       <th align="center" colspan="3" class="point_top">
         おすすめ企業
       </th>
     </tr>
+     --%>
     <tr class="recommend">
     	<th class="company_name" style="border-right:1px solid #a9a9a9;">
     		<b>企業名</b>
@@ -187,28 +191,33 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 
 <%--コメント送信 --%>
- <table class="comment_submit line_add">
+ <table class="comment_submit">
+ <%--
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
+   --%>
+
   <tr>
    <td class="sub">
+     <h1 class="heading_title">コメント欄</h1>
+     <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <input type="hidden" name="iname" value="<%=iname %>">
-     <div><input type="submit" value="送信" align="center" class="submit_div"></div>
+     <div><input type="submit" value="送信" class="submit_div"></div>
+     </form>
    </td>
   </tr>
-  </form>
  </table>
 
+<%--
 <table class="comment_list">
   <tr>
-   <td class="point_top">
-    コメント一覧
-   </td>
+   <td class="point_top"> --%>
+  <h1 class="heading_title">コメント一覧</h1>
+   <%--</td>
   </tr>
- </table>
+ </table> --%>
 <%if(clist!=null){ %>
  <%--コメントとコメントした人の名前やアイコン --%>
 <table class="article_table">

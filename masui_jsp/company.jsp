@@ -91,9 +91,9 @@ $(function(){
  </table>
 
  <%-- チャート --%>
- <table class="chart line_add">
-  <%--見出し --%>
-  <tr><td align="center" class="point_top">チャート</td></tr>
+ <h1 class="heading_title">チャート</h1>
+
+ <table class="chart">
   <%--チャート期間変更ボタン --%>
   <tr class="sub">
    <td align="center" height="50px">
@@ -166,11 +166,13 @@ $(function(){
   </table>
 
  <%-- 注目ポイント --%>
+ <h1 class="heading_title">注目ポイント</h1>
   <table class="attention_point">
+  <%--
   <tr>
    <th align="center"colspan="2" class="point_top">注目ポイント</th>
 
-  </tr>
+  </tr> --%>
   <tr>
    <th width="30%" class="sub_point">会社のお名前（和）</th>
    <td><%=dnode.get("v-name").asText() %></td>
@@ -200,11 +202,14 @@ $(function(){
 <%if(plist != null){ %>
 <%if(!(plist.isEmpty())){ %>
 <%--企業の投稿を表示する --%>
+ <h1 class="heading_title">この企業からの投稿</h1>
 <table class="article_table line_add">
  <%--見出し --%>
+ <%--
  <tr>
    <th class="point_top" colspan="3">この企業からの投稿</th>
  </tr>
+  --%>
 <%for(int i=0;i<plist.size();i++){ %>
  <tr>
    <td colspan="3" valign="middle"  class="function_cell">
@@ -278,13 +283,33 @@ $(function(){
 <%} %>
 
 <%--優待情報 --%>
-<table class="comment_list line_add">
+<div class="yutai_head">
+<h1 class="heading_title">優待情報</h1>
+<%if (yinfo!=null){%>
+       <% if(!isRegisteredLike){%>
+     	<form action="<%=request.getContextPath() %>/tei_java/like" method="POST"  class="yutai_form">
+			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+			<input type="hidden" name="registerOrDelete" value="register">
+            <input type="image" title="お気に入り登録" src="<%=request.getContextPath()%>/img/function_icon/unheart.png" width="50px" height="50px" class="yutai_good">
+		</form>
+	<%}else{ %>
+		<form action="<%=request.getContextPath() %>/tei_java/like" method="POST" class="yutai_form">
+			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
+			<input type="hidden" name="registerOrDelete" value="delete">
+			<input type="image" title="お気に入りから削除" src="<%=request.getContextPath()%>/img/function_icon/heart.png" width="50px" height="50px" class="yutai_good">
+		</form>
+	<%}} %>
+</div>
+<table class="comment_list ">
+<%--
   <tr>
-   <td class="point_top">
+   <td class="point_top"
+
       優待情報
       <%--ハートのお気に入り登録ボタン --%>
-      <%if (yinfo!=null){%>
-       <% if(!isRegisteredLike){%>
+      <%--if (yinfo!=null){--%>
+       <%-- if(!isRegisteredLike){--%>
+       <%--
      	<form action="<%=request.getContextPath() %>/tei_java/like" method="POST"  class="yutai_form">
 			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
 			<input type="hidden" name="registerOrDelete" value="register">
@@ -299,7 +324,7 @@ $(function(){
 	<%}} %>
 
    </td>
-  </tr>
+  </tr> --%>
   <tr>
    <%--優待内容 --%>
    <td class="sub" id="commentword">
@@ -323,12 +348,14 @@ $(function(){
  </table>
 
  <%-- 今日のニュースはじめ --%>
-<table class="comment_list line_add">
+ <h1 class="heading_title">今日の関連ニュース</h1>
+<table class="comment_list ">
+<%--
   <tr>
    <td class="point_top">
     今日の関連ニュース
    </td>
-  </tr>
+  </tr> --%>
   <tr>
    <td class="sub" id="commentword">
 <%if(nnode==null){ %>
@@ -362,28 +389,32 @@ $(function(){
 
 
  <%--コメント送信 --%>
- <table class="comment_submit line_add">
+ <table class="comment_submit">
+ <%--
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
-  <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
+   --%>
   <tr>
    <td class="sub">
+   <h1 class="heading_title">コメント欄</h1>
+     <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
      <div><input type="submit" value="送信" align="center"></div>
+     </form>
    </td>
   </tr>
-  </form>
  </table>
-
+<%--
 <table class="comment_list">
   <tr>
-   <td class="point_top">
-    コメント一覧
+   <td class="point_top"> --%>
+     <h1 class="heading_title">コメント一覧</h1>
+     <%--
    </td>
   </tr>
- </table>
+ </table> --%>
 <%if(clist!=null){ %>
  <%--コメントとコメントした人の名前やアイコン --%>
 <table class="article_table">

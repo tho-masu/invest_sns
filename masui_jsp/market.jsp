@@ -31,7 +31,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">
-  <p align="center">証券コードを入力してください</p>
+  <h1 align="center" class="heading_title">証券コードを入力してください</h1>
   <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
 	  <input type="tel" name="quote" maxlength="4">
 	  <input type="submit" value="銘柄詳細へ">
@@ -40,10 +40,11 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <!-- チャートを入れるテーブルはじめ -->
 
-<table class="comment_submit line_add">
-  <tr>
-    <td class="point_top">日経平均株価（今日の現在までの値動き）</td>
-  </tr>
+
+
+<h1 class="heading_title">日経平均株価（<%=hnode.get(0).get("date").asText()%>の現在までの値動き）</h1>
+
+<table class="comment_submit">
   <tr class="sub">
     <td>
 	<!-- チャートはじめ -->
@@ -87,7 +88,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
     options: {
       title: {
         display: true,
-        text: '日経平均株価（<%=hnode.get(0).get("date").asText()%>の現在までの値動き）'
+        <%--text: '日経平均株価（<%=hnode.get(0).get("date").asText()%>の現在までの値動き）'--%>
       },
       scales: {
         yAxes: [{
@@ -112,19 +113,19 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <table class="industryweather line_add">
 	<tr class="industryweather_head">
-		<th width="70%">
-			業界
+		<th colspan="2">
+			<div class="indust">業界</div>
+			<div class="future">景気動向</div>
+
 		</th>
-		<th width="30%">
-			景気動向
-		</th>
+
 	</tr>
 	<% for(IndustryBean element : ilist){ %>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" width="70%">
 			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
 		</td>
-		<td align="center">
+		<td align="center" width="30%">
 			<img src="<%=request.getContextPath() %>/img/weather/<%=element.getWeather() %>.png" height="50px">
 		</td>
 	</tr>
@@ -146,28 +147,42 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
  </table>
 
 <%--コメント送信 --%>
+<%--
  <table class="comment_submit line_add">
   <tr>
-   <td class="point_top">コメント欄</td>
-  </tr>
+   <td class="point_top"> --%>
+
+   <%--
+<table class="comment_submit line_add">
   <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
   <tr>
    <td class="sub">
      <div><textarea name="comment"></textarea></div>
-     <div><input type="submit" value="送信" align="center" class="submit_div"></div>
+     <div><input type="submit" value="送信" class="submit_div"></div>
    </td>
   </tr>
   </form>
  </table>
-
-
-<table class="comment_list">
+ --%>
+ <table class="comment_submit border="0px">
   <tr>
-   <td class="point_top">
-    コメント一覧
+   <td class="sub">
+   <h1 class="heading_title">コメント欄</h1>
+   <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
+     <div><textarea name="comment"></textarea></div>
+     <div><input type="submit" value="送信" class="submit_div"></div>
+     </form>
    </td>
   </tr>
  </table>
+<%--
+<table class="comment_list">
+  <tr>
+   <td class="point_top"> --%>
+    <h1 class="heading_title">コメント一覧</h1>
+   <%--</td>
+  </tr>
+ </table> --%>
 <%if(clist!=null){ %>
  <%--コメントとコメントした人の名前やアイコン --%>
 <table class="article_table">

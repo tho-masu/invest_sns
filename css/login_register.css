@@ -5,7 +5,8 @@
 
 body{
 	font-family:Verdana,"ヒラギノ角ゴ Pro W3","メイリオ";
-	background:#CCFFFF;
+	/*background:#CCFFFF;*/
+	background:linear-gradient(-135deg, #64b3f4, #c2e59c) fixed;
 	margin:0;
 	padding:0;
 }
@@ -21,7 +22,7 @@ body{
 .up{
 	margin-top:70px;
 	width:450px;
-	background:#A7F1FF;
+	background:#9dd7e3;
 	padding:20px;
 }
 /*文字列デザインHi　Guest*/
@@ -71,7 +72,7 @@ body{
 	font-size:18px;
 	border-radius:4px;
 	color: #fff;
-	background:#A7F1FF;
+	background:#9dd7e3;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
 	border-bottom: 2px solid bc8f8f;
 }
@@ -80,7 +81,7 @@ body{
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 .log_btn:hover{
-	background-color:#52c2d0;
+	background-color:#aeeffc;
 }
 .btn_new{
 	text-decoration: none;

@@ -37,11 +37,10 @@ if(pageNumberString != null){
 
 
 <%--フォローしたユーザーの投稿を表示する --%>
-<table class="article_table">
+
  <%--見出し --%>
- <tr>
-   <th class="point_top" colspan="3">フォローした人の投稿</th>
- </tr>
+<h1 class="heading_title">フォローした人の投稿</h1>
+<table class="article_table">
 <%for(int i=(pageNumber-1)*10;i<pageNumber*10;i++){ %>
 <% if(pageNumber >= (plist.size() - 1)/10 + 1){ if(i >= plist.size()){break;}  } %>
  <tr>

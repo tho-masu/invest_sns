@@ -24,15 +24,16 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 <jsp:include page="header.jsp" flush="true" />
 
 
-
-<table class="list industryweather line_add">
+<h1 class="heading_title">大手証券会社一覧</h1>
+<table class="list industryweather">
+<%--
 	<tr class="industryweather_head">
 		<th>
 			大手証券会社一覧
 		</th>
 
 	</tr>
-
+ --%>
 	<tr class="reco_info">
 		<td align="center">
 			<a class="widelink" href="https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do" target="_blank">
@@ -68,12 +69,11 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 			</a>
 		</td>
 	</tr>
-	<tr class="industryweather_head">
-		<th>
-			大手ネット証券会社一覧
-		</th>
+</table>
 
-	</tr>
+<h1 class="heading_title">大手ネット証券会社一覧</h1>
+
+<table class="list industryweather">
 	<tr class="reco_info">
 		<td align="center">
 			<a class="widelink" href="https://www.sbisec.co.jp/ETGate" target="_blank">

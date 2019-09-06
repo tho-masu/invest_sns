@@ -29,7 +29,7 @@ jQuery(function() {
 </script>
 
 <!-- ヘッダーはじまり -->
-<br>
+
 <header>
 <div align="center">
 <img src="<%=request.getContextPath() %>/img/investagram.png" width="240px">

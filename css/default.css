@@ -6,14 +6,27 @@ body{
 	padding:0;
 	/*position:absolute;*/
 }
+img{
+	object-fit:cover;
+
+}
 .line_add{
 	border: 1px solid #a9a9a9;
 }
-header,nav,ul,li,h1,p,a{margin:0;padding:0;}
+nav,ul,li,h1,p,a{margin:0;padding:0;}
 a {
 	color:#333;
 	text-decoration: underline;
 }
+header{
+	padding-top:10px;
+	margin:0;
+	/*background:linear-gradient(-135deg, #83a4d4, #b6fbff);*/
+	background:linear-gradient(-135deg, #74ebd5, #acb6e5);
+
+}
+
+
 li {
 	list-style-type:none;
 }
@@ -45,6 +58,7 @@ nav ul li{
 	border-right: 1px solid #e6e4e4;
 	border-bottom: 1px solid #e6e4e4;
 	box-sizing: border-box;
+
 }
 nav ul li:last-child {
 	border-right: none;
@@ -56,7 +70,7 @@ nav ul li a{
 	text-decoration: none;
 }
 nav ul li a:hover {
-	background:#f5f5dc;
+	background:#e1f3fa;/*linear-gradient(-135deg, #74ebd5, #acb6e5);*/
 }
 
 .reco_info:hover{
@@ -102,7 +116,7 @@ table{
 
 /*見出し背景色、文字設定「注目ポイント」「チャート」「コメント」「コメント一覧」他のページでも使用*/
 .point_top{
-	background-color:#52c2d0;
+	background:linear-gradient(-135deg, #74ebd5, #acb6e5);
 	color:white;
 	font-weight: bold;
 	text-align: center;
@@ -142,6 +156,7 @@ table{
 /*見出し「チャート」*/
 .chart{
 	border-collapse:collapse;
+	margin-top:0px;
 }
 .chart td{
 	padding:20px;
@@ -178,6 +193,7 @@ table{
 /*///////注目ポイント/////////*/
 .attention_point{
 	border-collapse: collapse;
+	margin-top:10px;
 }
 .attention_point tr{
 	border-bottom:solid 2px white;
@@ -217,10 +233,14 @@ yutai{
 .yutai_good{
 	float:right;
 }
+.text{
+	text-align:center;
+}
 /*///////コメント欄/////////*/
 /*位置設定*/
 .comment_list{
 	border-collapse:collapse;
+	margin-top:10px;
 }
 .comment_list td{
 	padding:20px;
@@ -235,7 +255,7 @@ yutai{
 /*テキストエリアの大きさ、余白設定*/
 .comment_submit textarea{
 	margin-top:10px;
-	width:500px;
+	width:800px;
 	height:200px;
 }
 /*送信ボタンのデザイン*/
@@ -252,7 +272,7 @@ yutai{
 	text-align: center;
 	text-decoration: none;
 	color: #FFF;
-	background: #26C6DA;
+	background: #93d1e6;;
 	border-bottom: 2px solid #00838F;
 	border-radius: 4px;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -283,9 +303,12 @@ yutai{
 /*背景の設定*/
 .industry_filter{
 	padding-top:50px;
-	padding-bottom:50px;
-	background-color:#ffdab9;
+	padding-bottom:20px;
+	/*background-color:#ffdab9;*/
 	margin-top:45px;
+	margin-right:auto;
+	margin-left:auto;
+	width:1000px;
 }
 /*業界選択の欄の設定*/
 .industry_filter select{
@@ -312,7 +335,7 @@ margin-left:auto;
 	text-align: center;
 	text-decoration: none;
 	color: #FFF;
-	background: #deb887;
+	background: #93d1e6;
 
 	border-radius: 4px;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -322,7 +345,7 @@ margin-left:auto;
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 .industry_filter input:hover{
-	background-color:#ff7f50;
+	background-color: #74f1fc;
 
 }
 
@@ -334,7 +357,8 @@ margin-left:auto;
 	padding-top:53px;
 	font-size:18.5px;
 	padding-bottom:0px;
-	color:#a0522d;
+	/*color:#a0522d;晴れの時*/
+	color:#00044f;/*曇りの時*/
 
 }
 .main_word{
@@ -342,20 +366,23 @@ margin-left:auto;
 	font-weight: bold;
 	padding-top:0px;
 	padding-left:20px;
-	color:#a0522d;
+	color:#00044f;/*曇りの時*/
+	/*color:#a0522d;晴れの時*/
 }
 
 /*業界ページトップの表全体のデザイン*/
 .industry_top{
 	border:none;
-	background-color:#ffdab9;
+	/*background-color:#dbdbdb;曇り*/
+	/*background-color:#6da0cf;/*雨の時*/
+	background-color:#ffe9b3;/*晴れの時*/
 }
 
 /*-----------業界動向デザイン設定-------------*/
 /*全体のデザイン*/
 .industry_overview{
 	border:none;
-	background-color:#52c2d0;
+	/*background-color:#52c2d0;*/
 	border-collapse:collapse;
 }
 .overview{
@@ -364,13 +391,15 @@ margin-left:auto;
 }
 /*文字のデザイン*/
 .industry_overview h3{
-	color:white;
+	/*color:#00044f;*/
+	color:#00044f;
 	margin-left:20px;
 	margin-top:10;
 	margin-bottom:20px;
 }
 .industry_overview p{
-	color:white;
+	/*color:#00044f;*/
+	color:#00044f;
 	margin-left:25px;
 }
 /*画像設定*/
@@ -382,6 +411,9 @@ margin-left:auto;
 /*-----------おすすめ企業一覧デザイン設定-------------*/
 .backcolor:nth-child(odd){
 	background: #e6f2ff;
+}
+.list{
+	margin-top:10px;
 }
 .recommend{
 	background-color:#87ceeb;
@@ -407,7 +439,7 @@ margin-left:auto;
 /*動くニュースの設定*/
 .maki{
 	padding-top:5px;
-	background:rgba(82, 194, 208,0.6);
+	/*background:rgba(82, 194, 208,0.6);*/
 	margin-top:7px;
 }
 .maki p{
@@ -415,9 +447,12 @@ margin-left:auto;
 }
 /*証券番号検索ボタン編集設定*/
 .top_market_search{
-	background:#52c2d0;
+	/*background: linear-gradient(-135deg, #74ebd5, #acb6e5);*/
 	padding-top:50px;
 	padding-bottom:50px;
+	width:1000px;
+	margin-right:auto;
+	margin-left:auto;
 
 	text-align:center;
 }
@@ -444,7 +479,7 @@ margin-left:auto;
     text-align: center;
     text-decoration: none;
     color: #FFF;
-    background: #52c2d0;
+    background: #93d1e6;;
     border-radius: 4px;
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
 }
@@ -459,10 +494,12 @@ margin-left:auto;
 
 .industryweather{
 	border-collapse:collapse;
+	width:700px;
 }
 .industryweather td{
 	padding:0;
 }
+
 .industryweather th{
 	color:white;
 	font-weight: bold;
@@ -470,7 +507,15 @@ margin-left:auto;
 	font-size: 35px;
 	padding:10px;
 	color:#fff;
-	background:#52c2d0;
+	background: linear-gradient(-135deg, #74ebd5, #acb6e5);
+}
+.indust{
+	width:70%;
+	float:left;
+}
+.future{
+	width:30%;
+	float:left
 }
 .industryweather tr:nth-child(odd){
 	background:#e6f2ff;
@@ -891,18 +936,18 @@ center{
 center span{
 	padding:20px;
 	margin-right:10px;
-
-	background:#39faf0;
+	font-weight:bold;
+	background:#6edaff;
 	border-radius:50px 50px;
 }
 center a{
 	padding:20px;
 	margin-right:10px;
-
+    font-weight:bold;
 	border-radius:50px 50px;
 	text-decoration:none;
 	color:#fff;
-	background:#16caf7;
+	background:#56aac7;
 }
 center a:hover{
 	opacity:0.7;
@@ -934,7 +979,7 @@ center a:hover{
 	margin-top:125px;
 }
 .article_table{
-	margin-top:50px;
+	margin-top:10px;
 }
 /*ユーザアイコン、名前、記事の位置設定*/
 .article_table img:hover{
@@ -1026,8 +1071,8 @@ center a:hover{
 	text-align: center;
 	text-decoration: none;
 	color: #FFF;
-	background: #26C6DA;
-	border-bottom: 2px solid #00838F;
+	background: #93d1e6;
+
 	border-radius: 4px;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
 }
@@ -1048,6 +1093,7 @@ center a:hover{
 	table-layout: fixed;
 	margin-top:50px;
 	border: 1px solid #a9a9a9;
+	width:700px;
 }
 .follow_follower td{
 	line-height:60px;
@@ -1115,8 +1161,8 @@ center a:hover{
 	text-align: center;
 	text-decoration: none;
 	color: #FFF;
-	background: #26C6DA;
-	border-bottom: 2px solid #00838F;
+	background: #93d1e6;
+	/*border-bottom: 2px solid #00838F;*/
 	border-radius: 4px;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
 }
@@ -1128,7 +1174,7 @@ center a:hover{
 	background-color:#74f1fc;
 }
 .search_box{
-	border:2px solid #52c2d0;
+	border:2px solid #93d1e6;
 	height:33px;
 	font-size:20px;
 	padding:2px;
@@ -1196,8 +1242,9 @@ center a:hover{
 	text-align: center;
 	text-decoration: none;
 	color: #FFF;
-	background: #26C6DA;
-	border-bottom: 2px solid #00838F;
+	/*background: #26C6DA;*/
+	background:#93d1e6;
+
 	border-radius: 4px;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
 }
@@ -1266,4 +1313,13 @@ span.hint--top{
 .william p{
 	color:#fff;
 	margin:0;
+}
+
+/*見出し設定*/
+.heading_title{
+	color:#00044f;
+	text-align:center;
+	font-size:35px;
+	margin-top:50px;
+	font-weight:bold;
 }
