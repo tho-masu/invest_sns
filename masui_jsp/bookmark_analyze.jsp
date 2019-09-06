@@ -114,7 +114,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
     		<b>過去5年間の<span class="hint--top hint--rounded" data-hint="営業利益のことを指しています">本業利益<jsp:include page="question.jsp" flush="true" /></span>成長率</b>
     	</th>
     	<th nowrap>
-    		<span class="hint--top hint--rounded" data-hint="左の3つの基準をもとにした総合評価です">お買い得度<jsp:include page="question.jsp" flush="true" /></span>
+    		<span class="hint--top hint--rounded" data-hint="左の3つの基準をもとにした総合評価です">オススメ度<br>（0～6）<jsp:include page="question.jsp" flush="true" /></span>
     	</th>
     </tr>
 <%for(int i=0;i<dnode.size();i++){ %>
@@ -183,6 +183,11 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
         	・I … 有力な機関投資家が保有している<br>
         	・<b>M … 相場全体のトレンドが悪くなく、下降トレンドではない</b><br>　
         </p>
+      </td>
+      <%--業界の関連画像表示 --%>
+      <td>
+        <img src="<%=request.getContextPath() %>/img/oneil.jpg" width="210px" height="auto" style="float:right;"><br>
+        <div style="color:white; float:right;">ウィリアム・オニール　　</div>
       </td>
     </tr>
   </table>
