@@ -47,6 +47,15 @@ if(pageNumberString != null){
  <tr>
    <td colspan="3" valign="middle"  class="function_cell">
      <div class="top_article">
+
+    	<%--投稿削除ボタン --%>
+    	<%if(plist.get(i).getPk_id() == loginAccount.getPk_id()){ %>
+    	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST" class="post_delete">
+     			<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post() %>">
+				<input type="image" title="投稿を削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+		</form>
+		<%} %>
+
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
          <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=plist.get(i).getIcon_name() %>" width="50px" height="50px"></a>
@@ -55,6 +64,7 @@ if(pageNumberString != null){
        <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><%=plist.get(i).getUsername() %></a></p>
        <div class="top_article_home">
          <div><%=plist.get(i).getCreate_date() %>　<%=plist.get(i).getCreate_time() %></div>
+
          <article>
          	<%=plist.get(i).getArticle() %>
          </article>

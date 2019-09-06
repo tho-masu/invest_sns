@@ -27,6 +27,7 @@ public class Index extends HttpServlet {
 		for(UserBean ubean : flist) {
 			followUsers.add(ubean.getUser_id());
 		}
+		followUsers.add(loginAccount.getUser_id());
 
 		List<PostBean> plist = new ArrayList<PostBean>();
 		try {
