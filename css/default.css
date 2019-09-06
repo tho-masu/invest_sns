@@ -234,7 +234,7 @@ yutai{
 	float:right;
 }
 .text{
-	text-align:center;
+
 }
 /*///////コメント欄/////////*/
 /*位置設定*/
@@ -424,7 +424,7 @@ margin-left:auto;
 	padding-bottom:10px;
 }
 .company_name{
-	width:60%;
+	width:40%;
 }
 .code_num{
 	width:20%;
