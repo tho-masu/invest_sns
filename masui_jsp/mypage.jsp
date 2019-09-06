@@ -211,7 +211,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>
     <%} %>
     <div class="bookmark_analysis">
-      <a href="">ブックマーク分析ボタン</a>
+      <a href="<%=request.getContextPath()%>/masui_jsp/bookmark_analyze?user_id=<%=ubean.getUser_id()%>">このユーザーのブックマーク分析</a>
     </div>
   </div>
   <%--そのユーザのブックマーク分析見れるボタン --%>
