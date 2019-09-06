@@ -279,4 +279,13 @@
         <url-pattern>/masui_jsp/bookmark_analyze</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>masuiYutaiSearchS</servlet-name>
+        <servlet-class>masui_java.YutaiSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiYutaiSearchS</servlet-name>
+        <url-pattern>/masui_jsp/yutai_search</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -3,6 +3,7 @@ package database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.StringJoiner;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -39,5 +40,17 @@ public class YutaiDAO {
 		PreparedStatement smt = con.prepareStatement(sql);
 		smt.setInt(1,Integer.parseInt(scode));
 		return DBManager.simpleCount(smt,con);
+	}
+
+	public static List<YutaiBean> getSearchYutai(String searchword)throws SQLException{
+		searchword = "%"+searchword+"%";
+		String sql = "SELECT pk_yutai,quote,title,subfld " +
+				"FROM T_YUTAI " +
+				"WHERE title ILIKE ?;";
+		Connection con = DBManager.getConnection();
+		PreparedStatement smt = con.prepareStatement(sql);
+		smt.setString(1,searchword);
+
+		return DBManager.findAll(smt,con, new YutaiBeanMapping());
 	}
 }

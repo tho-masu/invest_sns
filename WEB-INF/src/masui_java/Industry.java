@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import api.DAO;
 import database.CommentBean;
 import database.IndustryBean;
+import database.YutaiDAO;
 
 public class Industry extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
@@ -41,6 +42,21 @@ public class Industry extends HttpServlet {
 				if(jnode.get("industry_name").asText().equals(iname)) {
 					anode.add(jnode);
 				}
+			}
+		}
+
+		//anode（特定の業界の銘柄）に属する全銘柄の優待の有無をtrue or falseで入れる
+		List<Boolean> existYutai = new ArrayList<Boolean>();
+		for(int i=0;i<anode.size();i++) {
+			try {
+				if(YutaiDAO.checkQuote(anode.get(i).get("securities_code").asText()) == 1) {
+					existYutai.add(true);
+				}else {
+					existYutai.add(false);
+				}
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
 			}
 		}
 
@@ -83,6 +99,7 @@ public class Industry extends HttpServlet {
 
 		request.setAttribute("anode", anode);
 		request.setAttribute("iname", iname);
+		request.setAttribute("existYutai", existYutai);
 		request.setAttribute("ahistorical", ahistorical);
 		request.setAttribute("iinfo", iinfo);
 		request.setAttribute("clist", clist);
