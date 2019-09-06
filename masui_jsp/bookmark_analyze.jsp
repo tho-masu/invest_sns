@@ -145,7 +145,11 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
     <%for(int j=0;j<incomePchgList.get(i).size();j++){ %>
       <td>
       	<%if(incomePchgList.get(i).get(j) <= 0){ %>
-      		<font color=blue><%=incomePchgList.get(i).get(j) %>%</font>
+      		<%if(incomePchgList.get(i).get(j) == 0.0){ %>
+      			<font color=blue>(NoData)</font>
+      		<%}else{ %>
+      			<font color=blue><%=incomePchgList.get(i).get(j) %>%</font>
+      		<%} %>
       	<%}else{ %>
       		<font color=red><%=incomePchgList.get(i).get(j) %>%</font>
       	<%} %>
