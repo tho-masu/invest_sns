@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -17,18 +16,26 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import api.AnalyzeDAO;
 import api.CompanyAnalyzeBean;
 import database.UserBean;
+import database.UserDAO;
 
 public class BookmarkAnalyze extends HttpServlet {
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
-		UserBean loginAccount = (UserBean) session.getAttribute("login_account");
+
+		String user_id = request.getParameter("user_id");
+		UserBean ubean = null;
+		try {
+			ubean = UserDAO.getUser(user_id);
+		} catch (SQLException e1) {
+			// TODO 自動生成された catch ブロック
+			e1.printStackTrace();
+		}
 
 		try {
-			if(AnalyzeDAO.countBookmark(loginAccount.getPk_id()) >= 1) {
-				CompanyAnalyzeBean cabean = getCabean(loginAccount.getPk_id());
+			if(AnalyzeDAO.countBookmark(ubean.getPk_id()) >= 1) {
+				CompanyAnalyzeBean cabean = getCabean(ubean.getPk_id());
 				request.setAttribute("cabean", cabean);
 				request.getRequestDispatcher("/masui_jsp/bookmark_analyze.jsp").forward(request, response);
 			}else {

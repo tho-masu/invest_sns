@@ -60,7 +60,7 @@ jQuery(function() {
     <li><a href="<%=request.getContextPath() %>/masui_jsp/industry"><img src="<%=request.getContextPath()%>/img/function_icon/industry.png" style="vertical-align: middle;" height="20px"> 業界</a></li>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/deal.jsp"><img src="<%=request.getContextPath()%>/img/function_icon/trade.png" style="vertical-align: middle;" height="20px"> 取引</a></li>
     <li><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath()%>/img/user_icon/default_icon.png" style="vertical-align: middle;" height="20px"> マイページ</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/bookmark_analyze"><img src="<%=request.getContextPath()%>/img/function_icon/bookm.png" style="vertical-align: middle;" height="20px"> ブックマーク分析</a></li>
+    <li><a href="<%=request.getContextPath() %>/masui_jsp/bookmark_analyze?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath()%>/img/function_icon/bookm.png" style="vertical-align: middle;" height="20px"> ブックマーク分析</a></li>
   </ul>
 </nav>
 </div>
