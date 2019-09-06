@@ -26,8 +26,8 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 
 <jsp:include page="header.jsp" flush="true" />
 
-<div class=maki><p><MARQUEE width="100%" scrollamount="4"><FONT color="#ffffff"><% for(int i=0;i<nnode.size();i++){%>
-		<%=nnode.get(i).get("headline").asText() %><%} %></FONT></MARQUEE></p></div>
+<div class=maki><p><MARQUEE width="100%" scrollamount="4"><% for(int i=0;i<nnode.size();i++){%>
+		<%=nnode.get(i).get("headline").asText() %><%} %></MARQUEE></p></div>
 
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">
@@ -47,9 +47,9 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
   <tr class="sub">
     <td>
 	<!-- チャートはじめ -->
-
- <canvas id="myLineChart"></canvas>
-
+     <div style="width:950px;height:540px;text-align:center;margin:auto;">
+       <canvas id="myLineChart"></canvas>
+     </div>
 <script>
   var ctx = document.getElementById("myLineChart");
   var myLineChart = new Chart(ctx, {

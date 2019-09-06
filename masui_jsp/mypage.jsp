@@ -210,7 +210,12 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     <% for(JsonNode jnode : blist){%>
     	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>
     <%} %>
+    <div class="bookmark_analysis">
+      <a href="">ブックマーク分析ボタン</a>
+    </div>
   </div>
+  <%--そのユーザのブックマーク分析見れるボタン --%>
+
 </div>
 
 
