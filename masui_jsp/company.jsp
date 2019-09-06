@@ -38,7 +38,7 @@ $(function(){
 <div id="all_table">
 
  <%-- 企業の名前、株価、簡単な紹介 --%>
- <table id="top_table" border="0">
+ <table id="top_table" class="line_add">
    <tr>
      <td colspan="4" align="center" id="top_company"><%=dnode.get("v-name").asText() %>（<%=dnode.get("price").asDouble() %>円）</td>
    </tr>
@@ -59,7 +59,7 @@ $(function(){
      <%-- 用語説明を追加 --%>
      <span class="hint--top hint--rounded" data-hint="Price Earnings Ratioの略称で和訳は株価収益率">PER<jsp:include page="question.jsp" flush="true" /></span>
      )：<%=dnode.get("co_per").asDouble() %></td>
-     <td rowspan="3" align="right" width="20%">
+     <td rowspan="3" align="right" width="20%" style="border-right: 1px solid #a9a9a9;">
 
      <% if(!isRegisteredBookmark){%>
      	<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
@@ -91,7 +91,7 @@ $(function(){
  </table>
 
  <%-- チャート --%>
- <table class="chart">
+ <table class="chart line_add">
   <%--見出し --%>
   <tr><td align="center" class="point_top">チャート</td></tr>
   <%--チャート期間変更ボタン --%>
@@ -200,7 +200,7 @@ $(function(){
 <%if(plist != null){ %>
 <%if(!(plist.isEmpty())){ %>
 <%--企業の投稿を表示する --%>
-<table class="article_table">
+<table class="article_table line_add">
  <%--見出し --%>
  <tr>
    <th class="point_top" colspan="3">この企業からの投稿</th>
@@ -278,7 +278,7 @@ $(function(){
 <%} %>
 
 <%--優待情報 --%>
-<table class="comment_list">
+<table class="comment_list line_add">
   <tr>
    <td class="point_top">
       優待情報
@@ -323,7 +323,7 @@ $(function(){
  </table>
 
  <%-- 今日のニュースはじめ --%>
-<table class="comment_list">
+<table class="comment_list line_add">
   <tr>
    <td class="point_top">
     今日の関連ニュース
@@ -362,7 +362,7 @@ $(function(){
 
 
  <%--コメント送信 --%>
- <table class="comment_submit">
+ <table class="comment_submit line_add">
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>

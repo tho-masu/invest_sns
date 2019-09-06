@@ -75,8 +75,14 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <!-- チャートを入れるテーブルはじめ -->
 
-<table align="center" border="1">
-<tr><td>
+<table class="comment_submit line_add">
+<tr>
+  <td class="point_top">
+    <%=iname %>の平均株価
+  </td>
+</tr>
+<tr>
+  <td>
 
 <!-- チャートはじめ -->
 
@@ -145,17 +151,17 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 
   <%--おすすめ企業 --%>
-  <table align="center" width="80%" class="list">
+  <table class="list line_add">
     <tr>
       <th align="center" colspan="3" class="point_top">
         おすすめ企業
       </th>
     </tr>
     <tr class="recommend">
-    	<th class="company_name">
+    	<th class="company_name" style="border-right:1px solid #a9a9a9;">
     		<b>企業名</b>
     	</th>
-    	<th class="code_num">
+    	<th class="code_num" style="border-right:1px solid #a9a9a9;">
     		<b>証券コード</b>
     	</th>
     	<th class="stock_price">
@@ -163,11 +169,11 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
     	</th>
     </tr>
 <%for(int i=0;i<anode.size();i++){ %>
-    <tr class="sub reco_info">
-      <td>
+    <tr class="sub reco_info backcolor">
+      <td style="border-right:1px solid #a9a9a9;">
       	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a>
       </td>
-      <td>
+      <td style="border-right:1px solid #a9a9a9;">
 		<%=anode.get(i).get("securities_code").asText() %>
       </td>
       <td>
@@ -181,7 +187,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 
 <%--コメント送信 --%>
- <table class="comment_submit">
+ <table class="comment_submit line_add">
   <tr>
    <td class="point_top">コメント欄</td>
   </tr>
