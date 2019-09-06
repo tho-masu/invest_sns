@@ -182,7 +182,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
         	・<b><span class="hint--top hint--rounded" data-hint="Current Quarterly Earnings">C</span> … 直近の四半期のEPS（1株当たり純利益）が最低でも20%は増加し勢いよく成長している</b><br>
         	・<b><span class="hint--top hint--rounded" data-hint="Annual Earnings Increases">A</span> … 過去五年間に年間の利益が増加し、意味のある成長が認められる</b><br>
         	・<span class="hint--top hint--rounded" data-hint="Newer Companies,New Prodcts ,New Xxx New Hight Off Properly Formed Bases">N</span> … 株価がボックス圏を抜けて年初来高値、昨年来高値、上場来高値などをつけている<br>
-        	・<span class="hint--top hint--rounded" data-hint="Supply and Emand">S</span> … 発行済み株式数が少なく、株式の需給の法則から値上がりしやすい小型株<br>
+        	・<span class="hint--top hint--rounded" data-hint="Supply and Demand">S</span> … 発行済み株式数が少なく、株式の需給の法則から値上がりしやすい小型株<br>
         	・<span class="hint--top hint--rounded" data-hint="Leader or Laggard">L</span> … 少なくとも業界の上位2,3社に入っていて相場を主導する銘柄である<br>
         	・<span class="hint--top hint--rounded" data-hint="Institutional Sponsorship">I</span> … 有力な機関投資家が保有している<br>
         	・<b><span class="hint--top hint--rounded" data-hint="Market Direction">M</span> … 相場全体のトレンドが悪くなく、下降トレンドではない</b><br>　
