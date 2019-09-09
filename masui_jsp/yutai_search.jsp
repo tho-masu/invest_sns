@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>業界</title>
+<title>優待情報</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 
 </head>

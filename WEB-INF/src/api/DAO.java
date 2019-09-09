@@ -62,6 +62,29 @@ public class DAO {
 
 	}
 
+	public static JsonNode getCompanyInfoList(String scode) {
+		HashMap<String,String> query = new HashMap<String,String>();
+		query.put("quote", scode);
+		query.put("item","v-name,v-name_en,short_name,co_settle_fy_ended,price,co_per,co_settle_roe,marketcap,co_settle_dps,co_settle_dividend_payout,price_chg,price_pchg");
+
+		String result = APIManager.getData("quote", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null;
+				;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode dnode = node.get("quote").get("data");
+
+		return dnode;
+	}
+
 	public static JsonNode getCompanyHistorical(String scode,String days){
 		HashMap<String,String> query = new HashMap<String,String>();
 		query.put("quote", scode);

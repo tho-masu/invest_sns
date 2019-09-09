@@ -32,7 +32,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
  <%-- チャート --%>
  <table class="chart line_add">
   <%--見出し --%>
-  <tr><td align="center" class="point_top">チャート（ブックマークポートフォリオ）</td></tr>
+  <tr><td align="center" class="heading_title">チャート（ブックマークポートフォリオ）</td></tr>
 	 <tr class="sub">
    <td align="center" height="50px">
 
@@ -96,7 +96,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
   <%--おすすめ企業 --%>
   <table class="list line_add">
     <tr>
-      <th align="center" colspan="9" class="point_top">
+      <th align="center" colspan="9" class="heading_title">
         ブックマークしている企業の分析
       </th>
     </tr>

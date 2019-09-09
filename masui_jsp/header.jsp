@@ -42,7 +42,7 @@ jQuery(function() {
 	        	</form>
 </div>
 <div class="follow_img_head" >
-<a href="<%=request.getContextPath() %>/masui_jsp/mayfollow?pk_id=<%=ubean.getPk_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow.png" width="45px"></a>
+<a href="<%=request.getContextPath() %>/masui_jsp/mayfollow?pk_id=<%=ubean.getPk_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow2.png" width="45px"></a>
 </div>
 
 <%--ログアウトボタン --%>
