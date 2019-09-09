@@ -105,13 +105,13 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
     		<b>企業名</b>
     	</th>
     	<th class="code_num" nowrap>
-    		<b><span class="hint--top hint--rounded" data-hint="下部の値はinvestagramがチャートを分析して算出した独自のものです">トレンド<jsp:include page="question.jsp" flush="true" /></span><br>（最近1年間）</b>
+    		<b>トレンド<br>(<span class="hint--top hint--rounded" data-hint="investagramが過去1年間のチャートを分析して算出した独自の値です">上昇指数<jsp:include page="question.jsp" flush="true" /></span>)</b>
     	</th>
     	<th class="stock_price" nowrap>
     		<b><span class="hint--top hint--rounded" data-hint="EPS（1株あたり純利益）のことを指しています（単位：円）">1株あたり利益<jsp:include page="question.jsp" flush="true" /></span><br>の伸び率</b>
     	</th>
     	<th class="stock_price" colspan="5" nowrap>
-    		<b>過去5年間の<span class="hint--top hint--rounded" data-hint="営業利益のことを指しています">本業利益<jsp:include page="question.jsp" flush="true" /></span>成長率</b>
+    		<b>過去5年間の<span class="hint--top hint--rounded" data-hint="営業利益のことを指しています">儲け金額<jsp:include page="question.jsp" flush="true" /></span>成長率</b>
     	</th>
     	<th nowrap>
     		<span class="hint--top hint--rounded" data-hint="左の3つの基準をもとにした総合評価です">オススメ度<br>（0～6）<jsp:include page="question.jsp" flush="true" /></span>
@@ -131,7 +131,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
       		<font color=green><b>横ばい</b></font>
       	<%} %>
       	<br>
-      	<%=Math.round( 1000 * gradientList.get(i) ) / 1000.0 %>
+      	(<%=Math.round( 1000 * gradientList.get(i) ) / 1000.0 %>)
       </td>
       <td>
       	<%if(Math.round(epsPchgList.get(i)) <= 0){ %>
