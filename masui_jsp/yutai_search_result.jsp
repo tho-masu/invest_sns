@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.List,database.YutaiBean"%>
+    pageEncoding="UTF-8" import="java.util.List,database.YutaiBean,com.fasterxml.jackson.databind.JsonNode"%>
 <!doctype html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>業界</title>
+<title>優待情報</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 
 <%
 List<YutaiBean> yList = (List<YutaiBean>)request.getAttribute("yList");
+JsonNode companyInfoNode = (JsonNode)request.getAttribute("companyInfoNode");
 %>
 
 </head>
@@ -20,11 +21,14 @@ List<YutaiBean> yList = (List<YutaiBean>)request.getAttribute("yList");
   <%--おすすめ企業 --%>
   <table class="list line_add">
     <tr>
-      <th align="center" colspan="3" class="point_top">
+      <th align="center" colspan="4" class="point_top">
         おすすめ企業
       </th>
     </tr>
     <tr class="recommend">
+    	<th class="company_name" style="border-right:1px solid #a9a9a9;">
+    		<b>企業名</b>
+    	</th>
     	<th class="company_name" style="border-right:1px solid #a9a9a9;">
     		<b>優待内容</b>
     	</th>
@@ -38,6 +42,9 @@ List<YutaiBean> yList = (List<YutaiBean>)request.getAttribute("yList");
 <%if(yList != null){ %>
 <%for(int i=0;i<yList.size();i++){ %>
     <tr class="sub reco_info backcolor">
+      <td style="border-right:1px solid #a9a9a9;">
+      	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=yList.get(i).getQuote() %>"><%=companyInfoNode.get(i).get("v-name").asText() %>
+      </td>
       <td style="border-right:1px solid #a9a9a9;">
       	<%=yList.get(i).getTitle() %>
       </td>
