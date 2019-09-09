@@ -132,6 +132,15 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 	<%} %>
 </table>
 
+<%--証券番号検索ボタン --%>
+<div class="top_market_search">
+  <h1 align="center" class="heading_title">優待情報を検索してください</h1>
+  <form action="<%=request.getContextPath() %>/masui_jsp/yutai_search" method="POST">
+	  <input class="search_box" type="text" placeholder="検索" name="search">
+	        		<input class="search_btn" type="submit" id="search_button" value="優待検索">
+  </form>
+</div>
+
  <%--ブックマーク企業一覧表示 --%>
   <table class="follow_follower">
   <tr>

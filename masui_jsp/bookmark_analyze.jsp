@@ -30,7 +30,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
 <jsp:include page="header.jsp" flush="true" />
 
  <%-- チャート --%>
- <table class="chart line_add">
+ <table class="chart ">
   <%--見出し --%>
   <tr><td align="center" class="heading_title">チャート（ブックマークポートフォリオ）</td></tr>
 	 <tr class="sub">
@@ -94,7 +94,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
 
 
   <%--おすすめ企業 --%>
-  <table class="list line_add">
+  <table class="list ">
     <tr>
       <th align="center" colspan="9" class="heading_title">
         ブックマークしている企業の分析
