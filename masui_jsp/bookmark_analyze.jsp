@@ -171,7 +171,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
   </table>
 
 
-  <table class="industry_overview">
+  <table class="industry_overview line_add color_add">
     <tr height="220px">
       <td class="overview">
         <h3>銘柄評価基準</h3>

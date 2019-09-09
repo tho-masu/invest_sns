@@ -26,6 +26,13 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
 
 <jsp:include page="header.jsp" flush="true" />
 
+<%--ページボトムボタン --%>
+<div id="page_bottom" style="displau:block;">
+  <a href="#">
+    <img src="<%=request.getContextPath() %>/img/function_icon/page_bottom.png">
+  </a>
+</div>
+
 <div class="industry_filter">
   <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
     <select name="iname">
@@ -57,6 +64,7 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
   </table>
 
   <%--業界の概要 --%>
+<%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
   <table class="industry_overview">
     <tr height="220px">
       <td class="overview">
@@ -71,6 +79,7 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
       </td>
     </tr>
   </table>
+<% }%>
 
 <%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
 

@@ -286,7 +286,7 @@ $(function(){
 <table class="comment_list line_add">
   <tr>
    <td class="yutaihead">
-     <div>
+
       <h1>優待情報</h1>
       <%--ハートのお気に入り登録ボタン --%>
       <%if (yinfo!=null){%>
@@ -303,12 +303,12 @@ $(function(){
 			<input type="image" title="お気に入りから削除" src="<%=request.getContextPath()%>/img/function_icon/heart.png" width="50px" height="50px" class="yutai_good">
 		</form>
 	<%}} %>
-     </div>
+
    </td>
   </tr>
   <tr>
    <%--優待内容 --%>
-   <td class="sub" id="commentword">
+   <td class="sub" id="yutai_content">
    <%if (yinfo!=null){%>
      <div class="main onhidden">
        <div class="text">
@@ -330,7 +330,7 @@ $(function(){
 
  <%-- 今日のニュースはじめ --%>
  <h1 class="heading_title">今日の関連ニュース</h1>
-<table class="comment_list ">
+<table class="comment_list  line_add">
 <%--
   <tr>
    <td class="point_top">

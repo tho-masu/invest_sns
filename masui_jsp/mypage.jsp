@@ -102,7 +102,8 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 <div class="post_n_bookmark">
   <%--このユーザの投稿記事一覧表示 --%>
   <div class="post_list">
-    <div class="heading"><p>投稿</p></div>
+    <%--<div class="heading"><p>投稿</p></div> --%>
+    <h1 class="heading_post_title">投稿</h1>
 <%for(PostBean post : plist){ %>
 	<div class="post_article_all">
     <div class="post_date"><p><%=post.getCreate_date() %>　<%=post.getCreate_time() %></p></div>
@@ -205,7 +206,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 
   <%--ブックマーク企業一覧表示 --%>
   <div class="bookmark_list">
-    <div align="center" class="heading"><p>ブックマーク企業</p></div>
+    <div align="center" class="heading_post_title"><p>ブックマーク企業</p></div>
     <%--クリックでその企業ページに画面遷移 --%>
     <% for(JsonNode jnode : blist){%>
     	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>
