@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,database.IndustryBean,database.CommentBean,database.UserBean,com.fasterxml.jackson.databind.node.ArrayNode"%>
+    pageEncoding="UTF-8" import="com.fasterxml.jackson.databind.JsonNode,java.util.List,database.IndustryBean,database.LikeBean,database.CommentBean,database.UserBean,com.fasterxml.jackson.databind.node.ArrayNode"%>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -18,6 +18,7 @@ List<IndustryBean> ilist = (List<IndustryBean>)request.getAttribute("ilist");
 List<CommentBean> clist = (List<CommentBean>)(request.getAttribute("clist"));
 UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 ArrayNode llist =( ArrayNode)request.getAttribute("llist");
+List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 %>
 
 </head>
@@ -141,19 +142,28 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
   </form>
 </div>
 
- <%--ブックマーク企業一覧表示 --%>
-  <table class="follow_follower">
-  <tr>
-    <td class="point_top">株主優待人気ランキング上位10</td>
-  </tr>
-  <% for(JsonNode jnode : llist){%>
-  <tr>
-   <td class="bookmark_good">
-    <a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a>
-   </td>
-  </tr>
-  <%} %>
- </table>
+<table class="industryweather line_add">
+	<tr class="industryweather_head">
+		<th colspan="2">
+			<div class="indust">銘柄名</div>
+			<div class="future">人気数</div>
+
+		</th>
+
+	</tr>
+
+	<tr class="reco_info">
+<% for(int i=0;i<llist.size();i++){ %>
+		<td align="center" width="70%">
+			<a class="widelink" href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=llist.get(i).get("req_code").asText()%>"><%=llist.get(i).get("v-name").asText() %></a>
+		</td>
+		<td align="center" width="30%">
+			<p><%=likelist.get(i).getCount() %></p>
+		</td>
+	</tr>
+	<%} %>
+</table>
+
 
 <%--コメント送信 --%>
 <%--

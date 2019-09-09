@@ -555,6 +555,11 @@ public class DAO {
 		return anode;
 	}
 
+	public static List<LikeBean> getLikelist() throws SQLException{
+		String sql="SELECT COUNT(*), quote FROM t_like GROUP BY quote ORDER BY COUNT(*) DESC, quote offset 0 limit 10;";
+				List<LikeBean> likelist = DBManager.findAll(sql,new LikeBeanMapping());
+		return likelist;
+		}
 
 
 }

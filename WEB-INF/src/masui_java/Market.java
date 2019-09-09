@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import api.DAO;
 import database.CommentBean;
 import database.IndustryBean;
+import database.LikeBean;
 
 public class Market extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
@@ -51,13 +52,20 @@ public class Market extends HttpServlet {
 					e.printStackTrace();
 				}
 
-
+		   List<LikeBean> likelist=null;
+		   try {
+			   likelist=DAO.getLikelist();
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 
 		request.setAttribute("ilist", ilist);
 		request.setAttribute("hnode", hnode);
 		request.setAttribute("clist", clist);
 		request.setAttribute("llist",llist);
 		request.setAttribute("nnode", nnode);
+		request.setAttribute("likelist",likelist);
 		request.getRequestDispatcher("/masui_jsp/market.jsp").forward(request, response);
 
 	}
