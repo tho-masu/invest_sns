@@ -26,7 +26,7 @@
 <%--follow_list画面 --%>
 <table class="follow_follower">
   <tr>
-    <th class="point_top">
+    <th class="heading_title">
       <p>おすすめの友だち</p>
     </th>
 <%

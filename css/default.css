@@ -116,7 +116,7 @@ table{
 
 /*見出し背景色、文字設定「注目ポイント」「チャート」「コメント」「コメント一覧」他のページでも使用*/
 .point_top{
-	background:linear-gradient(-135deg, #74ebd5, #acb6e5);
+    background:linear-gradient(-135deg, #74ebd5, #acb6e5);
 	color:white;
 	font-weight: bold;
 	text-align: center;

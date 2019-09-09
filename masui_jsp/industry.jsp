@@ -75,7 +75,7 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
 <%if(!(iname.equals("全業界（日経平均採用銘柄）"))){ %>
 
 <!-- チャートを入れるテーブルはじめ -->
-<h1 class="heading_title"><%=iname %>の平均株価</h1>
+<h1 class="heading_title"><%=iname %>業界の平均株価</h1>
 <table class="comment_submit">
 <%--
 <tr>
@@ -127,7 +127,7 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
     options: {
       title: {
         display: true,
-        text: 'この業界の平均株価'
+
       },
       scales: {
         yAxes: [{
