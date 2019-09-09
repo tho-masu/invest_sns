@@ -385,13 +385,19 @@ margin-left:auto;
 }
 
 /*業界ページトップの表全体のデザイン*/
-.industry_top{
+.industry_top_sunny{
 	border:none;
-	/*background-color:#dbdbdb;曇り*/
-	/*background-color:#6da0cf;/*雨の時*/
 	background-color:#ffe9b3;/*晴れの時*/
 }
+.industry_top_cloudy{
+	border:none;
+	background-color:#dbdbdb;
 
+}
+.industry_top_rainy{
+	border:none;
+	background-color:#6da0cf;/*雨の時*/
+}
 /*-----------業界動向デザイン設定-------------*/
 /*全体のデザイン*/
 .industry_overview{
