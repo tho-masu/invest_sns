@@ -8,6 +8,8 @@
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/page_bottom.js"></script>
 
 <%
 ArrayNode anode = (ArrayNode)request.getAttribute("anode");
@@ -27,7 +29,7 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
 <jsp:include page="header.jsp" flush="true" />
 
 <%--ページボトムボタン --%>
-<div id="page_bottom" style="displau:block;">
+<div id="page_bottom" style="display:block;">
   <a href="#">
     <img src="<%=request.getContextPath() %>/img/function_icon/page_bottom.png">
   </a>
@@ -226,7 +228,7 @@ class="industry_top_rainy"<%;
 
   <tr>
    <td class="sub">
-     <h1 class="heading_title">コメント欄</h1>
+     <h1 class="heading_title" id="bottom_content">コメント欄</h1>
      <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <input type="hidden" name="iname" value="<%=iname %>">

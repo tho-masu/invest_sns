@@ -396,8 +396,9 @@ margin-left:auto;
 }
 .industry_top_rainy{
 	border:none;
-	background-color:#6da0cf;/*雨の時*/
+	background-color:#b2dceb;/*雨の時*/
 }
+
 /*-----------業界動向デザイン設定-------------*/
 /*全体のデザイン*/
 .industry_overview{
@@ -1226,7 +1227,7 @@ center a:hover{
   height: 80px;
   position: fixed;
   right: 60px;
-  bottom: 205px;
+  bottom: 165px;
   background: #ffffff;
   border-radius: 50%;
   z-index:3;
@@ -1258,7 +1259,7 @@ center a:hover{
   height: 80px;
   position: fixed;
   right: 60px;
-  bottom: 165px;
+  bottom: 275px;
   background: #ffffff;
   border-radius: 50%;
   z-index:3;
