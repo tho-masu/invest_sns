@@ -48,7 +48,13 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
 
 
   <%--業界ページトップ、天気表示 --%>
-  <table align="center" cellpadding="5px" class="industry_top" height="210px">
+  <table align="center" cellpadding="5px" <%if(iinfo.getWeather().equals("Cloudy")){%>
+ class="industry_top_cloudy"<%;
+}else if(iinfo.getWeather().equals("Sunny")){%>
+ class="industry_top_sunny"<%;
+}else{%>
+class="industry_top_rainy"<%;
+}%> height="210px">
     <tr height="100px">
       <td>
 
