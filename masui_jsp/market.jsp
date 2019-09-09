@@ -27,7 +27,7 @@ ArrayNode llist =( ArrayNode)request.getAttribute("llist");
 <jsp:include page="header.jsp" flush="true" />
 
 <div class=maki><p><MARQUEE width="100%" scrollamount="4"><% for(int i=0;i<nnode.size();i++){%>
-		<%=nnode.get(i).get("headline").asText() %><%} %></MARQUEE></p></div>
+		<%=nnode.get(i).get("headline").asText() %>　　　<%} %></MARQUEE></p></div>
 
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">
