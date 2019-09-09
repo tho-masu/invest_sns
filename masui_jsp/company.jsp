@@ -283,9 +283,13 @@ $(function(){
 <%} %>
 
 <%--優待情報 --%>
-<div class="yutai_head">
-<h1 class="heading_title">優待情報</h1>
-<%if (yinfo!=null){%>
+<table class="comment_list line_add">
+  <tr>
+   <td class="yutaihead">
+     <div>
+      <h1>優待情報</h1>
+      <%--ハートのお気に入り登録ボタン --%>
+      <%if (yinfo!=null){%>
        <% if(!isRegisteredLike){%>
      	<form action="<%=request.getContextPath() %>/tei_java/like" method="POST"  class="yutai_form">
 			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
@@ -299,32 +303,9 @@ $(function(){
 			<input type="image" title="お気に入りから削除" src="<%=request.getContextPath()%>/img/function_icon/heart.png" width="50px" height="50px" class="yutai_good">
 		</form>
 	<%}} %>
-</div>
-<table class="comment_list ">
-<%--
-  <tr>
-   <td class="point_top"
-
-      優待情報
-      <%--ハートのお気に入り登録ボタン --%>
-      <%--if (yinfo!=null){--%>
-       <%-- if(!isRegisteredLike){--%>
-       <%--
-     	<form action="<%=request.getContextPath() %>/tei_java/like" method="POST"  class="yutai_form">
-			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
-			<input type="hidden" name="registerOrDelete" value="register">
-            <input type="image" title="お気に入り登録" src="<%=request.getContextPath()%>/img/function_icon/unheart.png" width="50px" height="50px" class="yutai_good">
-		</form>
-	<%}else{ %>
-		<form action="<%=request.getContextPath() %>/tei_java/like" method="POST" class="yutai_form">
-			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
-			<input type="hidden" name="registerOrDelete" value="delete">
-			<input type="image" title="お気に入りから削除" src="<%=request.getContextPath()%>/img/function_icon/heart.png" width="50px" height="50px" class="yutai_good">
-		</form>
-	<%}} %>
-
+     </div>
    </td>
-  </tr> --%>
+  </tr>
   <tr>
    <%--優待内容 --%>
    <td class="sub" id="commentword">
