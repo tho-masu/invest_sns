@@ -283,7 +283,7 @@ $(function(){
 <%} %>
 
 <%--優待情報 --%>
-<table class="comment_list line_add">
+<table class="comment_list">
   <tr>
    <td class="yutaihead">
 
@@ -308,7 +308,7 @@ $(function(){
   </tr>
   <tr>
    <%--優待内容 --%>
-   <td class="sub" id="yutai_content">
+   <td class="sub line_add" id="yutai_content">
    <%if (yinfo!=null){%>
      <div class="main onhidden">
        <div class="text">

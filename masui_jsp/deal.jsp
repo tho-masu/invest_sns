@@ -35,35 +35,35 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 	</tr>
  --%>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">野村證券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://www.daiwa.co.jp/PCC/HomeTrade/Account/m8301.html" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">大和証券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">SMBC日興証券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://netclub.mizuho-sc.com/mnc/login?rt_bn=sc_top_main" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">みずほ証券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://online.sc.mufg.jp/its/dfw/UTBSITS/user_p/Login" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">三菱ＵＦＪモルガン・スタンレー証券</p>
 			</a>
@@ -75,35 +75,35 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
 
 <table class="list industryweather">
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://www.sbisec.co.jp/ETGate" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">SBI証券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://www.rakuten-sec.co.jp/web/direct_login.html" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">楽天証券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://www.deal.matsui.co.jp/ITS/login/MemberLogin.jsp" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">松井証券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">マネックス証券</p>
 			</a>
 		</td>
 	</tr>
 	<tr class="reco_info">
-		<td align="center">
+		<td align="center" class=" hover_word">
 			<a class="widelink" href="https://s10.kabu.co.jp/_mem_bin/members/login.asp?/members/" target="_blank">
 			<p style="padding-top: 20px;padding-bottom: 20px">カブドットコム証券</p>
 			</a>

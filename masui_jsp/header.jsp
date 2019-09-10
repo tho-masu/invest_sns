@@ -41,7 +41,7 @@ jQuery(function() {
 	        		<input class="search_btn" type="submit" id="search_button" value="友達検索">
 	        	</form>
 </div>
-<div class="follow_img_head" >
+<div class="follow_img_head hover_word" >
 <a href="<%=request.getContextPath() %>/masui_jsp/mayfollow?pk_id=<%=ubean.getPk_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow2.png" width="45px"></a>
 </div>
 

@@ -18,11 +18,8 @@ UserBean ubean = (UserBean)request.getAttribute("ubean");
 <jsp:include page="header.jsp" flush="true" />
 
 <%--follow_list画面 --%>
+<h1 class="heading_title">フォロー一覧</h1>
 <table class="follow_follower">
-  <tr>
-    <th class="point_top">
-      <p>フォロー一覧</p>
-    </th>
 <%for(UserBean follow : ubean.getFollowList()){ %>
   <tr>
     <td class="follow_img">
@@ -39,11 +36,8 @@ UserBean ubean = (UserBean)request.getAttribute("ubean");
 
 
 <%--follower_list画面 --%>
+<h1 class="heading_title">フォロワー一覧</h1>
 <table class="follow_follower">
-  <tr>
-    <th class="point_top">
-      <p>フォロワー一覧</p>
-    </th>
 <%for(UserBean follower : ubean.getFollowerList()){ %>
   <tr>
     <td class="follow_img">

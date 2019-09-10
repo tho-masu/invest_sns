@@ -24,11 +24,9 @@
 <jsp:include page="header.jsp" flush="true" />
 
 <%--follow_list画面 --%>
+
+<h1 class="heading_title">おすすめの友だち</h1>
 <table class="follow_follower">
-  <tr>
-    <th class="heading_title">
-      <p>おすすめの友だち</p>
-    </th>
 <%
 List<UserBean> uList = (List<UserBean>)request.getAttribute("uList");
 if(uList != null){

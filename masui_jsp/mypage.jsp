@@ -61,8 +61,10 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
 			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
 			<input type="hidden" name="registerOrDelete" value="register">
-			<div style="float:right;">
-			  <input type="image" value="フォロー" src="<%=request.getContextPath() %>/img/function_icon/unfollow.png" width="45px">
+			<div class="edit_profile">
+			  <input type="submit" value="フォローする">
+			  <%--
+			  <input type="image" value="フォロー" src="<%=request.getContextPath() %>/img/function_icon/unfollow.png" width="45px"> --%>
 			</div>
 		</form>
 	<%}else{ %>
@@ -70,8 +72,10 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
 			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
 			<input type="hidden" name="registerOrDelete" value="delete">
-			<div style="float:right;">
-			  <input type="image" value="フォロー解除" src="<%=request.getContextPath() %>/img/function_icon/follow1.png" width="45px">
+			<div class="edit_profile">
+			  <input type="submit" value="フォロー解除">
+			  <%--
+			  <input type="image" value="フォロー解除" src="<%=request.getContextPath() %>/img/function_icon/follow1.png" width="45px"> --%>
 			</div>
 		</form>
 	<%} %>
@@ -127,7 +131,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 		<input type="hidden" name="article" value="<%=post.getArticle()%>">
 		<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
 		<input type="hidden" name="user_name" value="<%=post.getUsername()%>">
-		<input type="image" title="シェア" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
+		<input type="image" class=" hover_word" title="シェア" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
 		<p></p>
 	</form>
 	</div>
@@ -141,14 +145,14 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
-				<input type="image" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
+				<input type="image" class=" hover_word" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
-				<input type="image" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
+				<input type="image" class=" hover_word" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
 				</form>
 			<%} %>
 			<p><%=post.countGood() %></p>
@@ -174,7 +178,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
          <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
        </div>
        <%-- name（クリックでその人のページへ） --%>
-       <p class="top_name_home"><%=comment.getUsername() %></p>
+       <p class="top_name_home hover_word"><%=comment.getUsername() %></p>
       </a>
       <%--削除ボタン --%>
        <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>

@@ -195,7 +195,7 @@ class="industry_top_rainy"<%;
     </tr>
 <%for(int i=0;i<anode.size();i++){ %>
     <tr class="sub reco_info backcolor">
-      <td style="border-right:1px solid #a9a9a9;">
+      <td style="border-right:1px solid #a9a9a9;" class=" hover_word">
       	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a>
       </td>
       <td style="border-right:1px solid #a9a9a9;">

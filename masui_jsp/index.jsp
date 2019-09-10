@@ -51,7 +51,7 @@ if(pageNumberString != null){
     	<%if(plist.get(i).getPk_id() == loginAccount.getPk_id()){ %>
     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST" class="post_delete">
      			<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post() %>">
-				<input type="image" title="投稿を削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
+				<input class=" hover_word" type="image" title="投稿を削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 		</form>
 		<%} %>
 
@@ -80,7 +80,7 @@ if(pageNumberString != null){
 		<input type="hidden" name="article" value="<%=plist.get(i).getArticle()%>">
 		<input type="hidden" name="user_id" value="<%=plist.get(i).getUser_id()%>">
 		<input type="hidden" name="user_name" value="<%=plist.get(i).getUsername()%>">
-		<input type="image" title="シェア" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
+		<input type="image" title="シェア" class=" hover_word" src="<%=request.getContextPath() %>/img/function_icon/share_icon.png" width="35px" height="35px">
 	</form>
 	</div>
 	<div class="table_in_icon solid_right click_open">
@@ -91,13 +91,13 @@ if(pageNumberString != null){
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
-				<input type="image" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
+				<input type="image" class=" hover_word" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
           		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
-				<input type="image" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
+				<input type="image" class=" hover_word" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
 				</form>
 			<%} %>
 			<div><%=plist.get(i).countGood() %></div>

@@ -10,7 +10,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/table_open.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/page_bottom.js"></script>
 <%
 JsonNode hnode = (JsonNode)request.getAttribute("hnode");
 JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
@@ -24,6 +24,13 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 </head>
 
 <body>
+
+<%--ページボトムボタン --%>
+<div id="page_bottom" style="display:block;">
+  <a href="#">
+    <img src="<%=request.getContextPath() %>/img/function_icon/page_bottom.png">
+  </a>
+</div>
 
 <jsp:include page="header.jsp" flush="true" />
 
@@ -123,7 +130,7 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 	</tr>
 	<% for(IndustryBean element : ilist){ %>
 	<tr class="reco_info">
-		<td align="center" width="70%">
+		<td align="center" width="70%" class="hover_word">
 			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
 		</td>
 		<td align="center" width="30%">
@@ -151,11 +158,12 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 		</th>
 
 	</tr>
-
-	<tr class="reco_info">
 <% for(int i=0;i<llist.size();i++){ %>
-		<td align="center" width="70%">
-			<a class="widelink" href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=llist.get(i).get("req_code").asText()%>"><%=llist.get(i).get("v-name").asText() %></a>
+	<tr class="reco_info">
+		<td align="center" width="70%" class=" hover_word">
+			<a class="widelink" href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=llist.get(i).get("req_code").asText()%>">
+			<p style="padding-top: 20px;padding-bottom: 20px"><%=llist.get(i).get("v-name").asText() %></p>
+			</a>
 		</td>
 		<td align="center" width="30%">
 			<p><%=likelist.get(i).getCount() %></p>
@@ -165,28 +173,11 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 </table>
 
 
-<%--コメント送信 --%>
-<%--
- <table class="comment_submit line_add">
-  <tr>
-   <td class="point_top"> --%>
 
-   <%--
-<table class="comment_submit line_add">
-  <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
+ <table class="comment_submit">
   <tr>
    <td class="sub">
-     <div><textarea name="comment"></textarea></div>
-     <div><input type="submit" value="送信" class="submit_div"></div>
-   </td>
-  </tr>
-  </form>
- </table>
- --%>
- <table class="comment_submit border="0px">
-  <tr>
-   <td class="sub">
-   <h1 class="heading_title">コメント欄</h1>
+   <h1 class="heading_title" id="bottom_content">コメント欄</h1>
    <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <div><input type="submit" value="送信" class="submit_div"></div>

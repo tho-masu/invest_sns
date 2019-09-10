@@ -62,8 +62,16 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
       	  <%}%>
         	  ],
         	  borderColor: "#66ccff",
+              borderWidth:5,
               fillColor : "rgba(0,180,255,0.1)",
-              fullColor:"rgba(0,180,225,0.1)"
+              backgroundColor:"rgba(0,180,255,0.1)",
+              strokeColor:"rgba(0,180,255,0.1)",
+              //pointBackgroundColor: "rgba(0,180,255,0.1)",
+              //pointBorderColor : "rgba(255, 255, 255,1)"",
+    		  pointBorderWidth:10,
+    		  pointColor : "rgba(0,180,255,0.1)",
+    		  pointStrokeColor : "rgba(255, 255, 255,1)",
+              lineTension:0
         }
       ],
     },
@@ -101,7 +109,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
       </th>
     </tr>
     <tr class="recommend">
-    	<th class="company_name" nowrap>
+    	<th class="company_name">
     		<b>企業名</b>
     	</th>
     	<th class="code_num" nowrap>
@@ -119,7 +127,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
     </tr>
 <%for(int i=0;i<dnode.size();i++){ %>
     <tr class="sub reco_info backcolor">
-      <td>
+      <td  class=" hover_word">
       	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=dnode.get(i).get("req_code").asText() %>"><%=dnode.get(i).get("v-name").asText() %></a>
       </td>
       <td>
