@@ -148,8 +148,8 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 	        		<input class="search_btn" type="submit" id="search_button" value="優待検索">
   </form>
 </div>
-
-<table class="industryweather line_add">
+<h1 class="heading_title">優待人気ランキング</h1>
+<table class="industryweather line_add" style="margin-top:0;">
 	<tr class="industryweather_head">
 		<th colspan="2">
 			<div class="indust">銘柄名</div>

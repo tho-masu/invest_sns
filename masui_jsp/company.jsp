@@ -174,11 +174,11 @@ $(function(){
 
   </tr> --%>
   <tr>
-   <th width="30%" class="sub_point">会社のお名前（和）</th>
+   <th width="30%" class="sub_point">会社の名前（和）</th>
    <td><%=dnode.get("v-name").asText() %></td>
   </tr>
   <tr>
-   <th width="30%" class="sub_point">会社のお名前（英）</th>
+   <th width="30%" class="sub_point">会社の名前（英）</th>
    <td><%=dnode.get("v-name_en").asText()%></td>
   </tr>
   <tr>
@@ -322,7 +322,7 @@ $(function(){
        </div>
      </div>
    <%}else{%>
-     <p>優待情報なし</p>
+     <p style="padding-top:20px;">優待情報なし</p>
      <%}%>
    </td>
   </tr>
