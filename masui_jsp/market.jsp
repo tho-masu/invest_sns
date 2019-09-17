@@ -39,10 +39,19 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">
-  <h1 align="center" class="heading_title">証券コードを入力してください</h1>
+  <h1 align="center" class="heading_title" style="margin-top:0px">証券コードを入力</h1>
   <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
 	  <input type="tel" name="quote" maxlength="4">
 	  <input type="submit" value="銘柄詳細へ">
+  </form>
+</div>
+
+<%--企業名検索ボタン --%>
+<div class="top_market_search">
+  <h1 align="center" class="heading_title" style="margin-top:0px">企業名で検索</h1>
+  <form action="<%=request.getContextPath() %>/masui_jsp/company_search" method="POST">
+	  <input type="tel" name="search">
+	  <input type="submit" value="検索">
   </form>
 </div>
 

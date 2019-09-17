@@ -85,7 +85,7 @@ $(function(){
    <tr class="top_sub">
      <td align="left" width="40%">企業の稼ぐ力（
       <%-- 用語説明を追加 --%>
-     <span class="hint--top hint--rounded" data-hint="Return On Equityの略称で和訳は自己資本利益率">ROE<jsp:include page="question.jsp" flush="true" /></span>
+     <span class="hint--top hint--rounded" data-hint="自己資本利益率。自社の資産に対してどれだけの利益が生み出されたのかを示す指標です。">ROE<jsp:include page="question.jsp" flush="true" /></span>
      )：<%=dnode.get("co_settle_roe").asDouble() %></td>
    </tr>
  </table>

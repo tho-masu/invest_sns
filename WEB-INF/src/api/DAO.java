@@ -231,6 +231,31 @@ public class DAO {
 		return unode;
 	}
 
+	public static JsonNode getTokyoStockExchange(){
+		HashMap<String,String> query = new HashMap<String,String>();
+		query.put("universe", "tokyo_stock_exchange");
+		query.put("universe_limit","5000");
+		query.put("item","securities_code,v-name,v-name_en");
+
+		String result = APIManager.getData("quote", query);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		JsonNode node=null
+				;
+		try {
+			node = mapper.readTree(result);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		JsonNode unode = node.get("quote").get("data");
+
+		return unode;
+	}
+
+
 	public static JsonNode getNikkei225IntradayHistorical() {
 		HashMap<String,String> query = new HashMap<String,String>();
 		query.put("quote", "101/T");

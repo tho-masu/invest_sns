@@ -6,7 +6,7 @@
     version="2.5">
 
 	<session-config>
-    	<session-timeout>10</session-timeout>
+    	<session-timeout>20</session-timeout>
   	</session-config>
 
     <filter>
@@ -286,6 +286,24 @@
     <servlet-mapping>
         <servlet-name>masuiYutaiSearchS</servlet-name>
         <url-pattern>/masui_jsp/yutai_search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>masuiCompanySearchS</servlet-name>
+        <servlet-class>masui_java.CompanySearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiCompanySearchS</servlet-name>
+        <url-pattern>/masui_jsp/company_search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>masuiInjectionSampleS</servlet-name>
+        <servlet-class>masui_java.InjectionSample</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>masuiInjectionSampleS</servlet-name>
+        <url-pattern>/masui_jsp/injection_sample</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -7,6 +7,11 @@
 
 <title>NotFound</title>
 <link href="<%=request.getContextPath()%>/css/default.css" rel="stylesheet" type="text/css">
+
+<%
+String errorMessage = (String)request.getAttribute("errorMessage");
+%>
+
 </head>
 
 <body>
@@ -16,7 +21,7 @@
 <table class="comment_submit">
 <tr>
 <td class="point_top">
-検索ワードに一致する優待情報がありません
+<%=errorMessage %>
 </td>
 </tr>
 <tr>

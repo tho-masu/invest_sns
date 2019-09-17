@@ -20,7 +20,7 @@ String user_id = (String)request.getAttribute("user_id");
 <table class="comment_submit">
 <tr>
 <td class="point_top">
-検索に一致する友達がいません
+検索ワードに一致する友達がいません
 </td>
 </tr>
 <tr>
