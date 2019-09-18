@@ -36,7 +36,7 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
 </div>
 
 <div class="industry_filter">
-  <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" align="center">
+  <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" style="text-align:center;">
     <select name="iname">
       <option value="全業界（日経平均採用銘柄）" class="industry_option">全ての業界</option>
       <%for(String element : industryList){%>

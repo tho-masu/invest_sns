@@ -29,80 +29,12 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
 
 <jsp:include page="header.jsp" flush="true" />
 
- <%-- チャート --%>
- <table class="chart ">
-  <%--見出し --%>
-  <tr><td align="center" class="heading_title">チャート（ブックマークポートフォリオ）</td></tr>
-	 <tr class="sub">
-   <td align="center" height="50px">
-
- <!-- チャートはじめ -->
-
- <canvas id="myLineChart" height="100px"></canvas>
-
-<script>
-  var ctx = document.getElementById("myLineChart");
-  var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [
-    	  <%for(int i=0;i<bookmarkPortfolio.size()-2;i++){%>
-    	  	<%if(i!=0){%>,<%}%>
-    	  	'<%=12-i%>ヶ月前'
-    	  <%}%>
-    	  ,'先月末','現在'
-    	  ],
-      datasets: [
-        {
-          label: '株価',
-          data: [
-        	  <%for(int i=0;i<bookmarkPortfolio.size();i++){%>
-      	  	<%if(i!=0){%>,<%}%>
-      	  	<%=bookmarkPortfolio.get(i)%>
-      	  <%}%>
-        	  ],
-        	  borderColor: "#66ccff",
-              borderWidth:5,
-              fillColor : "rgba(0,180,255,0.1)",
-              backgroundColor:"rgba(0,180,255,0.1)",
-              strokeColor:"rgba(0,180,255,0.1)",
-              //pointBackgroundColor: "rgba(0,180,255,0.1)",
-              //pointBorderColor : "rgba(255, 255, 255,1)"",
-    		  pointBorderWidth:10,
-    		  pointColor : "rgba(0,180,255,0.1)",
-    		  pointStrokeColor : "rgba(255, 255, 255,1)",
-              lineTension:0
-        }
-      ],
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'ブックマークしている銘柄で仮に組んだポートフォリオの株価推移（各銘柄1株ずつ配分）'
-      },
-      scales: {
-        yAxes: [{
-          ticks: {
-            callback: function(value, index, values){
-              return  value +  '円'
-            }
-          }
-        }]
-      },
-    }
-  });
-  </script>
-
-  <!-- チャート終わり -->
-
-  </td></tr>
-</table>
 
 <!-- チャートを入れるテーブル終わり -->
 
 
   <%--おすすめ企業 --%>
-  <table class="list ">
+  <table style="margin-top:50px;">
     <tr>
       <th align="center" colspan="9" class="heading_title">
         ブックマークしている企業の分析
@@ -205,6 +137,77 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
       </td>
     </tr>
   </table>
+
+<%-- チャート --%>
+ <table class="chart ">
+  <%--見出し --%>
+  <tr><td align="center" class="heading_title">チャート（ブックマークポートフォリオ）</td></tr>
+	 <tr class="sub">
+   <td align="center" height="50px">
+
+ <!-- チャートはじめ -->
+
+ <canvas id="myLineChart" height="100px"></canvas>
+
+<script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+    	  <%for(int i=0;i<bookmarkPortfolio.size()-2;i++){%>
+    	  	<%if(i!=0){%>,<%}%>
+    	  	'<%=12-i%>ヶ月前'
+    	  <%}%>
+    	  ,'先月末','現在'
+    	  ],
+      datasets: [
+        {
+          label: '株価',
+          data: [
+        	  <%for(int i=0;i<bookmarkPortfolio.size();i++){%>
+      	  	<%if(i!=0){%>,<%}%>
+      	  	<%=bookmarkPortfolio.get(i)%>
+      	  <%}%>
+        	  ],
+        	  borderColor: "#66ccff",
+              borderWidth:5,
+              fillColor : "rgba(0,180,255,0.1)",
+              backgroundColor:"rgba(0,180,255,0.1)",
+              strokeColor:"rgba(0,180,255,0.1)",
+              //pointBackgroundColor: "rgba(0,180,255,0.1)",
+              //pointBorderColor : "rgba(255, 255, 255,1)"",
+    		  pointBorderWidth:10,
+    		  pointColor : "rgba(0,180,255,0.1)",
+    		  pointStrokeColor : "rgba(255, 255, 255,1)",
+              lineTension:0
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'ブックマークしている銘柄で仮に組んだポートフォリオの株価推移（各銘柄1株ずつ配分）'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            callback: function(value, index, values){
+              return  value +  '円'
+            }
+          }
+        }]
+      },
+    }
+  });
+  </script>
+
+  <!-- チャート終わり -->
+
+  </td></tr>
+</table>
+
+
 
 </body>
 </html>

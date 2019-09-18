@@ -123,7 +123,7 @@ if(pageNumberString != null){
          <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
        </div>
        <%-- name（クリックでその人のページへ） --%>
-       <p class="top_name_home"><%=comment.getUsername() %></p>
+       <p class="top_name_home hover_word"><%=comment.getUsername() %></p>
       </a>
       <%--削除ボタン --%>
        <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
