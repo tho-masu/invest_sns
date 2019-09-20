@@ -21,6 +21,7 @@ YutaiBean yinfo = (YutaiBean)request.getAttribute("yinfo");
 <title>[<%=dnode.get("req_code").asText() %>] <%=dnode.get("v-name").asText() %></title>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/read_more.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/page_bottom.js"></script>
 <script>
 $(function(){
 	$('.click_open').click(function(){
@@ -34,6 +35,13 @@ $(function(){
 <body>
 
 <jsp:include page="header.jsp" flush="true" />
+
+<%--ページボトムボタン --%>
+<div id="page_bottom" style="display:block;">
+  <a href="#">
+    <img src="<%=request.getContextPath() %>/img/function_icon/page_bottom.png">
+  </a>
+</div>
 
 <div id="all_table">
 
@@ -378,7 +386,7 @@ $(function(){
    --%>
   <tr>
    <td class="sub">
-   <h1 class="heading_title">コメント欄</h1>
+   <h1 class="heading_title" id="bottom_content">コメント欄</h1>
      <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">

@@ -11,6 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/page_bottom.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/sugeno_js/num_only.js"></script>
 <%
 JsonNode hnode = (JsonNode)request.getAttribute("hnode");
 JsonNode nnode = (JsonNode)(request.getAttribute("nnode"));
@@ -39,9 +40,9 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">
-  <h1 align="center" class="heading_title" style="margin-top:0px">証券コードを入力</h1>
+  <h1 align="center" class="heading_title" style="margin-top:0px">証券コードを入力(半角数字)</h1>
   <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
-	  <input type="tel" name="quote" maxlength="4">
+	  <input type="tel" name="quote" title="半角数字で入力" maxlength="4" pattern="\d{4}">
 	  <input type="submit" value="銘柄詳細へ">
   </form>
 </div>
