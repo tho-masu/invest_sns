@@ -6,7 +6,7 @@
     version="2.5">
 
 	<session-config>
-    	<session-timeout>20</session-timeout>
+    	<session-timeout>10</session-timeout>
   	</session-config>
 
     <filter>
@@ -15,7 +15,7 @@
     </filter>
     <filter-mapping>
         <filter-name>sessionCheckF</filter-name>
-        <url-pattern>/masui_jsp/*</url-pattern>
+        <url-pattern>/main_content/*</url-pattern>
     </filter-mapping>
 
     <servlet>
@@ -24,7 +24,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiCompanyS</servlet-name>
-        <url-pattern>/masui_jsp/company</url-pattern>
+        <url-pattern>/main_content/company</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -33,7 +33,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiIndustryS</servlet-name>
-        <url-pattern>/masui_jsp/industry</url-pattern>
+        <url-pattern>/main_content/industry</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -42,7 +42,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiMarketS</servlet-name>
-        <url-pattern>/masui_jsp/market</url-pattern>
+        <url-pattern>/main_content/market</url-pattern>
     </servlet-mapping>
 
   <servlet>
@@ -114,7 +114,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiCommentS</servlet-name>
-        <url-pattern>/masui_jsp/comment</url-pattern>
+        <url-pattern>/main_content/comment</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -123,7 +123,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiDeleteCommentS</servlet-name>
-        <url-pattern>/masui_jsp/delete_comment</url-pattern>
+        <url-pattern>/main_content/delete_comment</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -132,7 +132,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiBookmarkS</servlet-name>
-        <url-pattern>/masui_jsp/bookmark</url-pattern>
+        <url-pattern>/main_content/bookmark</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -168,7 +168,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiMypageS</servlet-name>
-        <url-pattern>/masui_jsp/mypage</url-pattern>
+        <url-pattern>/main_content/mypage</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -177,7 +177,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiMypageEditS</servlet-name>
-        <url-pattern>/masui_jsp/mypage_edit</url-pattern>
+        <url-pattern>/main_content/mypage_edit</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -186,7 +186,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiFollowS</servlet-name>
-        <url-pattern>/masui_jsp/follow</url-pattern>
+        <url-pattern>/main_content/follow</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -195,7 +195,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiIndexS</servlet-name>
-        <url-pattern>/masui_jsp/</url-pattern>
+        <url-pattern>/main_content/</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -204,7 +204,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiFFlistS</servlet-name>
-        <url-pattern>/masui_jsp/ff_list</url-pattern>
+        <url-pattern>/main_content/ff_list</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -213,7 +213,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiArticleS</servlet-name>
-        <url-pattern>/masui_jsp/article</url-pattern>
+        <url-pattern>/main_content/article</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -222,7 +222,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiDeleteArticleS</servlet-name>
-        <url-pattern>/masui_jsp/delete_article</url-pattern>
+        <url-pattern>/main_content/delete_article</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -231,7 +231,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiGoodS</servlet-name>
-        <url-pattern>/masui_jsp/good</url-pattern>
+        <url-pattern>/main_content/good</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -240,7 +240,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiShareS</servlet-name>
-        <url-pattern>/masui_jsp/share</url-pattern>
+        <url-pattern>/main_content/share</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -249,7 +249,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiMayfollowS</servlet-name>
-        <url-pattern>/masui_jsp/mayfollow</url-pattern>
+        <url-pattern>/main_content/mayfollow</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -258,7 +258,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiSearchS</servlet-name>
-        <url-pattern>/masui_jsp/search</url-pattern>
+        <url-pattern>/main_content/search</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -276,7 +276,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiBookmarkAnalyzeS</servlet-name>
-        <url-pattern>/masui_jsp/bookmark_analyze</url-pattern>
+        <url-pattern>/main_content/bookmark_analyze</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -285,7 +285,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiYutaiSearchS</servlet-name>
-        <url-pattern>/masui_jsp/yutai_search</url-pattern>
+        <url-pattern>/main_content/yutai_search</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -294,7 +294,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiCompanySearchS</servlet-name>
-        <url-pattern>/masui_jsp/company_search</url-pattern>
+        <url-pattern>/main_content/company_search</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -303,7 +303,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>masuiInjectionSampleS</servlet-name>
-        <url-pattern>/masui_jsp/injection_sample</url-pattern>
+        <url-pattern>/main_content/injection_sample</url-pattern>
     </servlet-mapping>
 
 </web-app>

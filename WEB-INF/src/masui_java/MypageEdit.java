@@ -53,7 +53,7 @@ public class MypageEdit extends HttpServlet {
 		}
 
 		request.setAttribute("user_id", user_id);
-		request.getRequestDispatcher("/masui_jsp/mypage_changed.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/mypage_changed.jsp").forward(request, response);
 	}
 
 	public static void updateIcon(String pk_id,Part part,ServletContext context)throws ServletException,IOException, SQLException{

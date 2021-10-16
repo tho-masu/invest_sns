@@ -66,7 +66,7 @@ public class Market extends HttpServlet {
 		request.setAttribute("llist",llist);
 		request.setAttribute("nnode", nnode);
 		request.setAttribute("likelist",likelist);
-		request.getRequestDispatcher("/masui_jsp/market.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/market.jsp").forward(request, response);
 
 	}
 }

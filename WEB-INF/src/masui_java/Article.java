@@ -35,7 +35,7 @@ public class Article extends HttpServlet {
 			request.setAttribute("error", "[エラー] 投稿を入力してください");
 		}
 
-		request.getRequestDispatcher("/masui_jsp/article_posted.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/article_posted.jsp").forward(request, response);
 	}
 
 }

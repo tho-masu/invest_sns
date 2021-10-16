@@ -51,7 +51,7 @@ public class Login extends HttpServlet{
 			List<StringBuffer> pageHistory = new ArrayList<StringBuffer>();
 			session.setAttribute("pageHistory", pageHistory);
 
-			forwardURL= "/masui_jsp/";
+			forwardURL= "/main_content/";
 		}else{
 			errorMessage = "パスワードに誤りがあります";
 			throw new LoginFailedException();

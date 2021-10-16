@@ -26,7 +26,7 @@ String user_id = (String)request.getAttribute("user_id");
 <tr>
 <td class="sub" style="background-color: #FFFFFF">
 <br><br>
-<form action="<%=request.getContextPath() %>/masui_jsp/mypage" method="GET">
+<form action="<%=request.getContextPath() %>/main_content/mypage" method="GET">
 	<input type="hidden" name="user_id" value="<%=user_id %>">
 	<div><input type="submit" value="元のページへ" align="center"></div>
 </form>

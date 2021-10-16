@@ -34,6 +34,6 @@ public class Like  extends HttpServlet {
 		}
 
 
-		request.getRequestDispatcher("/masui_jsp/company?quote="+quote).forward(request, response);
+		request.getRequestDispatcher("/main_content/company?quote="+quote).forward(request, response);
 	}
 }

@@ -18,6 +18,6 @@ public class Logout extends HttpServlet {
 			session.invalidate();
 		}
 
-		request.getRequestDispatcher("/masui_jsp/logout.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/logout.jsp").forward(request, response);
 	}
 }

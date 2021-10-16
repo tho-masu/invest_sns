@@ -37,9 +37,9 @@ public class BookmarkAnalyze extends HttpServlet {
 			if(AnalyzeDAO.countBookmark(ubean.getPk_id()) >= 1) {
 				CompanyAnalyzeBean cabean = getCabean(ubean.getPk_id());
 				request.setAttribute("cabean", cabean);
-				request.getRequestDispatcher("/masui_jsp/bookmark_analyze.jsp").forward(request, response);
+				request.getRequestDispatcher("/main_content/bookmark_analyze.jsp").forward(request, response);
 			}else {
-				request.getRequestDispatcher("/masui_jsp/bookmark_analyze_error.jsp").forward(request, response);
+				request.getRequestDispatcher("/main_content/bookmark_analyze_error.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック

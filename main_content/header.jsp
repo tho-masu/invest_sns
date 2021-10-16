@@ -36,13 +36,13 @@ jQuery(function() {
 </div>
 
 <div class="button_second" id="btn_search_">
-	        	<form action="<%=request.getContextPath()%>/masui_jsp/search" method="POST">
+	        	<form action="<%=request.getContextPath()%>/main_content/search" method="POST">
 	        		<input class="search_box" type="text" placeholder="検索" name="search">
 	        		<input class="search_btn" type="submit" id="search_button" value="友達検索">
 	        	</form>
 </div>
 <div class="follow_img_head hover_word" >
-<a href="<%=request.getContextPath() %>/masui_jsp/mayfollow?pk_id=<%=ubean.getPk_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow2.png" width="45px"></a>
+<a href="<%=request.getContextPath() %>/main_content/mayfollow?pk_id=<%=ubean.getPk_id()%>"><img src="<%=request.getContextPath() %>/img/function_icon/follow2.png" width="45px"></a>
 </div>
 
 <%--ログアウトボタン --%>
@@ -55,12 +55,12 @@ jQuery(function() {
 <div class="header_contents">
 <nav>
   <ul>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/"><img src="<%=request.getContextPath()%>/img/function_icon/home.png" style="vertical-align: middle;" height="20px"> ホーム</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/market"><img src="<%=request.getContextPath()%>/img/function_icon/market.png" style="vertical-align: middle;" height="20px"> 市場</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/industry"><img src="<%=request.getContextPath()%>/img/function_icon/industry.png" style="vertical-align: middle;" height="20px"> 業界</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/deal.jsp"><img src="<%=request.getContextPath()%>/img/function_icon/trade.png" style="vertical-align: middle;" height="20px"> 取引</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath()%>/img/user_icon/default_icon.png" style="vertical-align: middle;" height="20px"> マイページ</a></li>
-    <li><a href="<%=request.getContextPath() %>/masui_jsp/bookmark_analyze?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath()%>/img/function_icon/bookm.png" style="vertical-align: middle;" height="20px"> ブックマーク分析</a></li>
+    <li><a href="<%=request.getContextPath() %>/main_content/"><img src="<%=request.getContextPath()%>/img/function_icon/home.png" style="vertical-align: middle;" height="20px"> ホーム</a></li>
+    <li><a href="<%=request.getContextPath() %>/main_content/market"><img src="<%=request.getContextPath()%>/img/function_icon/market.png" style="vertical-align: middle;" height="20px"> 市場</a></li>
+    <li><a href="<%=request.getContextPath() %>/main_content/industry"><img src="<%=request.getContextPath()%>/img/function_icon/industry.png" style="vertical-align: middle;" height="20px"> 業界</a></li>
+    <li><a href="<%=request.getContextPath() %>/main_content/deal.jsp"><img src="<%=request.getContextPath()%>/img/function_icon/trade.png" style="vertical-align: middle;" height="20px"> 取引</a></li>
+    <li><a href="<%=request.getContextPath() %>/main_content/mypage?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath()%>/img/user_icon/default_icon.png" style="vertical-align: middle;" height="20px"> マイページ</a></li>
+    <li><a href="<%=request.getContextPath() %>/main_content/bookmark_analyze?user_id=<%=ubean.getUser_id()%>"><img src="<%=request.getContextPath()%>/img/function_icon/bookm.png" style="vertical-align: middle;" height="20px"> ブックマーク分析</a></li>
   </ul>
 </nav>
 </div>
@@ -75,7 +75,7 @@ jQuery(function() {
 
 <%-- 投稿ページへのボタン --%>
 <div class="post_icon_function">
-  <a href="<%=request.getContextPath()%>/masui_jsp/article_post.jsp">
+  <a href="<%=request.getContextPath()%>/main_content/article_post.jsp">
     <img src="<%=request.getContextPath() %>/img/function_icon/write.png" width="100px" height="100px" title="つぶやきの投稿">
   </a>
 </div>

@@ -29,19 +29,19 @@ String pk_post = (String)request.getAttribute("pk_post");
 <td class="sub" style="background-color: #FFFFFF">
 <br><br>
 <%if(quote != null){ %>
-<form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
+<form action="<%=request.getContextPath() %>/main_content/company" method="GET">
 	<input type="hidden" name="quote" value="<%=quote %>">
 	<div><input type="submit" value="元のページへ" align="center"></div>
 </form>
 <%}else if(iname != null){ %>
-<form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET">
+<form action="<%=request.getContextPath() %>/main_content/industry" method="GET">
 	<input type="hidden" name="iname" value="<%=iname %>">
 	<div><input type="submit" value="元のページへ" align="center"></div>
 </form>
 <%}else if(pk_post != null){ %>
-	<div><input type="button" value="ホーム画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/'"></div>
+	<div><input type="button" value="ホーム画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/main_content/'"></div>
 <%}else{ %>
-	<div><input type="button" value="元のページへ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/market'"></div>
+	<div><input type="button" value="元のページへ" align="center" onClick="location.href='<%=request.getContextPath() %>/main_content/market'"></div>
 <%} %>
 </td>
 </tr>

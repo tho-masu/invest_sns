@@ -35,7 +35,7 @@ if(uList != null){
 %>
   <tr>
     <td class="follow_img">
-      <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=ubean.getUser_id()%>">
+      <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=ubean.getUser_id()%>">
         <%--ユーザのICON<a>押すとその人のユーザページへ --%>
         <img src="<%=request.getContextPath() %>/img/user_icon/<%=ubean.getIcon_name() %>" width="50px" height="50x">
         <%--ユーザネーム　<a>でその人のユーザページへ --%>

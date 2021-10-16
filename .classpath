@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="var" path="TOMCAT_HOME/lib/servlet-api.jar"/>
-	<classpathentry kind="var" path="TOMCAT_HOME/lib/jasper.jar"/>
+	<classpathentry kind="var" path="TOMCAT_HOME/lib/servlet-api.jar" sourcepath="SOURCE_ATTACHER/tomcat-servlet-api-8.5.42-sources-1569283854897.jar"/>
+	<classpathentry kind="var" path="TOMCAT_HOME/lib/jasper.jar" sourcepath="SOURCE_ATTACHER/tomcat-jasper-8.5.42-sources.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/jsp-api.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/el-api.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/annotations-api.jar"/>
@@ -11,7 +11,8 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/jackson-databind-2.9.8.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jstl-api-1.2.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jstl-impl-1.2.jar"/>
-	<classpathentry kind="lib" path="WEB-INF/lib/postgresql-42.2.4.jre6.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/postgresql-42.2.4.jre6.jar" sourcepath="C:/Users/qcq1665/AppData/Local/Temp/.org.sf.feeling.decompiler1568679239276/source/postgresql-42.2.4.jre6-sources.jar"/>
 	<classpathentry kind="src" path="WEB-INF/src"/>
+	<classpathentry kind="src" output="work" path="work"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

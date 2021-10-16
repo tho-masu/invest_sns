@@ -35,10 +35,10 @@ List<CompanySearchBean> cList = (List<CompanySearchBean>)request.getAttribute("c
 <%for(int i=0;i<cList.size();i++){ %>
     <tr class="sub reco_yutai_info backcolor">
       <td style="border-right:1px solid #a9a9a9;" align="center">
-      	<a class="widelink hover_word" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=cList.get(i).getQuote() %>"><%=cList.get(i).getvName() %></a>
+      	<a class="widelink hover_word" href="<%=request.getContextPath() %>/main_content/company?quote=<%=cList.get(i).getQuote() %>"><%=cList.get(i).getvName() %></a>
       </td>
       <td style="border-right:1px solid #a9a9a9;" align="center">
-      	<a class="widelink hover_word" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=cList.get(i).getQuote() %>"><%=cList.get(i).getvNameEn() %></a>
+      	<a class="widelink hover_word" href="<%=request.getContextPath() %>/main_content/company?quote=<%=cList.get(i).getQuote() %>"><%=cList.get(i).getvNameEn() %></a>
       </td>
       <td align="center">
       	<%=cList.get(i).getQuote() %>

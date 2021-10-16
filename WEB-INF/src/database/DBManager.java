@@ -12,7 +12,9 @@ public class DBManager {
 	public static Connection getConnection()throws SQLException{
 		try{
 			Class.forName("org.postgresql.Driver");
-			Connection con=DriverManager.getConnection("jdbc:postgresql://172.22.129.6:5432/investagram","postgres","postgres");
+			//以下は8～9月の研修にて開発時の接続先
+			//Connection con=DriverManager.getConnection("jdbc:postgresql://172.22.129.6:5432/investagram","postgres","postgres");
+			Connection con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/investagram","postgres","postgres");
 			return con;
 		}catch(ClassNotFoundException e){
 			throw new SQLException(e);

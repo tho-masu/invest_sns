@@ -1,7 +1,17 @@
+# work
+work
+
+# img
+img
+
+# tmp
+tmp
+
 # Java
 *.class
 *.war
 *.ear
+*.jar
 
 # Eclipse
 .project

@@ -48,7 +48,7 @@ public class Index extends HttpServlet {
 		}
 
 		request.setAttribute("plist", plist);
-		request.getRequestDispatcher("/masui_jsp/index.jsp").forward(request,response);
+		request.getRequestDispatcher("/main_content/index.jsp").forward(request,response);
 	}
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{

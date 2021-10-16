@@ -26,10 +26,10 @@ public class SessionCheckFilter implements Filter {
 		HttpSession session = ((HttpServletRequest)request).getSession(false);
 		if(session != null) {
 			if(session.getAttribute("login_account") == null) {
-				request.getRequestDispatcher("/masui_jsp/account_notfound.jsp").forward(request, response);
+				request.getRequestDispatcher("/main_content/account_notfound.jsp").forward(request, response);
 			}
 		}else {
-			request.getRequestDispatcher("/masui_jsp/session_timeout.jsp").forward(request, response);
+			request.getRequestDispatcher("/main_content/session_timeout.jsp").forward(request, response);
 		}
 
 		/*List<StringBuffer> pageHistory = (List<StringBuffer>)session.getAttribute("pageHistory");

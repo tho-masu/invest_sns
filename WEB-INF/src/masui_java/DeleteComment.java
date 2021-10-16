@@ -39,7 +39,7 @@ public class DeleteComment extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("/masui_jsp/comment_deleted.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/comment_deleted.jsp").forward(request, response);
 
 	}
 }

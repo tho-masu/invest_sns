@@ -30,7 +30,7 @@ public class DeleteArticle extends HttpServlet {
 		}
 
 		request.setAttribute("user_id", loginAccount.getUser_id());
-		request.getRequestDispatcher("/masui_jsp/article_deleted.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/article_deleted.jsp").forward(request, response);
 
 	}
 }

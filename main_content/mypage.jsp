@@ -52,12 +52,12 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
      <%if(ubean.getPk_id() == loginAccount.getPk_id()){ %>
      <div class="edit_profile">
        <%--プロフィール編集ボタン --%>
-       <a href="<%=request.getContextPath()%>/masui_jsp/mypage_edit.jsp">編集</a>
+       <a href="<%=request.getContextPath()%>/main_content/mypage_edit.jsp">編集</a>
      </div>
 	 <%}else{ %>
 
 	 <% if(!isRegisteredFollow){%>
-     	<form action="<%=request.getContextPath() %>/masui_jsp/follow" method="POST">
+     	<form action="<%=request.getContextPath() %>/main_content/follow" method="POST">
 			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
 			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
 			<input type="hidden" name="registerOrDelete" value="register">
@@ -68,7 +68,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 			</div>
 		</form>
 	<%}else{ %>
-		<form action="<%=request.getContextPath() %>/masui_jsp/follow" method="POST">
+		<form action="<%=request.getContextPath() %>/main_content/follow" method="POST">
 			<input type="hidden" name="followed_user_pk_id" value="<%=ubean.getPk_id()%>">
 			<input type="hidden" name="followed_user_user_id" value="<%=ubean.getUser_id()%>">
 			<input type="hidden" name="registerOrDelete" value="delete">
@@ -93,11 +93,11 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
      <p><%=blist.size() %></p>
    <td width="25%" class="line-right">
      <p>フォロー</p>
-     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list?user_id=<%=ubean.getUser_id()%>"><%=ubean.getFollowList().size() %></a></p>
+     <p><a href="<%=request.getContextPath()%>/main_content/ff_list?user_id=<%=ubean.getUser_id()%>"><%=ubean.getFollowList().size() %></a></p>
    </td>
    <td width="25%">
      <p>フォロワー</p>
-     <p><a href="<%=request.getContextPath()%>/masui_jsp/ff_list?user_id=<%=ubean.getUser_id()%>"><%=ubean.getFollowerList().size() %></a></p>
+     <p><a href="<%=request.getContextPath()%>/main_content/ff_list?user_id=<%=ubean.getUser_id()%>"><%=ubean.getFollowerList().size() %></a></p>
    </td>
  </tr>
 </table>
@@ -113,7 +113,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     <div class="post_date"><p><%=post.getCreate_date() %>　<%=post.getCreate_time() %></p></div>
     	<%--投稿削除ボタン --%>
     	<%if(post.getPk_id() == loginAccount.getPk_id()){ %>
-    	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST" class="post_delete">
+    	<form action="<%=request.getContextPath() %>/main_content/delete_article" method="POST" class="post_delete">
      			<input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
 				<input type="image" title="投稿を削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 		</form>
@@ -127,7 +127,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     	<tr>
     		<td>
     <div class="table_in_icon">
-     <form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
+     <form name="fm" action="<%=request.getContextPath() %>/main_content/share" method="POST">
 		<input type="hidden" name="article" value="<%=post.getArticle()%>">
 		<input type="hidden" name="user_id" value="<%=post.getUser_id()%>">
 		<input type="hidden" name="user_name" value="<%=post.getUsername()%>">
@@ -141,14 +141,14 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 	</div>
 	<div class="table_in_icon">
 			<%if(post.getIsLoginAccountGood()){ %>
-          		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
+          		<form name="fm" action="<%=request.getContextPath() %>/main_content/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
 				<input type="image" class=" hover_word" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
-          		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
+          		<form name="fm" action="<%=request.getContextPath() %>/main_content/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
           		<input type="hidden" name="user_id" value="<%=ubean.getUser_id()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
@@ -163,7 +163,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
 
      <%--コメント記入欄 --%>
      <div>
-       <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
+       <form action="<%=request.getContextPath()%>/main_content/comment" method="POST">
          <div><textarea class="comment_margin_top"  name="comment"></textarea></div>
          <input type="hidden" name="pk_post" value="<%=post.getPk_post() %>">
          <div><input type="submit" value="送信"></div>
@@ -173,7 +173,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
      <%--返信 --%>
      <div class="top_article">
      <%--アイコン--%>
-     <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>">
+     <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=comment.getUser_id()%>">
        <div class="top_icon_home">
          <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
        </div>
@@ -182,7 +182,7 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
       </a>
       <%--削除ボタン --%>
        <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
-     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST" class="comment_delete">
+     	<form action="<%=request.getContextPath() %>/main_content/delete_comment" method="POST" class="comment_delete">
      			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
      			<input type="hidden" name="fk_user" value="<%=comment.getFk_user() %>">
      			<input type="hidden" name="pk_post" value="<%=post.getPk_post()%>">
@@ -213,10 +213,10 @@ List<PostBean> plist = (List<PostBean>)request.getAttribute("plist");
     <div align="center" class="heading_post_title"><p>ブックマーク企業</p></div>
     <%--クリックでその企業ページに画面遷移 --%>
     <% for(JsonNode jnode : blist){%>
-    	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>
+    	<div class="bookmark_company"><p><a href="<%=request.getContextPath()%>/main_content/company?quote=<%=jnode.get("req_code").asText()%>"><%=jnode.get("v-name").asText() %></a></p></div>
     <%} %>
     <div class="bookmark_analysis">
-      <a href="<%=request.getContextPath()%>/masui_jsp/bookmark_analyze?user_id=<%=ubean.getUser_id()%>">このユーザーのブックマーク分析</a>
+      <a href="<%=request.getContextPath()%>/main_content/bookmark_analyze?user_id=<%=ubean.getUser_id()%>">このユーザーのブックマーク分析</a>
     </div>
   </div>
   <%--そのユーザのブックマーク分析見れるボタン --%>

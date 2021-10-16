@@ -36,7 +36,7 @@ List<Boolean> existYutai = (List<Boolean>)request.getAttribute("existYutai");
 </div>
 
 <div class="industry_filter">
-  <form action="<%=request.getContextPath() %>/masui_jsp/industry" method="GET" style="text-align:center;">
+  <form action="<%=request.getContextPath() %>/main_content/industry" method="GET" style="text-align:center;">
     <select name="iname">
       <option value="全業界（日経平均採用銘柄）" class="industry_option">全ての業界</option>
       <%for(String element : industryList){%>
@@ -196,7 +196,7 @@ class="industry_top_rainy"<%;
 <%for(int i=0;i<anode.size();i++){ %>
     <tr class="sub reco_info backcolor">
       <td style="border-right:1px solid #a9a9a9;" class=" hover_word">
-      	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a>
+      	<a class="widelink" href="<%=request.getContextPath() %>/main_content/company?quote=<%=anode.get(i).get("securities_code").asText() %>"><%=anode.get(i).get("v-name").asText() %></a>
       </td>
       <td style="border-right:1px solid #a9a9a9;">
 		<%=anode.get(i).get("securities_code").asText() %>
@@ -229,7 +229,7 @@ class="industry_top_rainy"<%;
   <tr>
    <td class="sub">
      <h1 class="heading_title" id="bottom_content">コメント欄</h1>
-     <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
+     <form action="<%=request.getContextPath() %>/main_content/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <input type="hidden" name="iname" value="<%=iname %>">
      <div><input type="submit" value="送信" class="submit_div"></div>
@@ -256,14 +256,14 @@ class="industry_top_rainy"<%;
      <div class="top_article">
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath() %>/main_content/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
-       <p class="top_name_home"><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
+       <p class="top_name_home"><a href="<%=request.getContextPath() %>/main_content/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
 
 	<%if(loginAccount.getPk_id() == cbean.getFk_user()){ %>
        <%--追加(削除ボタン) --%>
-       <form class="comment_delete" action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+       <form class="comment_delete" action="<%=request.getContextPath() %>/main_content/delete_comment" method="POST">
         	<input type="hidden" name="pk_comment" value="<%=cbean.getPk_comment() %>">
      		<input type="hidden" name="fk_user" value="<%=cbean.getFk_user() %>">
      		<input type="hidden" name="iname" value="<%=iname %>">

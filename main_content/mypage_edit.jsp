@@ -29,7 +29,7 @@ UserBean ubean = (UserBean)session.getAttribute("login_account");
   </div>
   <div class="proedit_form">
   ※変更したい項目だけ入力してください
-    <form action="<%=request.getContextPath() %>/masui_jsp/mypage_edit" enctype="multipart/form-data" method="POST">
+    <form action="<%=request.getContextPath() %>/main_content/mypage_edit" enctype="multipart/form-data" method="POST">
       <div>
         <p>ユーザネーム</p>
         <input type="text" class="write_letters" name="user_name" placeholder="<%=ubean.getUsername()%>">

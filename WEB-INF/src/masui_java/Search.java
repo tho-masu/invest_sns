@@ -31,9 +31,9 @@ public class Search extends HttpServlet {
 	    	  uList=UserDAO.getSearchUser(searchWord);
 	    	   request.setAttribute("uList", uList);
 				if(uList.size() == 0){
-					forwardURL="/masui_jsp/NotFound.jsp";
+					forwardURL="/main_content/NotFound.jsp";
 				}else {
-					forwardURL="/masui_jsp/mayfollow.jsp";
+					forwardURL="/main_content/mayfollow.jsp";
 				}
 			}catch (SQLException e) {
 				e.printStackTrace();

@@ -23,7 +23,7 @@ UserBean ubean = (UserBean)request.getAttribute("ubean");
 <%for(UserBean follow : ubean.getFollowList()){ %>
   <tr>
     <td class="follow_img">
-      <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follow.getUser_id()%>">
+      <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=follow.getUser_id()%>">
       	<%--ユーザのICON<a>押すとその人のユーザページへ --%>
       	<img src="<%=request.getContextPath() %>/img/user_icon/<%=follow.getIcon_name() %>" width="50px" height="50px">
       	<%--ユーザネーム <a>押すとその人のユーザページへ --%>
@@ -41,7 +41,7 @@ UserBean ubean = (UserBean)request.getAttribute("ubean");
 <%for(UserBean follower : ubean.getFollowerList()){ %>
   <tr>
     <td class="follow_img">
-      <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=follower.getUser_id()%>">
+      <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=follower.getUser_id()%>">
       	<%--ユーザのICON<a>押すとその人のユーザページへ --%>
       	<img src="<%=request.getContextPath() %>/img/user_icon/<%=follower.getIcon_name() %>" width="50px" height="50px">
       	<%--ユーザネーム <a>押すとその人のユーザページへ --%>

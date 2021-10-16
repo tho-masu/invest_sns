@@ -28,6 +28,6 @@ public class Mayfollow extends HttpServlet {
 		}
 
 		request.setAttribute("uList", uList);
-		request.getRequestDispatcher("/masui_jsp/mayfollow.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/mayfollow.jsp").forward(request, response);
 	}
 }

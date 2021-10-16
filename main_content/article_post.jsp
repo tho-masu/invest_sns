@@ -29,7 +29,7 @@ UserBean loginAccount = (UserBean)session.getAttribute("login_account");
   </div>
   <div class="proedit_form">
   <%--記事投稿フォーム --%>
-    <form action="<%=request.getContextPath() %>/masui_jsp/article" method="POST">
+    <form action="<%=request.getContextPath() %>/main_content/article" method="POST">
       <div>
         <%--投稿内容 --%>
         <textarea name="article"></textarea>

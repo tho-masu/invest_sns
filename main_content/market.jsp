@@ -41,7 +41,7 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">
   <h1 align="center" class="heading_title" style="margin-top:0px">証券コードを入力(半角数字)</h1>
-  <form action="<%=request.getContextPath() %>/masui_jsp/company" method="GET">
+  <form action="<%=request.getContextPath() %>/main_content/company" method="GET">
 	  <input type="tel" name="quote" title="半角数字で入力" maxlength="4" pattern="\d{4}">
 	  <input type="submit" value="銘柄詳細へ">
   </form>
@@ -50,7 +50,7 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 <%--企業名検索ボタン --%>
 <div class="top_market_search">
   <h1 align="center" class="heading_title" style="margin-top:0px">企業名で検索</h1>
-  <form action="<%=request.getContextPath() %>/masui_jsp/company_search" method="POST">
+  <form action="<%=request.getContextPath() %>/main_content/company_search" method="POST">
 	  <input type="tel" name="search">
 	  <input type="submit" value="検索">
   </form>
@@ -141,7 +141,7 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 	<% for(IndustryBean element : ilist){ %>
 	<tr class="reco_info">
 		<td align="center" width="70%" class="hover_word">
-			<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
+			<a class="widelink" href="<%=request.getContextPath() %>/main_content/industry?iname=<%=element.getIname()%>"> <p style="padding-top: 20px;padding-bottom: 20px"><%=element.getIname() %></p> </a>
 		</td>
 		<td align="center" width="30%">
 			<img src="<%=request.getContextPath() %>/img/weather/<%=element.getWeather() %>.png" height="50px">
@@ -153,7 +153,7 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 <%--証券番号検索ボタン --%>
 <div class="top_market_search">
   <h1 align="center" class="heading_title">優待情報を検索してください</h1>
-  <form action="<%=request.getContextPath() %>/masui_jsp/yutai_search" method="POST">
+  <form action="<%=request.getContextPath() %>/main_content/yutai_search" method="POST">
 	  <input class="search_box" type="text" placeholder="検索" name="search">
 	        		<input class="search_btn" type="submit" id="search_button" value="優待検索">
   </form>
@@ -171,7 +171,7 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
 <% for(int i=0;i<llist.size();i++){ %>
 	<tr class="reco_info">
 		<td align="center" width="70%" class=" hover_word">
-			<a class="widelink" href="<%=request.getContextPath()%>/masui_jsp/company?quote=<%=llist.get(i).get("req_code").asText()%>">
+			<a class="widelink" href="<%=request.getContextPath()%>/main_content/company?quote=<%=llist.get(i).get("req_code").asText()%>">
 			<p style="padding-top: 20px;padding-bottom: 20px"><%=llist.get(i).get("v-name").asText() %></p>
 			</a>
 		</td>
@@ -188,7 +188,7 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
   <tr>
    <td class="sub">
    <h1 class="heading_title" id="bottom_content">コメント欄</h1>
-   <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
+   <form action="<%=request.getContextPath() %>/main_content/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <div><input type="submit" value="送信" class="submit_div"></div>
      </form>
@@ -213,14 +213,14 @@ List<LikeBean> likelist = (List<LikeBean>)request.getAttribute("likelist");
      <div class="top_article">
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath() %>/main_content/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
-       <p class="top_name_home"><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
+       <p class="top_name_home"><a href="<%=request.getContextPath() %>/main_content/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
 
 	<%if(loginAccount.getPk_id() == cbean.getFk_user()){ %>
        <%--追加(削除ボタン) --%>
-       <form class="comment_delete" action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+       <form class="comment_delete" action="<%=request.getContextPath() %>/main_content/delete_comment" method="POST">
         	<input type="hidden" name="pk_comment" value="<%=cbean.getPk_comment() %>">
      		<input type="hidden" name="fk_user" value="<%=cbean.getFk_user() %>">
 		 	<input type="image" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">

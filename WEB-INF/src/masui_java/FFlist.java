@@ -26,6 +26,6 @@ public class FFlist extends HttpServlet {
 		}
 
 		request.setAttribute("ubean", ubean);
-		request.getRequestDispatcher("/masui_jsp/ff_list.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/ff_list.jsp").forward(request, response);
 	}
 }

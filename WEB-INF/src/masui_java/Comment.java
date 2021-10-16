@@ -51,7 +51,7 @@ public class Comment extends HttpServlet {
 			request.setAttribute("pk_post", pk_post);
 		}
 
-		request.getRequestDispatcher("/masui_jsp/comment_posted.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/comment_posted.jsp").forward(request, response);
 	}
 
 }

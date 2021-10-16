@@ -49,7 +49,7 @@ if(pageNumberString != null){
 
     	<%--投稿削除ボタン --%>
     	<%if(plist.get(i).getPk_id() == loginAccount.getPk_id()){ %>
-    	<form action="<%=request.getContextPath() %>/masui_jsp/delete_article" method="POST" class="post_delete">
+    	<form action="<%=request.getContextPath() %>/main_content/delete_article" method="POST" class="post_delete">
      			<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post() %>">
 				<input class=" hover_word" type="image" title="投稿を削除" src="<%=request.getContextPath()%>/img/function_icon/delete.png" width="20px" height="20px">
 		</form>
@@ -57,10 +57,10 @@ if(pageNumberString != null){
 
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=plist.get(i).getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=plist.get(i).getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=plist.get(i).getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前 クリックでそのユーザのページへ--%>
-       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><%=plist.get(i).getUsername() %></a></p>
+       <p class="top_name_home"><a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=plist.get(i).getUser_id()%>"><%=plist.get(i).getUsername() %></a></p>
        <div class="top_article_home">
          <div><%=plist.get(i).getCreate_date() %>　<%=plist.get(i).getCreate_time() %></div>
 
@@ -76,7 +76,7 @@ if(pageNumberString != null){
  <%--share,comment,goodボタン（仮　できれば） --%>
    <td colspan="3" width="33.333%">
    <div class="table_in_icon">
-     <form name="fm" action="<%=request.getContextPath() %>/masui_jsp/share" method="POST">
+     <form name="fm" action="<%=request.getContextPath() %>/main_content/share" method="POST">
 		<input type="hidden" name="article" value="<%=plist.get(i).getArticle()%>">
 		<input type="hidden" name="user_id" value="<%=plist.get(i).getUser_id()%>">
 		<input type="hidden" name="user_name" value="<%=plist.get(i).getUsername()%>">
@@ -88,13 +88,13 @@ if(pageNumberString != null){
 	</div>
 	<div class="table_in_icon">
 			<%if(plist.get(i).getIsLoginAccountGood()){ %>
-          		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
+          		<form name="fm" action="<%=request.getContextPath() %>/main_content/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="delete">
 				<input type="image" class=" hover_word" title="いいね！を解除" src="<%=request.getContextPath() %>/img/function_icon/good.png" width="30px" height="30px">
 				</form>
 			<%}else{ %>
-          		<form name="fm" action="<%=request.getContextPath() %>/masui_jsp/good" method="POST">
+          		<form name="fm" action="<%=request.getContextPath() %>/main_content/good" method="POST">
           		<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
           		<input type="hidden" name="registerOrDelete" value="register">
 				<input type="image" class=" hover_word" title="いいね！" src="<%=request.getContextPath() %>/img/function_icon/no_good.png" width="30px" height="30px">
@@ -108,7 +108,7 @@ if(pageNumberString != null){
 
      <%--コメント記入欄 --%>
      <div class="response_comment">
-       <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
+       <form action="<%=request.getContextPath()%>/main_content/comment" method="POST">
          <div><textarea  name="comment"></textarea></div>
          <input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post() %>">
          <div><input type="submit" value="送信"></div>
@@ -118,7 +118,7 @@ if(pageNumberString != null){
      <%--返信 --%>
      <div class="top_article">
      <%--アイコン--%>
-     <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>">
+     <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=comment.getUser_id()%>">
        <div class="top_icon_home">
          <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
        </div>
@@ -127,7 +127,7 @@ if(pageNumberString != null){
       </a>
       <%--削除ボタン --%>
        <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
-     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST" class="comment_delete">
+     	<form action="<%=request.getContextPath() %>/main_content/delete_comment" method="POST" class="comment_delete">
      			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
      			<input type="hidden" name="fk_user" value="<%=comment.getFk_user() %>">
      			<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
@@ -156,7 +156,7 @@ if(pageNumberString != null){
 
 <% for(int i=0;i<(plist.size() - 1)/10 + 1;i++){%>
 	<%if(i+1 != pageNumber){ %>
-		<a href="<%=request.getContextPath()%>/masui_jsp/?page=<%=i+1%>"><%=i+1 %></a>
+		<a href="<%=request.getContextPath()%>/main_content/?page=<%=i+1%>"><%=i+1 %></a>
 	<%}else{ %>
 		<span><%=i+1 %></span>
 	<%} %>

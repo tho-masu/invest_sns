@@ -14,7 +14,7 @@
 <jsp:include page="header.jsp" flush="true" />
 
 <div class="button_second" id="btn_search_">
-	        	<form action="<%=request.getContextPath()%>/masui_jsp/yutai_search" method="POST">
+	        	<form action="<%=request.getContextPath()%>/main_content/yutai_search" method="POST">
 	        		<input class="search_box" type="text" placeholder="検索" name="search">
 	        		<input class="search_btn" type="submit" id="search_button" value="優待検索">
 	        	</form>

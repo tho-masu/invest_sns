@@ -2,11 +2,11 @@
 <tomcatProjectProperties>
     <rootDir>/</rootDir>
     <workDir>work</workDir>
-    <exportSource>false</exportSource>
+    <exportSource>true</exportSource>
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
     <updateXml>true</updateXml>
-    <warLocation></warLocation>
+    <warLocation>C:\Users\qcq1665\Desktop\invest_sns.war</warLocation>
     <extraInfo></extraInfo>
     <mavenClasspath>false</mavenClasspath>
     <webPath>/invest_sns</webPath>

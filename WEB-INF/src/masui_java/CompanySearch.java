@@ -37,11 +37,11 @@ public class CompanySearch extends HttpServlet {
 					errorMessage = "検索ワードに一致する企業がありません";
 					throw new SearchException();
 				}else {
-					forwardURL="/masui_jsp/company_search_result.jsp";
+					forwardURL="/main_content/company_search_result.jsp";
 				}
 		 	}catch(SearchException e) {
 		 		request.setAttribute("errorMessage", errorMessage);
-		 		forwardURL="/masui_jsp/company_search_error.jsp";
+		 		forwardURL="/main_content/company_search_error.jsp";
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}catch(Exception e){

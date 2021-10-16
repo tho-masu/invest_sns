@@ -34,6 +34,6 @@ public class Follow extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("/masui_jsp/mypage?user_id="+followedUserUserId).forward(request, response);
+		request.getRequestDispatcher("/main_content/mypage?user_id="+followedUserUserId).forward(request, response);
 	}
 }

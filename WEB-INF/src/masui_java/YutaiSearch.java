@@ -32,7 +32,7 @@ public class YutaiSearch extends HttpServlet {
 		 try {
 	    	  yList=YutaiDAO.getSearchYutai(searchWord);
 				if(yList.size() == 0){
-					forwardURL="/masui_jsp/YutaiNotFound.jsp";
+					forwardURL="/main_content/YutaiNotFound.jsp";
 				}else {
 					for(int i=0;i<yList.size();i++) {
 						String str = yList.get(i).getTitle();
@@ -41,7 +41,7 @@ public class YutaiSearch extends HttpServlet {
 					}
 
 					request.setAttribute("yList", yList);
-					forwardURL="/masui_jsp/yutai_search_result.jsp";
+					forwardURL="/main_content/yutai_search_result.jsp";
 
 					StringJoiner joiner = new StringJoiner(",","","");
 					for(int i=0;i<yList.size();i++) {

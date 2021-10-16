@@ -39,7 +39,7 @@ JsonNode companyInfoNode = (JsonNode)request.getAttribute("companyInfoNode");
 <%for(int i=0;i<yList.size();i++){ %>
     <tr class="sub reco_yutai_info backcolor">
       <td style="border-right:1px solid #a9a9a9;" align="center" valign="top">
-      	<a class="widelink hover_word" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=yList.get(i).getQuote() %>"><%=companyInfoNode.get(i).get("v-name").asText() %></a>
+      	<a class="widelink hover_word" href="<%=request.getContextPath() %>/main_content/company?quote=<%=yList.get(i).getQuote() %>"><%=companyInfoNode.get(i).get("v-name").asText() %></a>
       </td>
       <td style="border-right:1px solid #a9a9a9;">
       	<%=yList.get(i).getTitle() %>

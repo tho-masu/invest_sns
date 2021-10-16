@@ -37,9 +37,9 @@ public class Good extends HttpServlet {
 		}
 
 		if(user_id != null) {
-			request.getRequestDispatcher("/masui_jsp/mypage?user_id="+user_id).forward(request, response);
+			request.getRequestDispatcher("/main_content/mypage?user_id="+user_id).forward(request, response);
 		}else {
-			request.getRequestDispatcher("/masui_jsp/").forward(request, response);
+			request.getRequestDispatcher("/main_content/").forward(request, response);
 		}
 	}
 }

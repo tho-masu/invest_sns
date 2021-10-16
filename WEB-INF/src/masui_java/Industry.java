@@ -103,7 +103,7 @@ public class Industry extends HttpServlet {
 		request.setAttribute("ahistorical", ahistorical);
 		request.setAttribute("iinfo", iinfo);
 		request.setAttribute("clist", clist);
-		request.getRequestDispatcher("/masui_jsp/industry.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/industry.jsp").forward(request, response);
 
 	}
 

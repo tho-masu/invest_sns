@@ -27,8 +27,17 @@ public class Company extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		String forwardURL = "/main_content/company.jsp";
 
 		String scode = request.getParameter("quote");
+		String errorMessage = null;
+
+		try {
+			if(scode == null || scode.equals("")) {
+				errorMessage = "証券コードを指定してください";
+				throw new SearchException();
+			}
+
 		//入力値チェック
 		if(!isHalfAlphanumeric(scode)) {
 			throw new ServletException();
@@ -40,6 +49,12 @@ public class Company extends HttpServlet {
 		}
 
 		JsonNode dnode = DAO.getCompanyInfo(scode);
+
+			if(dnode.get("status").asInt() < 0) {
+				errorMessage = "該当する銘柄が存在しません";
+				throw new SearchException();
+			}
+
 		JsonNode hnode = DAO.getCompanyHistorical(scode,days);
 		JsonNode nnode = DAO.getCompanyNews(dnode.get("short_name").asText());
 
@@ -95,7 +110,12 @@ public class Company extends HttpServlet {
 		request.setAttribute("clist", clist);
 		request.setAttribute("companyPosts", companyPosts);
 		request.setAttribute("yinfo", yinfo);
-		request.getRequestDispatcher("/masui_jsp/company.jsp").forward(request, response);
+
+		}catch(SearchException e) {
+			request.setAttribute("errorMessage", errorMessage);
+			forwardURL = "/main_content/company_search_error.jsp";
+		}
+		request.getRequestDispatcher(forwardURL).forward(request, response);
 
 	}
 

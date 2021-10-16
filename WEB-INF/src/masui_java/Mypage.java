@@ -54,7 +54,7 @@ public class Mypage extends HttpServlet {
 		request.setAttribute("ubean", ubean);
 		request.setAttribute("isRegisteredFollow", isRegisteredFollow);
 		request.setAttribute("plist", plist);
-		request.getRequestDispatcher("/masui_jsp/mypage.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/mypage.jsp").forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{

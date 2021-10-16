@@ -60,7 +60,7 @@ List<Integer> totalEvaluation = cabean.getTotalEvaluation();
 <%for(int i=0;i<dnode.size();i++){ %>
     <tr class="sub reco_info backcolor">
       <td  class=" hover_word">
-      	<a class="widelink" href="<%=request.getContextPath() %>/masui_jsp/company?quote=<%=dnode.get(i).get("req_code").asText() %>"><%=dnode.get(i).get("v-name").asText() %></a>
+      	<a class="widelink" href="<%=request.getContextPath() %>/main_content/company?quote=<%=dnode.get(i).get("req_code").asText() %>"><%=dnode.get(i).get("v-name").asText() %></a>
       </td>
       <td>
       	<%if(gradientList.get(i) <= -0.2){ %>

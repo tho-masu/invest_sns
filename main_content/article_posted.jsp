@@ -30,7 +30,7 @@ String error = (String)request.getAttribute("error");
 <tr>
 <td class="sub" style="background-color: #FFFFFF">
 <br><br>
-	<div><input type="button" value="ホーム画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/masui_jsp/'"></div>
+	<div><input type="button" value="ホーム画面へ" align="center" onClick="location.href='<%=request.getContextPath() %>/main_content/'"></div>
 </td>
 </tr>
 </table>

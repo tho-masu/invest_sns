@@ -32,6 +32,6 @@ public class Share extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("/masui_jsp/article_posted.jsp").forward(request, response);
+		request.getRequestDispatcher("/main_content/article_posted.jsp").forward(request, response);
 	}
 }

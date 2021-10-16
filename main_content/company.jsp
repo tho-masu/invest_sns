@@ -70,14 +70,14 @@ $(function(){
      <td rowspan="3" align="right" width="20%" style="border-right: 1px solid #a9a9a9;">
 
      <% if(!isRegisteredBookmark){%>
-     	<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
+     	<form action="<%=request.getContextPath() %>/main_content/bookmark" method="POST">
 			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
 			<input type="hidden" name="registerOrDelete" value="register">
 			<%--div><input type="submit" value="bookmarkに登録" align="center"></div> --%>
 			<div align="center"><input type="image" title="bookmarkに登録" src="<%=request.getContextPath()%>/img/function_icon/not_bookm.png" width="40px" height="40px"></div>
 		</form>
 	<%}else{ %>
-		<form action="<%=request.getContextPath() %>/masui_jsp/bookmark" method="POST">
+		<form action="<%=request.getContextPath() %>/main_content/bookmark" method="POST">
 			<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
 			<input type="hidden" name="registerOrDelete" value="delete">
 			<%--div><input type="submit" value="bookmarkから削除" align="center"></div>--%>
@@ -224,10 +224,10 @@ $(function(){
      <div class="top_article">
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=plist.get(i).getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=plist.get(i).getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=plist.get(i).getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前 クリックでそのユーザのページへ--%>
-       <p class="top_name_home"><a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=plist.get(i).getUser_id()%>"><%=plist.get(i).getUsername() %></a></p>
+       <p class="top_name_home"><a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=plist.get(i).getUser_id()%>"><%=plist.get(i).getUsername() %></a></p>
        <div class="top_article_home">
          <div><%=plist.get(i).getCreate_date() %>　<%=plist.get(i).getCreate_time() %></div>
          <article>
@@ -247,7 +247,7 @@ $(function(){
 
      <%--コメント記入欄 --%>
      <div class="response_comment">
-       <form action="<%=request.getContextPath()%>/masui_jsp/comment" method="POST">
+       <form action="<%=request.getContextPath()%>/main_content/comment" method="POST">
          <div><textarea  name="comment"></textarea></div>
          <input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post() %>">
          <div><input type="submit" value="送信"></div>
@@ -257,7 +257,7 @@ $(function(){
      <%--返信 --%>
      <div class="top_article">
      <%--アイコン--%>
-     <a href="<%=request.getContextPath()%>/masui_jsp/mypage?user_id=<%=comment.getUser_id()%>">
+     <a href="<%=request.getContextPath()%>/main_content/mypage?user_id=<%=comment.getUser_id()%>">
        <div class="top_icon_home">
          <img src="<%=request.getContextPath() %>/img/user_icon/<%=comment.getIcon_name() %>" width="50px" height="50px">
        </div>
@@ -269,7 +269,7 @@ $(function(){
          <div><%=comment.getDate() %>　<%=comment.getTime() %></div>
        <%--削除ボタン --%>
        <%if(comment.getFk_user() == loginAccount.getPk_id()){ %>
-     	<form action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST" class="comment_delete">
+     	<form action="<%=request.getContextPath() %>/main_content/delete_comment" method="POST" class="comment_delete">
      			<input type="hidden" name="pk_comment" value="<%=comment.getPk_comment() %>">
      			<input type="hidden" name="fk_user" value="<%=comment.getFk_user() %>">
      			<input type="hidden" name="pk_post" value="<%=plist.get(i).getPk_post()%>">
@@ -387,7 +387,7 @@ $(function(){
   <tr>
    <td class="sub">
    <h1 class="heading_title" id="bottom_content">コメント欄</h1>
-     <form action="<%=request.getContextPath() %>/masui_jsp/comment" method="POST">
+     <form action="<%=request.getContextPath() %>/main_content/comment" method="POST">
      <div><textarea name="comment"></textarea></div>
      <input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
      <div><input type="submit" value="送信" align="center"></div>
@@ -414,14 +414,14 @@ $(function(){
      <div class="top_article">
        <%--フォローしたユーザのアイコン、クリックでそのユーザのページへ --%>
        <div class="top_icon_home">
-         <a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
+         <a href="<%=request.getContextPath() %>/main_content/mypage?user_id=<%=cbean.getUser_id()%>"><img src="<%=request.getContextPath() %>/img/user_icon/<%=cbean.getIcon_name() %>" width="50px" height="50px"></a>
        </div>
        <%--フォローしたユーザの名前クリックでそのユーザのページへ --%>
-       <p class="top_name_home"><a href="<%=request.getContextPath() %>/masui_jsp/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
+       <p class="top_name_home"><a href="<%=request.getContextPath() %>/main_content/mypage?user_id=<%=cbean.getUser_id()%>"><%=cbean.getUsername() %></a></p>
 
 	<%if(loginAccount.getPk_id() == cbean.getFk_user()){ %>
        <%--追加(削除ボタン) --%>
-       <form class="comment_delete" action="<%=request.getContextPath() %>/masui_jsp/delete_comment" method="POST">
+       <form class="comment_delete" action="<%=request.getContextPath() %>/main_content/delete_comment" method="POST">
         	<input type="hidden" name="pk_comment" value="<%=cbean.getPk_comment() %>">
      		<input type="hidden" name="fk_user" value="<%=cbean.getFk_user() %>">
      		<input type="hidden" name="quote" value="<%=dnode.get("req_code").asText() %>">
